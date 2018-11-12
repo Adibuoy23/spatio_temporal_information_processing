@@ -13,9 +13,9 @@ def drawResponses(responses,respStim,numCharsWanted,drawBlanks):
         blanksNeeded = numCharsWanted - len(respStr)
         respStr = respStr + '_'*blanksNeeded
     respStim.setText(respStr,log=False)
-    respStim.draw(); 
-        
-def collectStringResponse(numCharsWanted,respPromptStim,respStim,acceptTextStim,myWin,clickSound,badKeySound,requireAcceptance,autopilot,responseDebug=False): 
+    respStim.draw();
+
+def collectStringResponse(numCharsWanted,respPromptStim,respStim,acceptTextStim,myWin,clickSound,badKeySound,requireAcceptance,autopilot,responseDebug=False):
     '''respPromptStim should be a stimulus with a draw() method
     '''
     event.clearEvents() #clear the keyboard buffer
@@ -31,9 +31,9 @@ def collectStringResponse(numCharsWanted,respPromptStim,respStim,acceptTextStim,
     while not expStop and (numResponses < numCharsWanted or not accepted):
     # (numResponses < numCharsWanted and not expStop) or not accepted:
     #while (numResponses < numCharsWanted and not expStop) or not accepted:
-        print 'numResponses=', numResponses #debugOFF
-        print 'expStop=',expStop
-        print 'accepted=',accepted
+        print('numResponses=', numResponses) #debugOFF
+        print('expStop=',expStop)
+        print('accepted=',accepted)
         noResponseYet = True
         thisResponse=''
         while noResponseYet: #loop until a valid key is hit
@@ -47,7 +47,7 @@ def collectStringResponse(numCharsWanted,respPromptStim,respStim,acceptTextStim,
                if 'ESCAPE' in keysPressed:
                    expStop = True
            elif len(keysPressed) > 0:
-                key = keysPressed[-1] #process only the last key, it being the most recent. In theory person could type more than one key between window flips, 
+                key = keysPressed[-1] #process only the last key, it being the most recent. In theory person could type more than one key between window flips,
                 #but that might be hard to handle.
                 key = key.upper()
                 thisResponse = key
@@ -73,7 +73,7 @@ def collectStringResponse(numCharsWanted,respPromptStim,respStim,acceptTextStim,
             clickSound.play()
         drawResponses(responses,respStim,numCharsWanted,drawBlanks)
         myWin.flip() #draw again, otherwise won't draw the last key
-        
+
         if (numResponses == numCharsWanted) and requireAcceptance:  #ask participant to HIT ENTER TO ACCEPT
             waitingForAccept = True
             while waitingForAccept and not expStop:
@@ -95,7 +95,7 @@ def collectStringResponse(numCharsWanted,respPromptStim,respStim,acceptTextStim,
                         myWin.flip() #draw again, otherwise won't draw the last key
                 myWin.flip() #end of waitingForAccept loop
           #end of waiting until response is finished, all keys and acceptance if required
-          
+
     responsesAutopilot = np.array(   numCharsWanted*list([('A')])   )
     responses=np.array( responses )
     #print 'responses=', responses,' responsesAutopilot=', responsesAutopilot #debugOFF
@@ -118,7 +118,7 @@ def setupSoundsForResponse():
     except:
         badKeySound = None
         print 'Could not create an invalid key sound for typing feedback'
-        
+
     return clickSound, badKeySound
 
 if __name__=='__main__':  #Running this file directly, must want to test functions in this file
@@ -145,4 +145,4 @@ if __name__=='__main__':  #Running this file directly, must want to test functio
                 collectStringResponse(numCharsWanted,respPromptStim,respStim,acceptTextStim,window,clickSound,badKeySound,requireAcceptance,autopilot,responseDebug=True)
     print('responses=',responses)
     print('expStop=',expStop,' passThisTrial=',passThisTrial,' responses=',responses, ' responsesAutopilot =', responsesAutopilot)
-    print('Finished') 
+    print('Finished')
