@@ -57,7 +57,7 @@ threshCriterion = 0.58
 bgColor = [-.7, -.7, -.7]  # [-1,-1,-1]
 cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
-cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
+cueRadius = 0.75  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
 widthPix = 1440  # monitor width in pixels of Agosta
 heightPix = 900  # 800 #monitor height in pixels

@@ -57,7 +57,7 @@ threshCriterion = 0.58
 bgColor = [-.7, -.7, -.7]  # [-1,-1,-1]
 cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
-cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
+cueRadius = 0.75  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
 widthPix = 1440  # monitor width in pixels of Agosta
 heightPix = 900  # 800 #monitor height in pixels
@@ -439,7 +439,6 @@ def oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueDurFrames, letterDu
     thisLetterIdx = letterSequence[letterN]  # which letter, from A to Z (1 to 26), should be shown?
     # so that any timing problems occur just as often for every frame, always draw the letter and the cue, but simply draw it in the bgColor when it's not meant to be on
     cue.setLineColor(bgColor)
-    cue.setFillColor(bgColor)
     for cueFrame in cueFrames:  # cheTck whether it's time for any cue
         if n >= cueFrame and n < cueFrame+cueDurFrames:
             cue.setLineColor(cueColor)
