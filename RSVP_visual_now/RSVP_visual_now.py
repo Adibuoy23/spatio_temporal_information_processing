@@ -59,28 +59,37 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1440  # monitor width in pixels of Agosta
-heightPix = 900  # 800 #monitor height in pixels
-monitorwidth = 28.2  # monitor width in cm
+widthPix = 1920  # monitor width in pixels of Agosta
+heightPix = 1080  # 800 #monitor height in pixels
+monitorwidth = 55#28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 28.2  # 18.0
+    monitorwidth = 55 #28.2  # 18.0
 if exportImages:
-    widthPix = 1440
-    heightPix = 900
-    monitorwidth = 28.2
+    widthPix = 1920
+    heightPix = 1080
+    monitorwidth = 55 #28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 1440
-    heightPix = 900
+    widthPix = 1920
+    heightPix = 1080
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 57.  # cm
+viewdist = 83.5  # cm
+
+INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
+INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
+INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
+INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
+INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
+INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
+INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
+
 pixelperdegree = widthPix / (atan(monitorwidth/viewdist) / np.pi*180)
 print('pixelperdegree=', pixelperdegree)
 
@@ -195,7 +204,7 @@ else:  # checkRefreshEtc
 myWin.close()  # have to close window to show dialog box
 
 defaultNoiseLevel = 0.0  # to use if no staircase, can be set by user
-trialsPerCondition = 15  # default value
+trialsPerCondition = 14  # default value
 dlgLabelsOrdered = list()
 if doStaircase:
     myDlg = gui.Dlg(title="Staircase to find appropriate noisePercent", pos=(200, 400))
@@ -219,7 +228,7 @@ else:
     myDlg.addField('Trials per condition (default=' + str(trialsPerCondition) + '):',
                    trialsPerCondition, tip=str(trialsPerCondition))
     dlgLabelsOrdered.append('trialsPerCondition')
-    pctCompletedBreak = 50
+    pctCompletedBreak = 25
 
 myDlg.addText(refreshMsg1, color='Black')
 if refreshRateWrong:
@@ -405,6 +414,31 @@ def letterToNumber(letter):  # A = 0, Z = 25
     except:
         return (-999)
 
+def display_message(win, txt, msg):
+    """A function to display text to the experiment window.
+
+    win: psychopy.visual.Window
+        The window to write the message to.
+
+    fix: psychopy.visual.Circle
+        The fixation point to be removed from the screen.
+
+    txt: psychopy.visual.TextStim
+        The text object to present to the screen.
+
+    msg: String
+        The contents for the text object.
+
+    """
+
+    txt.setText(msg)
+    txt.setAutoDraw(True)
+    win.flip()
+
+    event.waitKeys()
+
+    txt.setAutoDraw(False)
+    win.flip()
 
 # print header for data file
 print('experimentPhase\ttrialnum\tsubject\ttask\t', file=dataFile, end='')
@@ -694,8 +728,26 @@ def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
             low.play()
     else:  # incorrect
         low.play()
+TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
+TEXT_WRAP = 30  # The character limit of each line of text before word wrap
+display_text = visual.TextStim(
+    win=myWin,
+    ori=0,
+    name='text',
+    text="",
+    font='Arial',
+    pos=[
+        0,
+        0],
+    wrapWidth=TEXT_WRAP,
+    height=TEXT_HEIGHT,
+    color=[1,1,1],
+    colorSpace='rgb',
+    opacity=1,
+    depth=-1.0)
 
-
+# Present instructions for the experiment
+display_message(myWin, display_text, INS_MSG)
 expStop = False
 framesSaved = 0
 nDoneMain = -1  # change to zero once start main part of experiment
