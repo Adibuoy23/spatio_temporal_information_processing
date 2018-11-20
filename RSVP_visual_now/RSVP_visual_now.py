@@ -121,7 +121,7 @@ if quitFinder:
 
 # letter size 2.5 deg
 numLettersToPresent = 26
-SOAms = 133  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
+SOAms = 96  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
 # Minimum SOAms should be 84  because any shorter, I can't always notice the second ring when lag1.   71 in Martini E2 and E1b (actually he used 66.6 but that's because he had a crazy refresh rate of 90 Hz)
 # 23.6  in Martini E2 and E1b (actually he used 22.2 but that's because he had a crazy refresh rate of 90 Hz)
 letterDurMs = 60
