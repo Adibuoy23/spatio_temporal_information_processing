@@ -11,8 +11,8 @@ import time
 import sys
 import os
 import csv
-import pylabfrom eyelink_helper import *
-from pylink import *  # eyelink related
+# import pylabfrom eyelink_helper import *
+# from pylink import *  # eyelink related
 
 try:
     from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
@@ -62,7 +62,7 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1920  # monitor width in pixels of Agosta
+widthPix = 1440  # monitor width in pixels of Agosta
 heightPix = 1080  # 800 #monitor height in pixels
 monitorwidth = 55  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
@@ -71,7 +71,7 @@ allowGUI = False
 if demo:
     monitorwidth = 55  # 28.2  # 18.0
 if exportImages:
-    widthPix = 1920
+    widthPix = 1440
     heightPix = 1080
     monitorwidth = 55  # 28.2
     fullscr = False
@@ -79,7 +79,7 @@ if exportImages:
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 1920
+    widthPix = 1440
     heightPix = 1080
     monitorname = 'testMonitor'
     allowGUI = True
@@ -292,7 +292,7 @@ infix = ''
 if doStaircase:
     infix = 'staircase_'
 fileName = os.path.join(dataDir, subject + '_' + infix + timeAndDateStr)
-eyeFileName = os.path.join(eyeDataDir, subject + '_' + infix + timeAndDateStr)
+eyeFileName = os.path.join(Dir, subject + '_' + infix + timeAndDateStr)
 if not demo and not exportImages:
     dataFile = open(fileName+'.txt', 'w')
     saveCodeCmd = 'cp \'' + \

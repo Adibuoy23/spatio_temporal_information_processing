@@ -59,8 +59,8 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1920  # monitor width in pixels of Agosta
-heightPix = 1080  # 800 #monitor height in pixels
+widthPix = 1440  # monitor width in pixels of Agosta
+heightPix = 900  # 800 #monitor height in pixels
 monitorwidth = 55  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
@@ -68,16 +68,16 @@ allowGUI = False
 if demo:
     monitorwidth = 55  # 28.2  # 18.0
 if exportImages:
-    widthPix = 1920
-    heightPix = 1080
+    widthPix = 1440
+    heightPix = 900
     monitorwidth = 55  # 28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 1920
-    heightPix = 1080
+    widthPix = 1440
+    heightPix = 900
     monitorname = 'testMonitor'
     allowGUI = True
 viewdist = 83.5  # cm
@@ -121,7 +121,7 @@ if quitFinder:
 
 # letter size 2.5 deg
 numLettersToPresent = 26
-SOAms = 113  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
+SOAms = 96  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
 # Minimum SOAms should be 84  because any shorter, I can't always notice the second ring when lag1.   71 in Martini E2 and E1b (actually he used 66.6 but that's because he had a crazy refresh rate of 90 Hz)
 # 23.6  in Martini E2 and E1b (actually he used 22.2 but that's because he had a crazy refresh rate of 90 Hz)
 letterDurMs = 60
@@ -364,7 +364,7 @@ screenshotDone = False
 stimList = []
 
 # SETTING THE CONDITIONS
-possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Martini E2, group 2
+possibleCue1positions = np.array([6, 8, 10, 12, 14])  # [4,10,16,22] used in Martini E2, group 2
 cueCoords = [[1, 0], [-1, 0]]
 cueEccentricity = [2, 6, 10]
 possibleCue2lags = np.array([2])
