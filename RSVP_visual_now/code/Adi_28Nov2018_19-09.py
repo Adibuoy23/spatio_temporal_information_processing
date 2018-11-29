@@ -10,9 +10,8 @@ from copy import deepcopy
 import time
 import sys
 import os
+import csv
 import pylab
-from random import shuffle
-
 try:
     from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
 except ImportError:
@@ -20,14 +19,14 @@ except ImportError:
 try:
     import stringResponse
 except ImportError:
-    print('Could not import strongResponse.py (you need that file to be in the same directory)')
+    print('Could not import stringResponse.py (you need that file to be in the same directory)')
 
 descendingPsycho = True
 tasks = ['T1', 'T1T2']
-task = tasks[1]
+task = tasks[0]
 # THINGS THAT COULD PREVENT SUCCESS ON A STRANGE MACHINE
 # same screen or external screen? Set scrn=0 if one screen. scrn=1 means display stimulus on second screen.
-# widthPix, heightPix
+#widthPix, heightPix
 quitFinder = False  # if checkRefreshEtc, quitFinder becomes True
 autopilot = False
 demo = False  # False
@@ -58,36 +57,36 @@ threshCriterion = 0.58
 bgColor = [-.7, -.7, -.7]  # [-1,-1,-1]
 cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
-cueRadius = 1.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
+cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1680  # monitor width in pixels of Agosta
-heightPix = 1050  # 800 #monitor height in pixels
-monitorwidth = 47.2  # monitor width in cm
+widthPix = 1920  # monitor width in pixels of Agosta
+heightPix = 1080  # 800 #monitor height in pixels
+monitorwidth = 55  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 47.2  # 18.0
+    monitorwidth = 55  # 28.2  # 18.0
 if exportImages:
-    widthPix = 1680
-    heightPix = 1050
-    monitorwidth = 47.2
+    widthPix = 1920
+    heightPix = 1080
+    monitorwidth = 55  # 28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 1680
-    heightPix = 1050
+    widthPix = 1920
+    heightPix = 1080
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65.0  # cm
+viewdist = 83.5  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
-INS_MSG += "You will be presented with two numbers embedded in a Rapid Stream of letters. Your task is to identify the two numbers.\n\n"
-INS_MSG += "Your are required to fixate in the center during the experiment.\n\n"
-INS_MSG += "The RSVP stream can appear anywhere along the horizontal axis in the visual field.\n\n"
-INS_MSG += "Once you've identified the numbers, type them out on the keyboard after the trial ends.\n\n"
+INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
+INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
+INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
+INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
 
@@ -122,14 +121,14 @@ if quitFinder:
 
 # letter size 2.5 deg
 numLettersToPresent = 26
-SOAms = 133  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
+SOAms = 113  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
 # Minimum SOAms should be 84  because any shorter, I can't always notice the second ring when lag1.   71 in Martini E2 and E1b (actually he used 66.6 but that's because he had a crazy refresh rate of 90 Hz)
 # 23.6  in Martini E2 and E1b (actually he used 22.2 but that's because he had a crazy refresh rate of 90 Hz)
-letterDurMs = 80
+letterDurMs = 60
 
 ISIms = SOAms - letterDurMs
 letterDurFrames = int(np.floor(letterDurMs / (1000./refreshRate)))
-cueDurFrames = letterDurFrames
+cueDurFrames = round(letterDurFrames/2)
 ISIframes = int(np.floor(ISIms / (1000./refreshRate)))
 # have set ISIframes and letterDurFrames to integer that corresponds as close as possible to originally intended ms
 rateInfo = 'total SOA=' + str(round((ISIframes + letterDurFrames)*1000./refreshRate, 2)) + \
@@ -163,8 +162,8 @@ if not checkRefreshEtc:
 else:  # checkRefreshEtc
     runInfo = psychopy.info.RunTimeInfo(
         # if you specify author and version here, it overrides the automatic detection of __author__ and __version__ in your script
-        # author='<your name goes here, plus whatever you like, e.g., your lab or contact info>',
-        # version="<your experiment version info>",
+        #author='<your name goes here, plus whatever you like, e.g., your lab or contact info>',
+        #version="<your experiment version info>",
         win=myWin,  # a psychopy.visual.Window() instance; None = default temp window used; False = no win, no win.flips()
         refreshTest='grating',  # None, True, or 'grating' (eye-candy to avoid a blank screen)
         verbose=True,  # True means report on everything
@@ -205,7 +204,7 @@ else:  # checkRefreshEtc
 myWin.close()  # have to close window to show dialog box
 
 defaultNoiseLevel = 0.0  # to use if no staircase, can be set by user
-trialsPerCondition = 5  # default value
+trialsPerCondition = 14  # default value
 dlgLabelsOrdered = list()
 if doStaircase:
     myDlg = gui.Dlg(title="Staircase to find appropriate noisePercent", pos=(200, 400))
@@ -306,8 +305,8 @@ logging.console.setLevel(logging.ERROR)
 if fullscr and not demo and not exportImages:
     runInfo = psychopy.info.RunTimeInfo(
         # if you specify author and version here, it overrides the automatic detection of __author__ and __version__ in your script
-        # author='<your name goes here, plus whatever you like, e.g., your lab or contact info>',
-        # version="<your experiment version info>",
+        #author='<your name goes here, plus whatever you like, e.g., your lab or contact info>',
+        #version="<your experiment version info>",
         win=myWin,  # a psychopy.visual.Window() instance; None = default temp window used; False = no win, no win.flips()
         refreshTest='grating',  # None, True, or 'grating' (eye-candy to avoid a blank screen)
         verbose=False,  # True means report on everything
@@ -365,20 +364,19 @@ screenshotDone = False
 stimList = []
 
 # SETTING THE CONDITIONS
-possibleCue1positions = np.array([6, 8, 10, 14])  # [4,10,16,22] used in Martini E2, group 2
-possibleCue2lags = np.array([1, 2, 5, 8, 10])
-cueCoords = [[2, 0], [-2, 0], [6, 0], [-6, 0]]
-shuffle(cueCoords)
-shuffle(possibleCue1positions)
-shuffle(possibleCue2lags)
-for coords in cueCoords:
-    for cue1pos in possibleCue1positions:
-        for cue2lag in possibleCue2lags:
-            stimList.append({'cue1pos': cue1pos, 'cue2lag': cue2lag, 'cueCoords': coords})
+possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Martini E2, group 2
+cueCoords = [[1, 0], [-1, 0]]
+cueEccentricity = [2, 6, 10]
+possibleCue2lags = np.array([2])
+for cue1pos in possibleCue1positions:
+    for cue2lag in possibleCue2lags:
+        for coords in cueCoords:
+            for ecc in cueEccentricity:
+                stimList.append({'cue1pos': cue1pos, 'cue2lag': cue2lag,
+                                 'cueCoords': coords, 'cueEccentricity': ecc})
 # Martini E2 and also AB experiments used 400 trials total, with breaks between every 100 trials
 
-trials = data.TrialHandler(stimList, trialsPerCondition,
-                           method='sequential')  # constant stimuli method
+trials = data.TrialHandler(stimList, trialsPerCondition)  # constant stimuli method
 # independent randomization, just to create random trials for staircase phase
 trialsForPossibleStaircase = data.TrialHandler(stimList, trialsPerCondition)
 # summary results to print out at end
@@ -417,6 +415,33 @@ def letterToNumber(letter):  # A = 0, Z = 25
         return (-999)
 
 
+def display_message(win, txt, msg):
+    """A function to display text to the experiment window.
+
+    win: psychopy.visual.Window
+        The window to write the message to.
+
+    fix: psychopy.visual.Circle
+        The fixation point to be removed from the screen.
+
+    txt: psychopy.visual.TextStim
+        The text object to present to the screen.
+
+    msg: String
+        The contents for the text object.
+
+    """
+
+    txt.setText(msg)
+    txt.setAutoDraw(True)
+    win.flip()
+
+    event.waitKeys()
+
+    txt.setAutoDraw(False)
+    win.flip()
+
+
 # print header for data file
 print('experimentPhase\ttrialnum\tsubject\ttask\t', file=dataFile, end='')
 print('noisePercent\t', end='', file=dataFile)
@@ -431,13 +456,14 @@ for i in range(numRespsWanted):
     dataFile.write('response'+str(i)+'\t')
     dataFile.write('correct'+str(i)+'\t')
     dataFile.write('responsePosRelative'+str(i)+'\t')
-print('spatialPos\t', file=dataFile)
+    dataFile.write('cueSpatialPos'+str(i+1)+'\t')
+    dataFile.write('cueEccentricity'+str(i+1)+'\t')
 print('timingBlips', file=dataFile)
 # end of header
 
 
-def oneFrameOfStim(n, cue, letterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects,
-                   noise, proportnNoise, allFieldCoords, numNoiseDots, spatialPos, correctAnswers, resetCorrectAnswers):
+def oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects,
+                   noise, proportnNoise, allFieldCoords, numNoiseDots):
     # defining a function to draw each frame of stim. So can call second time for tracking task response phase
     SOAframes = letterDurFrames+ISIframes
     cueFrames = cuesPos*SOAframes  # cuesPos is global variable
@@ -449,20 +475,19 @@ def oneFrameOfStim(n, cue, letterSequence, cueDurFrames, letterDurFrames, ISIfra
     thisLetterIdx = letterSequence[letterN]  # which letter, from A to Z (1 to 26), should be shown?
     # so that any timing problems occur just as often for every frame, always draw the letter and the cue, but simply draw it in the bgColor when it's not meant to be on
     cue.setLineColor(bgColor)
-    for i, cueFrame in enumerate(cueFrames):  # cheTck whether it's time for any cue
+    cue.setFillColor(bgColor)
+    for cueFrame in cueFrames:  # cheTck whether it's time for any cue
         if n >= cueFrame and n < cueFrame+cueDurFrames:
-            # cue.setLineColor(cueColor)
-            cue.setPos(spatialPos)
-            lettersDrawObjects[thisLetterIdx].setText(correctAnswers[i])
+            cue.setLineColor(cueColor)
+            cue.setFillColor(cueColor)
 
     if showLetter:
         lettersDrawObjects[thisLetterIdx].setColor(letterColor)
     else:
         lettersDrawObjects[thisLetterIdx].setColor(bgColor)
 
-    lettersDrawObjects[thisLetterIdx].setPos(spatialPos)
     lettersDrawObjects[thisLetterIdx].draw()
-    lettersDrawObjects[thisLetterIdx].setText(numberToLetter(thisLetterIdx))
+    cue.setPos(cueSpatialLoc)
     cue.draw()
     # Not recommended because takes longer than a frame, even to shuffle apparently. Or may be setXYs step
     refreshNoise = False
@@ -485,7 +510,7 @@ cue = visual.Circle(myWin,
                     lineWidth=2.0,  # in pixels
                     units='deg',
                     fillColorSpace='rgb',
-                    fillColor=None,  # beware, with convex shapes fill colors don't work
+                    fillColor=bgColor,  # beware, with convex shapes fill colors don't work
                     # the anchor (rotation and vertices are position with respect to this)
                     pos=[0, 0],
                     interpolate=True,
@@ -577,7 +602,7 @@ nTrialsEachLag = np.zeros(len(possibleCue2lags))
 nTrialsApproxCorrectT2eachLag = np.zeros(len(possibleCue2lags))
 
 
-def do_RSVP_stim(cue1pos, spatialPos, cue2lag, proportnNoise, trialN):
+def do_RSVP_stim(cue1pos, cueSpatialLoc, cue2lag, proportnNoise, trialN):
     # relies on global variables:
     #   logging, bgColor
     #
@@ -588,9 +613,7 @@ def do_RSVP_stim(cue1pos, spatialPos, cue2lag, proportnNoise, trialN):
     cuesPos = np.array(cuesPos)
     letterSequence = np.arange(0, 26)
     np.random.shuffle(letterSequence)
-    correctAnswers = np.random.choice(np.arange(10), size=len(
-        cuesPos), replace=False)  # np.array(letterSequence[cuesPos])
-    resetCorrectAnswers = np.array(letterSequence[cuesPos])
+    correctAnswers = np.array(letterSequence[cuesPos])
     noise = None
     allFieldCoords = None
     numNoiseDots = 0
@@ -621,34 +644,34 @@ def do_RSVP_stim(cue1pos, spatialPos, cue2lag, proportnNoise, trialN):
         fixationPoint.draw()
         myWin.flip()  # end fixation interval
     # myWin.setRecordFrameIntervals(True);  #can't get it to stop detecting superlong frames
-    fixation_center.setAutoDraw(True)
-    myWin.flip()
+    # fixation_center.setAutoDraw(True)
+    # myWin.flip()
     t0 = trialClock.getTime()
     for n in range(trialDurFrames):  # this is the loop for this trial's stimulus!
-        worked = oneFrameOfStim(n, cue, letterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects,
-                                noise, proportnNoise, allFieldCoords, numNoiseDots, spatialPos, correctAnswers, resetCorrectAnswers)  # draw letter and possibly cue and noise on top
+        worked = oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects,
+                                noise, proportnNoise, allFieldCoords, numNoiseDots)  # draw letter and possibly cue and noise on top
         if exportImages:
             myWin.getMovieFrame(buffer='back')  # for later saving
             framesSaved += 1
         myWin.flip()
         t = trialClock.getTime()-t0
         ts.append(t)
-    fixation_center.setAutoDraw(False)
-    myWin.flip()
+    # fixation_center.setAutoDraw(False)
+    # myWin.flip()
     # end of big stimulus loop
     myWin.setRecordFrameIntervals(False)
 
     if task == 'T1':
         respPromptStim.setText('Which letter was circled?', log=False)
     elif task == 'T1T2':
-        respPromptStim.setText('What are the two numbers?', log=False)
+        respPromptStim.setText('Which two letters were circled?', log=False)
     else:
         respPromptStim.setText('Error: unexpected task', log=False)
     postCueNumBlobsAway = -999  # doesn't apply to non-tracking and click tracking task
-    return letterSequence, cuesPos, correctAnswers, resetCorrectAnswers, ts
+    return letterSequence, cuesPos, correctAnswers, ts
 
 
-def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, spatialPos):
+def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, cueSpatialPosition, cueEcc):
     #Handle response, calculate whether correct, ########################################
     if autopilot or passThisTrial:
         responses = responsesAutopilot
@@ -658,8 +681,7 @@ def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, l
     posOfResponse = np.zeros(len(cuesPos))
     responsePosRelative = np.zeros(len(cuesPos))
     for i in range(len(cuesPos)):  # score response to each cue
-        if correctAnswers[i] == int(responses[i]):
-            print(correctAnswers[i], responses[i])
+        if correctAnswers[i] == letterToNumber(responses[i]):
             eachCorrect[i] = 1
         posThisResponse = np.where(letterToNumber(responses[i]) == letterSequence)
         # print 'responses=',responses,'posThisResponse raw=',posThisResponse, ' letterSequence=',letterSequence #debugOFF
@@ -681,14 +703,15 @@ def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, l
         # header was answerPos0, answer0, response0, correct0, responsePosRelative0
         print(cuesPos[i], '\t', end='', file=dataFile)
         answerCharacter = numberToLetter(letterSequence[cuesPos[i]])
-        print(correctAnswers[i], '\t', end='', file=dataFile)  # answer0
+        print(answerCharacter, '\t', end='', file=dataFile)  # answer0
         print(responses[i], '\t', end='', file=dataFile)  # response0
         print(eachCorrect[i], '\t', end='', file=dataFile)  # correct0
         print(responsePosRelative[i], '\t', end='', file=dataFile)  # responsePosRelative0
 
         correct = eachCorrect.all()
         T1approxCorrect = eachApproxCorrect[0]
-    print(spatialPos, '\t', end='', file=dataFile)
+    print(cueSpatialPosition, '\t', end='', file=dataFile)
+    print(cueEcc, '\t', end='', file=dataFile)
     return correct, eachCorrect, eachApproxCorrect, T1approxCorrect, passThisTrial, expStop
     # end handleAndScoreResponses
 
@@ -707,33 +730,6 @@ def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
             low.play()
     else:  # incorrect
         low.play()
-
-
-def display_message(win, txt, msg):
-    """A function to display text to the experiment window.
-
-    win: psychopy.visual.Window
-        The window to write the message to.
-
-    fix: psychopy.visual.Circle
-        The fixation point to be removed from the screen.
-
-    txt: psychopy.visual.TextStim
-        The text object to present to the screen.
-
-    msg: String
-        The contents for the text object.
-
-    """
-
-    txt.setText(msg)
-    txt.setAutoDraw(True)
-    win.flip()
-
-    event.waitKeys()
-
-    txt.setAutoDraw(False)
-    win.flip()
 
 
 TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
@@ -756,7 +752,6 @@ display_text = visual.TextStim(
 
 # Present instructions for the experiment
 display_message(myWin, display_text, INS_MSG)
-
 expStop = False
 framesSaved = 0
 nDoneMain = -1  # change to zero once start main part of experiment
@@ -768,7 +763,7 @@ if doStaircase:
                                       startValSd=80,
                                       stopInterval=1,  # sd of posterior has to be this small or smaller for staircase to stop, unless nTrials reached
                                       nTrials=staircaseTrials,
-                                      # extraInfo = thisInfo,
+                                      #extraInfo = thisInfo,
                                       pThreshold=threshCriterion,  # 0.25,
                                       gamma=1./26,
                                       delta=0.02,  # lapse rate, I suppose for Weibull function fit
@@ -827,7 +822,7 @@ if doStaircase:
                     'stopping because staircase.next() returned a StopIteration, which it does when it is finished')
                 break  # break out of the trials loop
         # print('staircaseTrialN=',staircaseTrialN)
-        letterSequence, cuesPos, correctAnswers, resetCorrectAnswers, ts = do_RSVP_stim(
+        letterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
             cue1pos, cue2lag, noisePercent/100., staircaseTrialN)
         numCasesInterframeLong = timingCheckAndLog(ts, staircaseTrialN)
 
@@ -875,7 +870,7 @@ if doStaircase:
     print(msg)
     printStaircase(staircase, descendingPsycho, briefTrialUpdate=True,
                    printInternalVal=True, alsoLog=False)
-    # print('staircase.quantile=',round(staircase.quantile(),2),' sd=',round(staircase.sd(),2))
+    #print('staircase.quantile=',round(staircase.quantile(),2),' sd=',round(staircase.sd(),2))
     threshNoise = round(staircase.quantile(), 3)
     if descendingPsycho:
         threshNoise = 100 - threshNoise
@@ -909,7 +904,7 @@ else:  # not staircase
     print(phasesMsg)
     logging.info(phasesMsg)
 
-    # myWin= openMyStimWindow();    myWin.flip(); myWin.flip();myWin.flip();myWin.flip()
+    #myWin= openMyStimWindow();    myWin.flip(); myWin.flip();myWin.flip();myWin.flip()
     nDoneMain = 0
     while nDoneMain < trials.nTotal and expStop == False:
         if nDoneMain == 0:
@@ -919,11 +914,12 @@ else:  # not staircase
         thisTrial = trials.next()  # get a proper (non-staircase) trial
         cue1pos = thisTrial['cue1pos']
         cue2lag = None
-        spatialPos = thisTrial['cueCoords']
+        cueEcc = thisTrial['cueEccentricity']
+        cueSpatialPosition = thisTrial['cueCoords']
         if task == "T1T2":
             cue2lag = thisTrial['cue2lag']
-        letterSequence, cuesPos, correctAnswers, resetCorrectAnswers, ts = do_RSVP_stim(
-            cue1pos, spatialPos, cue2lag, noisePercent/100., nDoneMain)
+        letterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
+            cue1pos, np.array(cueSpatialPosition)*cueEcc, cue2lag, noisePercent/100., nDoneMain)
         numCasesInterframeLong = timingCheckAndLog(ts, nDoneMain)
 
         responseDebug = False
@@ -934,30 +930,24 @@ else:  # not staircase
                                                  requireAcceptance, autopilot, responseDebug=True)
 
         # tempResp = list(letterSequence)
-        # correctIndex1 = tempResp.index(correctAnswers[0])
-        # correctIndex2 = tempResp.index(correctAnswers[1])
-        # respIndex1 = tempResp.index(letterToNumber(responses[0]))
-        # respIndex2 = tempResp.index(letterToNumber(responses[1]))
-        # diffIndex1 = correctIndex1 - respIndex1
-        # diffIndex2 = correctIndex2 - respIndex2
-        #
-        # print(cue2lag)
-        correctResponseStim = visual.TextStim(
-            myWin, text="The correct answer is : "+str(correctAnswers[0])+", "+str(correctAnswers[1]))
-        event.waitKeys()
-        while not event.getKeys():
-            correctResponseStim.draw()
-            myWin.flip()
+        # correctIndex = tempResp.index(correctAnswers[0])
+        # respIndex = tempResp.index(letterToNumber(responses[0]))
+        # diffIndex = correctIndex - respIndex
+        # correctResponseStim = visual.TextStim(
+        #     myWin, text="The correct answer is : "+str(numberToLetter(correctAnswers[0]))+"\n It is "+str(diffIndex)+" lag away from the correct answer")
+        # event.waitKeys()
+        # while not event.getKeys():
+        #     correctResponseStim.draw()
+        #     myWin.flip()
         print('responses=', responses)
         print('expStop=', expStop, ' passThisTrial=', passThisTrial, ' responses=',
               responses, ' responsesAutopilot =', responsesAutopilot)
         if not expStop:
-            # first thing printed on each line of dataFile
-            print('main\t', end='', file=dataFile)
+            print('main\t', end='', file=dataFile)  # first thing printed on each line of dataFile
             print(nDoneMain, '\t', end='', file=dataFile)
             print(subject, '\t', task, '\t', round(noisePercent, 3), '\t', end='', file=dataFile)
             correct, eachCorrect, eachApproxCorrect, T1approxCorrect, passThisTrial, expStop = (
-                handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, spatialPos))
+                handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, cueSpatialPosition, cueEcc))
             # timingBlips, last thing recorded on each line of dataFile
             print(numCasesInterframeLong, file=dataFile)
 
@@ -1031,9 +1021,13 @@ if not doStaircase and (nDoneMain > 0):
         print('T2: ', round(numTrialsEachApproxCorrect[1]*1.0/nDoneMain*100, 2), '% approximately correct', sep='')
         print('T2 for each of the lags,', np.around(possibleCue2lags, 0), ': ', np.around(100*nTrialsCorrectT2eachLag / nTrialsEachLag, 3), '%correct, and ',
               np.around(100*nTrialsApproxCorrectT2eachLag/nTrialsEachLag, 3), '%approximately correct')
-    # print numRightWrongEachSpeedOrder[:,1] / ( numRightWrongEachSpeedOrder[:,0] + numRightWrongEachSpeedOrder[:,1])
+    #print numRightWrongEachSpeedOrder[:,1] / ( numRightWrongEachSpeedOrder[:,0] + numRightWrongEachSpeedOrder[:,1])
 
 logging.flush()
 dataFile.close()
+
+in_txt = csv.reader(open(fileName+'.txt', "rb"), delimiter='\t')
+out_csv = csv.writer(open(fileName+'.csv', 'wb'))
+out_csv.writerows(in_txt)
 myWin.close()  # have to close window if want to show a plot
 # ADD PLOT OF AB PERFORMANCE?

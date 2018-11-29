@@ -37,8 +37,6 @@ if autopilot:
     subject = 'auto'
 if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
-    codeDir = 'code'
-    logsDir = 'logs'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -60,28 +58,28 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 1.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1680  # monitor width in pixels of Agosta
-heightPix = 1050  # 800 #monitor height in pixels
-monitorwidth = 47.2  # monitor width in cm
+widthPix = 1440  # monitor width in pixels of Agosta
+heightPix = 900  # 800 #monitor height in pixels
+monitorwidth = 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 47.2  # 18.0
+    monitorwidth = 28.2  # 18.0
 if exportImages:
-    widthPix = 1680
-    heightPix = 1050
-    monitorwidth = 47.2
+    widthPix = 1440
+    heightPix = 900
+    monitorwidth = 28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 1680
-    heightPix = 1050
+    widthPix = 1440
+    heightPix = 900
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65.0  # cm
+viewdist = 57.  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with two numbers embedded in a Rapid Stream of letters. Your task is to identify the two numbers.\n\n"
@@ -288,11 +286,9 @@ if doStaircase:
 fileName = os.path.join(dataDir, subject + '_' + infix + timeAndDateStr)
 if not demo and not exportImages:
     dataFile = open(fileName+'.txt', 'w')
-    saveCodeCmd = 'cp \'' + \
-        sys.argv[0] + '\' ' + os.path.join(codeDir,
-                                           subject + '_' + infix + timeAndDateStr) + '.py'
+    saveCodeCmd = 'cp \'' + sys.argv[0] + '\' ' + fileName + '.py'
     os.system(saveCodeCmd)  # save a copy of the code as it was when that subject was run
-    logFname = os.path.join(logsDir, subject + '_' + infix + timeAndDateStr)+'.log'
+    logFname = fileName+'.log'
     ppLogF = logging.LogFile(logFname,
                              filemode='w',  # if you set this to 'a' it will append instead of overwriting
                              level=logging.INFO)  # errors, data and warnings will be sent to this logfile

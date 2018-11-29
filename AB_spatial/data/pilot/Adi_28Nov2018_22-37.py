@@ -37,8 +37,6 @@ if autopilot:
     subject = 'auto'
 if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
-    codeDir = 'code'
-    logsDir = 'logs'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -60,37 +58,28 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 1.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1680  # monitor width in pixels of Agosta
-heightPix = 1050  # 800 #monitor height in pixels
-monitorwidth = 47.2  # monitor width in cm
+widthPix = 1440  # monitor width in pixels of Agosta
+heightPix = 900  # 800 #monitor height in pixels
+monitorwidth = 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 47.2  # 18.0
+    monitorwidth = 28.2  # 18.0
 if exportImages:
-    widthPix = 1680
-    heightPix = 1050
-    monitorwidth = 47.2
+    widthPix = 1440
+    heightPix = 900
+    monitorwidth = 28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 1680
-    heightPix = 1050
+    widthPix = 1440
+    heightPix = 900
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65.0  # cm
-
-INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
-INS_MSG += "You will be presented with two numbers embedded in a Rapid Stream of letters. Your task is to identify the two numbers.\n\n"
-INS_MSG += "Your are required to fixate in the center during the experiment.\n\n"
-INS_MSG += "The RSVP stream can appear anywhere along the horizontal axis in the visual field.\n\n"
-INS_MSG += "Once you've identified the numbers, type them out on the keyboard after the trial ends.\n\n"
-INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
-INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
-
+viewdist = 57.  # cm
 pixelperdegree = widthPix / (atan(monitorwidth/viewdist) / np.pi*180)
 print('pixelperdegree=', pixelperdegree)
 
@@ -229,7 +218,7 @@ else:
     myDlg.addField('Trials per condition (default=' + str(trialsPerCondition) + '):',
                    trialsPerCondition, tip=str(trialsPerCondition))
     dlgLabelsOrdered.append('trialsPerCondition')
-    pctCompletedBreak = 25
+    pctCompletedBreak = 50
 
 myDlg.addText(refreshMsg1, color='Black')
 if refreshRateWrong:
@@ -288,11 +277,9 @@ if doStaircase:
 fileName = os.path.join(dataDir, subject + '_' + infix + timeAndDateStr)
 if not demo and not exportImages:
     dataFile = open(fileName+'.txt', 'w')
-    saveCodeCmd = 'cp \'' + \
-        sys.argv[0] + '\' ' + os.path.join(codeDir,
-                                           subject + '_' + infix + timeAndDateStr) + '.py'
+    saveCodeCmd = 'cp \'' + sys.argv[0] + '\' ' + fileName + '.py'
     os.system(saveCodeCmd)  # save a copy of the code as it was when that subject was run
-    logFname = os.path.join(logsDir, subject + '_' + infix + timeAndDateStr)+'.log'
+    logFname = fileName+'.log'
     ppLogF = logging.LogFile(logFname,
                              filemode='w',  # if you set this to 'a' it will append instead of overwriting
                              level=logging.INFO)  # errors, data and warnings will be sent to this logfile
@@ -431,7 +418,6 @@ for i in range(numRespsWanted):
     dataFile.write('response'+str(i)+'\t')
     dataFile.write('correct'+str(i)+'\t')
     dataFile.write('responsePosRelative'+str(i)+'\t')
-print('spatialPos\t', file=dataFile)
 print('timingBlips', file=dataFile)
 # end of header
 
@@ -451,9 +437,11 @@ def oneFrameOfStim(n, cue, letterSequence, cueDurFrames, letterDurFrames, ISIfra
     cue.setLineColor(bgColor)
     for i, cueFrame in enumerate(cueFrames):  # cheTck whether it's time for any cue
         if n >= cueFrame and n < cueFrame+cueDurFrames:
-            # cue.setLineColor(cueColor)
+            cue.setLineColor(cueColor)
             cue.setPos(spatialPos)
             lettersDrawObjects[thisLetterIdx].setText(correctAnswers[i])
+        else:
+            lettersDrawObjects[thisLetterIdx].setText(numberToLetter(thisLetterIdx))
 
     if showLetter:
         lettersDrawObjects[thisLetterIdx].setColor(letterColor)
@@ -462,7 +450,6 @@ def oneFrameOfStim(n, cue, letterSequence, cueDurFrames, letterDurFrames, ISIfra
 
     lettersDrawObjects[thisLetterIdx].setPos(spatialPos)
     lettersDrawObjects[thisLetterIdx].draw()
-    lettersDrawObjects[thisLetterIdx].setText(numberToLetter(thisLetterIdx))
     cue.draw()
     # Not recommended because takes longer than a frame, even to shuffle apparently. Or may be setXYs step
     refreshNoise = False
@@ -658,7 +645,7 @@ def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, l
     posOfResponse = np.zeros(len(cuesPos))
     responsePosRelative = np.zeros(len(cuesPos))
     for i in range(len(cuesPos)):  # score response to each cue
-        if correctAnswers[i] == int(responses[i]):
+        if correctAnswers[i] == responses[i]:
             print(correctAnswers[i], responses[i])
             eachCorrect[i] = 1
         posThisResponse = np.where(letterToNumber(responses[i]) == letterSequence)
@@ -708,54 +695,6 @@ def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
     else:  # incorrect
         low.play()
 
-
-def display_message(win, txt, msg):
-    """A function to display text to the experiment window.
-
-    win: psychopy.visual.Window
-        The window to write the message to.
-
-    fix: psychopy.visual.Circle
-        The fixation point to be removed from the screen.
-
-    txt: psychopy.visual.TextStim
-        The text object to present to the screen.
-
-    msg: String
-        The contents for the text object.
-
-    """
-
-    txt.setText(msg)
-    txt.setAutoDraw(True)
-    win.flip()
-
-    event.waitKeys()
-
-    txt.setAutoDraw(False)
-    win.flip()
-
-
-TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
-TEXT_WRAP = 30  # The character limit of each line of text before word wrap
-display_text = visual.TextStim(
-    win=myWin,
-    ori=0,
-    name='text',
-    text="",
-    font='Arial',
-    pos=[
-        0,
-        0],
-    wrapWidth=TEXT_WRAP,
-    height=TEXT_HEIGHT,
-    color=[1, 1, 1],
-    colorSpace='rgb',
-    opacity=1,
-    depth=-1.0)
-
-# Present instructions for the experiment
-display_message(myWin, display_text, INS_MSG)
 
 expStop = False
 framesSaved = 0
