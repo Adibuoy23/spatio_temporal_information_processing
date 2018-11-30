@@ -60,25 +60,25 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 1.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1680  # monitor width in pixels of Agosta
-heightPix = 1050  # 800 #monitor height in pixels
-monitorwidth = 47.2  # monitor width in cm
+widthPix = 2560  # monitor width in pixels of Agosta
+heightPix = 1440  # 800 #monitor height in pixels
+monitorwidth = 59  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 47.2  # 18.0
+    monitorwidth = 59  # 18.0
 if exportImages:
-    widthPix = 1680
-    heightPix = 1050
-    monitorwidth = 47.2
+    widthPix = 2560
+    heightPix = 1440
+    monitorwidth = 59
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 1680
-    heightPix = 1050
+    widthPix = 5120
+    heightPix = 2880
     monitorname = 'testMonitor'
     allowGUI = True
 viewdist = 65.0  # cm
@@ -943,8 +943,8 @@ else:  # not staircase
         #
         # print(cue2lag)
         correctResponseStim = visual.TextStim(
-            myWin, text="The correct answer is : "+str(correctAnswers[0])+", "+str(correctAnswers[1]))
-        event.waitKeys()
+            myWin, text="The correct answer is : "+str(correctAnswers[0])+", "+str(correctAnswers[1])+"\n\n\n Press SPACE to continue")
+        event.waitKeys(0.75)
         while not event.getKeys():
             correctResponseStim.draw()
             myWin.flip()
