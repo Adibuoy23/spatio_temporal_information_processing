@@ -59,33 +59,32 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 2560  # monitor width in pixels of Agosta
-heightPix = 1440  # 800 #monitor height in pixels
-monitorwidth = 59  # 47.2  # monitor width in cm
+widthPix = 1680  # monitor width in pixels of Agosta
+heightPix = 1050  # 800 #monitor height in pixels
+monitorwidth = 47.2  # 47.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 59  # 47.2  # 18.0
+    monitorwidth = 47.2  # 47.2  # 18.0
 if exportImages:
-    widthPix = 2560
-    heightPix = 1440
-    monitorwidth = 59  # 47.2
+    widthPix = 1680
+    heightPix = 1050
+    monitorwidth = 47.2  # 47.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 2560
-    heightPix = 1440
+    widthPix = 1680
+    heightPix = 1050
     monitorname = 'testMonitor'
     allowGUI = True
 viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
-INS_MSG += "The stream of letters can appear anywhere on the horizontal axis of the screen.\n\n"
-INS_MSG += "The letter you're supposed to identify is accompanied by a probe that appears on the fixation at a random point during the trial.\n\n"
+INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
 INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
 INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
@@ -125,7 +124,7 @@ numLettersToPresent = 26
 SOAms = 113  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
 # Minimum SOAms should be 84  because any shorter, I can't always notice the second ring when lag1.   71 in Martini E2 and E1b (actually he used 66.6 but that's because he had a crazy refresh rate of 90 Hz)
 # 23.6  in Martini E2 and E1b (actually he used 22.2 but that's because he had a crazy refresh rate of 90 Hz)
-letterDurMs = 84
+letterDurMs = 60
 
 ISIms = SOAms - letterDurMs
 letterDurFrames = int(np.floor(letterDurMs / (1000./refreshRate)))
@@ -367,7 +366,7 @@ stimList = []
 # SETTING THE CONDITIONS
 possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Martini E2, group 2
 cueCoords = [[1, 0], [-1, 0]]
-cueEccentricity = [2, 6]
+cueEccentricity = [2, 6, 10]
 possibleCue2lags = np.array([2])
 for cue1pos in possibleCue1positions:
     for cue2lag in possibleCue2lags:
@@ -646,7 +645,7 @@ def do_RSVP_stim(cue1pos, cueSpatialLoc, cue2lag, proportnNoise, trialN):
         fixationPoint.draw()
         myWin.flip()  # end fixation interval
     # myWin.setRecordFrameIntervals(True);  #can't get it to stop detecting superlong frames
-    fixation_center.setAutoDraw(True)
+    # fixation_center.setAutoDraw(True)
     # myWin.flip()
     t0 = trialClock.getTime()
     for n in range(trialDurFrames):  # this is the loop for this trial's stimulus!
@@ -658,7 +657,7 @@ def do_RSVP_stim(cue1pos, cueSpatialLoc, cue2lag, proportnNoise, trialN):
         myWin.flip()
         t = trialClock.getTime()-t0
         ts.append(t)
-    fixation_center.setAutoDraw(False)
+    # fixation_center.setAutoDraw(False)
     # myWin.flip()
     # end of big stimulus loop
     myWin.setRecordFrameIntervals(False)
