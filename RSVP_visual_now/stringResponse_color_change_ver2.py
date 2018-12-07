@@ -60,7 +60,7 @@ def collectStringResponse(numCharsWanted, respPromptStim, respStim, acceptTextSt
 #                  if key in ['SPACE']: #observer opting out because think they moved their eyes
 #                      passThisTrial = True
 #                      noResponseYet = False
-                elif key in ['F', 'P']:
+                elif key in ['B', 'G']:
                     noResponseYet = False
                     responses.append(thisResponse)
                     # not just using len(responses) because want to work even when autopilot, where thisResponse is null
