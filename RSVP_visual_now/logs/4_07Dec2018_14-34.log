@@ -1,0 +1,2298 @@
+26.1321 	INFO 	Successfully set darwin thread to realtime
+27.1969 	INFO 	#[ PsychoPy2 RuntimeInfoStart ]
+  #[[ PsychoPy ]] #---------
+    psychopyVersion: 1.90.2
+    psychopyHaveExtRush: True
+  #[[ Experiment ]] #---------
+    experimentRunTime: 2018_12_07 14:34 (Year_Month_Day Hour:Min)
+    experimentRunTime.epoch: 1544211293
+    experimentScript: color_change_visual_now_ver2.py
+    experimentScript.digestSHA1: ce5e33caae494d039839f85556d979d929015909
+    experimentScript.directory: /Users/supadhy6/Documents/GitHub/spatio_temporal_information_processing/RSVP_visual_now
+  #[[ System ]] #---------
+    systemHaveInternetAccess: True
+    systemHostName: pbs-jf-aldi.local
+    systemLocale: C
+    systemMemFreeRAM: 6129.01953125
+    systemMemTotalRAM: 16384.0
+    systemPlatform: darwin 10.14.1 x86_64
+    systemRavailable: R version 3.3.2 (2016-10-31) -- Sincere Pumpkin Patch
+    systemRebooted: Dec 2 19:22
+    systemSec.OpenSSLVersion: OpenSSL 1.0.2j  26 Sep 2016
+    systemSec.pythonSSL: True
+    systemTimeNumpySD1000000_sec: 0.0031
+    systemUser: supadhy6
+    systemUserID: 1903061739
+    systemUserProcCount: 311
+    systemUserProcFlagged: iTunes Dropbox KeyNote Safari mdworker
+    systemUsersCount: 1
+  #[[ Window ]] #---------
+    windowWinType: pyglet
+    windowUnits: deg
+    windowSize_pix: [1440  900]
+    windowScreen: 0
+    windowRgb: [-0.7 -0.7 -0.7]
+    windowRefreshTimeSD_ms: 0.494
+    windowRefreshTimeMedian_ms: 16.666
+    windowRefreshTimeAvg_ms: 16.653
+    windowPos_pix: [0, 0]
+    windowMonitor.name: testmonitor
+    windowMonitor.getWidth_cm: 28.2
+    windowMonitor.getDistance_cm: 65.0
+    windowMonitor.currentCalibName: 2017_01_17 14:52
+    windowIsFullScr: True
+  #[[ Python ]] #---------
+    pythonVersion: 2.7.13
+  #[[ OpenGL ]] #---------
+#[ PsychoPy2 RuntimeInfoEnd ]
+
+27.2383 	WARNING 	Could not load the desired click sound file, instead using manually created inferior click
+27.2387 	EXP 	Set  sound=D
+27.3680 	EXP 	Set  sound=D
+27.3682 	EXP 	Set  sound=A
+27.3875 	EXP 	Created sequence: random, trialTypes=72, nReps=5, seed=None
+27.5668 	INFO 	numtrials=360 and each trialDurFrames=45 or 750.0 ms
+27.5719 	EXP 	Created text = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.5, italic=False, name='text', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='', units='deg', win=Window(...), wrapWidth=30)
+27.6847 	EXP 	text: text = "Welcome! Thank you for agreeing to participate in this study.\n\nYou will be presented with two discs, one in blue and the other in green colors.\n\nYour task is to say which colored disk flashed first.\n\nYou will do this while fixating in the center.\n\nOnce you've identified the order after the trial ends, type it out on the keyboard.\n\nIf you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\nPress any key when you are ready to begin the experiment.\n\n"
+27.6847 	EXP 	text: autoDraw = True
+124.7632 	DATA 	Keypress: b
+124.7661 	EXP 	text: autoDraw = False
+124.7666 	INFO 	Starting the experiment
+124.7673 	EXP 	New trial (rep=0, index=0): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+126.6600 	EXP 	window1: recordFrameIntervals = False
+127.4142 	DATA 	Keypress: g
+127.4151 	EXP 	Sound  started
+128.3471 	DATA 	Keypress: b
+128.3480 	EXP 	Sound  started
+128.8646 	EXP 	New trial (rep=0, index=1): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+130.4765 	EXP 	window1: recordFrameIntervals = False
+132.8823 	DATA 	Keypress: b
+132.8948 	EXP 	Sound  started
+133.0451 	DATA 	Keypress: g
+133.0455 	EXP 	Sound  started
+133.5631 	EXP 	New trial (rep=0, index=2): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+135.4605 	EXP 	window1: recordFrameIntervals = False
+137.1476 	DATA 	Keypress: g
+137.1602 	EXP 	Sound  started
+137.2954 	DATA 	Keypress: b
+137.2961 	EXP 	Sound  started
+137.8136 	EXP 	New trial (rep=0, index=3): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+139.7094 	EXP 	window1: recordFrameIntervals = False
+141.2143 	DATA 	Keypress: g
+141.2152 	EXP 	Sound  started
+141.3282 	DATA 	Keypress: b
+141.3286 	EXP 	Sound  started
+141.8470 	EXP 	New trial (rep=0, index=4): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+143.4591 	EXP 	window1: recordFrameIntervals = False
+143.9967 	DATA 	Keypress: g
+143.9975 	EXP 	Sound  started
+144.1306 	DATA 	Keypress: b
+144.1313 	EXP 	Sound  started
+144.6473 	EXP 	New trial (rep=0, index=5): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+146.1598 	EXP 	window1: recordFrameIntervals = False
+146.3830 	DATA 	Keypress: g
+146.3935 	EXP 	Sound  started
+146.5474 	DATA 	Keypress: b
+146.5482 	EXP 	Sound  started
+147.0625 	EXP 	New trial (rep=0, index=6): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+148.8988 	DATA 	Keypress: b
+148.9771 	EXP 	window1: recordFrameIntervals = False
+149.0631 	DATA 	Keypress: g
+149.0645 	EXP 	Sound  started
+149.6629 	DATA 	Keypress: g
+149.6637 	EXP 	Sound  started
+150.1811 	EXP 	New trial (rep=0, index=7): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+151.8930 	EXP 	window1: recordFrameIntervals = False
+152.8956 	DATA 	Keypress: b
+152.8962 	EXP 	Sound  started
+153.0787 	DATA 	Keypress: g
+153.0792 	EXP 	Sound  started
+153.5979 	EXP 	New trial (rep=0, index=8): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+155.4438 	EXP 	window1: recordFrameIntervals = False
+156.7785 	DATA 	Keypress: b
+156.7790 	EXP 	Sound  started
+156.9621 	DATA 	Keypress: g
+156.9626 	EXP 	Sound  started
+157.4789 	EXP 	New trial (rep=0, index=9): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+158.9923 	EXP 	window1: recordFrameIntervals = False
+159.4974 	DATA 	Keypress: g
+159.4982 	EXP 	Sound  started
+159.6646 	DATA 	Keypress: b
+159.6662 	EXP 	Sound  started
+160.1804 	EXP 	New trial (rep=0, index=10): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+161.6937 	EXP 	window1: recordFrameIntervals = False
+163.2330 	DATA 	Keypress: b
+163.2445 	EXP 	Sound  started
+163.3490 	DATA 	Keypress: g
+163.3611 	EXP 	Sound  started
+163.8807 	EXP 	New trial (rep=0, index=11): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+165.4267 	EXP 	window1: recordFrameIntervals = False
+166.1286 	DATA 	Keypress: g
+166.1291 	EXP 	Sound  started
+166.2472 	DATA 	Keypress: b
+166.2480 	EXP 	Sound  started
+166.7641 	EXP 	New trial (rep=0, index=12): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+168.6263 	EXP 	window1: recordFrameIntervals = False
+169.3290 	DATA 	Keypress: b
+169.3295 	EXP 	Sound  started
+169.4809 	DATA 	Keypress: g
+169.4823 	EXP 	Sound  started
+169.9959 	EXP 	New trial (rep=0, index=13): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+171.7440 	EXP 	window1: recordFrameIntervals = False
+172.3952 	DATA 	Keypress: b
+172.3958 	EXP 	Sound  started
+172.5307 	DATA 	Keypress: g
+172.5314 	EXP 	Sound  started
+173.0460 	EXP 	New trial (rep=0, index=14): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+174.9772 	EXP 	window1: recordFrameIntervals = False
+175.7627 	DATA 	Keypress: g
+175.7633 	EXP 	Sound  started
+175.9304 	DATA 	Keypress: b
+175.9312 	EXP 	Sound  started
+176.4457 	EXP 	New trial (rep=0, index=15): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+178.1276 	EXP 	window1: recordFrameIntervals = False
+178.6306 	DATA 	Keypress: b
+178.6314 	EXP 	Sound  started
+178.7816 	DATA 	Keypress: g
+178.7824 	EXP 	Sound  started
+179.2964 	EXP 	New trial (rep=0, index=16): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+181.2485 	DATA 	Keypress: b
+181.2605 	EXP 	window1: recordFrameIntervals = False
+181.3640 	DATA 	Keypress: g
+181.3649 	EXP 	Sound  started
+183.1296 	DATA 	Keypress: backspace
+183.8798 	DATA 	Keypress: b
+183.8807 	EXP 	Sound  started
+183.9811 	DATA 	Keypress: g
+183.9820 	EXP 	Sound  started
+184.4986 	EXP 	New trial (rep=0, index=17): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+186.0760 	EXP 	window1: recordFrameIntervals = False
+186.5448 	DATA 	Keypress: g
+186.5453 	EXP 	Sound  started
+186.7145 	DATA 	Keypress: b
+186.7159 	EXP 	Sound  started
+187.2309 	EXP 	New trial (rep=0, index=18): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+188.7599 	EXP 	window1: recordFrameIntervals = False
+189.5973 	DATA 	Keypress: b
+189.5981 	EXP 	Sound  started
+189.7295 	DATA 	Keypress: g
+189.7303 	EXP 	Sound  started
+190.2473 	EXP 	New trial (rep=0, index=19): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+192.0268 	EXP 	window1: recordFrameIntervals = False
+192.6638 	DATA 	Keypress: g
+192.6644 	EXP 	Sound  started
+192.8135 	DATA 	Keypress: b
+192.8143 	EXP 	Sound  started
+193.3299 	EXP 	New trial (rep=0, index=20): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+194.9938 	EXP 	window1: recordFrameIntervals = False
+195.3971 	DATA 	Keypress: b
+195.3977 	EXP 	Sound  started
+195.5315 	DATA 	Keypress: g
+195.5323 	EXP 	Sound  started
+196.0457 	EXP 	New trial (rep=0, index=21): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+197.9602 	EXP 	window1: recordFrameIntervals = False
+198.3640 	DATA 	Keypress: g
+198.3646 	EXP 	Sound  started
+198.5131 	DATA 	Keypress: b
+198.5137 	EXP 	Sound  started
+199.0287 	EXP 	New trial (rep=0, index=22): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+200.5109 	EXP 	window1: recordFrameIntervals = False
+200.8835 	DATA 	Keypress: g
+200.8944 	EXP 	Sound  started
+201.0809 	DATA 	Keypress: b
+201.0817 	EXP 	Sound  started
+201.5961 	EXP 	New trial (rep=0, index=23): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+203.1432 	EXP 	window1: recordFrameIntervals = False
+203.6306 	DATA 	Keypress: g
+203.6423 	EXP 	Sound  started
+203.7666 	DATA 	Keypress: b
+203.7776 	EXP 	Sound  started
+204.2957 	EXP 	New trial (rep=0, index=24): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+205.8435 	EXP 	window1: recordFrameIntervals = False
+206.2146 	DATA 	Keypress: b
+206.2155 	EXP 	Sound  started
+206.3475 	DATA 	Keypress: g
+206.3483 	EXP 	Sound  started
+206.8652 	EXP 	New trial (rep=0, index=25): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+208.7261 	EXP 	window1: recordFrameIntervals = False
+209.0615 	DATA 	Keypress: g
+209.0620 	EXP 	Sound  started
+209.2129 	DATA 	Keypress: b
+209.2137 	EXP 	Sound  started
+209.7295 	EXP 	New trial (rep=0, index=26): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+211.5265 	EXP 	window1: recordFrameIntervals = False
+211.6637 	DATA 	Keypress: b
+211.6644 	EXP 	Sound  started
+211.7807 	DATA 	Keypress: g
+211.7815 	EXP 	Sound  started
+212.2952 	EXP 	New trial (rep=0, index=27): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+213.8273 	EXP 	window1: recordFrameIntervals = False
+214.2971 	DATA 	Keypress: b
+214.2980 	EXP 	Sound  started
+214.4496 	DATA 	Keypress: g
+214.4605 	EXP 	Sound  started
+214.9816 	EXP 	New trial (rep=0, index=28): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+216.8265 	EXP 	window1: recordFrameIntervals = False
+217.2152 	DATA 	Keypress: g
+217.2159 	EXP 	Sound  started
+217.3467 	DATA 	Keypress: b
+217.3609 	EXP 	Sound  started
+217.8798 	EXP 	New trial (rep=0, index=29): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+219.4438 	EXP 	window1: recordFrameIntervals = False
+219.8486 	DATA 	Keypress: g
+219.8602 	EXP 	Sound  started
+220.0113 	DATA 	Keypress: b
+220.0118 	EXP 	Sound  started
+220.5288 	EXP 	New trial (rep=0, index=30): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+222.3608 	EXP 	window1: recordFrameIntervals = False
+222.9809 	DATA 	Keypress: g
+222.9817 	EXP 	Sound  started
+223.1310 	DATA 	Keypress: b
+223.1318 	EXP 	Sound  started
+223.6463 	EXP 	New trial (rep=0, index=31): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+225.1264 	EXP 	window1: recordFrameIntervals = False
+225.1797 	DATA 	Keypress: g
+225.1804 	EXP 	Sound  started
+225.3139 	DATA 	Keypress: b
+225.3148 	EXP 	Sound  started
+225.8304 	EXP 	New trial (rep=0, index=32): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+227.4934 	EXP 	window1: recordFrameIntervals = False
+228.5673 	DATA 	Keypress: b
+228.5764 	EXP 	Sound  started
+228.6996 	DATA 	Keypress: g
+228.7116 	EXP 	Sound  started
+229.2288 	EXP 	New trial (rep=0, index=33): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+230.7934 	EXP 	window1: recordFrameIntervals = False
+231.9630 	DATA 	Keypress: g
+231.9766 	EXP 	Sound  started
+232.0963 	DATA 	Keypress: b
+232.0971 	EXP 	Sound  started
+232.6129 	EXP 	New trial (rep=0, index=34): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+234.5766 	EXP 	window1: recordFrameIntervals = False
+234.8118 	DATA 	Keypress: g
+234.8122 	EXP 	Sound  started
+235.0118 	DATA 	Keypress: b
+235.0126 	EXP 	Sound  started
+235.5293 	EXP 	New trial (rep=0, index=35): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+237.0265 	EXP 	window1: recordFrameIntervals = False
+237.3286 	DATA 	Keypress: g
+237.3292 	EXP 	Sound  started
+237.4974 	DATA 	Keypress: b
+237.4981 	EXP 	Sound  started
+238.0139 	EXP 	New trial (rep=0, index=36): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+239.5603 	EXP 	window1: recordFrameIntervals = False
+239.6973 	DATA 	Keypress: g
+239.6982 	EXP 	Sound  started
+239.8640 	DATA 	Keypress: b
+239.8647 	EXP 	Sound  started
+240.3780 	EXP 	New trial (rep=0, index=37): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+242.0267 	EXP 	window1: recordFrameIntervals = False
+242.6482 	DATA 	Keypress: g
+242.6491 	EXP 	Sound  started
+242.8121 	DATA 	Keypress: b
+242.8126 	EXP 	Sound  started
+243.3308 	EXP 	New trial (rep=0, index=38): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+244.9596 	EXP 	window1: recordFrameIntervals = False
+245.9972 	DATA 	Keypress: g
+245.9978 	EXP 	Sound  started
+246.1461 	DATA 	Keypress: b
+246.1467 	EXP 	Sound  started
+246.6638 	EXP 	New trial (rep=0, index=39): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+248.3106 	EXP 	window1: recordFrameIntervals = False
+248.6813 	DATA 	Keypress: g
+248.6821 	EXP 	Sound  started
+248.8302 	DATA 	Keypress: b
+248.8310 	EXP 	Sound  started
+249.3475 	EXP 	New trial (rep=0, index=40): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+251.0931 	EXP 	window1: recordFrameIntervals = False
+251.5293 	DATA 	Keypress: b
+251.5297 	EXP 	Sound  started
+251.6824 	DATA 	Keypress: g
+251.6944 	EXP 	Sound  started
+252.2137 	EXP 	New trial (rep=0, index=41): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+253.7938 	EXP 	window1: recordFrameIntervals = False
+254.1968 	DATA 	Keypress: g
+254.2110 	EXP 	Sound  started
+254.3453 	DATA 	Keypress: b
+254.3458 	EXP 	Sound  started
+254.8630 	EXP 	New trial (rep=0, index=42): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+256.5965 	DATA 	Keypress: g
+256.6437 	EXP 	window1: recordFrameIntervals = False
+256.7334 	DATA 	Keypress: b
+256.7448 	EXP 	Sound  started
+258.1298 	DATA 	Keypress: backspace
+258.5639 	DATA 	Keypress: g
+258.5648 	EXP 	Sound  started
+258.7323 	DATA 	Keypress: b
+258.7445 	EXP 	Sound  started
+259.2636 	EXP 	New trial (rep=0, index=43): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+261.0269 	EXP 	window1: recordFrameIntervals = False
+261.1301 	DATA 	Keypress: g
+261.1306 	EXP 	Sound  started
+261.2631 	DATA 	Keypress: b
+261.2641 	EXP 	Sound  started
+261.7801 	EXP 	New trial (rep=0, index=44): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+263.2604 	EXP 	window1: recordFrameIntervals = False
+264.4182 	DATA 	Keypress: g
+264.4282 	EXP 	Sound  started
+264.5464 	DATA 	Keypress: b
+264.5473 	EXP 	Sound  started
+265.0631 	EXP 	New trial (rep=0, index=45): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+266.9598 	EXP 	window1: recordFrameIntervals = False
+267.1144 	DATA 	Keypress: b
+267.1152 	EXP 	Sound  started
+267.2480 	DATA 	Keypress: g
+267.2488 	EXP 	Sound  started
+267.7635 	EXP 	New trial (rep=0, index=46): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+269.3773 	EXP 	window1: recordFrameIntervals = False
+270.4454 	DATA 	Keypress: b
+270.4460 	EXP 	Sound  started
+270.5662 	DATA 	Keypress: g
+270.5766 	EXP 	Sound  started
+271.0968 	EXP 	New trial (rep=0, index=47): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+272.8106 	EXP 	window1: recordFrameIntervals = False
+273.6968 	DATA 	Keypress: g
+273.6976 	EXP 	Sound  started
+273.7973 	DATA 	Keypress: b
+273.7982 	EXP 	Sound  started
+274.3145 	EXP 	New trial (rep=0, index=48): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+276.0939 	EXP 	window1: recordFrameIntervals = False
+276.5474 	DATA 	Keypress: b
+276.5483 	EXP 	Sound  started
+276.6662 	DATA 	Keypress: g
+276.6771 	EXP 	Sound  started
+277.1956 	EXP 	New trial (rep=0, index=49): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+279.0095 	EXP 	window1: recordFrameIntervals = False
+279.1287 	DATA 	Keypress: g
+279.1291 	EXP 	Sound  started
+279.3662 	DATA 	Keypress: b
+279.3772 	EXP 	Sound  started
+279.8969 	EXP 	New trial (rep=0, index=50): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+281.5769 	EXP 	window1: recordFrameIntervals = False
+281.8144 	DATA 	Keypress: b
+281.8150 	EXP 	Sound  started
+281.9611 	DATA 	Keypress: g
+281.9616 	EXP 	Sound  started
+282.4782 	EXP 	New trial (rep=0, index=51): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+284.1101 	EXP 	window1: recordFrameIntervals = False
+285.0972 	DATA 	Keypress: g
+285.0980 	EXP 	Sound  started
+285.2145 	DATA 	Keypress: b
+285.2153 	EXP 	Sound  started
+285.7293 	EXP 	New trial (rep=0, index=52): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+287.2933 	EXP 	window1: recordFrameIntervals = False
+287.5641 	DATA 	Keypress: g
+287.5650 	EXP 	Sound  started
+287.7308 	DATA 	Keypress: b
+287.7316 	EXP 	Sound  started
+288.2453 	EXP 	New trial (rep=0, index=53): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+289.9441 	EXP 	window1: recordFrameIntervals = False
+290.1286 	DATA 	Keypress: b
+290.1291 	EXP 	Sound  started
+290.2807 	DATA 	Keypress: g
+290.2815 	EXP 	Sound  started
+290.7959 	EXP 	New trial (rep=0, index=54): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+292.7439 	EXP 	window1: recordFrameIntervals = False
+293.1668 	DATA 	Keypress: g
+293.1770 	EXP 	Sound  started
+293.3806 	DATA 	Keypress: b
+293.3814 	EXP 	Sound  started
+293.8956 	EXP 	New trial (rep=0, index=55): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+295.8436 	EXP 	window1: recordFrameIntervals = False
+295.9637 	DATA 	Keypress: b
+295.9645 	EXP 	Sound  started
+296.0806 	DATA 	Keypress: g
+296.0813 	EXP 	Sound  started
+296.5963 	EXP 	New trial (rep=0, index=56): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+298.3764 	EXP 	window1: recordFrameIntervals = False
+298.6165 	DATA 	Keypress: g
+298.6171 	EXP 	Sound  started
+298.8142 	DATA 	Keypress: b
+298.8157 	EXP 	Sound  started
+299.3289 	EXP 	New trial (rep=0, index=57): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+301.2603 	EXP 	window1: recordFrameIntervals = False
+302.1661 	DATA 	Keypress: g
+302.1769 	EXP 	Sound  started
+302.3135 	DATA 	Keypress: b
+302.3144 	EXP 	Sound  started
+302.8287 	EXP 	New trial (rep=0, index=58): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+304.6603 	EXP 	window1: recordFrameIntervals = False
+305.1999 	DATA 	Keypress: g
+305.2111 	EXP 	Sound  started
+305.3645 	DATA 	Keypress: b
+305.3659 	EXP 	Sound  started
+305.8825 	EXP 	New trial (rep=0, index=59): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+307.7262 	EXP 	window1: recordFrameIntervals = False
+308.0282 	DATA 	Keypress: g
+308.0286 	EXP 	Sound  started
+308.1792 	DATA 	Keypress: b
+308.1797 	EXP 	Sound  started
+308.6950 	EXP 	New trial (rep=0, index=60): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+310.5914 	EXP 	window1: recordFrameIntervals = False
+311.4781 	DATA 	Keypress: b
+311.4787 	EXP 	Sound  started
+311.6134 	DATA 	Keypress: g
+311.6142 	EXP 	Sound  started
+312.1305 	EXP 	New trial (rep=0, index=61): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+313.7924 	EXP 	window1: recordFrameIntervals = False
+314.0292 	DATA 	Keypress: g
+314.0296 	EXP 	Sound  started
+314.1811 	DATA 	Keypress: b
+314.1818 	EXP 	Sound  started
+314.6958 	EXP 	New trial (rep=0, index=62): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+316.5588 	EXP 	window1: recordFrameIntervals = False
+317.0626 	DATA 	Keypress: b
+317.0762 	EXP 	Sound  started
+318.0934 	DATA 	Keypress: backspace
+318.3271 	DATA 	Keypress: g
+318.3275 	EXP 	Sound  started
+318.7601 	DATA 	Keypress: b
+318.7605 	EXP 	Sound  started
+319.2776 	EXP 	New trial (rep=0, index=63): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+320.8103 	EXP 	window1: recordFrameIntervals = False
+321.0481 	DATA 	Keypress: b
+321.0486 	EXP 	Sound  started
+321.1961 	DATA 	Keypress: g
+321.1970 	EXP 	Sound  started
+321.7132 	EXP 	New trial (rep=0, index=64): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+323.1928 	EXP 	window1: recordFrameIntervals = False
+323.2803 	DATA 	Keypress: b
+323.2811 	EXP 	Sound  started
+323.4633 	DATA 	Keypress: g
+323.4642 	EXP 	Sound  started
+323.9802 	EXP 	New trial (rep=0, index=65): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+325.8102 	EXP 	window1: recordFrameIntervals = False
+325.9487 	DATA 	Keypress: b
+325.9495 	EXP 	Sound  started
+326.1454 	DATA 	Keypress: g
+326.1458 	EXP 	Sound  started
+326.6633 	EXP 	New trial (rep=0, index=66): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+328.2105 	EXP 	window1: recordFrameIntervals = False
+328.8798 	DATA 	Keypress: b
+328.8807 	EXP 	Sound  started
+329.0304 	DATA 	Keypress: g
+329.0312 	EXP 	Sound  started
+329.5473 	EXP 	New trial (rep=0, index=67): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+331.3107 	EXP 	window1: recordFrameIntervals = False
+331.3449 	DATA 	Keypress: b
+331.3455 	EXP 	Sound  started
+331.4818 	DATA 	Keypress: g
+331.4945 	EXP 	Sound  started
+332.0120 	EXP 	New trial (rep=0, index=68): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+333.5437 	EXP 	window1: recordFrameIntervals = False
+333.7314 	DATA 	Keypress: g
+333.7434 	EXP 	Sound  started
+333.8800 	DATA 	Keypress: b
+333.8806 	EXP 	Sound  started
+334.3969 	EXP 	New trial (rep=0, index=69): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+336.2823 	DATA 	Keypress: b
+336.3100 	EXP 	window1: recordFrameIntervals = False
+336.4974 	DATA 	Keypress: g
+336.4982 	EXP 	Sound  started
+337.7296 	DATA 	Keypress: backspace
+338.3972 	DATA 	Keypress: b
+338.3982 	EXP 	Sound  started
+338.5966 	DATA 	Keypress: g
+338.5971 	EXP 	Sound  started
+339.1125 	EXP 	New trial (rep=0, index=70): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+340.9269 	EXP 	window1: recordFrameIntervals = False
+341.2808 	DATA 	Keypress: g
+341.2817 	EXP 	Sound  started
+341.4284 	DATA 	Keypress: b
+341.4292 	EXP 	Sound  started
+341.9467 	EXP 	New trial (rep=0, index=71): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+343.5434 	EXP 	window1: recordFrameIntervals = False
+343.7817 	DATA 	Keypress: b
+343.7825 	EXP 	Sound  started
+343.9483 	DATA 	Keypress: g
+343.9498 	EXP 	Sound  started
+344.4633 	EXP 	New trial (rep=1, index=0): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+345.9771 	EXP 	window1: recordFrameIntervals = False
+347.3151 	DATA 	Keypress: b
+347.3158 	EXP 	Sound  started
+347.5492 	DATA 	Keypress: g
+347.5607 	EXP 	Sound  started
+348.0789 	EXP 	New trial (rep=1, index=1): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+349.5767 	EXP 	window1: recordFrameIntervals = False
+349.8986 	DATA 	Keypress: g
+349.9111 	EXP 	Sound  started
+350.1451 	DATA 	Keypress: b
+350.1456 	EXP 	Sound  started
+350.6630 	EXP 	New trial (rep=1, index=2): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+352.2273 	EXP 	window1: recordFrameIntervals = False
+353.1638 	DATA 	Keypress: b
+353.1645 	EXP 	Sound  started
+353.3623 	DATA 	Keypress: g
+353.3628 	EXP 	Sound  started
+353.8803 	EXP 	New trial (rep=1, index=3): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+355.7268 	EXP 	window1: recordFrameIntervals = False
+356.4799 	DATA 	Keypress: g
+356.4808 	EXP 	Sound  started
+356.6969 	DATA 	Keypress: b
+356.6982 	EXP 	Sound  started
+357.2125 	EXP 	New trial (rep=1, index=4): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+358.8437 	EXP 	window1: recordFrameIntervals = False
+359.4472 	DATA 	Keypress: g
+359.4481 	EXP 	Sound  started
+359.5797 	DATA 	Keypress: b
+359.5941 	EXP 	Sound  started
+360.1127 	EXP 	New trial (rep=1, index=5): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+361.6143 	DATA 	Keypress: b
+361.6255 	EXP 	window1: recordFrameIntervals = False
+361.7639 	DATA 	Keypress: g
+361.7647 	EXP 	Sound  started
+362.8947 	DATA 	Keypress: backspace
+363.5295 	DATA 	Keypress: b
+363.5301 	EXP 	Sound  started
+363.6994 	DATA 	Keypress: g
+363.7110 	EXP 	Sound  started
+364.2342 	EXP 	New trial (rep=1, index=6): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+365.9762 	EXP 	window1: recordFrameIntervals = False
+367.4450 	DATA 	Keypress: b
+367.4455 	EXP 	Sound  started
+367.5805 	DATA 	Keypress: g
+367.5814 	EXP 	Sound  started
+368.0978 	EXP 	New trial (rep=1, index=7): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+369.9769 	EXP 	window1: recordFrameIntervals = False
+370.8139 	DATA 	Keypress: b
+370.8147 	EXP 	Sound  started
+371.0116 	DATA 	Keypress: g
+371.0121 	EXP 	Sound  started
+371.5280 	EXP 	New trial (rep=1, index=8): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+373.1268 	EXP 	window1: recordFrameIntervals = False
+373.5111 	DATA 	Keypress: b
+373.5116 	EXP 	Sound  started
+373.6977 	DATA 	Keypress: g
+373.6985 	EXP 	Sound  started
+374.2136 	EXP 	New trial (rep=1, index=9): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+375.8436 	EXP 	window1: recordFrameIntervals = False
+376.2508 	DATA 	Keypress: g
+376.2611 	EXP 	Sound  started
+376.5135 	DATA 	Keypress: b
+376.5143 	EXP 	Sound  started
+377.0299 	EXP 	New trial (rep=1, index=10): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+378.7939 	EXP 	window1: recordFrameIntervals = False
+379.1970 	DATA 	Keypress: b
+379.1980 	EXP 	Sound  started
+379.4299 	DATA 	Keypress: g
+379.4307 	EXP 	Sound  started
+379.9456 	EXP 	New trial (rep=1, index=11): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+381.8768 	EXP 	window1: recordFrameIntervals = False
+382.6796 	DATA 	Keypress: b
+382.6804 	EXP 	Sound  started
+382.8967 	DATA 	Keypress: g
+382.8975 	EXP 	Sound  started
+383.4136 	EXP 	New trial (rep=1, index=12): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+385.2599 	EXP 	window1: recordFrameIntervals = False
+385.6288 	DATA 	Keypress: b
+385.6293 	EXP 	Sound  started
+385.8296 	DATA 	Keypress: g
+385.8304 	EXP 	Sound  started
+386.3473 	EXP 	New trial (rep=1, index=13): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+388.1267 	EXP 	window1: recordFrameIntervals = False
+389.1004 	DATA 	Keypress: b
+389.1106 	EXP 	Sound  started
+389.3306 	DATA 	Keypress: g
+389.3314 	EXP 	Sound  started
+389.8476 	EXP 	New trial (rep=1, index=14): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+391.3435 	EXP 	window1: recordFrameIntervals = False
+391.5515 	DATA 	Keypress: b
+391.5593 	EXP 	Sound  started
+391.7973 	DATA 	Keypress: g
+391.7981 	EXP 	Sound  started
+392.3138 	EXP 	New trial (rep=1, index=15): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+393.8303 	DATA 	Keypress: b
+393.8935 	EXP 	window1: recordFrameIntervals = False
+394.0284 	DATA 	Keypress: g
+394.0288 	EXP 	Sound  started
+395.0954 	DATA 	Keypress: backspace
+395.3471 	DATA 	Keypress: b
+395.3479 	EXP 	Sound  started
+395.6471 	DATA 	Keypress: g
+395.6480 	EXP 	Sound  started
+396.1644 	EXP 	New trial (rep=1, index=16): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+397.9434 	EXP 	window1: recordFrameIntervals = False
+398.2971 	DATA 	Keypress: g
+398.2980 	EXP 	Sound  started
+398.4969 	DATA 	Keypress: b
+398.4979 	EXP 	Sound  started
+399.0142 	EXP 	New trial (rep=1, index=17): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+400.8317 	DATA 	Keypress: b
+400.8597 	EXP 	window1: recordFrameIntervals = False
+401.3303 	DATA 	Keypress: b
+401.3311 	EXP 	Sound  started
+401.6302 	DATA 	Keypress: g
+401.6310 	EXP 	Sound  started
+402.1468 	EXP 	New trial (rep=1, index=18): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+403.8602 	EXP 	window1: recordFrameIntervals = False
+404.2109 	DATA 	Keypress: g
+404.2113 	EXP 	Sound  started
+404.6139 	DATA 	Keypress: b
+404.6147 	EXP 	Sound  started
+411.6771 	DATA 	Mouse: Left button down, pos=(243,335)
+411.9119 	DATA 	Mouse:  Left button up, pos=(243,335)
+412.8767 	DATA 	Keypress: space
+413.2782 	EXP 	New trial (rep=1, index=19): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+415.1601 	EXP 	window1: recordFrameIntervals = False
+415.7665 	DATA 	Keypress: b
+415.7764 	EXP 	Sound  started
+415.9309 	DATA 	Keypress: g
+415.9318 	EXP 	Sound  started
+416.4468 	EXP 	New trial (rep=1, index=20): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+418.0932 	EXP 	window1: recordFrameIntervals = False
+419.0454 	DATA 	Keypress: b
+419.0460 	EXP 	Sound  started
+419.2170 	DATA 	Keypress: g
+419.2272 	EXP 	Sound  started
+419.7448 	EXP 	New trial (rep=1, index=21): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+421.6771 	EXP 	window1: recordFrameIntervals = False
+422.0960 	DATA 	Keypress: b
+422.0968 	EXP 	Sound  started
+422.3306 	DATA 	Keypress: g
+422.3315 	EXP 	Sound  started
+422.8463 	EXP 	New trial (rep=1, index=22): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+424.4604 	EXP 	window1: recordFrameIntervals = False
+424.9304 	DATA 	Keypress: b
+424.9313 	EXP 	Sound  started
+425.1471 	DATA 	Keypress: g
+425.1609 	EXP 	Sound  started
+425.6814 	EXP 	New trial (rep=1, index=23): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+427.4602 	EXP 	window1: recordFrameIntervals = False
+428.1950 	DATA 	Keypress: b
+428.1956 	EXP 	Sound  started
+428.4471 	DATA 	Keypress: g
+428.4480 	EXP 	Sound  started
+428.9610 	EXP 	New trial (rep=1, index=24): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+430.5262 	EXP 	window1: recordFrameIntervals = False
+431.5139 	DATA 	Keypress: b
+431.5149 	EXP 	Sound  started
+431.7125 	DATA 	Keypress: g
+431.7131 	EXP 	Sound  started
+432.2305 	EXP 	New trial (rep=1, index=25): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+434.1934 	EXP 	window1: recordFrameIntervals = False
+434.6277 	DATA 	Keypress: b
+434.6283 	EXP 	Sound  started
+434.8993 	DATA 	Keypress: g
+434.9108 	EXP 	Sound  started
+435.4300 	EXP 	New trial (rep=1, index=26): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+437.2102 	EXP 	window1: recordFrameIntervals = False
+437.6631 	DATA 	Keypress: g
+437.6639 	EXP 	Sound  started
+437.9307 	DATA 	Keypress: b
+437.9315 	EXP 	Sound  started
+438.4465 	EXP 	New trial (rep=1, index=27): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+439.9935 	EXP 	window1: recordFrameIntervals = False
+441.3474 	DATA 	Keypress: b
+441.3482 	EXP 	Sound  started
+441.5642 	DATA 	Keypress: g
+441.5650 	EXP 	Sound  started
+442.0800 	EXP 	New trial (rep=1, index=28): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+443.5593 	EXP 	window1: recordFrameIntervals = False
+444.1461 	DATA 	Keypress: g
+444.1470 	EXP 	Sound  started
+444.4111 	DATA 	Keypress: b
+444.4116 	EXP 	Sound  started
+444.9285 	EXP 	New trial (rep=1, index=29): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+446.6433 	EXP 	window1: recordFrameIntervals = False
+447.0007 	DATA 	Keypress: b
+447.0099 	EXP 	Sound  started
+447.2640 	DATA 	Keypress: g
+447.2647 	EXP 	Sound  started
+447.7802 	EXP 	New trial (rep=1, index=30): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+449.3601 	EXP 	window1: recordFrameIntervals = False
+449.5113 	DATA 	Keypress: b
+449.5118 	EXP 	Sound  started
+449.7474 	DATA 	Keypress: g
+449.7482 	EXP 	Sound  started
+450.2623 	EXP 	New trial (rep=1, index=31): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+452.0761 	EXP 	window1: recordFrameIntervals = False
+452.0766 	ERROR 	trialnum=103 ERROR,1 frames were longer than 20.8 ms apparently screen refreshes skipped, interframe durs were:[61.3] and was these frames: [21]
+452.0768 	INFO 	flankers also=[16.5 61.3  8.2]
+452.6168 	DATA 	Keypress: g
+452.6262 	EXP 	Sound  started
+452.8635 	DATA 	Keypress: b
+452.8640 	EXP 	Sound  started
+453.3792 	EXP 	New trial (rep=1, index=32): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+454.9935 	EXP 	window1: recordFrameIntervals = False
+455.3500 	DATA 	Keypress: g
+455.3615 	EXP 	Sound  started
+455.5796 	DATA 	Keypress: b
+455.5804 	EXP 	Sound  started
+456.0959 	EXP 	New trial (rep=1, index=33): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+457.7769 	EXP 	window1: recordFrameIntervals = False
+458.0298 	DATA 	Keypress: g
+458.0306 	EXP 	Sound  started
+458.1976 	DATA 	Keypress: b
+458.2104 	EXP 	Sound  started
+458.7301 	EXP 	New trial (rep=1, index=34): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+460.3082 	EXP 	window1: recordFrameIntervals = False
+460.6637 	DATA 	Keypress: b
+460.6646 	EXP 	Sound  started
+460.8471 	DATA 	Keypress: g
+460.8480 	EXP 	Sound  started
+461.3639 	EXP 	New trial (rep=1, index=35): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+463.2095 	EXP 	window1: recordFrameIntervals = False
+463.5810 	DATA 	Keypress: b
+463.5818 	EXP 	Sound  started
+463.7961 	DATA 	Keypress: g
+463.7967 	EXP 	Sound  started
+464.3128 	EXP 	New trial (rep=1, index=36): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+466.1601 	EXP 	window1: recordFrameIntervals = False
+466.5133 	DATA 	Keypress: g
+466.5143 	EXP 	Sound  started
+466.7302 	DATA 	Keypress: b
+466.7314 	EXP 	Sound  started
+467.2456 	EXP 	New trial (rep=1, index=37): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+468.8597 	EXP 	window1: recordFrameIntervals = False
+470.2168 	DATA 	Keypress: g
+470.2275 	EXP 	Sound  started
+470.4476 	DATA 	Keypress: b
+470.4484 	EXP 	Sound  started
+470.9630 	EXP 	New trial (rep=1, index=38): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+472.7767 	EXP 	window1: recordFrameIntervals = False
+473.1633 	DATA 	Keypress: g
+473.1643 	EXP 	Sound  started
+473.3981 	DATA 	Keypress: b
+473.3989 	EXP 	Sound  started
+473.9131 	EXP 	New trial (rep=1, index=39): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+475.8434 	EXP 	window1: recordFrameIntervals = False
+476.2299 	DATA 	Keypress: g
+476.2307 	EXP 	Sound  started
+476.4954 	DATA 	Keypress: b
+476.4959 	EXP 	Sound  started
+477.0125 	EXP 	New trial (rep=1, index=40): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+478.6598 	EXP 	window1: recordFrameIntervals = False
+478.9332 	DATA 	Keypress: g
+478.9443 	EXP 	Sound  started
+479.1638 	DATA 	Keypress: b
+479.1648 	EXP 	Sound  started
+479.6799 	EXP 	New trial (rep=1, index=41): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+481.3259 	EXP 	window1: recordFrameIntervals = False
+481.6472 	DATA 	Keypress: g
+481.6481 	EXP 	Sound  started
+481.8294 	DATA 	Keypress: b
+481.8302 	EXP 	Sound  started
+482.3453 	EXP 	New trial (rep=1, index=42): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+483.8766 	EXP 	window1: recordFrameIntervals = False
+484.0312 	DATA 	Keypress: g
+484.0318 	EXP 	Sound  started
+484.3470 	DATA 	Keypress: b
+484.3479 	EXP 	Sound  started
+484.8638 	EXP 	New trial (rep=1, index=43): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+486.7262 	EXP 	window1: recordFrameIntervals = False
+486.8633 	DATA 	Keypress: b
+486.8638 	EXP 	Sound  started
+487.0650 	DATA 	Keypress: g
+487.0776 	EXP 	Sound  started
+487.5968 	EXP 	New trial (rep=1, index=44): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+489.1102 	EXP 	window1: recordFrameIntervals = False
+489.4321 	DATA 	Keypress: g
+489.4329 	EXP 	Sound  started
+489.6779 	DATA 	Keypress: b
+489.6784 	EXP 	Sound  started
+490.1968 	EXP 	New trial (rep=1, index=45): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+491.8436 	EXP 	window1: recordFrameIntervals = False
+492.0305 	DATA 	Keypress: b
+492.0314 	EXP 	Sound  started
+492.2806 	DATA 	Keypress: g
+492.2815 	EXP 	Sound  started
+492.7958 	EXP 	New trial (rep=1, index=46): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+494.2938 	EXP 	window1: recordFrameIntervals = False
+494.7785 	DATA 	Keypress: g
+494.7790 	EXP 	Sound  started
+495.0305 	DATA 	Keypress: b
+495.0312 	EXP 	Sound  started
+495.5471 	EXP 	New trial (rep=1, index=47): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+497.1765 	EXP 	window1: recordFrameIntervals = False
+497.1873 	DATA 	Keypress: g
+497.1933 	EXP 	Sound  started
+497.4979 	DATA 	Keypress: b
+497.4987 	EXP 	Sound  started
+498.0134 	EXP 	New trial (rep=1, index=48): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+499.6600 	EXP 	window1: recordFrameIntervals = False
+499.9639 	DATA 	Keypress: b
+499.9648 	EXP 	Sound  started
+500.2168 	DATA 	Keypress: g
+500.2263 	EXP 	Sound  started
+500.7449 	EXP 	New trial (rep=1, index=49): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+502.3936 	EXP 	window1: recordFrameIntervals = False
+502.8287 	DATA 	Keypress: b
+502.8291 	EXP 	Sound  started
+503.9792 	DATA 	Keypress: backspace
+504.5305 	DATA 	Keypress: g
+504.5315 	EXP 	Sound  started
+504.7805 	DATA 	Keypress: b
+504.7813 	EXP 	Sound  started
+505.2968 	EXP 	New trial (rep=1, index=50): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+507.2433 	EXP 	window1: recordFrameIntervals = False
+507.6291 	DATA 	Keypress: g
+507.6297 	EXP 	Sound  started
+507.9305 	DATA 	Keypress: b
+507.9313 	EXP 	Sound  started
+508.4458 	EXP 	New trial (rep=1, index=51): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+510.1928 	EXP 	window1: recordFrameIntervals = False
+510.2448 	DATA 	Keypress: g
+510.2455 	EXP 	Sound  started
+510.6131 	DATA 	Keypress: b
+510.6139 	EXP 	Sound  started
+511.1295 	EXP 	New trial (rep=1, index=52): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+512.8269 	EXP 	window1: recordFrameIntervals = False
+513.0303 	DATA 	Keypress: g
+513.0314 	EXP 	Sound  started
+513.2988 	DATA 	Keypress: b
+513.3110 	EXP 	Sound  started
+513.8316 	EXP 	New trial (rep=1, index=53): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+515.3933 	EXP 	window1: recordFrameIntervals = False
+515.5626 	DATA 	Keypress: g
+515.5632 	EXP 	Sound  started
+515.7776 	DATA 	Keypress: b
+515.7781 	EXP 	Sound  started
+516.2946 	EXP 	New trial (rep=1, index=54): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+517.9105 	EXP 	window1: recordFrameIntervals = False
+518.1465 	DATA 	Keypress: g
+518.1473 	EXP 	Sound  started
+518.3136 	DATA 	Keypress: b
+518.3151 	EXP 	Sound  started
+518.8300 	EXP 	New trial (rep=1, index=55): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+520.7435 	EXP 	window1: recordFrameIntervals = False
+520.9994 	DATA 	Keypress: g
+521.0100 	EXP 	Sound  started
+521.1805 	DATA 	Keypress: b
+521.1813 	EXP 	Sound  started
+521.6957 	EXP 	New trial (rep=1, index=56): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+523.4935 	EXP 	window1: recordFrameIntervals = False
+523.7113 	DATA 	Keypress: g
+523.7118 	EXP 	Sound  started
+523.8960 	DATA 	Keypress: b
+523.8968 	EXP 	Sound  started
+524.4137 	EXP 	New trial (rep=1, index=57): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+526.2257 	EXP 	window1: recordFrameIntervals = False
+526.5472 	DATA 	Keypress: g
+526.5480 	EXP 	Sound  started
+526.7152 	DATA 	Keypress: b
+526.7276 	EXP 	Sound  started
+527.2468 	EXP 	New trial (rep=1, index=58): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+529.1936 	EXP 	window1: recordFrameIntervals = False
+529.3966 	DATA 	Keypress: g
+529.3974 	EXP 	Sound  started
+529.5800 	DATA 	Keypress: b
+529.5805 	EXP 	Sound  started
+530.0961 	EXP 	New trial (rep=1, index=59): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+531.6088 	EXP 	window1: recordFrameIntervals = False
+531.9468 	DATA 	Keypress: g
+531.9478 	EXP 	Sound  started
+532.0811 	DATA 	Keypress: b
+532.0832 	EXP 	Sound  started
+532.5951 	EXP 	New trial (rep=1, index=60): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+534.1602 	EXP 	window1: recordFrameIntervals = False
+534.6108 	DATA 	Keypress: g
+534.6112 	EXP 	Sound  started
+534.8135 	DATA 	Keypress: b
+534.8143 	EXP 	Sound  started
+535.3284 	EXP 	New trial (rep=1, index=61): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+537.0258 	EXP 	window1: recordFrameIntervals = False
+537.4285 	DATA 	Keypress: g
+537.4289 	EXP 	Sound  started
+537.5785 	DATA 	Keypress: b
+537.5789 	EXP 	Sound  started
+538.0956 	EXP 	New trial (rep=1, index=62): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+539.8439 	EXP 	window1: recordFrameIntervals = False
+540.2661 	DATA 	Keypress: g
+540.2775 	EXP 	Sound  started
+540.4633 	DATA 	Keypress: b
+540.4641 	EXP 	Sound  started
+540.9784 	EXP 	New trial (rep=1, index=63): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+542.5103 	EXP 	window1: recordFrameIntervals = False
+542.7988 	DATA 	Keypress: g
+542.8108 	EXP 	Sound  started
+542.9949 	DATA 	Keypress: b
+542.9954 	EXP 	Sound  started
+543.5151 	EXP 	New trial (rep=1, index=64): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+545.2425 	EXP 	window1: recordFrameIntervals = False
+545.6968 	DATA 	Keypress: b
+545.6977 	EXP 	Sound  started
+545.9138 	DATA 	Keypress: g
+545.9147 	EXP 	Sound  started
+546.4298 	EXP 	New trial (rep=1, index=65): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+548.3271 	EXP 	window1: recordFrameIntervals = False
+548.9476 	DATA 	Keypress: b
+548.9488 	EXP 	Sound  started
+549.0983 	DATA 	Keypress: g
+549.0989 	EXP 	Sound  started
+549.6123 	EXP 	New trial (rep=1, index=66): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+551.1435 	EXP 	window1: recordFrameIntervals = False
+552.9636 	DATA 	Keypress: g
+552.9648 	EXP 	Sound  started
+553.1294 	DATA 	Keypress: b
+553.1308 	EXP 	Sound  started
+553.6466 	EXP 	New trial (rep=1, index=67): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+555.6097 	EXP 	window1: recordFrameIntervals = False
+556.4168 	DATA 	Keypress: g
+556.4273 	EXP 	Sound  started
+556.5640 	DATA 	Keypress: b
+556.5648 	EXP 	Sound  started
+557.0792 	EXP 	New trial (rep=1, index=68): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+558.9595 	EXP 	window1: recordFrameIntervals = False
+559.7988 	DATA 	Keypress: g
+559.8110 	EXP 	Sound  started
+559.9648 	DATA 	Keypress: b
+559.9657 	EXP 	Sound  started
+560.4794 	EXP 	New trial (rep=1, index=69): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+562.3600 	EXP 	window1: recordFrameIntervals = False
+562.5794 	DATA 	Keypress: g
+562.5802 	EXP 	Sound  started
+562.7971 	DATA 	Keypress: b
+562.7979 	EXP 	Sound  started
+563.3119 	EXP 	New trial (rep=1, index=70): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+565.0767 	EXP 	window1: recordFrameIntervals = False
+565.1970 	DATA 	Keypress: g
+565.1980 	EXP 	Sound  started
+565.4636 	DATA 	Keypress: b
+565.4644 	EXP 	Sound  started
+565.9801 	EXP 	New trial (rep=1, index=71): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+567.5776 	EXP 	window1: recordFrameIntervals = False
+567.8303 	DATA 	Keypress: b
+567.8312 	EXP 	Sound  started
+567.9808 	DATA 	Keypress: g
+567.9814 	EXP 	Sound  started
+568.4949 	EXP 	New trial (rep=2, index=0): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+570.0933 	EXP 	window1: recordFrameIntervals = False
+570.5465 	DATA 	Keypress: g
+570.5476 	EXP 	Sound  started
+570.7137 	DATA 	Keypress: b
+570.7145 	EXP 	Sound  started
+571.2283 	EXP 	New trial (rep=2, index=1): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+572.9596 	EXP 	window1: recordFrameIntervals = False
+572.9646 	DATA 	Keypress: g
+573.1805 	DATA 	Keypress: b
+573.1814 	EXP 	Sound  started
+573.8645 	DATA 	Keypress: b
+573.8652 	EXP 	Sound  started
+574.3802 	EXP 	New trial (rep=2, index=2): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+576.2600 	EXP 	window1: recordFrameIntervals = False
+576.4490 	DATA 	Keypress: g
+576.4607 	EXP 	Sound  started
+576.6943 	DATA 	Keypress: b
+576.6947 	EXP 	Sound  started
+577.2124 	EXP 	New trial (rep=2, index=3): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+578.7091 	EXP 	window1: recordFrameIntervals = False
+578.9968 	DATA 	Keypress: g
+578.9976 	EXP 	Sound  started
+579.1474 	DATA 	Keypress: b
+579.1482 	EXP 	Sound  started
+579.6619 	EXP 	New trial (rep=2, index=4): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+581.2594 	EXP 	window1: recordFrameIntervals = False
+581.5141 	DATA 	Keypress: g
+581.5151 	EXP 	Sound  started
+581.6786 	DATA 	Keypress: b
+581.6794 	EXP 	Sound  started
+582.1966 	EXP 	New trial (rep=2, index=5): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+583.9259 	EXP 	window1: recordFrameIntervals = False
+584.3138 	DATA 	Keypress: b
+584.3147 	EXP 	Sound  started
+584.4632 	DATA 	Keypress: g
+584.4760 	EXP 	Sound  started
+584.9964 	EXP 	New trial (rep=2, index=6): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+586.6761 	EXP 	window1: recordFrameIntervals = False
+587.0286 	DATA 	Keypress: g
+587.0292 	EXP 	Sound  started
+587.2138 	DATA 	Keypress: b
+587.2147 	EXP 	Sound  started
+587.7298 	EXP 	New trial (rep=2, index=7): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+589.6765 	EXP 	window1: recordFrameIntervals = False
+590.4109 	DATA 	Keypress: g
+590.4113 	EXP 	Sound  started
+590.5787 	DATA 	Keypress: b
+590.5795 	EXP 	Sound  started
+591.0947 	EXP 	New trial (rep=2, index=8): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+592.7769 	EXP 	window1: recordFrameIntervals = False
+593.0160 	DATA 	Keypress: g
+593.0274 	EXP 	Sound  started
+593.1994 	DATA 	Keypress: b
+593.2111 	EXP 	Sound  started
+593.7299 	EXP 	New trial (rep=2, index=9): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+595.6426 	EXP 	window1: recordFrameIntervals = False
+596.4296 	DATA 	Keypress: b
+596.4304 	EXP 	Sound  started
+596.5957 	DATA 	Keypress: g
+596.5963 	EXP 	Sound  started
+597.1122 	EXP 	New trial (rep=2, index=10): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+598.9939 	EXP 	window1: recordFrameIntervals = False
+600.0619 	DATA 	Keypress: g
+600.0624 	EXP 	Sound  started
+600.2307 	DATA 	Keypress: b
+600.2316 	EXP 	Sound  started
+600.7466 	EXP 	New trial (rep=2, index=11): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+602.6603 	EXP 	window1: recordFrameIntervals = False
+603.0121 	DATA 	Keypress: b
+603.0126 	EXP 	Sound  started
+603.1978 	DATA 	Keypress: g
+603.1985 	EXP 	Sound  started
+603.7133 	EXP 	New trial (rep=2, index=12): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+605.5933 	EXP 	window1: recordFrameIntervals = False
+605.9966 	DATA 	Keypress: g
+605.9975 	EXP 	Sound  started
+606.1807 	DATA 	Keypress: b
+606.1814 	EXP 	Sound  started
+606.6962 	EXP 	New trial (rep=2, index=13): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+608.1939 	EXP 	window1: recordFrameIntervals = False
+608.9125 	DATA 	Keypress: g
+608.9129 	EXP 	Sound  started
+609.0473 	DATA 	Keypress: b
+609.0481 	EXP 	Sound  started
+609.5627 	EXP 	New trial (rep=2, index=14): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+611.0420 	EXP 	window1: recordFrameIntervals = False
+611.9165 	DATA 	Keypress: b
+611.9275 	EXP 	Sound  started
+612.0990 	DATA 	Keypress: g
+612.1107 	EXP 	Sound  started
+612.6283 	EXP 	New trial (rep=2, index=15): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+614.4089 	EXP 	window1: recordFrameIntervals = False
+615.6119 	DATA 	Keypress: g
+615.6124 	EXP 	Sound  started
+615.7966 	DATA 	Keypress: b
+615.7974 	EXP 	Sound  started
+616.3128 	EXP 	New trial (rep=2, index=16): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+618.2093 	EXP 	window1: recordFrameIntervals = False
+618.6801 	DATA 	Keypress: g
+618.6810 	EXP 	Sound  started
+618.8968 	DATA 	Keypress: b
+618.8977 	EXP 	Sound  started
+619.4133 	EXP 	New trial (rep=2, index=17): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+621.3765 	EXP 	window1: recordFrameIntervals = False
+622.1830 	DATA 	Keypress: g
+622.1940 	EXP 	Sound  started
+622.3806 	DATA 	Keypress: b
+622.3812 	EXP 	Sound  started
+622.8949 	EXP 	New trial (rep=2, index=18): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+624.4088 	EXP 	window1: recordFrameIntervals = False
+625.2968 	DATA 	Keypress: g
+625.2977 	EXP 	Sound  started
+625.4805 	DATA 	Keypress: b
+625.4813 	EXP 	Sound  started
+625.9967 	EXP 	New trial (rep=2, index=19): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+627.8934 	EXP 	window1: recordFrameIntervals = False
+628.0776 	DATA 	Keypress: g
+628.0780 	EXP 	Sound  started
+628.4971 	DATA 	Keypress: b
+628.4979 	EXP 	Sound  started
+629.0114 	EXP 	New trial (rep=2, index=20): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+630.6096 	EXP 	window1: recordFrameIntervals = False
+631.0162 	DATA 	Keypress: g
+631.0287 	EXP 	Sound  started
+631.3302 	DATA 	Keypress: b
+631.3310 	EXP 	Sound  started
+631.8466 	EXP 	New trial (rep=2, index=21): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+633.4431 	EXP 	window1: recordFrameIntervals = False
+633.8796 	DATA 	Keypress: b
+633.8804 	EXP 	Sound  started
+634.3160 	DATA 	Keypress: g
+634.3274 	EXP 	Sound  started
+634.8493 	EXP 	New trial (rep=2, index=22): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+636.6760 	EXP 	window1: recordFrameIntervals = False
+637.3788 	DATA 	Keypress: b
+637.3794 	EXP 	Sound  started
+637.5287 	DATA 	Keypress: g
+637.5294 	EXP 	Sound  started
+638.0463 	EXP 	New trial (rep=2, index=23): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+640.0087 	EXP 	window1: recordFrameIntervals = False
+640.3661 	DATA 	Keypress: g
+640.3775 	EXP 	Sound  started
+640.5129 	DATA 	Keypress: b
+640.5137 	EXP 	Sound  started
+641.0296 	EXP 	New trial (rep=2, index=24): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+642.7264 	EXP 	window1: recordFrameIntervals = False
+643.0968 	DATA 	Keypress: g
+643.0977 	EXP 	Sound  started
+643.2301 	DATA 	Keypress: b
+643.2310 	EXP 	Sound  started
+643.7449 	EXP 	New trial (rep=2, index=25): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+645.7089 	EXP 	window1: recordFrameIntervals = False
+646.3274 	DATA 	Keypress: g
+646.3278 	EXP 	Sound  started
+646.5478 	DATA 	Keypress: b
+646.5596 	EXP 	Sound  started
+647.0790 	EXP 	New trial (rep=2, index=26): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+648.7596 	EXP 	window1: recordFrameIntervals = False
+649.0493 	DATA 	Keypress: b
+649.0596 	EXP 	Sound  started
+649.2300 	DATA 	Keypress: g
+649.2308 	EXP 	Sound  started
+649.7453 	EXP 	New trial (rep=2, index=27): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+651.6758 	EXP 	window1: recordFrameIntervals = False
+651.7661 	DATA 	Keypress: b
+651.7771 	EXP 	Sound  started
+651.9475 	DATA 	Keypress: g
+651.9483 	EXP 	Sound  started
+652.4634 	EXP 	New trial (rep=2, index=28): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+654.0933 	EXP 	window1: recordFrameIntervals = False
+654.4302 	DATA 	Keypress: g
+654.4312 	EXP 	Sound  started
+654.5792 	DATA 	Keypress: b
+654.5800 	EXP 	Sound  started
+655.0947 	EXP 	New trial (rep=2, index=29): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+656.9098 	EXP 	window1: recordFrameIntervals = False
+657.4605 	DATA 	Keypress: b
+657.4609 	EXP 	Sound  started
+657.5970 	DATA 	Keypress: g
+657.5978 	EXP 	Sound  started
+658.1122 	EXP 	New trial (rep=2, index=30): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+659.9253 	EXP 	window1: recordFrameIntervals = False
+660.3303 	DATA 	Keypress: b
+660.3312 	EXP 	Sound  started
+660.5108 	DATA 	Keypress: g
+660.5113 	EXP 	Sound  started
+661.0291 	EXP 	New trial (rep=2, index=31): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+662.8268 	EXP 	window1: recordFrameIntervals = False
+664.0329 	DATA 	Keypress: b
+664.0440 	EXP 	Sound  started
+664.2445 	DATA 	Keypress: g
+664.2448 	EXP 	Sound  started
+664.7643 	EXP 	New trial (rep=2, index=32): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+666.3935 	EXP 	window1: recordFrameIntervals = False
+666.8302 	DATA 	Keypress: g
+666.8417 	EXP 	Sound  started
+667.0637 	DATA 	Keypress: b
+667.0644 	EXP 	Sound  started
+667.5795 	EXP 	New trial (rep=2, index=33): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+669.2096 	EXP 	window1: recordFrameIntervals = False
+669.6967 	DATA 	Keypress: g
+669.6973 	EXP 	Sound  started
+669.8493 	DATA 	Keypress: b
+669.8602 	EXP 	Sound  started
+670.3800 	EXP 	New trial (rep=2, index=34): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+672.0443 	EXP 	window1: recordFrameIntervals = False
+672.5147 	DATA 	Keypress: b
+672.5158 	EXP 	Sound  started
+672.6470 	DATA 	Keypress: g
+672.6608 	EXP 	Sound  started
+673.1798 	EXP 	New trial (rep=2, index=35): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+674.7766 	EXP 	window1: recordFrameIntervals = False
+675.1807 	DATA 	Keypress: b
+675.1938 	EXP 	Sound  started
+675.3301 	DATA 	Keypress: g
+675.3310 	EXP 	Sound  started
+675.8459 	EXP 	New trial (rep=2, index=36): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+677.4434 	EXP 	window1: recordFrameIntervals = False
+678.5800 	DATA 	Keypress: g
+678.5812 	EXP 	Sound  started
+678.7129 	DATA 	Keypress: b
+678.7137 	EXP 	Sound  started
+682.2437 	DATA 	Keypress: space
+682.6461 	EXP 	New trial (rep=2, index=37): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+684.5932 	EXP 	window1: recordFrameIntervals = False
+685.1785 	DATA 	Keypress: g
+685.1791 	EXP 	Sound  started
+685.3804 	DATA 	Keypress: b
+685.3812 	EXP 	Sound  started
+685.8951 	EXP 	New trial (rep=2, index=38): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+687.4601 	EXP 	window1: recordFrameIntervals = False
+687.8009 	DATA 	Keypress: b
+687.8106 	EXP 	Sound  started
+687.9665 	DATA 	Keypress: g
+687.9771 	EXP 	Sound  started
+688.4950 	EXP 	New trial (rep=2, index=39): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+690.1930 	EXP 	window1: recordFrameIntervals = False
+690.7801 	DATA 	Keypress: g
+690.7810 	EXP 	Sound  started
+690.9295 	DATA 	Keypress: b
+690.9304 	EXP 	Sound  started
+691.4449 	EXP 	New trial (rep=2, index=40): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+693.4094 	EXP 	window1: recordFrameIntervals = False
+693.7285 	DATA 	Keypress: g
+693.7290 	EXP 	Sound  started
+693.8658 	DATA 	Keypress: b
+693.8772 	EXP 	Sound  started
+694.3996 	EXP 	New trial (rep=2, index=41): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+696.0929 	EXP 	window1: recordFrameIntervals = False
+696.6282 	DATA 	Keypress: g
+696.6287 	EXP 	Sound  started
+696.8136 	DATA 	Keypress: b
+696.8144 	EXP 	Sound  started
+697.3276 	EXP 	New trial (rep=2, index=42): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+698.9770 	EXP 	window1: recordFrameIntervals = False
+699.1329 	DATA 	Keypress: g
+699.1441 	EXP 	Sound  started
+699.3955 	DATA 	Keypress: b
+699.3960 	EXP 	Sound  started
+699.9131 	EXP 	New trial (rep=2, index=43): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+701.4099 	EXP 	window1: recordFrameIntervals = False
+701.7958 	DATA 	Keypress: g
+701.7964 	EXP 	Sound  started
+701.9304 	DATA 	Keypress: b
+701.9312 	EXP 	Sound  started
+702.4460 	EXP 	New trial (rep=2, index=44): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+704.1778 	EXP 	window1: recordFrameIntervals = False
+704.8451 	DATA 	Keypress: b
+704.8455 	EXP 	Sound  started
+705.0122 	DATA 	Keypress: g
+705.0128 	EXP 	Sound  started
+705.5276 	EXP 	New trial (rep=2, index=45): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+707.3929 	EXP 	window1: recordFrameIntervals = False
+707.9001 	DATA 	Keypress: b
+707.9099 	EXP 	Sound  started
+708.1106 	DATA 	Keypress: g
+708.1111 	EXP 	Sound  started
+708.6297 	EXP 	New trial (rep=2, index=46): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+710.1098 	EXP 	window1: recordFrameIntervals = False
+710.4305 	DATA 	Keypress: b
+710.4313 	EXP 	Sound  started
+710.6155 	DATA 	Keypress: g
+710.6271 	EXP 	Sound  started
+711.1447 	EXP 	New trial (rep=2, index=47): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+713.1101 	EXP 	window1: recordFrameIntervals = False
+713.5450 	DATA 	Keypress: g
+713.5455 	EXP 	Sound  started
+713.7474 	DATA 	Keypress: b
+713.7603 	EXP 	Sound  started
+714.2798 	EXP 	New trial (rep=2, index=48): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+716.1766 	EXP 	window1: recordFrameIntervals = False
+716.5627 	DATA 	Keypress: b
+716.5635 	EXP 	Sound  started
+716.7471 	DATA 	Keypress: g
+716.7479 	EXP 	Sound  started
+717.2625 	EXP 	New trial (rep=2, index=49): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+719.1764 	EXP 	window1: recordFrameIntervals = False
+719.6802 	DATA 	Keypress: b
+719.6809 	EXP 	Sound  started
+719.9327 	DATA 	Keypress: g
+719.9440 	EXP 	Sound  started
+720.4621 	EXP 	New trial (rep=2, index=50): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+722.4266 	EXP 	window1: recordFrameIntervals = False
+723.0455 	DATA 	Keypress: g
+723.0460 	EXP 	Sound  started
+723.2130 	DATA 	Keypress: b
+723.2145 	EXP 	Sound  started
+723.7325 	EXP 	New trial (rep=2, index=51): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+725.3101 	EXP 	window1: recordFrameIntervals = False
+725.7158 	DATA 	Keypress: g
+725.7273 	EXP 	Sound  started
+725.9291 	DATA 	Keypress: b
+725.9299 	EXP 	Sound  started
+726.4467 	EXP 	New trial (rep=2, index=52): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+728.2592 	EXP 	window1: recordFrameIntervals = False
+728.7298 	DATA 	Keypress: b
+728.7305 	EXP 	Sound  started
+728.9466 	DATA 	Keypress: g
+728.9474 	EXP 	Sound  started
+729.4624 	EXP 	New trial (rep=2, index=53): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+731.0933 	EXP 	window1: recordFrameIntervals = False
+731.4792 	DATA 	Keypress: g
+731.4798 	EXP 	Sound  started
+731.6975 	DATA 	Keypress: b
+731.6983 	EXP 	Sound  started
+732.2123 	EXP 	New trial (rep=2, index=54): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+733.9090 	EXP 	window1: recordFrameIntervals = False
+734.3608 	DATA 	Keypress: b
+734.3613 	EXP 	Sound  started
+734.5461 	DATA 	Keypress: g
+734.5469 	EXP 	Sound  started
+735.0629 	EXP 	New trial (rep=2, index=55): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+736.6095 	EXP 	window1: recordFrameIntervals = False
+737.7633 	DATA 	Keypress: g
+737.7644 	EXP 	Sound  started
+737.9130 	DATA 	Keypress: b
+737.9138 	EXP 	Sound  started
+738.4292 	EXP 	New trial (rep=2, index=56): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+740.2769 	EXP 	window1: recordFrameIntervals = False
+741.0278 	DATA 	Keypress: g
+741.0282 	EXP 	Sound  started
+741.3132 	DATA 	Keypress: b
+741.3140 	EXP 	Sound  started
+741.8280 	EXP 	New trial (rep=2, index=57): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+743.3767 	EXP 	window1: recordFrameIntervals = False
+743.5664 	DATA 	Keypress: b
+743.5764 	EXP 	Sound  started
+743.7471 	DATA 	Keypress: g
+743.7478 	EXP 	Sound  started
+744.2632 	EXP 	New trial (rep=2, index=58): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+746.1758 	EXP 	window1: recordFrameIntervals = False
+746.5651 	DATA 	Keypress: g
+746.5763 	EXP 	Sound  started
+746.7492 	DATA 	Keypress: b
+746.7607 	EXP 	Sound  started
+747.2796 	EXP 	New trial (rep=2, index=59): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+749.1432 	EXP 	window1: recordFrameIntervals = False
+749.5457 	DATA 	Keypress: g
+749.5462 	EXP 	Sound  started
+749.7461 	DATA 	Keypress: b
+749.7467 	EXP 	Sound  started
+750.2620 	EXP 	New trial (rep=2, index=60): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+751.9250 	EXP 	window1: recordFrameIntervals = False
+752.1970 	DATA 	Keypress: g
+752.1977 	EXP 	Sound  started
+752.3633 	DATA 	Keypress: b
+752.3640 	EXP 	Sound  started
+752.8772 	EXP 	New trial (rep=2, index=61): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+754.3929 	EXP 	window1: recordFrameIntervals = False
+754.6138 	DATA 	Keypress: g
+754.6144 	EXP 	Sound  started
+754.7800 	DATA 	Keypress: b
+754.7805 	EXP 	Sound  started
+755.2983 	EXP 	New trial (rep=2, index=62): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+756.9967 	DATA 	Keypress: g
+757.0089 	EXP 	window1: recordFrameIntervals = False
+757.4967 	DATA 	Keypress: g
+757.4975 	EXP 	Sound  started
+757.7134 	DATA 	Keypress: b
+757.7141 	EXP 	Sound  started
+758.2297 	EXP 	New trial (rep=2, index=63): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+759.8760 	EXP 	window1: recordFrameIntervals = False
+760.2775 	DATA 	Keypress: g
+760.2780 	EXP 	Sound  started
+760.4625 	DATA 	Keypress: b
+760.4633 	EXP 	Sound  started
+760.9795 	EXP 	New trial (rep=2, index=64): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+762.5264 	EXP 	window1: recordFrameIntervals = False
+762.8655 	DATA 	Keypress: g
+762.8773 	EXP 	Sound  started
+763.0281 	DATA 	Keypress: b
+763.0290 	EXP 	Sound  started
+763.5457 	EXP 	New trial (rep=2, index=65): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+765.2919 	EXP 	window1: recordFrameIntervals = False
+766.0805 	DATA 	Keypress: g
+766.0814 	EXP 	Sound  started
+766.2470 	DATA 	Keypress: b
+766.2478 	EXP 	Sound  started
+766.7634 	EXP 	New trial (rep=2, index=66): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+768.6770 	EXP 	window1: recordFrameIntervals = False
+769.3797 	DATA 	Keypress: b
+769.3805 	EXP 	Sound  started
+769.5633 	DATA 	Keypress: g
+769.5641 	EXP 	Sound  started
+770.0789 	EXP 	New trial (rep=2, index=67): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+771.6097 	EXP 	window1: recordFrameIntervals = False
+772.3655 	DATA 	Keypress: g
+772.3763 	EXP 	Sound  started
+772.5603 	DATA 	Keypress: b
+772.5607 	EXP 	Sound  started
+773.0796 	EXP 	New trial (rep=2, index=68): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+774.6931 	EXP 	window1: recordFrameIntervals = False
+774.9804 	DATA 	Keypress: g
+774.9813 	EXP 	Sound  started
+775.0964 	DATA 	Keypress: b
+775.0972 	EXP 	Sound  started
+775.6132 	EXP 	New trial (rep=2, index=69): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+777.3431 	EXP 	window1: recordFrameIntervals = False
+777.6140 	DATA 	Keypress: g
+777.6152 	EXP 	Sound  started
+777.7972 	DATA 	Keypress: b
+777.7977 	EXP 	Sound  started
+778.3123 	EXP 	New trial (rep=2, index=70): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+780.0931 	EXP 	window1: recordFrameIntervals = False
+780.4469 	DATA 	Keypress: g
+780.4477 	EXP 	Sound  started
+780.5627 	DATA 	Keypress: b
+780.5637 	EXP 	Sound  started
+781.0797 	EXP 	New trial (rep=2, index=71): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+782.8759 	EXP 	window1: recordFrameIntervals = False
+783.2291 	DATA 	Keypress: g
+783.2301 	EXP 	Sound  started
+783.3639 	DATA 	Keypress: b
+783.3648 	EXP 	Sound  started
+783.8831 	EXP 	New trial (rep=3, index=0): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+785.5429 	EXP 	window1: recordFrameIntervals = False
+785.6295 	DATA 	Keypress: g
+785.6300 	EXP 	Sound  started
+785.9146 	DATA 	Keypress: b
+785.9270 	EXP 	Sound  started
+786.4452 	EXP 	New trial (rep=3, index=1): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+788.3098 	EXP 	window1: recordFrameIntervals = False
+788.7455 	DATA 	Keypress: g
+788.7461 	EXP 	Sound  started
+788.8938 	DATA 	Keypress: b
+788.8943 	EXP 	Sound  started
+789.4126 	EXP 	New trial (rep=3, index=2): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+791.1599 	EXP 	window1: recordFrameIntervals = False
+791.7818 	DATA 	Keypress: g
+791.7936 	EXP 	Sound  started
+791.9948 	DATA 	Keypress: b
+791.9953 	EXP 	Sound  started
+792.5129 	EXP 	New trial (rep=3, index=3): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+794.0596 	EXP 	window1: recordFrameIntervals = False
+794.4331 	DATA 	Keypress: g
+794.4441 	EXP 	Sound  started
+794.6322 	DATA 	Keypress: b
+794.6424 	EXP 	Sound  started
+795.1620 	EXP 	New trial (rep=3, index=4): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+796.7795 	DATA 	Keypress: g
+796.8088 	EXP 	window1: recordFrameIntervals = False
+797.2136 	DATA 	Keypress: g
+797.2144 	EXP 	Sound  started
+797.4289 	DATA 	Keypress: b
+797.4294 	EXP 	Sound  started
+797.9460 	EXP 	New trial (rep=3, index=5): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+799.5924 	EXP 	window1: recordFrameIntervals = False
+799.9297 	DATA 	Keypress: g
+799.9307 	EXP 	Sound  started
+800.1461 	DATA 	Keypress: b
+800.1469 	EXP 	Sound  started
+800.6627 	EXP 	New trial (rep=3, index=6): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+802.3104 	EXP 	window1: recordFrameIntervals = False
+802.7970 	DATA 	Keypress: g
+802.7978 	EXP 	Sound  started
+803.0479 	DATA 	Keypress: b
+803.0607 	EXP 	Sound  started
+803.5803 	EXP 	New trial (rep=3, index=7): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+805.4932 	EXP 	window1: recordFrameIntervals = False
+805.7634 	DATA 	Keypress: g
+805.7643 	EXP 	Sound  started
+805.9792 	DATA 	Keypress: b
+805.9801 	EXP 	Sound  started
+806.4948 	EXP 	New trial (rep=3, index=8): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+808.2087 	EXP 	window1: recordFrameIntervals = False
+808.5842 	DATA 	Keypress: g
+808.5940 	EXP 	Sound  started
+808.7802 	DATA 	Keypress: b
+808.7810 	EXP 	Sound  started
+809.2964 	EXP 	New trial (rep=3, index=9): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+811.0098 	EXP 	window1: recordFrameIntervals = False
+811.4116 	DATA 	Keypress: g
+811.4122 	EXP 	Sound  started
+811.5800 	DATA 	Keypress: b
+811.5806 	EXP 	Sound  started
+812.0953 	EXP 	New trial (rep=3, index=10): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+814.0262 	EXP 	window1: recordFrameIntervals = False
+814.4134 	DATA 	Keypress: g
+814.4143 	EXP 	Sound  started
+814.5970 	DATA 	Keypress: b
+814.5978 	EXP 	Sound  started
+815.1129 	EXP 	New trial (rep=3, index=11): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+816.6610 	EXP 	window1: recordFrameIntervals = False
+817.0165 	DATA 	Keypress: g
+817.0256 	EXP 	Sound  started
+817.1947 	DATA 	Keypress: b
+817.1951 	EXP 	Sound  started
+817.7119 	EXP 	New trial (rep=3, index=12): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+819.6762 	EXP 	window1: recordFrameIntervals = False
+820.0632 	DATA 	Keypress: g
+820.0640 	EXP 	Sound  started
+820.1993 	DATA 	Keypress: b
+820.2110 	EXP 	Sound  started
+820.7299 	EXP 	New trial (rep=3, index=13): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+822.2763 	EXP 	window1: recordFrameIntervals = False
+822.6504 	DATA 	Keypress: g
+822.6585 	EXP 	Sound  started
+822.8153 	DATA 	Keypress: b
+822.8161 	EXP 	Sound  started
+823.3293 	EXP 	New trial (rep=3, index=14): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+825.2429 	EXP 	window1: recordFrameIntervals = False
+825.5946 	DATA 	Keypress: g
+825.5951 	EXP 	Sound  started
+825.7302 	DATA 	Keypress: b
+825.7311 	EXP 	Sound  started
+826.2450 	EXP 	New trial (rep=3, index=15): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+827.7600 	EXP 	window1: recordFrameIntervals = False
+827.9466 	DATA 	Keypress: g
+827.9475 	EXP 	Sound  started
+828.0793 	DATA 	Keypress: b
+828.0928 	EXP 	Sound  started
+828.6118 	EXP 	New trial (rep=3, index=16): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+830.1752 	EXP 	window1: recordFrameIntervals = False
+830.3975 	DATA 	Keypress: g
+830.3983 	EXP 	Sound  started
+830.5275 	DATA 	Keypress: b
+830.5279 	EXP 	Sound  started
+831.0452 	EXP 	New trial (rep=3, index=17): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+832.9261 	EXP 	window1: recordFrameIntervals = False
+832.9965 	DATA 	Keypress: g
+832.9974 	EXP 	Sound  started
+833.1633 	DATA 	Keypress: b
+833.1647 	EXP 	Sound  started
+833.6798 	EXP 	New trial (rep=3, index=18): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+835.6264 	EXP 	window1: recordFrameIntervals = False
+835.6447 	DATA 	Keypress: g
+835.6452 	EXP 	Sound  started
+835.7991 	DATA 	Keypress: b
+835.8104 	EXP 	Sound  started
+836.3305 	EXP 	New trial (rep=3, index=19): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+838.1095 	EXP 	window1: recordFrameIntervals = False
+838.2337 	DATA 	Keypress: g
+838.2438 	EXP 	Sound  started
+838.4133 	DATA 	Keypress: b
+838.4147 	EXP 	Sound  started
+838.9296 	EXP 	New trial (rep=3, index=20): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+840.7764 	EXP 	window1: recordFrameIntervals = False
+840.9298 	DATA 	Keypress: g
+840.9425 	EXP 	Sound  started
+841.1313 	DATA 	Keypress: b
+841.1321 	EXP 	Sound  started
+841.6451 	EXP 	New trial (rep=3, index=21): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+843.4918 	EXP 	window1: recordFrameIntervals = False
+843.7778 	DATA 	Keypress: g
+843.7784 	EXP 	Sound  started
+843.9124 	DATA 	Keypress: b
+843.9132 	EXP 	Sound  started
+844.4317 	EXP 	New trial (rep=3, index=22): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+846.2268 	EXP 	window1: recordFrameIntervals = False
+846.2945 	DATA 	Keypress: b
+846.2949 	EXP 	Sound  started
+846.4636 	DATA 	Keypress: g
+846.4642 	EXP 	Sound  started
+846.9787 	EXP 	New trial (rep=3, index=23): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+848.9250 	EXP 	window1: recordFrameIntervals = False
+849.3439 	DATA 	Keypress: b
+849.3445 	EXP 	Sound  started
+849.6458 	DATA 	Keypress: g
+849.6467 	EXP 	Sound  started
+850.1618 	EXP 	New trial (rep=3, index=24): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+851.8914 	EXP 	window1: recordFrameIntervals = False
+852.2622 	DATA 	Keypress: g
+852.2630 	EXP 	Sound  started
+852.3965 	DATA 	Keypress: b
+852.3974 	EXP 	Sound  started
+852.9105 	EXP 	New trial (rep=3, index=25): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+854.6578 	EXP 	window1: recordFrameIntervals = False
+855.2127 	DATA 	Keypress: g
+855.2253 	EXP 	Sound  started
+855.3610 	DATA 	Keypress: b
+855.3618 	EXP 	Sound  started
+855.8770 	EXP 	New trial (rep=3, index=26): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+857.3732 	EXP 	window1: recordFrameIntervals = False
+858.0143 	DATA 	Keypress: b
+858.0237 	EXP 	Sound  started
+858.2081 	DATA 	Keypress: g
+858.2086 	EXP 	Sound  started
+858.7271 	EXP 	New trial (rep=3, index=27): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+860.3400 	EXP 	window1: recordFrameIntervals = False
+861.2772 	DATA 	Keypress: g
+861.2777 	EXP 	Sound  started
+861.4271 	DATA 	Keypress: b
+861.4279 	EXP 	Sound  started
+861.9429 	EXP 	New trial (rep=3, index=28): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+863.9050 	EXP 	window1: recordFrameIntervals = False
+864.7405 	DATA 	Keypress: g
+864.7409 	EXP 	Sound  started
+864.8252 	DATA 	Keypress: b
+864.8261 	EXP 	Sound  started
+865.3429 	EXP 	New trial (rep=3, index=29): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+867.2715 	EXP 	window1: recordFrameIntervals = False
+867.5601 	DATA 	Keypress: g
+867.5610 	EXP 	Sound  started
+867.6771 	DATA 	Keypress: b
+867.6902 	EXP 	Sound  started
+868.2090 	EXP 	New trial (rep=3, index=30): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+870.1564 	EXP 	window1: recordFrameIntervals = False
+870.8406 	DATA 	Keypress: g
+870.8411 	EXP 	Sound  started
+870.9903 	DATA 	Keypress: b
+870.9909 	EXP 	Sound  started
+871.5073 	EXP 	New trial (rep=3, index=31): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+873.0219 	EXP 	window1: recordFrameIntervals = False
+873.5245 	DATA 	Keypress: g
+873.5251 	EXP 	Sound  started
+873.6567 	DATA 	Keypress: b
+873.6572 	EXP 	Sound  started
+874.1764 	EXP 	New trial (rep=3, index=32): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+875.8379 	EXP 	window1: recordFrameIntervals = False
+875.9084 	DATA 	Keypress: g
+875.9093 	EXP 	Sound  started
+876.1247 	DATA 	Keypress: b
+876.1392 	EXP 	Sound  started
+876.6585 	EXP 	New trial (rep=3, index=33): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+878.1270 	DATA 	Keypress: g
+878.2203 	EXP 	window1: recordFrameIntervals = False
+878.2895 	DATA 	Keypress: b
+878.2900 	EXP 	Sound  started
+879.5731 	DATA 	Keypress: backspace
+880.1089 	DATA 	Keypress: g
+880.1097 	EXP 	Sound  started
+880.2248 	DATA 	Keypress: b
+880.2257 	EXP 	Sound  started
+880.7411 	EXP 	New trial (rep=3, index=34): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+882.7037 	EXP 	window1: recordFrameIntervals = False
+883.0748 	DATA 	Keypress: g
+883.0757 	EXP 	Sound  started
+883.2580 	DATA 	Keypress: b
+883.2589 	EXP 	Sound  started
+883.7735 	EXP 	New trial (rep=3, index=35): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+885.4786 	DATA 	Keypress: g
+885.4888 	EXP 	window1: recordFrameIntervals = False
+885.4897 	ERROR 	trialnum=251 ERROR,2 frames were longer than 20.8 ms apparently screen refreshes skipped, interframe durs were:[22.9 22.4] and was these frames: [24 26]
+885.4901 	INFO 	flankers also=[19.7 22.9  9.4  9.4 22.4 11.4]
+885.9769 	DATA 	Keypress: g
+885.9775 	EXP 	Sound  started
+886.1231 	DATA 	Keypress: b
+886.1252 	EXP 	Sound  started
+886.6528 	EXP 	New trial (rep=3, index=36): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+888.5222 	EXP 	window1: recordFrameIntervals = False
+888.6251 	DATA 	Keypress: g
+888.6259 	EXP 	Sound  started
+888.9742 	DATA 	Keypress: b
+888.9747 	EXP 	Sound  started
+889.4903 	EXP 	New trial (rep=3, index=37): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+891.3220 	EXP 	window1: recordFrameIntervals = False
+891.3228 	ERROR 	trialnum=253 ERROR,1 frames were longer than 20.8 ms apparently screen refreshes skipped, interframe durs were:[72.6] and was these frames: [4]
+891.3231 	INFO 	flankers also=[16.6 72.6 10.4]
+891.7414 	DATA 	Keypress: g
+891.7422 	EXP 	Sound  started
+891.9078 	DATA 	Keypress: b
+891.9082 	EXP 	Sound  started
+892.4225 	EXP 	New trial (rep=3, index=38): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+893.9708 	EXP 	window1: recordFrameIntervals = False
+894.3923 	DATA 	Keypress: g
+894.3929 	EXP 	Sound  started
+894.6392 	DATA 	Keypress: b
+894.6399 	EXP 	Sound  started
+895.1581 	EXP 	New trial (rep=3, index=39): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+896.7889 	EXP 	window1: recordFrameIntervals = False
+896.8563 	DATA 	Keypress: g
+896.8569 	EXP 	Sound  started
+897.0252 	DATA 	Keypress: b
+897.0261 	EXP 	Sound  started
+897.5411 	EXP 	New trial (rep=3, index=40): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+899.0590 	DATA 	Keypress: g
+899.1379 	EXP 	window1: recordFrameIntervals = False
+899.2424 	DATA 	Keypress: b
+899.2438 	EXP 	Sound  started
+900.2087 	DATA 	Keypress: backspace
+900.4236 	DATA 	Keypress: g
+900.4240 	EXP 	Sound  started
+900.8245 	DATA 	Keypress: b
+900.8253 	EXP 	Sound  started
+901.3393 	EXP 	New trial (rep=3, index=41): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+903.1709 	EXP 	window1: recordFrameIntervals = False
+903.2227 	DATA 	Keypress: g
+903.2232 	EXP 	Sound  started
+903.4749 	DATA 	Keypress: b
+903.4757 	EXP 	Sound  started
+903.9900 	EXP 	New trial (rep=3, index=42): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+905.7050 	EXP 	window1: recordFrameIntervals = False
+905.7414 	DATA 	Keypress: g
+905.7423 	EXP 	Sound  started
+905.9750 	DATA 	Keypress: b
+905.9758 	EXP 	Sound  started
+906.4901 	EXP 	New trial (rep=3, index=43): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+908.0711 	EXP 	window1: recordFrameIntervals = False
+908.1444 	DATA 	Keypress: g
+908.1551 	EXP 	Sound  started
+908.3411 	DATA 	Keypress: b
+908.3420 	EXP 	Sound  started
+908.8567 	EXP 	New trial (rep=3, index=44): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+910.7376 	EXP 	window1: recordFrameIntervals = False
+910.7748 	DATA 	Keypress: g
+910.7756 	EXP 	Sound  started
+910.9270 	DATA 	Keypress: b
+910.9392 	EXP 	Sound  started
+911.4567 	EXP 	New trial (rep=3, index=45): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+913.2712 	EXP 	window1: recordFrameIntervals = False
+913.3084 	DATA 	Keypress: g
+913.3094 	EXP 	Sound  started
+913.4750 	DATA 	Keypress: b
+913.4758 	EXP 	Sound  started
+913.9901 	EXP 	New trial (rep=3, index=46): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+915.6878 	EXP 	window1: recordFrameIntervals = False
+916.0601 	DATA 	Keypress: g
+916.0710 	EXP 	Sound  started
+916.1744 	DATA 	Keypress: b
+916.1752 	EXP 	Sound  started
+916.6917 	EXP 	New trial (rep=3, index=47): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+918.1228 	DATA 	Keypress: g
+918.1878 	EXP 	window1: recordFrameIntervals = False
+918.3250 	DATA 	Keypress: b
+918.3262 	EXP 	Sound  started
+919.2573 	DATA 	Keypress: backspace
+919.7095 	DATA 	Keypress: g
+919.7219 	EXP 	Sound  started
+919.9084 	DATA 	Keypress: b
+919.9092 	EXP 	Sound  started
+920.4235 	EXP 	New trial (rep=3, index=48): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+922.1065 	DATA 	Keypress: g
+922.2210 	EXP 	window1: recordFrameIntervals = False
+922.5266 	DATA 	Keypress: g
+922.5380 	EXP 	Sound  started
+922.8266 	DATA 	Keypress: b
+922.8382 	EXP 	Sound  started
+923.3571 	EXP 	New trial (rep=3, index=49): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+925.2875 	EXP 	window1: recordFrameIntervals = False
+925.6075 	DATA 	Keypress: g
+925.6084 	EXP 	Sound  started
+925.9082 	DATA 	Keypress: b
+925.9090 	EXP 	Sound  started
+926.4243 	EXP 	New trial (rep=3, index=50): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+928.2710 	EXP 	window1: recordFrameIntervals = False
+928.5936 	DATA 	Keypress: g
+928.6049 	EXP 	Sound  started
+928.8909 	DATA 	Keypress: b
+928.8917 	EXP 	Sound  started
+929.4075 	EXP 	New trial (rep=3, index=51): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+931.2260 	DATA 	Keypress: g
+931.2704 	EXP 	window1: recordFrameIntervals = False
+931.6056 	DATA 	Keypress: g
+931.6064 	EXP 	Sound  started
+931.8729 	DATA 	Keypress: b
+931.8735 	EXP 	Sound  started
+932.3895 	EXP 	New trial (rep=3, index=52): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+934.3379 	EXP 	window1: recordFrameIntervals = False
+934.3387 	ERROR 	trialnum=268 ERROR,1 frames were longer than 20.8 ms apparently screen refreshes skipped, interframe durs were:[22.1] and was these frames: [23]
+934.3391 	INFO 	flankers also=[17.5 22.1 10.4]
+934.3756 	DATA 	Keypress: g
+934.3762 	EXP 	Sound  started
+934.8060 	DATA 	Keypress: b
+934.8065 	EXP 	Sound  started
+935.3228 	EXP 	New trial (rep=3, index=53): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+936.8041 	EXP 	window1: recordFrameIntervals = False
+937.1727 	DATA 	Keypress: g
+937.1733 	EXP 	Sound  started
+937.4382 	DATA 	Keypress: b
+937.4386 	EXP 	Sound  started
+937.9553 	EXP 	New trial (rep=3, index=54): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+939.7543 	EXP 	window1: recordFrameIntervals = False
+939.9722 	DATA 	Keypress: g
+939.9728 	EXP 	Sound  started
+940.3413 	DATA 	Keypress: b
+940.3421 	EXP 	Sound  started
+941.9623 	DATA 	Keypress: space
+942.3647 	EXP 	New trial (rep=3, index=55): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+943.9378 	EXP 	window1: recordFrameIntervals = False
+944.0273 	DATA 	Keypress: g
+944.0373 	EXP 	Sound  started
+944.3914 	DATA 	Keypress: b
+944.3922 	EXP 	Sound  started
+944.9077 	EXP 	New trial (rep=3, index=56): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+946.6545 	EXP 	window1: recordFrameIntervals = False
+946.7117 	DATA 	Keypress: g
+946.7216 	EXP 	Sound  started
+947.0558 	DATA 	Keypress: b
+947.0562 	EXP 	Sound  started
+947.5745 	EXP 	New trial (rep=3, index=57): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+949.0870 	EXP 	window1: recordFrameIntervals = False
+949.1413 	DATA 	Keypress: b
+949.1422 	EXP 	Sound  started
+949.3909 	DATA 	Keypress: g
+949.3917 	EXP 	Sound  started
+949.9079 	EXP 	New trial (rep=3, index=58): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+951.7709 	EXP 	window1: recordFrameIntervals = False
+952.1251 	DATA 	Keypress: g
+952.1259 	EXP 	Sound  started
+952.3743 	DATA 	Keypress: b
+952.3751 	EXP 	Sound  started
+952.8906 	EXP 	New trial (rep=3, index=59): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+954.8375 	EXP 	window1: recordFrameIntervals = False
+955.1910 	DATA 	Keypress: b
+955.1919 	EXP 	Sound  started
+956.1068 	DATA 	Keypress: backspace
+956.5610 	DATA 	Keypress: g
+956.5715 	EXP 	Sound  started
+956.6741 	DATA 	Keypress: b
+956.6749 	EXP 	Sound  started
+957.1894 	EXP 	New trial (rep=3, index=60): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+959.0374 	EXP 	window1: recordFrameIntervals = False
+959.3773 	DATA 	Keypress: g
+959.3881 	EXP 	Sound  started
+959.6077 	DATA 	Keypress: b
+959.6085 	EXP 	Sound  started
+960.1244 	EXP 	New trial (rep=3, index=61): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+962.0711 	EXP 	window1: recordFrameIntervals = False
+962.4080 	DATA 	Keypress: g
+962.4088 	EXP 	Sound  started
+962.6596 	DATA 	Keypress: b
+962.6718 	EXP 	Sound  started
+963.1910 	EXP 	New trial (rep=3, index=62): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+964.8209 	EXP 	window1: recordFrameIntervals = False
+965.0435 	DATA 	Keypress: g
+965.0556 	EXP 	Sound  started
+965.2579 	DATA 	Keypress: b
+965.2587 	EXP 	Sound  started
+965.7732 	EXP 	New trial (rep=3, index=63): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+967.3042 	EXP 	window1: recordFrameIntervals = False
+967.4746 	DATA 	Keypress: g
+967.4882 	EXP 	Sound  started
+967.7238 	DATA 	Keypress: b
+967.7246 	EXP 	Sound  started
+968.2394 	EXP 	New trial (rep=3, index=64): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+970.0209 	EXP 	window1: recordFrameIntervals = False
+970.2912 	DATA 	Keypress: g
+970.2922 	EXP 	Sound  started
+970.4579 	DATA 	Keypress: b
+970.4584 	EXP 	Sound  started
+970.9730 	EXP 	New trial (rep=3, index=65): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+972.6874 	EXP 	window1: recordFrameIntervals = False
+972.8259 	DATA 	Keypress: g
+972.8268 	EXP 	Sound  started
+973.1254 	DATA 	Keypress: b
+973.1263 	EXP 	Sound  started
+973.6393 	EXP 	New trial (rep=3, index=66): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+975.5870 	EXP 	window1: recordFrameIntervals = False
+975.7246 	DATA 	Keypress: g
+975.7256 	EXP 	Sound  started
+975.9412 	DATA 	Keypress: b
+975.9420 	EXP 	Sound  started
+976.4577 	EXP 	New trial (rep=3, index=67): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+977.9623 	DATA 	Keypress: g
+977.9878 	EXP 	window1: recordFrameIntervals = False
+978.3745 	DATA 	Keypress: g
+978.3753 	EXP 	Sound  started
+978.5931 	DATA 	Keypress: b
+978.6051 	EXP 	Sound  started
+979.1242 	EXP 	New trial (rep=3, index=68): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+980.6101 	DATA 	Keypress: g
+980.6712 	EXP 	window1: recordFrameIntervals = False
+980.9745 	DATA 	Keypress: g
+980.9752 	EXP 	Sound  started
+981.1903 	DATA 	Keypress: b
+981.1911 	EXP 	Sound  started
+981.7074 	EXP 	New trial (rep=3, index=69): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+982.4907 	DATA 	Keypress: b
+983.3375 	EXP 	window1: recordFrameIntervals = False
+983.7244 	DATA 	Keypress: g
+983.7252 	EXP 	Sound  started
+983.8904 	DATA 	Keypress: b
+983.8913 	EXP 	Sound  started
+984.4075 	EXP 	New trial (rep=3, index=70): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+986.0542 	EXP 	window1: recordFrameIntervals = False
+986.4075 	DATA 	Keypress: b
+986.4084 	EXP 	Sound  started
+986.5578 	DATA 	Keypress: g
+986.5585 	EXP 	Sound  started
+987.0730 	EXP 	New trial (rep=3, index=71): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+988.8875 	EXP 	window1: recordFrameIntervals = False
+989.1742 	DATA 	Keypress: b
+989.1750 	EXP 	Sound  started
+989.2913 	DATA 	Keypress: g
+989.2920 	EXP 	Sound  started
+989.8052 	EXP 	New trial (rep=4, index=0): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+991.6710 	EXP 	window1: recordFrameIntervals = False
+991.9392 	DATA 	Keypress: b
+991.9397 	EXP 	Sound  started
+992.0913 	DATA 	Keypress: g
+992.0922 	EXP 	Sound  started
+992.6078 	EXP 	New trial (rep=4, index=1): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+994.5196 	EXP 	window1: recordFrameIntervals = False
+994.7736 	DATA 	Keypress: b
+994.7741 	EXP 	Sound  started
+994.9243 	DATA 	Keypress: g
+994.9249 	EXP 	Sound  started
+995.4407 	EXP 	New trial (rep=4, index=2): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+997.0715 	EXP 	window1: recordFrameIntervals = False
+997.1580 	DATA 	Keypress: b
+997.1586 	EXP 	Sound  started
+997.3745 	DATA 	Keypress: g
+997.3753 	EXP 	Sound  started
+997.8888 	EXP 	New trial (rep=4, index=3): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+999.5362 	EXP 	window1: recordFrameIntervals = False
+999.8387 	DATA 	Keypress: b
+999.8392 	EXP 	Sound  started
+1000.0099 	DATA 	Keypress: g
+1000.0216 	EXP 	Sound  started
+1000.5407 	EXP 	New trial (rep=4, index=4): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+1002.1205 	EXP 	window1: recordFrameIntervals = False
+1002.1240 	DATA 	Keypress: b
+1002.5247 	DATA 	Keypress: b
+1002.5254 	EXP 	Sound  started
+1002.7416 	DATA 	Keypress: g
+1002.7427 	EXP 	Sound  started
+1003.2563 	EXP 	New trial (rep=4, index=5): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+1004.8036 	EXP 	window1: recordFrameIntervals = False
+1005.5409 	DATA 	Keypress: g
+1005.5417 	EXP 	Sound  started
+1005.6765 	DATA 	Keypress: b
+1005.6882 	EXP 	Sound  started
+1006.2056 	EXP 	New trial (rep=4, index=6): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+1007.8872 	EXP 	window1: recordFrameIntervals = False
+1008.1740 	DATA 	Keypress: g
+1008.1752 	EXP 	Sound  started
+1008.2931 	DATA 	Keypress: b
+1008.3047 	EXP 	Sound  started
+1008.8238 	EXP 	New trial (rep=4, index=7): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+1010.6539 	EXP 	window1: recordFrameIntervals = False
+1010.8405 	DATA 	Keypress: g
+1010.8414 	EXP 	Sound  started
+1011.0408 	DATA 	Keypress: b
+1011.0416 	EXP 	Sound  started
+1011.5577 	EXP 	New trial (rep=4, index=8): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+1013.2874 	EXP 	window1: recordFrameIntervals = False
+1013.5750 	DATA 	Keypress: g
+1013.5760 	EXP 	Sound  started
+1013.6926 	DATA 	Keypress: b
+1013.7052 	EXP 	Sound  started
+1014.2241 	EXP 	New trial (rep=4, index=9): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+1016.0039 	EXP 	window1: recordFrameIntervals = False
+1016.2917 	DATA 	Keypress: g
+1016.2925 	EXP 	Sound  started
+1016.4408 	DATA 	Keypress: b
+1016.4417 	EXP 	Sound  started
+1016.9573 	EXP 	New trial (rep=4, index=10): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+1018.8873 	EXP 	window1: recordFrameIntervals = False
+1019.0410 	DATA 	Keypress: b
+1019.0421 	EXP 	Sound  started
+1019.2089 	DATA 	Keypress: g
+1019.2097 	EXP 	Sound  started
+1019.7223 	EXP 	New trial (rep=4, index=11): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+1021.2394 	EXP 	window1: recordFrameIntervals = False
+1021.3915 	DATA 	Keypress: b
+1021.3923 	EXP 	Sound  started
+1021.5085 	DATA 	Keypress: g
+1021.5093 	EXP 	Sound  started
+1022.0241 	EXP 	New trial (rep=4, index=12): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+1023.5083 	DATA 	Keypress: b
+1023.6547 	EXP 	window1: recordFrameIntervals = False
+1023.7229 	DATA 	Keypress: g
+1023.7234 	EXP 	Sound  started
+1025.2924 	DATA 	Keypress: b
+1025.2928 	EXP 	Sound  started
+1025.8058 	EXP 	New trial (rep=4, index=13): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+1027.7203 	EXP 	window1: recordFrameIntervals = False
+1028.0600 	DATA 	Keypress: b
+1028.0713 	EXP 	Sound  started
+1028.1935 	DATA 	Keypress: g
+1028.2046 	EXP 	Sound  started
+1028.7238 	EXP 	New trial (rep=4, index=14): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 1.5}
+1030.3045 	EXP 	window1: recordFrameIntervals = False
+1030.5907 	DATA 	Keypress: g
+1030.5915 	EXP 	Sound  started
+1030.7229 	DATA 	Keypress: b
+1030.7234 	EXP 	Sound  started
+1031.2406 	EXP 	New trial (rep=4, index=15): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+1033.0709 	EXP 	window1: recordFrameIntervals = False
+1033.4911 	DATA 	Keypress: b
+1033.4921 	EXP 	Sound  started
+1033.6405 	DATA 	Keypress: g
+1033.6414 	EXP 	Sound  started
+1034.1562 	EXP 	New trial (rep=4, index=16): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 6.5}
+1035.6705 	EXP 	window1: recordFrameIntervals = False
+1036.8581 	DATA 	Keypress: b
+1036.8590 	EXP 	Sound  started
+1036.9743 	DATA 	Keypress: g
+1036.9751 	EXP 	Sound  started
+1037.4902 	EXP 	New trial (rep=4, index=17): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+1039.2543 	EXP 	window1: recordFrameIntervals = False
+1040.2891 	DATA 	Keypress: g
+1040.2899 	EXP 	Sound  started
+1040.4264 	DATA 	Keypress: b
+1040.4381 	EXP 	Sound  started
+1040.9563 	EXP 	New trial (rep=4, index=18): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+1042.8873 	EXP 	window1: recordFrameIntervals = False
+1043.4405 	DATA 	Keypress: b
+1043.4412 	EXP 	Sound  started
+1043.5743 	DATA 	Keypress: g
+1043.5751 	EXP 	Sound  started
+1044.0898 	EXP 	New trial (rep=4, index=19): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 9}
+1045.8703 	EXP 	window1: recordFrameIntervals = False
+1046.4111 	DATA 	Keypress: g
+1046.4203 	EXP 	Sound  started
+1046.5744 	DATA 	Keypress: b
+1046.5753 	EXP 	Sound  started
+1047.0882 	EXP 	New trial (rep=4, index=20): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+1048.7027 	EXP 	window1: recordFrameIntervals = False
+1049.4771 	DATA 	Keypress: g
+1049.4871 	EXP 	Sound  started
+1049.5910 	DATA 	Keypress: b
+1049.5918 	EXP 	Sound  started
+1050.1063 	EXP 	New trial (rep=4, index=21): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 6.5}
+1051.9540 	EXP 	window1: recordFrameIntervals = False
+1052.4894 	DATA 	Keypress: g
+1052.4901 	EXP 	Sound  started
+1052.6236 	DATA 	Keypress: b
+1052.6244 	EXP 	Sound  started
+1053.1400 	EXP 	New trial (rep=4, index=22): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+1054.9373 	EXP 	window1: recordFrameIntervals = False
+1055.2744 	DATA 	Keypress: g
+1055.2753 	EXP 	Sound  started
+1055.4226 	DATA 	Keypress: b
+1055.4230 	EXP 	Sound  started
+1055.9435 	EXP 	New trial (rep=4, index=23): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 3}
+1057.6870 	EXP 	window1: recordFrameIntervals = False
+1058.4750 	DATA 	Keypress: g
+1058.4759 	EXP 	Sound  started
+1058.6073 	DATA 	Keypress: b
+1058.6081 	EXP 	Sound  started
+1059.1241 	EXP 	New trial (rep=4, index=24): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+1060.9213 	EXP 	window1: recordFrameIntervals = False
+1061.2729 	DATA 	Keypress: b
+1061.2733 	EXP 	Sound  started
+1061.4070 	DATA 	Keypress: g
+1061.4209 	EXP 	Sound  started
+1061.9409 	EXP 	New trial (rep=4, index=25): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 1.5}
+1063.6381 	EXP 	window1: recordFrameIntervals = False
+1064.0233 	DATA 	Keypress: b
+1064.0243 	EXP 	Sound  started
+1064.1753 	DATA 	Keypress: g
+1064.1762 	EXP 	Sound  started
+1064.6889 	EXP 	New trial (rep=4, index=26): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+1066.3367 	EXP 	window1: recordFrameIntervals = False
+1066.9383 	DATA 	Keypress: b
+1066.9390 	EXP 	Sound  started
+1067.1410 	DATA 	Keypress: g
+1067.1419 	EXP 	Sound  started
+1067.6561 	EXP 	New trial (rep=4, index=27): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 1.5}
+1069.3036 	EXP 	window1: recordFrameIntervals = False
+1070.0412 	DATA 	Keypress: g
+1070.0421 	EXP 	Sound  started
+1070.2053 	DATA 	Keypress: b
+1070.2058 	EXP 	Sound  started
+1070.7237 	EXP 	New trial (rep=4, index=28): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+1072.5367 	EXP 	window1: recordFrameIntervals = False
+1072.9066 	DATA 	Keypress: g
+1072.9073 	EXP 	Sound  started
+1073.0576 	DATA 	Keypress: b
+1073.0583 	EXP 	Sound  started
+1073.5738 	EXP 	New trial (rep=4, index=29): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+1075.3705 	EXP 	window1: recordFrameIntervals = False
+1075.7603 	DATA 	Keypress: g
+1075.7708 	EXP 	Sound  started
+1075.9078 	DATA 	Keypress: b
+1075.9086 	EXP 	Sound  started
+1076.4241 	EXP 	New trial (rep=4, index=30): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 3}
+1078.2873 	EXP 	window1: recordFrameIntervals = False
+1078.4564 	DATA 	Keypress: g
+1078.4570 	EXP 	Sound  started
+1078.6234 	DATA 	Keypress: b
+1078.6241 	EXP 	Sound  started
+1079.1406 	EXP 	New trial (rep=4, index=31): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+1080.7204 	EXP 	window1: recordFrameIntervals = False
+1080.9094 	DATA 	Keypress: g
+1080.9209 	EXP 	Sound  started
+1081.0741 	DATA 	Keypress: b
+1081.0749 	EXP 	Sound  started
+1081.5900 	EXP 	New trial (rep=4, index=32): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+1083.1877 	EXP 	window1: recordFrameIntervals = False
+1083.9736 	DATA 	Keypress: b
+1083.9744 	EXP 	Sound  started
+1084.1266 	DATA 	Keypress: g
+1084.1376 	EXP 	Sound  started
+1084.6568 	EXP 	New trial (rep=4, index=33): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+1086.5044 	EXP 	window1: recordFrameIntervals = False
+1087.4080 	DATA 	Keypress: b
+1087.4089 	EXP 	Sound  started
+1087.5071 	DATA 	Keypress: g
+1087.5079 	EXP 	Sound  started
+1088.0223 	EXP 	New trial (rep=4, index=34): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 1.5}
+1089.9373 	EXP 	window1: recordFrameIntervals = False
+1090.2243 	DATA 	Keypress: g
+1090.2251 	EXP 	Sound  started
+1090.3890 	DATA 	Keypress: b
+1090.3894 	EXP 	Sound  started
+1090.9058 	EXP 	New trial (rep=4, index=35): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+1092.3875 	EXP 	window1: recordFrameIntervals = False
+1092.7409 	DATA 	Keypress: b
+1092.7419 	EXP 	Sound  started
+1092.8734 	DATA 	Keypress: g
+1092.8743 	EXP 	Sound  started
+1093.3890 	EXP 	New trial (rep=4, index=36): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+1094.9704 	EXP 	window1: recordFrameIntervals = False
+1096.1550 	DATA 	Keypress: b
+1096.1555 	EXP 	Sound  started
+1096.2912 	DATA 	Keypress: g
+1096.2920 	EXP 	Sound  started
+1096.8066 	EXP 	New trial (rep=4, index=37): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+1098.4375 	EXP 	window1: recordFrameIntervals = False
+1098.7225 	DATA 	Keypress: g
+1098.7231 	EXP 	Sound  started
+1098.8746 	DATA 	Keypress: b
+1098.8754 	EXP 	Sound  started
+1099.3891 	EXP 	New trial (rep=4, index=38): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 3}
+1101.3044 	EXP 	window1: recordFrameIntervals = False
+1101.4743 	DATA 	Keypress: g
+1101.4751 	EXP 	Sound  started
+1101.6223 	DATA 	Keypress: b
+1101.6228 	EXP 	Sound  started
+1102.1397 	EXP 	New trial (rep=4, index=39): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+1104.1038 	EXP 	window1: recordFrameIntervals = False
+1104.2094 	DATA 	Keypress: g
+1104.2213 	EXP 	Sound  started
+1104.3738 	DATA 	Keypress: b
+1104.3746 	EXP 	Sound  started
+1104.8898 	EXP 	New trial (rep=4, index=40): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 1.5}
+1106.3701 	EXP 	window1: recordFrameIntervals = False
+1106.8417 	DATA 	Keypress: b
+1106.8426 	EXP 	Sound  started
+1106.9733 	DATA 	Keypress: g
+1106.9738 	EXP 	Sound  started
+1107.4902 	EXP 	New trial (rep=4, index=41): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 1.5}
+1109.2704 	EXP 	window1: recordFrameIntervals = False
+1110.7880 	DATA 	Keypress: g
+1110.7885 	EXP 	Sound  started
+1110.9570 	DATA 	Keypress: b
+1110.9577 	EXP 	Sound  started
+1111.4748 	EXP 	New trial (rep=4, index=42): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+1113.1868 	EXP 	window1: recordFrameIntervals = False
+1114.0074 	DATA 	Keypress: g
+1114.0083 	EXP 	Sound  started
+1114.2736 	DATA 	Keypress: b
+1114.2744 	EXP 	Sound  started
+1114.7928 	EXP 	New trial (rep=4, index=43): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+1116.5697 	EXP 	window1: recordFrameIntervals = False
+1117.3112 	DATA 	Keypress: g
+1117.3205 	EXP 	Sound  started
+1117.4550 	DATA 	Keypress: b
+1117.4554 	EXP 	Sound  started
+1117.9718 	EXP 	New trial (rep=4, index=44): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 6.5}
+1119.8536 	EXP 	window1: recordFrameIntervals = False
+1120.1760 	DATA 	Keypress: b
+1120.1876 	EXP 	Sound  started
+1120.3071 	DATA 	Keypress: g
+1120.3079 	EXP 	Sound  started
+1120.8234 	EXP 	New trial (rep=4, index=45): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 9}
+1122.4055 	EXP 	window1: recordFrameIntervals = False
+1123.2909 	DATA 	Keypress: g
+1123.2919 	EXP 	Sound  started
+1123.4225 	DATA 	Keypress: b
+1123.4230 	EXP 	Sound  started
+1123.9399 	EXP 	New trial (rep=4, index=46): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 9}
+1125.5370 	EXP 	window1: recordFrameIntervals = False
+1126.6390 	DATA 	Keypress: g
+1126.6397 	EXP 	Sound  started
+1126.7890 	DATA 	Keypress: b
+1126.7894 	EXP 	Sound  started
+1127.3055 	EXP 	New trial (rep=4, index=47): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 9}
+1129.2540 	EXP 	window1: recordFrameIntervals = False
+1129.2550 	ERROR 	trialnum=335 ERROR,2 frames were longer than 20.8 ms apparently screen refreshes skipped, interframe durs were:[34.2 22. ] and was these frames: [3 4]
+1129.2556 	INFO 	flankers also=[14.7 34.2 22.  34.2 22.  12.2]
+1129.5407 	DATA 	Keypress: g
+1129.5415 	EXP 	Sound  started
+1129.6765 	DATA 	Keypress: b
+1129.6878 	EXP 	Sound  started
+1130.2055 	EXP 	New trial (rep=4, index=48): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 3}
+1131.7699 	EXP 	window1: recordFrameIntervals = False
+1131.9934 	DATA 	Keypress: g
+1132.0049 	EXP 	Sound  started
+1132.1072 	DATA 	Keypress: b
+1132.1080 	EXP 	Sound  started
+1132.6232 	EXP 	New trial (rep=4, index=49): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 6.5}
+1134.4041 	EXP 	window1: recordFrameIntervals = False
+1134.4051 	ERROR 	trialnum=337 ERROR,2 frames were longer than 20.8 ms apparently screen refreshes skipped, interframe durs were:[36.7 22.1] and was these frames: [ 3 31]
+1134.4055 	INFO 	flankers also=[15.9 36.7 16.5 18.6 22.1  9.7]
+1134.7907 	DATA 	Keypress: g
+1134.7915 	EXP 	Sound  started
+1134.9240 	DATA 	Keypress: b
+1134.9248 	EXP 	Sound  started
+1135.4402 	EXP 	New trial (rep=4, index=50): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+1136.9542 	EXP 	window1: recordFrameIntervals = False
+1137.3571 	DATA 	Keypress: g
+1137.3579 	EXP 	Sound  started
+1137.4756 	DATA 	Keypress: b
+1137.4879 	EXP 	Sound  started
+1138.0054 	EXP 	New trial (rep=4, index=51): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 9}
+1139.5205 	EXP 	window1: recordFrameIntervals = False
+1139.7891 	DATA 	Keypress: g
+1139.7896 	EXP 	Sound  started
+1139.9906 	DATA 	Keypress: b
+1139.9915 	EXP 	Sound  started
+1140.5071 	EXP 	New trial (rep=4, index=52): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 9}
+1142.3696 	EXP 	window1: recordFrameIntervals = False
+1142.3738 	DATA 	Keypress: g
+1142.5240 	DATA 	Keypress: b
+1142.5248 	EXP 	Sound  started
+1143.5065 	DATA 	Keypress: backspace
+1143.7406 	DATA 	Keypress: g
+1143.7414 	EXP 	Sound  started
+1143.9243 	DATA 	Keypress: b
+1143.9252 	EXP 	Sound  started
+1144.4431 	EXP 	New trial (rep=4, index=53): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 1.5}
+1146.1704 	EXP 	window1: recordFrameIntervals = False
+1146.4575 	DATA 	Keypress: g
+1146.4584 	EXP 	Sound  started
+1146.6074 	DATA 	Keypress: b
+1146.6210 	EXP 	Sound  started
+1147.1439 	EXP 	New trial (rep=4, index=54): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+1148.8875 	EXP 	window1: recordFrameIntervals = False
+1149.0409 	DATA 	Keypress: g
+1149.0418 	EXP 	Sound  started
+1149.2404 	DATA 	Keypress: b
+1149.2413 	EXP 	Sound  started
+1149.7574 	EXP 	New trial (rep=4, index=55): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+1151.6370 	EXP 	window1: recordFrameIntervals = False
+1151.8089 	DATA 	Keypress: b
+1151.8098 	EXP 	Sound  started
+1151.9735 	DATA 	Keypress: g
+1151.9743 	EXP 	Sound  started
+1152.4902 	EXP 	New trial (rep=4, index=56): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -2, 'cueEccentricity': 3}
+1153.9705 	EXP 	window1: recordFrameIntervals = False
+1154.1910 	DATA 	Keypress: b
+1154.1919 	EXP 	Sound  started
+1154.3092 	DATA 	Keypress: g
+1154.3210 	EXP 	Sound  started
+1154.8407 	EXP 	New trial (rep=4, index=57): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 9}
+1156.7366 	EXP 	window1: recordFrameIntervals = False
+1157.4581 	DATA 	Keypress: g
+1157.4593 	EXP 	Sound  started
+1157.5904 	DATA 	Keypress: b
+1157.5909 	EXP 	Sound  started
+1158.1077 	EXP 	New trial (rep=4, index=58): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+1160.0536 	EXP 	window1: recordFrameIntervals = False
+1160.5592 	DATA 	Keypress: g
+1160.5701 	EXP 	Sound  started
+1160.7408 	DATA 	Keypress: b
+1160.7418 	EXP 	Sound  started
+1161.2547 	EXP 	New trial (rep=4, index=59): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 6.5}
+1163.2203 	EXP 	window1: recordFrameIntervals = False
+1163.5229 	DATA 	Keypress: b
+1163.5237 	EXP 	Sound  started
+1163.6564 	DATA 	Keypress: g
+1163.6573 	EXP 	Sound  started
+1164.1737 	EXP 	New trial (rep=4, index=60): {'changeCue1': True, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 1.5}
+1165.8375 	EXP 	window1: recordFrameIntervals = False
+1166.0906 	DATA 	Keypress: b
+1166.0914 	EXP 	Sound  started
+1166.2064 	DATA 	Keypress: g
+1166.2072 	EXP 	Sound  started
+1166.7221 	EXP 	New trial (rep=4, index=61): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 6.5}
+1168.6039 	EXP 	window1: recordFrameIntervals = False
+1168.7568 	DATA 	Keypress: b
+1168.7576 	EXP 	Sound  started
+1168.9061 	DATA 	Keypress: g
+1168.9195 	EXP 	Sound  started
+1169.4395 	EXP 	New trial (rep=4, index=62): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 3, 'cueEccentricity': 9}
+1170.9702 	EXP 	window1: recordFrameIntervals = False
+1171.2742 	DATA 	Keypress: b
+1171.2751 	EXP 	Sound  started
+1171.3886 	DATA 	Keypress: g
+1171.3895 	EXP 	Sound  started
+1171.9062 	EXP 	New trial (rep=4, index=63): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -4, 'cueEccentricity': 3}
+1173.5697 	EXP 	window1: recordFrameIntervals = False
+1173.8574 	DATA 	Keypress: g
+1173.8582 	EXP 	Sound  started
+1174.0058 	DATA 	Keypress: b
+1174.0196 	EXP 	Sound  started
+1174.5438 	EXP 	New trial (rep=4, index=64): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 1.5}
+1176.0871 	EXP 	window1: recordFrameIntervals = False
+1177.2241 	DATA 	Keypress: b
+1177.2251 	EXP 	Sound  started
+1177.7216 	DATA 	Keypress: g
+1177.7220 	EXP 	Sound  started
+1178.2402 	EXP 	New trial (rep=4, index=65): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 3}
+1179.9368 	EXP 	window1: recordFrameIntervals = False
+1180.2406 	DATA 	Keypress: g
+1180.2415 	EXP 	Sound  started
+1180.4411 	DATA 	Keypress: b
+1180.4426 	EXP 	Sound  started
+1180.9564 	EXP 	New trial (rep=4, index=66): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 1, 'cueEccentricity': 6.5}
+1182.7869 	EXP 	window1: recordFrameIntervals = False
+1183.2736 	DATA 	Keypress: g
+1183.2746 	EXP 	Sound  started
+1183.4218 	DATA 	Keypress: b
+1183.4222 	EXP 	Sound  started
+1183.9390 	EXP 	New trial (rep=4, index=67): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 2, 'cueEccentricity': 6.5}
+1185.4201 	EXP 	window1: recordFrameIntervals = False
+1186.7604 	DATA 	Keypress: g
+1186.7696 	EXP 	Sound  started
+1187.2075 	DATA 	Keypress: b
+1187.2083 	EXP 	Sound  started
+1187.7232 	EXP 	New trial (rep=4, index=68): {'changeCue1': False, 'cueCoords': [1, 0], 'cue1pos': 10, 'cue2lag': -1, 'cueEccentricity': 9}
+1189.6872 	EXP 	window1: recordFrameIntervals = False
+1190.0902 	DATA 	Keypress: b
+1190.0911 	EXP 	Sound  started
+1190.2240 	DATA 	Keypress: g
+1190.2248 	EXP 	Sound  started
+1190.7406 	EXP 	New trial (rep=4, index=69): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 0, 'cueEccentricity': 3}
+1192.6026 	EXP 	window1: recordFrameIntervals = False
+1192.9408 	DATA 	Keypress: g
+1192.9415 	EXP 	Sound  started
+1193.0905 	DATA 	Keypress: b
+1193.0914 	EXP 	Sound  started
+1193.6052 	EXP 	New trial (rep=4, index=70): {'changeCue1': True, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': 4, 'cueEccentricity': 6.5}
+1195.5200 	EXP 	window1: recordFrameIntervals = False
+1196.0072 	DATA 	Keypress: g
+1196.0212 	EXP 	Sound  started
+1196.3734 	DATA 	Keypress: b
+1196.3743 	EXP 	Sound  started
+1196.8905 	EXP 	New trial (rep=4, index=71): {'changeCue1': False, 'cueCoords': [-1, 0], 'cue1pos': 10, 'cue2lag': -3, 'cueEccentricity': 3}
+1198.8536 	EXP 	window1: recordFrameIntervals = False
+1199.0545 	DATA 	Keypress: g
+1199.0549 	EXP 	Sound  started
+1199.2737 	DATA 	Keypress: b
+1199.2751 	EXP 	Sound  started
+1199.7877 	INFO 	Finishing at 14:54 on 07 Dec 2018
+1199.7878 	ERROR 	Finishing at 14:54 on 07 Dec 2018
+1200.1913 	EXP 	window1: mouseVisible = True
