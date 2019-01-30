@@ -324,11 +324,11 @@ logging.flush()
 
 # create click sound for keyboard
 try:
-    click = sound.backend_sounddevice.SoundDeviceSound('406__tictacshutup__click-1-d.wav')
+    click = sound.Sound('406__tictacshutup__click-1-d.wav')
 except:  # in case file missing, create inferiro click manually
     logging.warn(
         'Could not load the desired click sound file, instead using manually created inferior click')
-    click = sound.backend_sounddevice.SoundDeviceSound('D', octave=4, sampleRate=22050, secs=0.015)
+    click = sound.Sound('D', octave=4, sampleRate=22050, secs=0.015)
 
 if showRefreshMisses:
     fixSizePix = 32  # 2.6  #make fixation bigger so flicker more conspicuous
@@ -719,14 +719,14 @@ def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, l
 
 
 def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
-    highA = sound.backend_sounddevice.SoundDeviceSound('G', octave=5, sampleRate=6000, secs=.3, bits=8)
-    low = sound.backend_sounddevice.SoundDeviceSound('F', octave=3, sampleRate=6000, secs=.3, bits=8)
+    highA = sound.Sound('G', octave=5, sampleRate=6000, secs=.3, bits=8)
+    low = sound.Sound('F', octave=3, sampleRate=6000, secs=.3, bits=8)
     highA.setVolume(0.9)
     low.setVolume(1.0)
     if correct:
         highA.play()
     elif passThisTrial:
-        high = sound.backend_sounddevice.SoundDeviceSound('G', octave=4, sampleRate=2000, secs=.08, bits=8)
+        high = sound.Sound('G', octave=4, sampleRate=2000, secs=.08, bits=8)
         for i in range(2):
             high.play()
             low.play()
@@ -913,7 +913,7 @@ else:  # not staircase
             msg = 'Starting main (non-staircase) part of experiment'
             logging.info(msg)
             print(msg)
-        thisTrial = trials.getFutureTrial()  # get a proper (non-staircase) trial
+        thisTrial = trials.next()  # get a proper (non-staircase) trial
         cue1pos = thisTrial['cue1pos']
         cue2lag = None
         cueEcc = thisTrial['cueEccentricity']

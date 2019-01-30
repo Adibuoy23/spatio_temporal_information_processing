@@ -481,7 +481,7 @@ try:
 except:  # in case file missing, create inferiro click manually
     logging.warn(
         'Could not load the desired click sound file, instead using manually created inferior click')
-    click = sound.backend_sounddevice.SoundDeviceSound('D', octave=4, secs=0.015)
+    click = sound.Sound('D', octave=4, sampleRate=22050, secs=0.015, bits=8)
 
 
 # Set up the stimuli
@@ -626,7 +626,7 @@ while nDoneMain < trials.nTotal and expStop == False:
         msg = 'Starting the experiment'
         logging.info(msg)
         print(msg)
-    thisTrial = trials.getFutureTrial()  # get a proper (non-staircase) trial
+    thisTrial = trials.next()  # get a proper (non-staircase) trial
     cue1pos = thisTrial['cue1pos']
     cue2lag = thisTrial['cue2lag']
     cueEcc = thisTrial['cueEccentricity']

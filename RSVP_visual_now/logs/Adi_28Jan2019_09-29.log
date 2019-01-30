@@ -1,0 +1,90 @@
+9.3819 	ERROR 	Screen apparently NOT the desired resolution of 1440x900 pixels!!
+12.4000 	INFO 	Successfully set darwin thread to realtime
+13.4589 	INFO 	#[ PsychoPy3 RuntimeInfoStart ]
+  #[[ PsychoPy ]] #---------
+    psychopyVersion: 3.0.2
+    psychopyHaveExtRush: True
+  #[[ Experiment ]] #---------
+    experimentRunTime: 2019_01_28 09:29 (Year_Month_Day Hour:Min)
+    experimentRunTime.epoch: 1548685765
+    experimentScript: RSVP_visual_now.py
+    experimentScript.digestSHA1: e258ad0a9fc017d5f8bba42b1f13daf24bbad4c5
+    experimentScript.directory: /Users/supadhy6/Documents/GitHub/spatio_temporal_information_processing/RSVP_visual_now
+  #[[ System ]] #---------
+    systemHaveInternetAccess: True
+    systemHostName: pbs-jf-aldi.local
+    systemLocale: C
+    systemMemFreeRAM: 5782.8359375
+    systemMemTotalRAM: 16384.0
+    systemPlatform: darwin 10.14.2 x86_64
+    systemRavailable: R version 3.4.1 (2017-06-30) -- Single Candle
+    systemRebooted: Jan 17 01:48
+    systemSec.OpenSSLVersion: OpenSSL 1.1.1a  20 Nov 2018
+    systemSec.pythonSSL: True
+    systemTimeNumpySD1000000_sec: 0.0026
+    systemUser: supadhy6
+    systemUserID: 1903061739
+    systemUserProcCount: 344
+    systemUserProcFlagged: 'Google Chrome' mdworker KeyNote iTunes Safari Dropbox
+    systemUsersCount: 1
+  #[[ Window ]] #---------
+    windowWinType: pyglet
+    windowUnits: deg
+    windowSize_pix: [2880 1800]
+    windowScreen: 0
+    windowRgb: [-0.7 -0.7 -0.7]
+    windowRefreshTimeSD_ms: 0.639
+    windowRefreshTimeMedian_ms: 16.719
+    windowRefreshTimeAvg_ms: 16.704
+    windowPos_pix: [0.0, 0.0]
+    windowMonitor.name: testmonitor
+    windowMonitor.getWidth_cm: 55.0
+    windowMonitor.getDistance_cm: 83.5
+    windowMonitor.currentCalibName: 2019_01_28 08:48
+    windowIsFullScr: True
+  #[[ Python ]] #---------
+    pythonVersion: 3.6.0
+  #[[ OpenGL ]] #---------
+#[ PsychoPy3 RuntimeInfoEnd ]
+
+13.4616 	WARNING 	Could not load the desired click sound file, instead using manually created inferior click
+13.5978 	EXP 	Created sequence: random, trialTypes=30, nReps=14, seed=None
+13.7480 	EXP 	Created sequence: random, trialTypes=30, nReps=14, seed=None
+13.7485 	INFO 	numtrials=420 and each trialDurFrames=156 or 2600.0 ms  task=T1
+13.9269 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.5, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='', units='deg', win=Window(...), wrapWidth=30)
+14.0087 	EXP 	text: text = "Welcome! Thank you for agreeing to participate in this study.\n\nYou will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\nThe letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\nThe probe is a circular disk that will be flashed for a very brief time.\n\nOnce you've identified the letter after the trial ends, type it out on the keyboard.\n\nIf you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\nPress any key when you are ready to begin the experiment.\n\n"
+14.0087 	EXP 	text: autoDraw = True
+14.9128 	DATA 	Keypress: return
+14.9141 	EXP 	text: autoDraw = False
+14.9143 	INFO 	Experiment will have 420 trials. Letters will be drawn with superposed noise of0.00%
+14.9143 	INFO 	Starting main (non-staircase) part of experiment
+18.7068 	EXP 	window1: recordFrameIntervals = False
+19.4791 	DATA 	Keypress: f
+23.3901 	EXP 	window1: recordFrameIntervals = False
+24.5788 	DATA 	Keypress: b
+25.7779 	DATA 	Keypress: j
+26.1921 	DATA 	Keypress: f
+30.2896 	EXP 	window1: recordFrameIntervals = False
+31.1590 	DATA 	Keypress: h
+31.4420 	DATA 	Keypress: f
+35.6391 	EXP 	window1: recordFrameIntervals = False
+35.6403 	ERROR 	trialnum=3 ERROR,25 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[25.9 28.  27.6 27.2 27.3 26.7 27.1 28.2 27.5 27.8 27.8 26.8 28.2 28.1
+ 28.1 27.1 28.6 27.4 28.3 29.2 28.9 29.1 28.6 27.7 29.1] and was these frames: [  5   7   9  11  15  18  26  30  34  38  46  61  63  66  69  73  76  79
+  81  87  89  94  96 104 111]
+35.6429 	INFO 	flankers also=[16.7 25.9  6.   6.  28.   5.5  5.5 27.6  6.   6.  27.2  6.5 17.8 27.3
+  5.3 17.3 26.7  7.3 16.5 27.1  6.1 15.5 28.2  5.6 16.4 27.5  5.7 17.4
+ 27.8  4.1 16.2 27.8  5.9 16.9 26.8  5.4  5.4 28.2  5.  16.4 28.1  5.3
+ 17.1 28.1  5.6 17.  27.1  5.9 16.2 28.6  4.5 17.2 27.4  5.4  5.4 28.3
+  6.  16.7 29.2  4.1  4.1 28.9  4.1 16.5 29.1  4.   4.  28.6  6.  16.1
+ 27.7  5.5 16.8 29.1  4.4]
+36.0592 	DATA 	Keypress: x
+36.4091 	DATA 	Keypress: x
+36.6595 	DATA 	Keypress: x
+36.9416 	DATA 	Keypress: d
+37.2764 	DATA 	Keypress: f
+40.9953 	DATA 	Keypress: escape
+41.3233 	EXP 	window1: recordFrameIntervals = False
+41.5413 	DATA 	Keypress: escape
+41.5559 	INFO 	Finishing at 09:29 on 28 Jan 2019
+41.5560 	ERROR 	user aborted experiment on keypress with trials done=4 of 421
+41.9714 	EXP 	window1: mouseVisible = True

@@ -626,7 +626,7 @@ while nDoneMain < trials.nTotal and expStop == False:
         msg = 'Starting the experiment'
         logging.info(msg)
         print(msg)
-    thisTrial = trials.getFutureTrial()  # get a proper (non-staircase) trial
+    thisTrial = trials.next()  # get a proper (non-staircase) trial
     cue1pos = thisTrial['cue1pos']
     cue2lag = thisTrial['cue2lag']
     cueEcc = thisTrial['cueEccentricity']
