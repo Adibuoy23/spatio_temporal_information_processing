@@ -59,7 +59,7 @@ threshCriterion = 0.58
 bgColor = [-.7, -.7, -.7]  # [-1,-1,-1]
 cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
-cueRadius = 1  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
+cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
 widthPix = 5120  # monitor width in pixels of Agosta
 heightPix = 2880  # 800 #monitor height in pixels
@@ -126,7 +126,7 @@ numLettersToPresent = 26
 SOAms = 113  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
 # Minimum SOAms should be 84  because any shorter, I can't always notice the second ring when lag1.   71 in Martini E2 and E1b (actually he used 66.6 but that's because he had a crazy refresh rate of 90 Hz)
 # 23.6  in Martini E2 and E1b (actually he used 22.2 but that's because he had a crazy refresh rate of 90 Hz)
-letterDurMs = 60
+letterDurMs = 120
 
 ISIms = SOAms - letterDurMs
 letterDurFrames = int(np.floor(letterDurMs / (1000./refreshRate)))
