@@ -61,8 +61,8 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 5120  # monitor width in pixels of Agosta
-heightPix = 2880  # 800 #monitor height in pixels
+widthPix = 2560  # monitor width in pixels of Agosta
+heightPix = 1440  # 800 #monitor height in pixels
 monitorwidth = 60  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
@@ -70,16 +70,16 @@ allowGUI = False
 if demo:
     monitorwidth = 60  # 28.2  # 18.0
 if exportImages:
-    widthPix = 5120
-    heightPix = 2880
+    widthPix = 2560
+    heightPix = 1440
     monitorwidth = 60  # 28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 5120
-    heightPix = 2880
+    widthPix = 2560
+    heightPix = 1440
     monitorname = 'testMonitor'
     allowGUI = True
 viewdist = 65  # cm
@@ -203,7 +203,6 @@ else:  # checkRefreshEtc
         refreshMsg1 += ', which is close enough to desired val of ' + str(round(refreshRate, 1))
     myWinRes = myWin.size
     myWin.allowGUI = True
-    print(myWinRes)
 myWin.close()  # have to close window to show dialog box
 
 defaultNoiseLevel = 0.0  # to use if no staircase, can be set by user
@@ -541,7 +540,7 @@ fixation_center = visual.Circle(myWin,
                                 autoLog=False)  # this stim changes too much for autologging to be useful
 
 # predraw all 26 letters
-ltrHeight = 1.5  # Martini letters were 2.5deg high
+ltrHeight = 2.5  # Martini letters were 2.5deg high
 lettersDrawObjects = list()
 for i in range(0, 26):
     letterDraw = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=letterColor,
@@ -742,7 +741,7 @@ def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
         low.play()
 
 
-TEXT_HEIGHT = 0.35   # The height in visual degrees of instruction text
+TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
 TEXT_WRAP = 30  # The character limit of each line of text before word wrap
 display_text = visual.TextStim(
     win=myWin,

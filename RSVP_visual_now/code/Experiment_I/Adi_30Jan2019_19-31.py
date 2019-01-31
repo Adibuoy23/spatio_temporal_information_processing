@@ -742,7 +742,7 @@ def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
         low.play()
 
 
-TEXT_HEIGHT = 0.35   # The height in visual degrees of instruction text
+TEXT_HEIGHT = 0.25   # The height in visual degrees of instruction text
 TEXT_WRAP = 30  # The character limit of each line of text before word wrap
 display_text = visual.TextStim(
     win=myWin,
