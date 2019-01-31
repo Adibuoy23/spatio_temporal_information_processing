@@ -39,7 +39,6 @@ if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
     codeDir = 'code'
     logsDir = 'logs'
-    expt_name = 'Experiment_I'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -61,28 +60,28 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 5120  # monitor width in pixels of Agosta
-heightPix = 2880  # 800 #monitor height in pixels
-monitorwidth = 60  # 28.2  # monitor width in cm
+widthPix = 1440  # monitor width in pixels of Agosta
+heightPix = 900  # 800 #monitor height in pixels
+monitorwidth = 55  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 60  # 28.2  # 18.0
+    monitorwidth = 55  # 28.2  # 18.0
 if exportImages:
-    widthPix = 5120
-    heightPix = 2880
-    monitorwidth = 60  # 28.2
+    widthPix = 1440
+    heightPix = 900
+    monitorwidth = 55  # 28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 5120
-    heightPix = 2880
+    widthPix = 1440
+    heightPix = 900
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65  # cm
+viewdist = 83.5  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
@@ -286,20 +285,14 @@ myWin = openMyStimWindow()
 infix = ''
 if doStaircase:
     infix = 'staircase_'
-if not os.path.exists(os.path.join(dataDir,expt_name)):
-    os.makedirs(os.path.join(dataDir,expt_name))
-if not os.path.exists(os.path.join(codeDir,expt_name)):
-    os.makedirs(os.path.join(codeDir,expt_name))
-if not os.path.exists(os.path.join(logsDir,expt_name)):
-    os.makedirs(os.path.join(logsDir,expt_name))
-fileName = os.path.join(dataDir, expt_name, subject + '_' + infix + timeAndDateStr)
+fileName = os.path.join(dataDir, subject + '_' + infix + timeAndDateStr)
 if not demo and not exportImages:
     dataFile = open(fileName+'.txt', 'w')
     saveCodeCmd = 'cp \'' + \
         sys.argv[0] + '\' ' + os.path.join(codeDir,
-                                           expt_name, subject + '_' + infix + timeAndDateStr) + '.py'
+                                           subject + '_' + infix + timeAndDateStr) + '.py'
     os.system(saveCodeCmd)  # save a copy of the code as it was when that subject was run
-    logFname = os.path.join(logsDir, expt_name, subject + '_' + infix + timeAndDateStr)+'.log'
+    logFname = os.path.join(logsDir, subject + '_' + infix + timeAndDateStr)+'.log'
     ppLogF = logging.LogFile(logFname,
                              filemode='w',  # if you set this to 'a' it will append instead of overwriting
                              level=logging.INFO)  # errors, data and warnings will be sent to this logfile
@@ -375,7 +368,7 @@ stimList = []
 # SETTING THE CONDITIONS
 possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Martini E2, group 2
 cueCoords = [[1, 0], [-1, 0]]
-cueEccentricity = [2, 10]
+cueEccentricity = [2, 6, 10]
 possibleCue2lags = np.array([2])
 for cue1pos in possibleCue1positions:
     for cue2lag in possibleCue2lags:

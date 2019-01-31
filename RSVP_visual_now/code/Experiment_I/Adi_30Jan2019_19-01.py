@@ -82,7 +82,7 @@ if demo:
     heightPix = 2880
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65  # cm
+viewdist = 80  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
@@ -540,7 +540,7 @@ fixation_center = visual.Circle(myWin,
                                 autoLog=False)  # this stim changes too much for autologging to be useful
 
 # predraw all 26 letters
-ltrHeight = 2.5  # Martini letters were 2.5deg high
+ltrHeight = 2.0  # Martini letters were 2.5deg high
 lettersDrawObjects = list()
 for i in range(0, 26):
     letterDraw = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=letterColor,

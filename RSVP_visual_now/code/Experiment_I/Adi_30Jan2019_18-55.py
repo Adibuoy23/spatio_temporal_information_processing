@@ -70,16 +70,16 @@ allowGUI = False
 if demo:
     monitorwidth = 60  # 28.2  # 18.0
 if exportImages:
-    widthPix = 5120
-    heightPix = 2880
+    widthPix = 2560
+    heightPix = 1440
     monitorwidth = 60  # 28.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 5120
-    heightPix = 2880
+    widthPix = 2560
+    heightPix = 1440
     monitorname = 'testMonitor'
     allowGUI = True
 viewdist = 65  # cm
@@ -375,7 +375,7 @@ stimList = []
 # SETTING THE CONDITIONS
 possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Martini E2, group 2
 cueCoords = [[1, 0], [-1, 0]]
-cueEccentricity = [2, 10]
+cueEccentricity = [2, 6, 10]
 possibleCue2lags = np.array([2])
 for cue1pos in possibleCue1positions:
     for cue2lag in possibleCue2lags:

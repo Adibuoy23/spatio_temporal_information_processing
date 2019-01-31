@@ -82,7 +82,7 @@ if demo:
     heightPix = 2880
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65  # cm
+viewdist = 80  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
@@ -375,7 +375,7 @@ stimList = []
 # SETTING THE CONDITIONS
 possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Martini E2, group 2
 cueCoords = [[1, 0], [-1, 0]]
-cueEccentricity = [2, 10]
+cueEccentricity = [2, 6, 10]
 possibleCue2lags = np.array([2])
 for cue1pos in possibleCue1positions:
     for cue2lag in possibleCue2lags:
