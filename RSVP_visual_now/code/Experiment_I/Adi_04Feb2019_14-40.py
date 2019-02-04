@@ -41,7 +41,7 @@ if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
     codeDir = 'code'
     logsDir = 'logs'
-    expt_name = 'RSVP_spatial_cue_replication'
+    expt_name = 'Experiment_I'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -63,18 +63,18 @@ cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1920  # monitor width in pixels of Agosta
-heightPix = 1200  # 800 #monitor height in pixels
-monitorwidth = 52  # 28.2  # monitor width in cm
+widthPix = 5120  # monitor width in pixels of Agosta
+heightPix = 2880  # 800 #monitor height in pixels
+monitorwidth = 60  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 52  # 28.2  # 18.0
+    monitorwidth = 60  # 28.2  # 18.0
 if exportImages:
-    widthPix = 1920
-    heightPix = 1200
-    monitorwidth = 52  # 28.2
+    widthPix = 5120
+    heightPix = 2880
+    monitorwidth = 60  # 28.2
     fullscr = False
     scrn = 0
 if demo:
@@ -543,7 +543,7 @@ fixation_center = visual.Circle(myWin,
                                 autoLog=False)  # this stim changes too much for autologging to be useful
 
 # predraw all 26 letters
-ltrHeight = 2.5  # Martini letters were 2.5deg high
+ltrHeight = 1.5  # Martini letters were 2.5deg high
 lettersDrawObjects = list()
 for i in range(0, 26):
     letterDraw = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=letterColor,
@@ -955,7 +955,7 @@ else:  # not staircase
         print('expStop=', expStop, ' passThisTrial=', passThisTrial, ' responses=',
               responses, ' responsesAutopilot =', responsesAutopilot)
         if not expStop:
-            print(expt_name,'\t', end='', file=dataFile)  # first thing printed on each line of dataFile
+            print('main\t', end='', file=dataFile)  # first thing printed on each line of dataFile
             print(nDoneMain, '\t', end='', file=dataFile)
             print(subject, '\t', task, '\t', round(noisePercent, 3), '\t', end='', file=dataFile)
             correct, eachCorrect, eachApproxCorrect, T1approxCorrect, passThisTrial, expStop = (
