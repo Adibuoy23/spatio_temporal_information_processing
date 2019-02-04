@@ -84,7 +84,7 @@ if demo:
     heightPix = 2880
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65  # cm
+viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
@@ -388,7 +388,7 @@ for cue1pos in possibleCue1positions:
                                  'cueCoords': coords, 'cueEccentricity': ecc})
 # Martini E2 and also AB experiments used 400 trials total, with breaks between every 100 trials
 
-trials = data.TrialHandler(stimList, trialsPerCondition)  # constant stimuli method
+trials = data.TrialHandler(stimList, trialsPerCondition, method='random')  # constant stimuli method
 # independent randomization, just to create random trials for staircase phase
 trialsForPossibleStaircase = data.TrialHandler(stimList, trialsPerCondition)
 # summary results to print out at end
@@ -744,7 +744,7 @@ def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
         low.play()
 
 
-TEXT_HEIGHT = 0.35   # The height in visual degrees of instruction text
+TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
 TEXT_WRAP = 30  # The character limit of each line of text before word wrap
 display_text = visual.TextStim(
     win=myWin,
