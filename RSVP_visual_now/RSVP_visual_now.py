@@ -12,6 +12,7 @@ import sys
 import os
 import csv
 import pylab
+from random import sample
 try:
     from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
 except ImportError:
@@ -41,6 +42,7 @@ if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
     codeDir = 'code'
     logsDir = 'logs'
+    trialsDir = 'trial_order'
     expt_name = 'RSVP_spatial_cue_replication'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
@@ -295,6 +297,8 @@ if not os.path.exists(os.path.join(codeDir,expt_name)):
     os.makedirs(os.path.join(codeDir,expt_name))
 if not os.path.exists(os.path.join(logsDir,expt_name)):
     os.makedirs(os.path.join(logsDir,expt_name))
+if not os.path.exists(os.path.join(trialsDir,expt_name)):
+    os.makedirs(os.path.join(trialsDir,expt_name))
 fileName = os.path.join(dataDir, expt_name, subject + '_' + infix + timeAndDateStr)
 if not demo and not exportImages:
     dataFile = open(fileName+'.txt', 'w')
@@ -380,15 +384,22 @@ possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Ma
 cueCoords = [[1, 0], [-1, 0]]
 cueEccentricity = [2, 10]
 possibleCue2lags = np.array([2])
-for cue1pos in possibleCue1positions:
-    for cue2lag in possibleCue2lags:
-        for coords in cueCoords:
-            for ecc in cueEccentricity:
-                stimList.append({'cue1pos': cue1pos, 'cue2lag': cue2lag,
-                                 'cueCoords': coords, 'cueEccentricity': ecc})
+trial_count = 0
+for i in range(trialsPerCondition):
+    for cue1pos in possibleCue1positions:
+        for cue2lag in possibleCue2lags:
+            for coords in cueCoords:
+                for ecc in cueEccentricity:
+                    trial_count += 1
+                    stimList.append({'cue1pos': cue1pos, 'cue2lag': cue2lag,
+                                     'cueCoords': coords, 'cueEccentricity': ecc, 'trialNumOriginal': trial_count})
 # Martini E2 and also AB experiments used 400 trials total, with breaks between every 100 trials
-
-trials = data.TrialHandler(stimList, trialsPerCondition, method='random')  # constant stimuli method
+trials = sample(stimList,len(stimList))
+with open(os.path.join(trialsDir, expt_name, subject + '_trial_order_' + infix + timeAndDateStr +'.csv'), 'w') as trials_csv_file:
+    writer = csv.writer(trials_csv_file)
+    for i in range(len(trials)):
+        for key, value in trials[i].items():
+           writer.writerow([key, value])
 # independent randomization, just to create random trials for staircase phase
 trialsForPossibleStaircase = data.TrialHandler(stimList, trialsPerCondition)
 # summary results to print out at end
@@ -396,7 +407,7 @@ numRightWrongEachCuepos = np.zeros([len(possibleCue1positions), 1])
 # summary results to print out at end
 numRightWrongEachCue2lag = np.zeros([len(possibleCue2lags), 1])
 
-logging.info('numtrials=' + str(trials.nTotal) + ' and each trialDurFrames='+str(trialDurFrames)+' or '+str(trialDurFrames*(1000./refreshRate)) +
+logging.info('numtrials=' + str(len(trials)) + ' and each trialDurFrames='+str(trialDurFrames)+' or '+str(trialDurFrames*(1000./refreshRate)) +
              ' ms' + '  task=' + task)
 
 
@@ -911,19 +922,20 @@ if doStaircase:
 else:  # not staircase
     noisePercent = defaultNoiseLevel
     phasesMsg = 'Experiment will have ' + \
-        str(trials.nTotal)+' trials. Letters will be drawn with superposed noise of' + \
+        str(len(trials))+' trials. Letters will be drawn with superposed noise of' + \
         "{:.2%}".format(defaultNoiseLevel)
     print(phasesMsg)
     logging.info(phasesMsg)
 
     #myWin= openMyStimWindow();    myWin.flip(); myWin.flip();myWin.flip();myWin.flip()
     nDoneMain = 0
-    while nDoneMain < trials.nTotal and expStop == False:
+    while nDoneMain < len(trials) and expStop == False:
         if nDoneMain == 0:
             msg = 'Starting main (non-staircase) part of experiment'
             logging.info(msg)
             print(msg)
-        thisTrial = trials.getFutureTrial()  # get a proper (non-staircase) trial
+        thisTrial = trials[nDoneMain]  # get a proper (non-staircase) trial
+        print(thisTrial)
         cue1pos = thisTrial['cue1pos']
         cue2lag = None
         cueEcc = thisTrial['cueEccentricity']
@@ -986,14 +998,14 @@ else:  # not staircase
 
             dataFile.flush()
             logging.flush()
-            print('nDoneMain=', nDoneMain, ' trials.nTotal=',
-                  trials.nTotal)  # ' trials.thisN=',trials.thisN
-            if (trials.nTotal > 6 and nDoneMain > 2 and nDoneMain %
-                    (trials.nTotal*pctCompletedBreak/100.) == 1):  # dont modulus 0 because then will do it for last trial
+            print('nDoneMain=', nDoneMain, ' trials.nTotal',
+                  len(trials))  # ' trials.thisN=',trials.thisN
+            if (len(trials) > 6 and nDoneMain > 2 and nDoneMain %
+                    (len(trials)*pctCompletedBreak/100.) == 1):  # dont modulus 0 because then will do it for last trial
                 nextText.setText('Press "SPACE" to continue!')
                 nextText.draw()
                 progressMsg = 'Completed ' + str(nDoneMain) + \
-                    ' of ' + str(trials.nTotal) + ' trials'
+                    ' of ' + str(len(trials)) + ' trials'
                 NextRemindCountText.setText(progressMsg)
                 NextRemindCountText.draw()
                 myWin.flip()  # myWin.flip(clearBuffer=True)
@@ -1018,7 +1030,7 @@ print(msg)
 logging.info(msg)
 if expStop:
     msg = 'user aborted experiment on keypress with trials done=' + \
-        str(nDoneMain) + ' of ' + str(trials.nTotal+1)
+        str(nDoneMain) + ' of ' + str(len(trials)+1)
     print(msg)
     logging.error(msg)
 
