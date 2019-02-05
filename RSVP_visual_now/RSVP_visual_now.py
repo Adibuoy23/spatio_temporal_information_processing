@@ -395,11 +395,12 @@ for i in range(trialsPerCondition):
                                      'cueCoords': coords, 'cueEccentricity': ecc, 'trialNumOriginal': trial_count})
 # Martini E2 and also AB experiments used 400 trials total, with breaks between every 100 trials
 trials = sample(stimList,len(stimList))
-with open(os.path.join(trialsDir, expt_name, subject + '_trial_order_' + infix + timeAndDateStr +'.csv'), 'w') as trials_csv_file:
-    writer = csv.writer(trials_csv_file)
-    for i in range(len(trials)):
-        for key, value in trials[i].items():
-           writer.writerow([key, value])
+f = open(os.path.join(trialsDir, expt_name, subject + '_trial_order_' + infix + timeAndDateStr +'.csv'), "w")
+writer = csv.DictWriter(
+    f, fieldnames=trials[0].keys())
+writer.writeheader()
+writer.writerows(trials)
+f.close()
 # independent randomization, just to create random trials for staircase phase
 trialsForPossibleStaircase = data.TrialHandler(stimList, trialsPerCondition)
 # summary results to print out at end
