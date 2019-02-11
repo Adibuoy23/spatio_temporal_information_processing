@@ -372,9 +372,9 @@ respStim = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=(
     1, 1, 0), alignHoriz='center', alignVert='center', height=.16, units='norm', autoLog=autoLogging)
 clickSound, badKeySound = stringResponse.setupSoundsForResponse()
 requireAcceptance = False
-nextText = visual.TextStim(myWin, pos=(0, .2), colorSpace='rgb', color=(
+nextText = visual.TextStim(myWin, pos=(0, .1), colorSpace='rgb', color=(
     1, 1, 1), alignHoriz='center', alignVert='center', height=.1, units='norm', autoLog=autoLogging)
-NextRemindCountText = visual.TextStim(myWin, pos=(0, .1), colorSpace='rgb', color=(
+NextRemindCountText = visual.TextStim(myWin, pos=(0, .2), colorSpace='rgb', color=(
     1, 1, 1), alignHoriz='center', alignVert='center', height=.1, units='norm', autoLog=autoLogging)
 screenshot = False
 screenshotDone = False
@@ -1004,9 +1004,9 @@ else:  # not staircase
             logging.flush()
             print('nDoneMain=', nDoneMain, ' trials.nTotal',
                   len(trials))  # ' trials.thisN=',trials.thisN
-            if (nDoneMain > 2 and nDoneMain %
-                    (len(trials)*pctCompletedBreak/100.) == 0) and nDoneMain != len(trials):  # dont modulus 0 because then will do it for last trial
-                nextText.setText('The location of the probe will change now! \n\n Press "SPACE" to continue!')
+            if (len(trials) > 6 and nDoneMain > 2 and nDoneMain %
+                    (len(trials)*pctCompletedBreak/100.) == 1):  # dont modulus 0 because then will do it for last trial
+                nextText.setText('Press "SPACE" to continue!')
                 nextText.draw()
                 progressMsg = 'Completed ' + str(nDoneMain) + \
                     ' of ' + str(len(trials)) + ' trials'

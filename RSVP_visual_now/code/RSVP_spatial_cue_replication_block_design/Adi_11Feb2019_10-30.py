@@ -372,9 +372,9 @@ respStim = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=(
     1, 1, 0), alignHoriz='center', alignVert='center', height=.16, units='norm', autoLog=autoLogging)
 clickSound, badKeySound = stringResponse.setupSoundsForResponse()
 requireAcceptance = False
-nextText = visual.TextStim(myWin, pos=(0, .2), colorSpace='rgb', color=(
+nextText = visual.TextStim(myWin, pos=(0, .1), colorSpace='rgb', color=(
     1, 1, 1), alignHoriz='center', alignVert='center', height=.1, units='norm', autoLog=autoLogging)
-NextRemindCountText = visual.TextStim(myWin, pos=(0, .1), colorSpace='rgb', color=(
+NextRemindCountText = visual.TextStim(myWin, pos=(0, .2), colorSpace='rgb', color=(
     1, 1, 1), alignHoriz='center', alignVert='center', height=.1, units='norm', autoLog=autoLogging)
 screenshot = False
 screenshotDone = False
