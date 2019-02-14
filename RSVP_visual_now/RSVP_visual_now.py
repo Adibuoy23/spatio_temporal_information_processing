@@ -43,7 +43,7 @@ if os.path.isdir('.'+os.sep+'data'):
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'RSVP_spatial_cue_replication_block_design'
+    expt_name = 'RSVP_spatial_cue_extended_letter_duration'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -92,9 +92,8 @@ INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
 INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
 INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
-INS_MSG += "The location of the probe is constant through out a block. This study has 4 blocks with breaks in between.\n\n"
 INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
-INS_MSG += "Oh! And one more thing! You will perform this task while fixating in the center, and detecting the probe with your peripheral vision."
+INS_MSG += "Oh! And one more thing! You will perform this task while fixating in the center, and detecting the probe with your peripheral vision.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
 
@@ -136,13 +135,16 @@ letterDurMs = 60
 
 ISIms = SOAms - letterDurMs
 letterDurFrames = int(np.floor(letterDurMs / (1000./refreshRate)))
+print(letterDurFrames)
 cueDurFrames = round(letterDurFrames/2)
+print(cueDurFrames)
 ISIframes = int(np.floor(ISIms / (1000./refreshRate)))
 # have set ISIframes and letterDurFrames to integer that corresponds as close as possible to originally intended ms
-rateInfo = 'total SOA=' + str(round((ISIframes + letterDurFrames)*1000./refreshRate, 2)) + \
+rateInfo = 'total SOA (ISI + letterDur)=' + str(round((ISIframes + letterDurFrames)*1000./refreshRate, 2)) + \
     ' or ' + str(ISIframes + letterDurFrames) + ' frames, comprising\n'
 rateInfo += 'ISIframes ='+str(ISIframes)+' or '+str(ISIframes*(1000./refreshRate))+' ms and letterDurFrames =' + \
-    str(letterDurFrames)+' or '+str(round(letterDurFrames*(1000./refreshRate), 2))+'ms'
+    str(letterDurFrames)+' or '+str(round(letterDurFrames*(1000./refreshRate), 2))+'ms\n'
+rateInfo += 'cueDurFrames ='+str(cueDurFrames)+' or '+str(cueDurFrames*(1000./refreshRate))+' ms\n'
 logging.info(rateInfo)
 print(rateInfo)
 
@@ -397,8 +399,8 @@ for coords in cueCoords:
                     stimList.append({'cue1pos': cue1pos, 'cue2lag': cue2lag,
                                      'cueCoords': coords, 'cueEccentricity': ecc, 'trialNumOriginal': trial_count})
 # Martini E2 and also AB experiments used 400 trials total, with breaks between every 100 trials
-#trials = sample(stimList,len(stimList))
-trials = stimList
+trials = sample(stimList,len(stimList))
+#trials = stimList
 f = open(os.path.join(trialsDir, expt_name, subject + '_trial_order_' + infix + timeAndDateStr +'.csv'), "w")
 writer = csv.DictWriter(
     f, fieldnames=trials[0].keys())
@@ -411,7 +413,7 @@ trialsForPossibleStaircase = data.TrialHandler(stimList, trialsPerCondition)
 numRightWrongEachCuepos = np.zeros([len(possibleCue1positions), 1])
 # summary results to print out at end
 numRightWrongEachCue2lag = np.zeros([len(possibleCue2lags), 1])
-
+logging.info(rateInfo)
 logging.info('numtrials=' + str(len(trials)) + ' and each trialDurFrames='+str(trialDurFrames)+' or '+str(trialDurFrames*(1000./refreshRate)) +
              ' ms' + '  task=' + task)
 
@@ -505,7 +507,7 @@ def oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueDurFrames, letterDu
     cue.setLineColor(bgColor)
     cue.setFillColor(bgColor)
     for cueFrame in cueFrames:  # cheTck whether it's time for any cue
-        if n >= cueFrame and n < cueFrame+cueDurFrames:
+        if n >= cueFrame-int((ISIframes+1)/2) and n < cueFrame+cueDurFrames-int((ISIframes+1)/2): #Present the probe in between the two letters.
             cue.setLineColor(cueColor)
             cue.setFillColor(cueColor)
 
