@@ -513,8 +513,6 @@ def oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueLetterSequence, cue
             cue.setLineColor(cueColor)
             cue.setFillColor(cueColor)
             cueDrawObjects[thisCueLetterIdx].setColor(bgColor)
-            cue.setPos(cueSpatialLoc)
-            cue.draw()
 
     if showLetter:
         lettersDrawObjects[thisLetterIdx].setColor(letterColor)
@@ -526,8 +524,8 @@ def oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueLetterSequence, cue
     lettersDrawObjects[thisLetterIdx].draw()
     cueDrawObjects[thisCueLetterIdx].setPos(cueSpatialLoc)
     cueDrawObjects[thisCueLetterIdx].draw()
-    # cue.setPos(cueSpatialLoc)
-    # cue.draw()
+    cue.setPos(cueSpatialLoc)
+    cue.draw()
     # Not recommended because takes longer than a frame, even to shuffle apparently. Or may be setXYs step
     refreshNoise = False
     if proportnNoise > 0 and refreshNoise:
