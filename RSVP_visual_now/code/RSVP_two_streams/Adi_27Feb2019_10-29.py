@@ -93,8 +93,6 @@ INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
 INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
 INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
-INS_MSG += "This probe is embedded in another Rapid Stream of letters.\n\n"
-INS_MSG += "Your task is identify the foveal letter that was present when the probe appeared.\n\n"
 INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
 INS_MSG += "Oh! And one more thing! You will perform this task while fixating in the center, and detecting the probe with your peripheral vision.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
@@ -139,7 +137,7 @@ letterDurMs = 60
 ISIms = SOAms - letterDurMs
 letterDurFrames = int(np.floor(letterDurMs / (1000./refreshRate)))
 print(letterDurFrames)
-cueDurFrames = round(letterDurFrames)
+cueDurFrames = round(letterDurFrames/2)
 print(cueDurFrames)
 ISIframes = int(np.floor(ISIms / (1000./refreshRate)))
 # have set ISIframes and letterDurFrames to integer that corresponds as close as possible to originally intended ms
