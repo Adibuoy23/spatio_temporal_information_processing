@@ -65,7 +65,7 @@ bgColor = [-.7, -.7, -.7]  # [-1,-1,-1]
 cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
 ltrHeight = 2.5  # Martini letters were 2.5deg high
-cueRadius = ltrHeight/2 -0.5 # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
+cueRadius = ltrHeight/2  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
 widthPix = 1920  # monitor width in pixels of Agosta
 heightPix = 1200  # 800 #monitor height in pixels
@@ -896,6 +896,10 @@ if doStaircase:
                     'stopping because staircase.next() returned a StopIteration, which it does when it is finished')
                 break  # break out of the trials loop
         # print('staircaseTrialN=',staircaseTrialN)
+        cue.setSize(max(ltrHeight, 0.5 * cueEcc))
+        for i in range(26):
+            cueDrawObjects[i].setHeight(max(ltrHeight, 0.5 * cueEcc))
+            
         letterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
             cue1pos, cue2lag, noisePercent/100., staircaseTrialN)
         numCasesInterframeLong = timingCheckAndLog(ts, staircaseTrialN)
@@ -993,11 +997,6 @@ else:  # not staircase
         cueSpatialPosition = thisTrial['cueCoords']
         if task == "T1T2":
             cue2lag = thisTrial['cue2lag']
-
-        cue.setSize(max(ltrHeight, 0.5 * cueEcc))
-        for i in range(26):
-            cueDrawObjects[i].setHeight(max(ltrHeight, 0.5 * cueEcc))
-            
         letterSequence, cueLetterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
             cue1pos, cueEcc, np.array(cueSpatialPosition)*cueEcc, cue2lag, noisePercent/100., nDoneMain)
         numCasesInterframeLong = timingCheckAndLog(ts, nDoneMain)

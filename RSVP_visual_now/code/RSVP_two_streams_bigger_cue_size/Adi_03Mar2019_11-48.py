@@ -896,6 +896,12 @@ if doStaircase:
                     'stopping because staircase.next() returned a StopIteration, which it does when it is finished')
                 break  # break out of the trials loop
         # print('staircaseTrialN=',staircaseTrialN)
+        cue.setSize(max(ltrHeight, 0.5 * cueEcc))
+        for i in range(26):
+            cueDrawObjects[i].setHeight(max(ltrHeight, 0.5 * cueEcc))
+            print(i)
+            print(cueDrawObjects[i].getHeight())
+
         letterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
             cue1pos, cue2lag, noisePercent/100., staircaseTrialN)
         numCasesInterframeLong = timingCheckAndLog(ts, staircaseTrialN)
@@ -993,11 +999,6 @@ else:  # not staircase
         cueSpatialPosition = thisTrial['cueCoords']
         if task == "T1T2":
             cue2lag = thisTrial['cue2lag']
-
-        cue.setSize(max(ltrHeight, 0.5 * cueEcc))
-        for i in range(26):
-            cueDrawObjects[i].setHeight(max(ltrHeight, 0.5 * cueEcc))
-            
         letterSequence, cueLetterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
             cue1pos, cueEcc, np.array(cueSpatialPosition)*cueEcc, cue2lag, noisePercent/100., nDoneMain)
         numCasesInterframeLong = timingCheckAndLog(ts, nDoneMain)
