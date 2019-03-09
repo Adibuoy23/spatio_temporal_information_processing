@@ -133,9 +133,9 @@ SOAms = 113  # Battelli, Agosta, Goodbourn, Holcombe mostly using 133
 letterDurMs = 60
 
 ISIms = SOAms - letterDurMs
-letterDurFrames = int(np.floor(letterDurMs / (1000./refreshRate)))
-cueDurFrames = round(letterDurFrames/2)
-ISIframes = int(np.floor(ISIms / (1000./refreshRate)))
+letterDurFrames = 20#int(np.floor(letterDurMs / (1000./refreshRate)))
+cueDurFrames = 1#round(letterDurFrames/2)
+ISIframes = 5#int(np.floor(ISIms / (1000./refreshRate)))
 # have set ISIframes and letterDurFrames to integer that corresponds as close as possible to originally intended ms
 rateInfo = 'total SOA=' + str(round((ISIframes + letterDurFrames)*1000./refreshRate, 2)) + \
     ' or ' + str(ISIframes + letterDurFrames) + ' frames, comprising\n'
@@ -501,7 +501,7 @@ def oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueDurFrames, letterDu
     cue.setLineColor(bgColor)
     cue.setFillColor(bgColor)
     for cueFrame in cueFrames:  # cheTck whether it's time for any cue
-        if n >= cueFrame+1 and n < cueFrame+cueDurFrames+1:
+        if n >= cueFrame+10 and n < cueFrame+cueDurFrames+10:
             cue.setLineColor(cueColor)
             cue.setFillColor(cueColor)
 
