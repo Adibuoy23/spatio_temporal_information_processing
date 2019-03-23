@@ -12,7 +12,6 @@ import sys
 import os
 import csv
 import pylab
-from random import sample
 try:
     from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
 except ImportError:
@@ -35,16 +34,10 @@ exportImages = False  # quits after one trial
 subject = 'Adi'  # user is prompted to enter true subject name
 if autopilot:
     subject = 'auto'
-
-os.chdir(os.path.join(os.getcwd(),'RSVP_visual_now'))
-
 if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
     codeDir = 'code'
     logsDir = 'logs'
-    trialsDir = 'trial_order'
-    stimsDir = 'stim_in_trials'
-    expt_name = 'RSVP_central_cue_between_letter_presentation'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -64,40 +57,36 @@ threshCriterion = 0.58
 bgColor = [-.7, -.7, -.7]  # [-1,-1,-1]
 cueColor = [1., 1., 1.]
 letterColor = [1., 1., 1.]
-ltrHeight = 2.5  # Martini letters were 2.5deg high
-cueRadius = ltrHeight/2 -0.5 # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
+cueRadius = 0.5  # 6 deg, as in Martini E2    Letters should have height of 2.5 deg
 
-widthPix = 1920  # monitor width in pixels of Agosta
-heightPix = 1200  # 800 #monitor height in pixels
-monitorwidth = 52  # 28.2  # monitor width in cm
+widthPix = 1680  # monitor width in pixels of Agosta
+heightPix = 1050  # 800 #monitor height in pixels
+monitorwidth = 47.2  # 47.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
 if demo:
-    monitorwidth = 52  # 28.2  # 18.0
+    monitorwidth = 47.2  # 47.2  # 18.0
 if exportImages:
-    widthPix = 1920
-    heightPix = 1200
-    monitorwidth = 52  # 28.2
+    widthPix = 1680
+    heightPix = 1050
+    monitorwidth = 47.2  # 47.2
     fullscr = False
     scrn = 0
 if demo:
     scrn = 0
     fullscr = False
-    widthPix = 5120
-    heightPix = 2880
+    widthPix = 1680
+    heightPix = 1050
     monitorname = 'testMonitor'
     allowGUI = True
 viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
-INS_MSG += "The stream of letters can appear anywhere on the horizontal axis of the screen, and their position varies from trial to trial.\n\n"
-INS_MSG += "The letter you're supposed to identify is accompanied by a probe that appears on the fixation point.\n\n"
+INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
 INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
-INS_MSG += "Your task is identify the letter that was present when the probe appeared.\n\n"
 INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
-INS_MSG += "Oh! And one more thing! You will perform this task while fixating in the center, and identifying the letters with your peripheral vision.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
 
@@ -139,16 +128,13 @@ letterDurMs = 60
 
 ISIms = SOAms - letterDurMs
 letterDurFrames = int(np.floor(letterDurMs / (1000./refreshRate)))
-print(letterDurFrames)
-cueDurFrames = round(letterDurFrames)
-print(cueDurFrames)
+cueDurFrames = round(letterDurFrames/2)
 ISIframes = int(np.floor(ISIms / (1000./refreshRate)))
 # have set ISIframes and letterDurFrames to integer that corresponds as close as possible to originally intended ms
-rateInfo = 'total SOA (ISI + letterDur)=' + str(round((ISIframes + letterDurFrames)*1000./refreshRate, 2)) + \
+rateInfo = 'total SOA=' + str(round((ISIframes + letterDurFrames)*1000./refreshRate, 2)) + \
     ' or ' + str(ISIframes + letterDurFrames) + ' frames, comprising\n'
 rateInfo += 'ISIframes ='+str(ISIframes)+' or '+str(ISIframes*(1000./refreshRate))+' ms and letterDurFrames =' + \
-    str(letterDurFrames)+' or '+str(round(letterDurFrames*(1000./refreshRate), 2))+'ms\n'
-rateInfo += 'cueDurFrames ='+str(cueDurFrames)+' or '+str(cueDurFrames*(1000./refreshRate))+' ms\n'
+    str(letterDurFrames)+' or '+str(round(letterDurFrames*(1000./refreshRate), 2))+'ms'
 logging.info(rateInfo)
 print(rateInfo)
 
@@ -215,7 +201,6 @@ else:  # checkRefreshEtc
         refreshMsg1 += ', which is close enough to desired val of ' + str(round(refreshRate, 1))
     myWinRes = myWin.size
     myWin.allowGUI = True
-    print(myWinRes)
 myWin.close()  # have to close window to show dialog box
 
 defaultNoiseLevel = 0.0  # to use if no staircase, can be set by user
@@ -299,26 +284,14 @@ myWin = openMyStimWindow()
 infix = ''
 if doStaircase:
     infix = 'staircase_'
-if not os.path.exists(os.path.join(dataDir,expt_name)):
-    os.makedirs(os.path.join(dataDir,expt_name))
-if not os.path.exists(os.path.join(codeDir,expt_name)):
-    os.makedirs(os.path.join(codeDir,expt_name))
-if not os.path.exists(os.path.join(logsDir,expt_name)):
-    os.makedirs(os.path.join(logsDir,expt_name))
-if not os.path.exists(os.path.join(trialsDir,expt_name)):
-    os.makedirs(os.path.join(trialsDir,expt_name))
-if not os.path.exists(os.path.join(stimsDir,expt_name)):
-    os.makedirs(os.path.join(stimsDir,expt_name))
-fileName = os.path.join(dataDir, expt_name, subject + '_' + infix + timeAndDateStr)
-stimsInTrialsFileName = os.path.join(stimsDir, expt_name, subject + '_' + infix + timeAndDateStr)
+fileName = os.path.join(dataDir, subject + '_' + infix + timeAndDateStr)
 if not demo and not exportImages:
     dataFile = open(fileName+'.txt', 'w')
     saveCodeCmd = 'cp \'' + \
         sys.argv[0] + '\' ' + os.path.join(codeDir,
-                                           expt_name, subject + '_' + infix + timeAndDateStr) + '.py'
+                                           subject + '_' + infix + timeAndDateStr) + '.py'
     os.system(saveCodeCmd)  # save a copy of the code as it was when that subject was run
-    logFname = os.path.join(logsDir, expt_name, subject + '_' + infix + timeAndDateStr)+'.log'
-    stimsInTrialsFile = open(stimsInTrialsFileName+'.txt', 'w')
+    logFname = os.path.join(logsDir, subject + '_' + infix + timeAndDateStr)+'.log'
     ppLogF = logging.LogFile(logFname,
                              filemode='w',  # if you set this to 'a' it will append instead of overwriting
                              level=logging.INFO)  # errors, data and warnings will be sent to this logfile
@@ -350,11 +323,11 @@ logging.flush()
 
 # create click sound for keyboard
 try:
-    click = sound.backend_sounddevice.SoundDeviceSound('406__tictacshutup__click-1-d.wav')
+    click = sound.Sound('406__tictacshutup__click-1-d.wav')
 except:  # in case file missing, create inferiro click manually
     logging.warn(
         'Could not load the desired click sound file, instead using manually created inferior click')
-    click = sound.backend_sounddevice.SoundDeviceSound('D', octave=4, sampleRate=22050, secs=0.015)
+    click = sound.Sound('D', octave=4, sampleRate=22050, secs=0.015, bits=8)
 
 if showRefreshMisses:
     fixSizePix = 32  # 2.6  #make fixation bigger so flicker more conspicuous
@@ -364,8 +337,7 @@ fixColor = [1, 1, 1]
 if exportImages:
     fixColor = [0, 0, 0]
 # Can counterphase flicker  noise texture to create salient flicker if you break fixation
-
-fixatnNoiseTexture = np.round(np.random.rand(int(fixSizePix/4), int(fixSizePix/4)), 0) * 2.0-1
+fixatnNoiseTexture = np.round(np.random.rand(fixSizePix/4, fixSizePix/4), 0) * 2.0-1
 
 fixation = visual.PatchStim(myWin, tex=fixatnNoiseTexture, size=(
     fixSizePix, fixSizePix), units='pix', mask='circle', interpolate=False, autoLog=False)
@@ -383,9 +355,9 @@ respStim = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=(
     1, 1, 0), alignHoriz='center', alignVert='center', height=.16, units='norm', autoLog=autoLogging)
 clickSound, badKeySound = stringResponse.setupSoundsForResponse()
 requireAcceptance = False
-nextText = visual.TextStim(myWin, pos=(0, .2), colorSpace='rgb', color=(
+nextText = visual.TextStim(myWin, pos=(0, .1), colorSpace='rgb', color=(
     1, 1, 1), alignHoriz='center', alignVert='center', height=.1, units='norm', autoLog=autoLogging)
-NextRemindCountText = visual.TextStim(myWin, pos=(0, .1), colorSpace='rgb', color=(
+NextRemindCountText = visual.TextStim(myWin, pos=(0, .2), colorSpace='rgb', color=(
     1, 1, 1), alignHoriz='center', alignVert='center', height=.1, units='norm', autoLog=autoLogging)
 screenshot = False
 screenshotDone = False
@@ -393,36 +365,26 @@ stimList = []
 
 # SETTING THE CONDITIONS
 possibleCue1positions = np.array([6, 10, 14, 18, 22])  # [4,10,16,22] used in Martini E2, group 2
-ltrCoords = [[1, 0], [-1, 0]]
-ltrEccentricity = [3.0, 10.0]
+cueCoords = [[1, 0], [-1, 0]]
+cueEccentricity = [2, 6, 10]
 possibleCue2lags = np.array([2])
-trial_count = 0
-
-for coords in ltrCoords:
-    for ecc in ltrEccentricity:
-        for i in range(trialsPerCondition):
-            for cue1pos in possibleCue1positions:
-                for cue2lag in possibleCue2lags:
-                    trial_count += 1
-                    stimList.append({'cue1pos': cue1pos, 'cue2lag': cue2lag,
-                                     'ltrCoords': coords, 'ltrEccentricity': ecc, 'trialNumOriginal': trial_count})
+for cue1pos in possibleCue1positions:
+    for cue2lag in possibleCue2lags:
+        for coords in cueCoords:
+            for ecc in cueEccentricity:
+                stimList.append({'cue1pos': cue1pos, 'cue2lag': cue2lag,
+                                 'cueCoords': coords, 'cueEccentricity': ecc})
 # Martini E2 and also AB experiments used 400 trials total, with breaks between every 100 trials
-trials = sample(stimList,len(stimList))
-#trials = stimList
-f = open(os.path.join(trialsDir, expt_name, subject + '_trial_order_' + infix + timeAndDateStr +'.csv'), "w")
-writer = csv.DictWriter(
-    f, fieldnames=trials[0].keys())
-writer.writeheader()
-writer.writerows(trials)
-f.close()
+
+trials = data.TrialHandler(stimList, trialsPerCondition)  # constant stimuli method
 # independent randomization, just to create random trials for staircase phase
 trialsForPossibleStaircase = data.TrialHandler(stimList, trialsPerCondition)
 # summary results to print out at end
 numRightWrongEachCuepos = np.zeros([len(possibleCue1positions), 1])
 # summary results to print out at end
 numRightWrongEachCue2lag = np.zeros([len(possibleCue2lags), 1])
-logging.info(rateInfo)
-logging.info('numtrials=' + str(len(trials)) + ' and each trialDurFrames='+str(trialDurFrames)+' or '+str(trialDurFrames*(1000./refreshRate)) +
+
+logging.info('numtrials=' + str(trials.nTotal) + ' and each trialDurFrames='+str(trialDurFrames)+' or '+str(trialDurFrames*(1000./refreshRate)) +
              ' ms' + '  task=' + task)
 
 
@@ -483,9 +445,6 @@ def display_message(win, txt, msg):
 # print header for data file
 print('experimentPhase\ttrialnum\tsubject\ttask\t', file=dataFile, end='')
 print('noisePercent\t', end='', file=dataFile)
-
-print('experimentPhase\ttrialnum\tsubject\ttask\t', file=stimsInTrialsFile, end='')
-
 if task == 'T1':
     numRespsWanted = 1
 elif task == 'T1T2':
@@ -497,20 +456,50 @@ for i in range(numRespsWanted):
     dataFile.write('response'+str(i)+'\t')
     dataFile.write('correct'+str(i)+'\t')
     dataFile.write('responsePosRelative'+str(i)+'\t')
-    dataFile.write('ltrSpatialPos'+str(i+1)+'\t')
-    dataFile.write('ltrEccentricity'+str(i+1)+'\t')
-    stimsInTrialsFile.write('answerPos'+str(i)+'\t')
-    stimsInTrialsFile.write('ltrSpatialPos'+str(i+1)+'\t')
-    stimsInTrialsFile.write('ltrEccentricity'+str(i+1)+'\t')
-
-for i in range(26):
-    stimsInTrialsFile.write('m'+str(i+1)+'\t')
-for i in range(26):
-    stimsInTrialsFile.write('c'+str(i+1)+'\t')
+    dataFile.write('cueSpatialPos'+str(i+1)+'\t')
+    dataFile.write('cueEccentricity'+str(i+1)+'\t')
 print('timingBlips', file=dataFile)
-print('timingBlips', file=stimsInTrialsFile)
 # end of header
 
+
+def oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects,
+                   noise, proportnNoise, allFieldCoords, numNoiseDots):
+    # defining a function to draw each frame of stim. So can call second time for tracking task response phase
+    SOAframes = letterDurFrames+ISIframes
+    cueFrames = cuesPos*SOAframes  # cuesPos is global variable
+    letterN = int(np.floor(n/SOAframes))
+    frameOfThisLetter = n % SOAframes  # every SOAframes, new letter
+    # if true, it's not time for the blank ISI.  it's still time to draw the letter
+    showLetter = frameOfThisLetter < letterDurFrames
+    # print 'n=',n,' SOAframes=',SOAframes, ' letterDurFrames=', letterDurFrames, ' (n % SOAframes) =', (n % SOAframes)  #DEBUGOFF
+    thisLetterIdx = letterSequence[letterN]  # which letter, from A to Z (1 to 26), should be shown?
+    # so that any timing problems occur just as often for every frame, always draw the letter and the cue, but simply draw it in the bgColor when it's not meant to be on
+    lettersDrawObjects[thisLetterIdx].setPos(cueSpatialLoc)
+    cue.setLineColor(bgColor)
+    cue.setFillColor(bgColor)
+    for cueFrame in cueFrames:  # cheTck whether it's time for any cue
+        if n >= cueFrame and n < cueFrame+cueDurFrames:
+            cue.setLineColor(cueColor)
+            cue.setFillColor(cueColor)
+
+    if showLetter:
+        lettersDrawObjects[thisLetterIdx].setColor(letterColor)
+    else:
+        lettersDrawObjects[thisLetterIdx].setColor(bgColor)
+
+    lettersDrawObjects[thisLetterIdx].draw()
+    # cue.setPos(cueSpatialLoc)
+    cue.draw()
+    # Not recommended because takes longer than a frame, even to shuffle apparently. Or may be setXYs step
+    refreshNoise = False
+    if proportnNoise > 0 and refreshNoise:
+        if frameOfThisLetter == 0:
+            np.random.shuffle(allFieldCoords)
+            dotCoords = allFieldCoords[0:numNoiseDots]
+            noise.setXYs(dotCoords)
+    if proportnNoise > 0:
+        noise.draw()
+    return True
 # #######End of function definition that displays the stimuli!!!! #####################################
 #############################################################################################################################
 
@@ -543,8 +532,8 @@ fixation_center = visual.Circle(myWin,
                                 autoLog=False)  # this stim changes too much for autologging to be useful
 
 # predraw all 26 letters
+ltrHeight = 4  # Martini letters were 2.5deg high
 lettersDrawObjects = list()
-cueDrawObjects = list()
 for i in range(0, 26):
     letterDraw = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=letterColor,
                                  alignHoriz='center', alignVert='center', units='deg', autoLog=autoLogging)
@@ -553,15 +542,6 @@ for i in range(0, 26):
     letterDraw.setText(letter, log=False)
     letterDraw.setColor(bgColor)
     lettersDrawObjects.append(letterDraw)
-
-    cueDraw = visual.TextStim(myWin, pos=(0, 0), colorSpace='rgb', color=letterColor,
-                                 alignHoriz='center', alignVert='center', units='deg', autoLog=autoLogging)
-    cueDraw.setHeight(ltrHeight)
-    cletter = numberToLetter(i)
-    cueDraw.setText(letter, log=False)
-    cueDraw.setColor(bgColor)
-    cueDrawObjects.append(cueDraw)
-
 
 # All noise dot coordinates ultimately in pixels, so can specify each dot is one pixel
 noiseFieldWidthDeg = ltrHeight * 1.0
@@ -623,56 +603,7 @@ nTrialsEachLag = np.zeros(len(possibleCue2lags))
 nTrialsApproxCorrectT2eachLag = np.zeros(len(possibleCue2lags))
 
 
-def oneFrameOfStim(n, cue, ltrEcc, ltrSpatialLoc, letterSequence, cueLetterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects, cueDrawObjects,
-                   noise, proportnNoise, allFieldCoords, numNoiseDots):
-    # defining a function to draw each frame of stim. So can call second time for tracking task response phase
-    SOAframes = letterDurFrames+ISIframes
-    cueFrames = cuesPos*SOAframes  # cuesPos is global variable
-    letterN = int(np.floor(n/SOAframes))
-    frameOfThisLetter = n % SOAframes  # every SOAframes, new letter
-    # if true, it's not time for the blank ISI.  it's still time to draw the letter
-    showLetter = frameOfThisLetter < letterDurFrames
-    # print 'n=',n,' SOAframes=',SOAframes, ' letterDurFrames=', letterDurFrames, ' (n % SOAframes) =', (n % SOAframes)  #DEBUGOFF
-    thisLetterIdx = letterSequence[letterN]  # which letter, from A to Z (1 to 26), should be shown?
-    thisCueLetterIdx = cueLetterSequence[letterN]
-    # so that any timing problems occur just as often for every frame, always draw the letter and the cue, but simply draw it in the bgColor when it's not meant to be on
-    cue.setLineColor(bgColor)
-    cue.setFillColor(bgColor)
-    #cue.setSize(max(ltrHeight, 0.5 * ltrEcc))
-    #cueDrawObjects[thisCueLetterIdx].setHeight(max(ltrHeight, 0.5 * ltrEcc))
-    for cueFrame in cueFrames:  # cheTck whether it's time for any cue
-        if n >= cueFrame and n < cueFrame+cueDurFrames:
-            cue.setLineColor(cueColor)
-            cue.setFillColor(cueColor)
-            #cueDrawObjects[thisCueLetterIdx].setColor(bgColor)
-            #cue.setPos(ltrSpatialLoc)
-            cue.draw()
-
-    if showLetter:
-        lettersDrawObjects[thisLetterIdx].setColor(letterColor)
-        #cueDrawObjects[thisCueLetterIdx].setColor(letterColor)
-    else:
-        lettersDrawObjects[thisLetterIdx].setColor(bgColor)
-        #cueDrawObjects[thisCueLetterIdx].setColor(bgColor)
-
-    lettersDrawObjects[thisLetterIdx].setPos(ltrSpatialLoc)
-    lettersDrawObjects[thisLetterIdx].draw()
-    #cueDrawObjects[thisCueLetterIdx].setPos(ltrSpatialLoc)
-    #cueDrawObjects[thisCueLetterIdx].draw()
-    # cue.setPos(ltrSpatialLoc)
-    # cue.draw()
-    # Not recommended because takes longer than a frame, even to shuffle apparently. Or may be setXYs step
-    refreshNoise = False
-    if proportnNoise > 0 and refreshNoise:
-        if frameOfThisLetter == 0:
-            np.random.shuffle(allFieldCoords)
-            dotCoords = allFieldCoords[0:numNoiseDots]
-            noise.setXYs(dotCoords)
-    if proportnNoise > 0:
-        noise.draw()
-    return True
-
-def do_RSVP_stim(cue1pos, ltrEcc, ltrSpatialLoc, cue2lag, proportnNoise, trialN):
+def do_RSVP_stim(cue1pos, cueSpatialLoc, cue2lag, proportnNoise, trialN):
     # relies on global variables:
     #   logging, bgColor
     #
@@ -682,9 +613,7 @@ def do_RSVP_stim(cue1pos, ltrEcc, ltrSpatialLoc, cue2lag, proportnNoise, trialN)
         cuesPos.append(cue1pos+cue2lag)
     cuesPos = np.array(cuesPos)
     letterSequence = np.arange(0, 26)
-    cueLetterSequence = np.arange(0,26)
     np.random.shuffle(letterSequence)
-    np.random.shuffle(cueLetterSequence)
     correctAnswers = np.array(letterSequence[cuesPos])
     noise = None
     allFieldCoords = None
@@ -716,12 +645,11 @@ def do_RSVP_stim(cue1pos, ltrEcc, ltrSpatialLoc, cue2lag, proportnNoise, trialN)
         fixationPoint.draw()
         myWin.flip()  # end fixation interval
     # myWin.setRecordFrameIntervals(True);  #can't get it to stop detecting superlong frames
-    #fixation_center.setAutoDraw(True)
-    fixation_center.setAutoDraw(True)
+    # fixation_center.setAutoDraw(True)
     # myWin.flip()
     t0 = trialClock.getTime()
     for n in range(trialDurFrames):  # this is the loop for this trial's stimulus!
-        worked = oneFrameOfStim(n, cue, ltrEcc, ltrSpatialLoc, letterSequence, cueLetterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects, cueDrawObjects,
+        worked = oneFrameOfStim(n, cue, cueSpatialLoc, letterSequence, cueDurFrames, letterDurFrames, ISIframes, cuesPos, lettersDrawObjects,
                                 noise, proportnNoise, allFieldCoords, numNoiseDots)  # draw letter and possibly cue and noise on top
         if exportImages:
             myWin.getMovieFrame(buffer='back')  # for later saving
@@ -730,22 +658,21 @@ def do_RSVP_stim(cue1pos, ltrEcc, ltrSpatialLoc, cue2lag, proportnNoise, trialN)
         t = trialClock.getTime()-t0
         ts.append(t)
     # fixation_center.setAutoDraw(False)
-    fixation_center.setAutoDraw(False)
     # myWin.flip()
     # end of big stimulus loop
     myWin.setRecordFrameIntervals(False)
 
     if task == 'T1':
-        respPromptStim.setText('Which foveal letter was present when the probe appeared?', log=False)
+        respPromptStim.setText('Which letter was circled?', log=False)
     elif task == 'T1T2':
         respPromptStim.setText('Which two letters were circled?', log=False)
     else:
         respPromptStim.setText('Error: unexpected task', log=False)
     postCueNumBlobsAway = -999  # doesn't apply to non-tracking and click tracking task
-    return letterSequence, cueLetterSequence, cuesPos, correctAnswers, ts
+    return letterSequence, cuesPos, correctAnswers, ts
 
 
-def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, ltrSpatialPosition, ltrEcc):
+def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, cueSpatialPosition, cueEcc):
     #Handle response, calculate whether correct, ########################################
     if autopilot or passThisTrial:
         responses = responsesAutopilot
@@ -776,7 +703,6 @@ def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, l
     for i in range(len(cuesPos)):  # print response stuff to dataFile
         # header was answerPos0, answer0, response0, correct0, responsePosRelative0
         print(cuesPos[i], '\t', end='', file=dataFile)
-        print(cuesPos[i], '\t', end='', file=stimsInTrialsFile)
         answerCharacter = numberToLetter(letterSequence[cuesPos[i]])
         print(answerCharacter, '\t', end='', file=dataFile)  # answer0
         print(responses[i], '\t', end='', file=dataFile)  # response0
@@ -785,23 +711,21 @@ def handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, l
 
         correct = eachCorrect.all()
         T1approxCorrect = eachApproxCorrect[0]
-    print(ltrSpatialPosition, '\t', end='', file=dataFile)
-    print(ltrSpatialPosition, '\t', end='', file=stimsInTrialsFile)
-    print(ltrEcc, '\t', end='', file=dataFile)
-    print(ltrEcc, '\t', end='', file=stimsInTrialsFile)
+    print(cueSpatialPosition, '\t', end='', file=dataFile)
+    print(cueEcc, '\t', end='', file=dataFile)
     return correct, eachCorrect, eachApproxCorrect, T1approxCorrect, passThisTrial, expStop
     # end handleAndScoreResponses
 
 
 def play_high_tone_correct_low_incorrect(correct, passThisTrial=False):
-    highA = sound.backend_sounddevice.SoundDeviceSound('G', octave=5, sampleRate=6000, secs=.3, bits=8)
-    low = sound.backend_sounddevice.SoundDeviceSound('F', octave=3, sampleRate=6000, secs=.3, bits=8)
+    highA = sound.Sound('G', octave=5, sampleRate=6000, secs=.3, bits=8)
+    low = sound.Sound('F', octave=3, sampleRate=6000, secs=.3, bits=8)
     highA.setVolume(0.9)
     low.setVolume(1.0)
     if correct:
         highA.play()
     elif passThisTrial:
-        high = sound.backend_sounddevice.SoundDeviceSound('G', octave=4, sampleRate=2000, secs=.08, bits=8)
+        high = sound.Sound('G', octave=4, sampleRate=2000, secs=.08, bits=8)
         for i in range(2):
             high.play()
             low.play()
@@ -976,33 +900,27 @@ if doStaircase:
 else:  # not staircase
     noisePercent = defaultNoiseLevel
     phasesMsg = 'Experiment will have ' + \
-        str(len(trials))+' trials. Letters will be drawn with superposed noise of' + \
+        str(trials.nTotal)+' trials. Letters will be drawn with superposed noise of' + \
         "{:.2%}".format(defaultNoiseLevel)
     print(phasesMsg)
     logging.info(phasesMsg)
 
     #myWin= openMyStimWindow();    myWin.flip(); myWin.flip();myWin.flip();myWin.flip()
     nDoneMain = 0
-    while nDoneMain < len(trials) and expStop == False:
+    while nDoneMain < trials.nTotal and expStop == False:
         if nDoneMain == 0:
             msg = 'Starting main (non-staircase) part of experiment'
             logging.info(msg)
             print(msg)
-        thisTrial = trials[nDoneMain]  # get a proper (non-staircase) trial
-        print(thisTrial)
+        thisTrial = trials.next()  # get a proper (non-staircase) trial
         cue1pos = thisTrial['cue1pos']
         cue2lag = None
-        ltrEcc = thisTrial['ltrEccentricity']
-        ltrSpatialPosition = thisTrial['ltrCoords']
+        cueEcc = thisTrial['cueEccentricity']
+        cueSpatialPosition = thisTrial['cueCoords']
         if task == "T1T2":
             cue2lag = thisTrial['cue2lag']
-
-        #cue.setSize(max(ltrHeight, 0.5 * ltrEcc))
-        for i in range(26):
-            lettersDrawObjects[i].setHeight(max(ltrHeight, 0.5 * ltrEcc))
-
-        letterSequence, cueLetterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
-            cue1pos, ltrEcc, np.array(ltrSpatialPosition)*ltrEcc, cue2lag, noisePercent/100., nDoneMain)
+        letterSequence, cuesPos, correctAnswers, ts = do_RSVP_stim(
+            cue1pos, np.array(cueSpatialPosition)*cueEcc, cue2lag, noisePercent/100., nDoneMain)
         numCasesInterframeLong = timingCheckAndLog(ts, nDoneMain)
 
         responseDebug = False
@@ -1026,34 +944,13 @@ else:  # not staircase
         print('expStop=', expStop, ' passThisTrial=', passThisTrial, ' responses=',
               responses, ' responsesAutopilot =', responsesAutopilot)
         if not expStop:
-            print(expt_name,'\t', end='', file=dataFile)  # first thing printed on each line of dataFile
+            print('main\t', end='', file=dataFile)  # first thing printed on each line of dataFile
             print(nDoneMain, '\t', end='', file=dataFile)
             print(subject, '\t', task, '\t', round(noisePercent, 3), '\t', end='', file=dataFile)
-
-            print(expt_name,'\t', end='', file=stimsInTrialsFile)  # first thing printed on each line of dataFile
-            print(nDoneMain, '\t', end='', file=stimsInTrialsFile)
-            print(subject, '\t', task, '\t', end='', file=stimsInTrialsFile)
-
             correct, eachCorrect, eachApproxCorrect, T1approxCorrect, passThisTrial, expStop = (
-                handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, ltrSpatialPosition, ltrEcc))
+                handleAndScoreResponse(passThisTrial, responses, responsesAutopilot, task, letterSequence, cuesPos, correctAnswers, cueSpatialPosition, cueEcc))
             # timingBlips, last thing recorded on each line of dataFile
             print(numCasesInterframeLong, file=dataFile)
-
-            mainStreamStim = []
-            cueStreamStim = []
-
-            for i in letterSequence:
-                print(numberToLetter(i), '\t', end ='', file = stimsInTrialsFile)
-
-            for i,ltr in enumerate(cueLetterSequence):
-                if i+1 == cuesPos: #cuesPos has +1 added to convert from default python indexing
-                    print(' ', '\t', end ='', file = stimsInTrialsFile)
-                else:
-                    print(numberToLetter(ltr), '\t', end ='', file = stimsInTrialsFile)
-
-            print(numCasesInterframeLong, file=stimsInTrialsFile)
-
-
 
             numTrialsCorrect += correct  # so count -1 as 0
             numTrialsApproxCorrect += eachApproxCorrect.all()
@@ -1077,16 +974,15 @@ else:  # not staircase
             nDoneMain += 1
 
             dataFile.flush()
-            stimsInTrialsFile.flush()
             logging.flush()
-            print('nDoneMain=', nDoneMain, ' trials.nTotal',
-                  len(trials))  # ' trials.thisN=',trials.thisN
-            if (nDoneMain > 2 and nDoneMain %
-                    (len(trials)*pctCompletedBreak/100.) == 0) and nDoneMain != len(trials):  # dont modulus 0 because then will do it for last trial
-                nextText.setText('The location of the probe will change now! \n\n Press "SPACE" to continue!')
+            print('nDoneMain=', nDoneMain, ' trials.nTotal=',
+                  trials.nTotal)  # ' trials.thisN=',trials.thisN
+            if (trials.nTotal > 6 and nDoneMain > 2 and nDoneMain %
+                    (trials.nTotal*pctCompletedBreak/100.) == 1):  # dont modulus 0 because then will do it for last trial
+                nextText.setText('Press "SPACE" to continue!')
                 nextText.draw()
                 progressMsg = 'Completed ' + str(nDoneMain) + \
-                    ' of ' + str(len(trials)) + ' trials'
+                    ' of ' + str(trials.nTotal) + ' trials'
                 NextRemindCountText.setText(progressMsg)
                 NextRemindCountText.draw()
                 myWin.flip()  # myWin.flip(clearBuffer=True)
@@ -1111,7 +1007,7 @@ print(msg)
 logging.info(msg)
 if expStop:
     msg = 'user aborted experiment on keypress with trials done=' + \
-        str(nDoneMain) + ' of ' + str(len(trials)+1)
+        str(nDoneMain) + ' of ' + str(trials.nTotal+1)
     print(msg)
     logging.error(msg)
 
@@ -1130,14 +1026,9 @@ if not doStaircase and (nDoneMain > 0):
 
 logging.flush()
 dataFile.close()
-stimsInTrialsFile.close()
 
 in_txt = csv.reader(open(fileName+'.txt', "rb"), delimiter='\t')
 out_csv = csv.writer(open(fileName+'.csv', 'wb'))
 out_csv.writerows(in_txt)
-
-stim_in_txt = csv.reader(open(stimsInTrialsFileName+'.txt', "rb"), delimiter='\t')
-stim_out_csv = csv.writer(open(stimsInTrialsFileName+'.csv', 'wb'))
-stim_out_csv.writerows(stim_in_txt)
 myWin.close()  # have to close window if want to show a plot
 # ADD PLOT OF AB PERFORMANCE?

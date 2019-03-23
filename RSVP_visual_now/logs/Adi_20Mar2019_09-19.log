@@ -1,0 +1,779 @@
+10.3185 	ERROR 	Screen apparently NOT the desired resolution of 2560x1440 pixels!!
+11.9885 	WARNING 	User requested fullscreen with size [2560 1440], but screen is actually [1440, 900]. Using actual size
+13.0389 	INFO 	Successfully set darwin thread to realtime
+14.0948 	INFO 	#[ PsychoPy3 RuntimeInfoStart ]
+  #[[ PsychoPy ]] #---------
+    psychopyVersion: 3.0.2
+    psychopyHaveExtRush: True
+  #[[ Experiment ]] #---------
+    experimentRunTime: 2019_03_20 09:19 (Year_Month_Day Hour:Min)
+    experimentRunTime.epoch: 1553087958
+    experimentScript: color_change_visual_now_ver2.py
+    experimentScript.digestSHA1: 416f71cbc334ccf46fdad7cbb9ee87a7d15223de
+    experimentScript.directory: /Users/supadhy6/Documents/GitHub/spatio_temporal_information_processing/RSVP_visual_now
+  #[[ System ]] #---------
+    systemHaveInternetAccess: True
+    systemHostName: pbs-jf-aldi.local
+    systemLocale: C
+    systemMemFreeRAM: 8059.765625
+    systemMemTotalRAM: 16384.0
+    systemPlatform: darwin 10.14.3 x86_64
+    systemRavailable: R version 3.4.1 (2017-06-30) -- Single Candle
+    systemRebooted: Mar 14 21:18
+    systemSec.OpenSSLVersion: OpenSSL 1.1.1a  20 Nov 2018
+    systemSec.pythonSSL: True
+    systemTimeNumpySD1000000_sec: 0.0036
+    systemUser: supadhy6
+    systemUserID: 1903061739
+    systemUserProcCount: 332
+    systemUserProcFlagged: iTunes Safari mdworker Dropbox
+    systemUsersCount: 1
+  #[[ Window ]] #---------
+    windowWinType: pyglet
+    windowUnits: deg
+    windowSize_pix: [2880 1800]
+    windowScreen: 0
+    windowRgb: [-0.7 -0.7 -0.7]
+    windowRefreshTimeSD_ms: 0.590
+    windowRefreshTimeMedian_ms: 16.638
+    windowRefreshTimeAvg_ms: 16.654
+    windowPos_pix: [0.0, 0.0]
+    windowMonitor.name: testmonitor
+    windowMonitor.getWidth_cm: 60.0
+    windowMonitor.getDistance_cm: 65.0
+    windowMonitor.currentCalibName: 2019_01_28 08:48
+    windowIsFullScr: True
+  #[[ Python ]] #---------
+    pythonVersion: 3.6.0
+  #[[ OpenGL ]] #---------
+#[ PsychoPy3 RuntimeInfoEnd ]
+
+14.0975 	WARNING 	Could not load the desired click sound file, instead using manually created inferior click
+14.2333 	EXP 	Created sequence: random, trialTypes=72, nReps=5, seed=None
+14.4173 	INFO 	numtrials=360 and each trialDurFrames=45 or 750.0 ms
+14.4233 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.5, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='', units='deg', win=Window(...), wrapWidth=30)
+14.5297 	EXP 	text: text = "Welcome! Thank you for agreeing to participate in this study.\n\nYou will be presented with two discs, one in blue and the other in green colors.\n\nYour task is to say which colored disk flashed first.\n\nYou will do this while fixating in the center.\n\nOnce you've identified the order after the trial ends, type it out on the keyboard.\n\nIf you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\nPress any key when you are ready to begin the experiment.\n\n"
+14.5297 	EXP 	text: autoDraw = True
+22.5972 	DATA 	Keypress: space
+22.5989 	EXP 	text: autoDraw = False
+22.6000 	INFO 	Starting the experiment
+24.4254 	EXP 	window1: recordFrameIntervals = False
+26.2939 	DATA 	Keypress: g
+26.4277 	DATA 	Keypress: b
+28.6572 	EXP 	window1: recordFrameIntervals = False
+29.0776 	DATA 	Keypress: g
+29.2775 	DATA 	Keypress: b
+31.4707 	EXP 	window1: recordFrameIntervals = False
+31.4714 	ERROR 	trialnum=2 ERROR,4 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[30.1 30.2 29.2 29.7] and was these frames: [ 2  6 17 43]
+31.4718 	INFO 	flankers also=[16.7 30.1 15.6 17.  30.2  3.1 15.8 29.2  4.2 16.8 29.7]
+32.6277 	DATA 	Keypress: g
+32.8606 	DATA 	Keypress: b
+35.2256 	EXP 	window1: recordFrameIntervals = False
+35.7113 	DATA 	Keypress: g
+35.9770 	DATA 	Keypress: b
+37.9922 	EXP 	window1: recordFrameIntervals = False
+38.6443 	DATA 	Keypress: g
+38.8937 	DATA 	Keypress: b
+40.9424 	EXP 	window1: recordFrameIntervals = False
+40.9439 	ERROR 	trialnum=5 ERROR,2 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[23.5 22.2] and was these frames: [ 1 33]
+40.9445 	INFO 	flankers also=[15.8 23.5  9.6 16.3 22.2 10.9]
+41.4789 	DATA 	Keypress: g
+41.6773 	DATA 	Keypress: b
+43.8328 	EXP 	window1: recordFrameIntervals = False
+43.8336 	ERROR 	trialnum=6 ERROR,4 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[23.8 24.  24.3 25.5] and was these frames: [ 1 30 38 42]
+43.8340 	INFO 	flankers also=[17.  23.8  8.6 16.6 24.  16.7  8.4 24.3 16.5  8.1 25.5 16.4]
+44.5945 	DATA 	Keypress: g
+44.7695 	DATA 	Keypress: b
+46.9679 	EXP 	window1: recordFrameIntervals = False
+46.9685 	ERROR 	trialnum=7 ERROR,7 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[26.7 27.3 26.3 27.5 28.6 28.  27.4] and was these frames: [ 1  5 30 35 37 39 42]
+46.9689 	INFO 	flankers also=[16.9 26.7  5.5 16.7 27.3  5.4 16.6 26.3 17.1  5.1 27.5  6.1  6.1 28.6
+  4.3  4.3 28.   5.9 17.  27.4 16.3]
+47.6442 	DATA 	Keypress: g
+47.9386 	DATA 	Keypress: b
+50.1087 	EXP 	window1: recordFrameIntervals = False
+50.7783 	DATA 	Keypress: g
+50.9266 	DATA 	Keypress: b
+52.9921 	EXP 	window1: recordFrameIntervals = False
+52.9927 	ERROR 	trialnum=9 ERROR,1 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[30.6] and was these frames: [40]
+52.9929 	INFO 	flankers also=[16.7 30.6 19.1]
+53.4272 	DATA 	Keypress: g
+53.5926 	DATA 	Keypress: b
+56.0750 	EXP 	window1: recordFrameIntervals = False
+56.4936 	DATA 	Keypress: g
+56.7103 	DATA 	Keypress: b
+58.9756 	EXP 	window1: recordFrameIntervals = False
+59.3605 	DATA 	Keypress: g
+59.6095 	DATA 	Keypress: b
+62.0436 	EXP 	window1: recordFrameIntervals = False
+62.0441 	ERROR 	trialnum=12 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[32.6 32.2 31.4 32.  31.3 34.4] and was these frames: [15 18 21 24 27 30]
+62.0445 	INFO 	flankers also=[16.8 32.6  3.2 15.3 32.2 16.6  2.4 31.4 15.9  2.  32.  16.2  2.6 31.3
+ 16.1  2.2 34.4 14.4]
+62.2279 	DATA 	Keypress: g
+62.4777 	DATA 	Keypress: b
+64.5469 	EXP 	window1: recordFrameIntervals = False
+64.5473 	ERROR 	trialnum=13 ERROR,11 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[32.9 31.8 32.5 33.2 30.1 29.7 30.4 32.1 31.1 29.6 29.2] and was these frames: [ 0  1 17 20 23 26 29 32 35 38 41]
+64.5477 	INFO 	flankers also=[32.9 31.8 32.9 31.8  2.9 17.4 32.5  2.9 15.  33.2 16.1  3.6 30.1 16.
+  3.6 29.7 16.8  3.5 30.4  3.6 15.2 32.1 16.   3.1 31.1 15.6  4.4 29.6
+ 15.1  5.5 29.2 15.6]
+64.9763 	DATA 	Keypress: g
+65.1766 	DATA 	Keypress: b
+67.5578 	EXP 	window1: recordFrameIntervals = False
+67.5585 	ERROR 	trialnum=14 ERROR,1 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[29.5] and was these frames: [2]
+67.5589 	INFO 	flankers also=[ 3.5 29.5  5.5]
+67.8765 	DATA 	Keypress: g
+68.1101 	DATA 	Keypress: b
+70.3916 	EXP 	window1: recordFrameIntervals = False
+70.6101 	DATA 	Keypress: g
+70.8271 	DATA 	Keypress: b
+73.1578 	EXP 	window1: recordFrameIntervals = False
+73.4594 	DATA 	Keypress: g
+73.5960 	DATA 	Keypress: b
+76.0641 	EXP 	window1: recordFrameIntervals = False
+76.0649 	ERROR 	trialnum=17 ERROR,8 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[23.  22.2 23.5 23.  23.8 23.1 24.1 23.5] and was these frames: [ 3 18 21 29 33 35 39 43]
+76.0655 	INFO 	flankers also=[15.  23.  11.2 17.3 22.2 10.4 17.6 23.5  9.7 16.9 23.  10.6 16.6 23.8
+  9.8  9.8 23.1 16.6  9.5 24.1 15.7 10.5 23.5]
+76.0735 	DATA 	Keypress: g
+76.3591 	DATA 	Keypress: b
+78.6766 	DATA 	Keypress: g
+78.7903 	EXP 	window1: recordFrameIntervals = False
+78.8434 	DATA 	Keypress: b
+79.4606 	DATA 	Keypress: g
+81.6239 	EXP 	window1: recordFrameIntervals = False
+82.2768 	DATA 	Keypress: g
+82.5268 	DATA 	Keypress: b
+84.6572 	EXP 	window1: recordFrameIntervals = False
+85.0770 	DATA 	Keypress: g
+85.3450 	DATA 	Keypress: b
+87.7570 	EXP 	window1: recordFrameIntervals = False
+88.1430 	DATA 	Keypress: g
+88.3763 	DATA 	Keypress: b
+90.4578 	EXP 	window1: recordFrameIntervals = False
+90.7595 	DATA 	Keypress: g
+91.0101 	DATA 	Keypress: b
+93.0235 	EXP 	window1: recordFrameIntervals = False
+93.3599 	DATA 	Keypress: g
+93.6095 	DATA 	Keypress: b
+95.9246 	EXP 	window1: recordFrameIntervals = False
+96.2595 	DATA 	Keypress: g
+96.4938 	DATA 	Keypress: b
+98.6867 	EXP 	window1: recordFrameIntervals = False
+98.6876 	ERROR 	trialnum=25 ERROR,5 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[28.6 28.  29.3 27.8 30.4] and was these frames: [22 31 34 37 43]
+98.6881 	INFO 	flankers also=[17.6 28.6  4.2 17.2 28.  15.7  4.8 29.3  5.9 16.6 27.8 16.6 16.4 30.4]
+99.1419 	DATA 	Keypress: g
+99.3768 	DATA 	Keypress: b
+101.5416 	EXP 	window1: recordFrameIntervals = False
+101.9264 	DATA 	Keypress: g
+102.1590 	DATA 	Keypress: b
+104.1405 	EXP 	window1: recordFrameIntervals = False
+104.2762 	DATA 	Keypress: g
+104.5261 	DATA 	Keypress: b
+106.6945 	EXP 	window1: recordFrameIntervals = False
+106.6951 	ERROR 	trialnum=28 ERROR,1 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[21.9] and was these frames: [18]
+106.6954 	INFO 	flankers also=[12.5 21.9 11.9]
+107.0104 	DATA 	Keypress: g
+107.2272 	DATA 	Keypress: b
+109.5473 	EXP 	window1: recordFrameIntervals = False
+109.5483 	ERROR 	trialnum=29 ERROR,8 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[24.2 22.6 22.5 22.1 23.4 24.1 24.1 24.3] and was these frames: [ 1  3 14 19 22 27 34 43]
+109.5490 	INFO 	flankers also=[15.5 24.2  9.3  9.3 22.6 10.2 16.9 22.5 10.4 17.  22.1 11.3 17.  23.4
+  9.7 15.7 24.1  9.9 15.6 24.1  9.5 17.3 24.3]
+109.5870 	DATA 	Keypress: g
+109.8585 	DATA 	Keypress: b
+111.8390 	EXP 	window1: recordFrameIntervals = False
+111.8397 	ERROR 	trialnum=30 ERROR,4 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[25.2 26.  26.1 24.5] and was these frames: [12 22 31 35]
+111.8401 	INFO 	flankers also=[16.3 25.2  7.7 17.1 26.   8.  16.1 26.1  6.9 17.1 24.5  7.8]
+112.2429 	DATA 	Keypress: g
+112.4084 	DATA 	Keypress: b
+114.6571 	EXP 	window1: recordFrameIntervals = False
+115.0433 	DATA 	Keypress: g
+115.2099 	DATA 	Keypress: b
+117.3897 	EXP 	window1: recordFrameIntervals = False
+117.7599 	DATA 	Keypress: g
+117.9597 	DATA 	Keypress: b
+120.4075 	EXP 	window1: recordFrameIntervals = False
+120.7251 	DATA 	Keypress: g
+120.9106 	DATA 	Keypress: b
+122.9395 	EXP 	window1: recordFrameIntervals = False
+123.1748 	DATA 	Keypress: g
+123.3761 	DATA 	Keypress: b
+125.7574 	EXP 	window1: recordFrameIntervals = False
+126.1597 	DATA 	Keypress: g
+126.3934 	DATA 	Keypress: b
+129.1418 	EXP 	window1: recordFrameIntervals = False
+129.1431 	ERROR 	trialnum=36 ERROR,3 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[30.4 32.2 32.2] and was these frames: [ 8 11 14]
+129.1437 	INFO 	flankers also=[17.5 30.4  4.3 15.  32.2 16.5  3.6 32.2 19. ]
+129.4421 	DATA 	Keypress: g
+129.7108 	DATA 	Keypress: b
+131.8238 	EXP 	window1: recordFrameIntervals = False
+132.1777 	DATA 	Keypress: g
+132.4266 	DATA 	Keypress: b
+134.7912 	EXP 	window1: recordFrameIntervals = False
+134.7919 	ERROR 	trialnum=38 ERROR,10 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[32.5 32.4 28.2 27.8 30.2 28.3 28.2 26.4 28.6 28.9] and was these frames: [17 20 23 26 29 32 35 38 40 43]
+134.7926 	INFO 	flankers also=[16.  32.5  5.6 13.8 32.4 15.1  6.4 28.2 16.4  5.9 27.8 16.8  4.4 30.2
+ 14.6  6.3 28.3 16.6  5.5 28.2 16.1  5.8 26.4  6.3  6.3 28.6 16.6  4.8
+ 28.9]
+135.0577 	DATA 	Keypress: g
+135.2943 	DATA 	Keypress: b
+137.6317 	EXP 	window1: recordFrameIntervals = False
+137.6327 	ERROR 	trialnum=39 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[33.5 33.  25.7 28.3 27.2 26.3] and was these frames: [26 29 32 35 38 41]
+137.6332 	INFO 	flankers also=[16.4 33.5  6.1 12.  33.  14.8  8.8 25.7 17.2  5.5 28.3 16.5  5.7 27.2
+ 15.9  8.1 26.3 16.7]
+137.9593 	DATA 	Keypress: g
+138.2092 	DATA 	Keypress: b
+140.1942 	DATA 	Keypress: g
+140.2470 	EXP 	window1: recordFrameIntervals = False
+140.2477 	ERROR 	trialnum=40 ERROR,8 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[30.6 33.3 25.7 27.8 26.7 26.7 26.2 25.5] and was these frames: [21 24 27 30 33 36 39 41]
+140.2482 	INFO 	flankers also=[16.9 30.6  7.9 10.3 33.3 16.4  7.9 25.7 16.3  7.1 27.8 15.   7.7 26.7
+ 16.7  6.4 26.7 16.7  7.1 26.2  7.8  7.8 25.5 15.5]
+140.5268 	DATA 	Keypress: b
+141.4273 	DATA 	Keypress: backspace
+141.7430 	DATA 	Keypress: g
+141.8278 	DATA 	Keypress: b
+143.9480 	EXP 	window1: recordFrameIntervals = False
+143.9496 	ERROR 	trialnum=41 ERROR,8 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[25.2 24.6 23.8 24.2 24.1 24.4 23.9 25.2] and was these frames: [ 3 14 18 22 31 33 35 38]
+143.9504 	INFO 	flankers also=[16.8 25.2 14.5 16.  24.6  8.4 16.5 23.8  9.3 15.9 24.2  9.6 17.5 24.1
+  9.1  9.1 24.4  9.   9.  23.9 18.   7.5 25.2 15.9]
+144.2936 	DATA 	Keypress: g
+144.5912 	DATA 	Keypress: b
+146.6063 	EXP 	window1: recordFrameIntervals = False
+146.9256 	DATA 	Keypress: g
+147.1429 	DATA 	Keypress: b
+149.4551 	EXP 	window1: recordFrameIntervals = False
+149.4558 	ERROR 	trialnum=43 ERROR,16 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[35.3 32.7 31.3 25.  31.  31.  31.1 32.  25.1 30.5 32.8 24.7 35.  26.6
+ 31.3 45.2] and was these frames: [ 0  3  6  9 12 15 18 21 24 27 30 33 34 37 40 43]
+149.4564 	INFO 	flankers also=[35.3 13.9  3.7 32.7 13.6  3.4 31.3 16.2  8.9 25.  15.1  3.9 31.  15.1
+  3.9 31.  15.3  3.3 31.1 15.5  3.  32.  16.   9.2 25.1 14.7  4.5 30.5
+ 15.8  2.1 32.8 16.8  7.7 24.7 35.  24.7 35.  15.7  8.9 26.6 12.7  3.7
+ 31.3 15.7  3.4 45.2]
+149.8251 	DATA 	Keypress: g
+150.0604 	DATA 	Keypress: b
+152.1405 	EXP 	window1: recordFrameIntervals = False
+152.1414 	ERROR 	trialnum=44 ERROR,15 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[31.6 30.4 30.3 29.7 35.9 31.9 31.1 29.7 29.2 30.1 30.6 28.1 34.1 28.2
+ 28.5] and was these frames: [ 1  4  7 10 13 16 19 22 25 28 31 34 37 40 43]
+152.1421 	INFO 	flankers also=[ 3.8 31.6 14.5  4.9 30.4 14.9  3.2 30.3 16.1  3.8 29.7 16.3  4.  35.9
+ 10.4  3.1 31.9 13.7  4.6 31.1 15.5  4.5 29.7 15.6  4.3 29.2 16.6  3.9
+ 30.1 15.8  4.4 30.6 15.3  5.6 28.1  4.  12.3 34.1 16.2  5.4 28.2 16.2
+  5.7 28.5]
+152.4761 	DATA 	Keypress: g
+152.6593 	DATA 	Keypress: b
+154.9738 	EXP 	window1: recordFrameIntervals = False
+154.9744 	ERROR 	trialnum=45 ERROR,3 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[26.7 28.8 26.3] and was these frames: [1 3 6]
+154.9746 	INFO 	flankers also=[ 6.3 26.7  6.3  6.3 28.8 14.9  8.2 26.3 14.3]
+155.2588 	DATA 	Keypress: g
+155.4297 	DATA 	Keypress: b
+157.7583 	EXP 	window1: recordFrameIntervals = False
+157.7591 	ERROR 	trialnum=46 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[26.4 22.6 24.2 26.1 24.2 24.1] and was these frames: [32 34 36 38 40 42]
+157.7595 	INFO 	flankers also=[17.1 26.4  8.5  8.5 22.6 11.3 11.3 24.2  7.7  7.7 26.1  6.5  6.5 24.2
+ 10.3 10.3 24.1  9.4]
+158.1930 	DATA 	Keypress: g
+158.4414 	DATA 	Keypress: b
+160.4735 	EXP 	window1: recordFrameIntervals = False
+160.7922 	DATA 	Keypress: g
+161.0090 	DATA 	Keypress: b
+163.2609 	DATA 	Keypress: g
+163.4226 	EXP 	window1: recordFrameIntervals = False
+163.5103 	DATA 	Keypress: b
+164.1929 	DATA 	Keypress: backspace
+164.3929 	DATA 	Keypress: g
+164.5417 	DATA 	Keypress: b
+166.5398 	EXP 	window1: recordFrameIntervals = False
+166.5404 	ERROR 	trialnum=49 ERROR,1 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[31.] and was these frames: [4]
+166.5406 	INFO 	flankers also=[16.5 31.  18.9]
+168.2572 	DATA 	Keypress: g
+168.4921 	DATA 	Keypress: b
+170.9894 	EXP 	window1: recordFrameIntervals = False
+170.9899 	ERROR 	trialnum=50 ERROR,4 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[33.2 31.  31.3 34. ] and was these frames: [ 0  4 10 13]
+170.9904 	INFO 	flankers also=[33.2 15.4 16.1 31.  18.4 17.2 31.3  2.  15.4 34.  15.5]
+172.7809 	DATA 	Keypress: b
+172.8950 	DATA 	Keypress: g
+174.9383 	EXP 	window1: recordFrameIntervals = False
+174.9390 	ERROR 	trialnum=51 ERROR,2 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[21.8 22. ] and was these frames: [28 30]
+174.9394 	INFO 	flankers also=[14.7 21.8 12.3 12.3 22.  16.2]
+175.4416 	DATA 	Keypress: b
+175.7410 	DATA 	Keypress: g
+178.0066 	EXP 	window1: recordFrameIntervals = False
+179.1414 	DATA 	Keypress: g
+179.3417 	DATA 	Keypress: b
+181.6069 	EXP 	window1: recordFrameIntervals = False
+182.3430 	DATA 	Keypress: g
+182.6081 	DATA 	Keypress: b
+184.8233 	EXP 	window1: recordFrameIntervals = False
+185.4600 	DATA 	Keypress: g
+185.6916 	DATA 	Keypress: b
+187.8717 	EXP 	window1: recordFrameIntervals = False
+188.3586 	DATA 	Keypress: g
+188.6087 	DATA 	Keypress: b
+190.5887 	EXP 	window1: recordFrameIntervals = False
+191.2931 	DATA 	Keypress: b
+191.4752 	DATA 	Keypress: g
+193.6227 	EXP 	window1: recordFrameIntervals = False
+193.6236 	ERROR 	trialnum=57 ERROR,2 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[34.7 22. ] and was these frames: [ 2 35]
+193.6247 	INFO 	flankers also=[14.2 34.7 15.7 13.2 22.  11.1]
+193.9770 	DATA 	Keypress: b
+194.1768 	DATA 	Keypress: g
+196.2711 	EXP 	window1: recordFrameIntervals = False
+196.2717 	ERROR 	trialnum=58 ERROR,3 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[29.3 31.8 31.3] and was these frames: [ 0  3 43]
+196.2719 	INFO 	flankers also=[29.3 14.9  4.2 31.8 16.9 16.4 31.3]
+196.5581 	DATA 	Keypress: g
+196.7101 	DATA 	Keypress: b
+198.8559 	EXP 	window1: recordFrameIntervals = False
+198.8569 	ERROR 	trialnum=59 ERROR,11 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[28.7 34.  24.7 28.6 28.2 29.3 29.4 31.2 29.4 28.7 29.3] and was these frames: [ 2  5  8 11 14 16 19 22 25 28 31]
+198.8583 	INFO 	flankers also=[ 5.  28.7  4.1 13.  34.  15.1  8.4 24.7 17.2  4.9 28.6 15.6  4.3 28.2
+  5.7  5.7 29.3 15.8  5.5 29.4 14.9  4.7 31.2 13.2  6.3 29.4 15.1  5.6
+ 28.7 15.7  4.5 29.3 16.3]
+199.2417 	DATA 	Keypress: b
+199.4090 	DATA 	Keypress: g
+201.7561 	EXP 	window1: recordFrameIntervals = False
+202.0420 	DATA 	Keypress: g
+202.3249 	DATA 	Keypress: b
+204.4567 	EXP 	window1: recordFrameIntervals = False
+204.6766 	DATA 	Keypress: g
+204.9755 	DATA 	Keypress: b
+207.3230 	EXP 	window1: recordFrameIntervals = False
+207.9761 	DATA 	Keypress: g
+208.1250 	DATA 	Keypress: b
+210.2729 	EXP 	window1: recordFrameIntervals = False
+210.6902 	DATA 	Keypress: g
+210.9255 	DATA 	Keypress: b
+213.0477 	EXP 	window1: recordFrameIntervals = False
+213.0484 	ERROR 	trialnum=64 ERROR,8 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[24.6 26.1 24.8 26.5 25.  25.4 25.5 25.8] and was these frames: [12 19 23 29 35 37 39 43]
+213.0494 	INFO 	flankers also=[16.3 24.6  8.4 16.  26.1  7.4 17.3 24.8  7.3 15.4 26.5 17.5 15.7 25.
+  8.   8.  25.4  8.   8.  25.5  7.8 17.  25.8]
+213.3927 	DATA 	Keypress: g
+213.6089 	DATA 	Keypress: b
+215.6727 	EXP 	window1: recordFrameIntervals = False
+215.7264 	DATA 	Keypress: g
+215.9417 	DATA 	Keypress: b
+218.0054 	EXP 	window1: recordFrameIntervals = False
+218.3757 	DATA 	Keypress: g
+218.5755 	DATA 	Keypress: b
+220.8390 	EXP 	window1: recordFrameIntervals = False
+221.1753 	DATA 	Keypress: g
+221.3587 	DATA 	Keypress: b
+223.6562 	EXP 	window1: recordFrameIntervals = False
+224.0103 	DATA 	Keypress: g
+224.2086 	DATA 	Keypress: b
+226.2423 	DATA 	Keypress: g
+226.3223 	EXP 	window1: recordFrameIntervals = False
+226.6250 	DATA 	Keypress: b
+227.3082 	DATA 	Keypress: backspace
+227.5077 	DATA 	Keypress: g
+227.6591 	DATA 	Keypress: b
+230.1054 	EXP 	window1: recordFrameIntervals = False
+230.2257 	DATA 	Keypress: g
+230.5257 	DATA 	Keypress: b
+232.7414 	DATA 	Keypress: g
+232.9555 	EXP 	window1: recordFrameIntervals = False
+232.9566 	ERROR 	trialnum=71 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[33.  32.3 31.4 30.9 32.4 34.4] and was these frames: [20 30 33 35 37 38]
+232.9572 	INFO 	flankers also=[16.9 33.  13.3 15.1 32.3 16.8 17.8 31.4 18.8 18.8 30.9 18.6 18.6 32.4
+ 34.4 32.4 34.4 14.5]
+233.3244 	DATA 	Keypress: g
+233.5269 	DATA 	Keypress: b
+236.1381 	EXP 	window1: recordFrameIntervals = False
+236.1387 	ERROR 	trialnum=72 ERROR,12 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[32.2 32.4 32.8 30.9 33.2 22.4 32.5 34.3 34.  33.2 32.4 32.4] and was these frames: [ 0  2  5  6 13 20 29 30 32 33 34 40]
+236.1396 	INFO 	flankers also=[32.2 17.7 17.7 32.4 18.4 16.4 32.8 30.9 32.8 30.9 18.8 15.6 33.2 16.7
+ 15.4 22.4 12.3 16.9 32.5 34.3 32.5 34.3 16.3 16.3 34.  33.2 34.  33.2
+ 32.4 33.2 32.4 17.3 16.4 32.4 19.7]
+236.4907 	DATA 	Keypress: g
+236.7395 	DATA 	Keypress: b
+239.0395 	EXP 	window1: recordFrameIntervals = False
+239.3571 	DATA 	Keypress: g
+239.6417 	DATA 	Keypress: b
+242.0223 	EXP 	window1: recordFrameIntervals = False
+242.0261 	DATA 	Keypress: g
+242.3244 	DATA 	Keypress: b
+242.9770 	DATA 	Keypress: backspace
+243.1753 	DATA 	Keypress: g
+243.2931 	DATA 	Keypress: b
+245.4054 	EXP 	window1: recordFrameIntervals = False
+245.7918 	DATA 	Keypress: g
+246.0743 	DATA 	Keypress: b
+248.4916 	EXP 	window1: recordFrameIntervals = False
+248.8108 	DATA 	Keypress: g
+249.0748 	DATA 	Keypress: b
+251.5221 	EXP 	window1: recordFrameIntervals = False
+251.9247 	DATA 	Keypress: g
+252.1749 	DATA 	Keypress: b
+254.4716 	EXP 	window1: recordFrameIntervals = False
+254.7917 	DATA 	Keypress: g
+254.9749 	DATA 	Keypress: b
+257.1715 	EXP 	window1: recordFrameIntervals = False
+257.7263 	DATA 	Keypress: g
+258.0233 	DATA 	Keypress: b
+260.2547 	EXP 	window1: recordFrameIntervals = False
+260.5575 	DATA 	Keypress: g
+260.7407 	DATA 	Keypress: b
+263.0553 	EXP 	window1: recordFrameIntervals = False
+263.4076 	DATA 	Keypress: g
+263.6571 	DATA 	Keypress: b
+266.0714 	EXP 	window1: recordFrameIntervals = False
+266.3741 	DATA 	Keypress: g
+266.5411 	DATA 	Keypress: b
+268.6052 	EXP 	window1: recordFrameIntervals = False
+268.9243 	DATA 	Keypress: g
+269.0603 	DATA 	Keypress: b
+271.5054 	EXP 	window1: recordFrameIntervals = False
+271.7246 	DATA 	Keypress: g
+271.8595 	DATA 	Keypress: b
+273.8717 	EXP 	window1: recordFrameIntervals = False
+274.1743 	DATA 	Keypress: g
+274.3244 	DATA 	Keypress: b
+276.4211 	EXP 	window1: recordFrameIntervals = False
+276.7908 	DATA 	Keypress: g
+276.9581 	DATA 	Keypress: b
+279.3877 	EXP 	window1: recordFrameIntervals = False
+279.6593 	DATA 	Keypress: g
+279.7919 	DATA 	Keypress: b
+282.2034 	EXP 	window1: recordFrameIntervals = False
+282.5086 	DATA 	Keypress: g
+282.6573 	DATA 	Keypress: b
+285.0591 	DATA 	Keypress: g
+285.1214 	EXP 	window1: recordFrameIntervals = False
+285.5568 	DATA 	Keypress: g
+285.7256 	DATA 	Keypress: b
+288.1378 	EXP 	window1: recordFrameIntervals = False
+288.4735 	DATA 	Keypress: g
+288.7742 	DATA 	Keypress: b
+289.9109 	DATA 	Keypress: space
+292.0711 	EXP 	window1: recordFrameIntervals = False
+292.4410 	DATA 	Keypress: g
+292.6912 	DATA 	Keypress: b
+295.0380 	EXP 	window1: recordFrameIntervals = False
+295.3738 	DATA 	Keypress: g
+295.6571 	DATA 	Keypress: b
+297.7552 	EXP 	window1: recordFrameIntervals = False
+297.7574 	ERROR 	trialnum=93 ERROR,3 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[26.9 27.  27.5] and was these frames: [34 36 39]
+297.7580 	INFO 	flankers also=[17.2 26.9  6.3  6.3 27.  17.   5.3 27.5 17.6]
+298.0747 	DATA 	Keypress: g
+298.3912 	DATA 	Keypress: b
+300.9196 	EXP 	window1: recordFrameIntervals = False
+300.9200 	ERROR 	trialnum=94 ERROR,4 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[30.8 30.9 30.  33.5] and was these frames: [ 6 15 41 42]
+300.9203 	INFO 	flankers also=[16.8 30.8 19.5 15.9 30.9 19.8 17.9 30.  33.5 30.  33.5 17.9]
+301.2717 	DATA 	Keypress: g
+301.4731 	DATA 	Keypress: b
+304.2697 	EXP 	window1: recordFrameIntervals = False
+304.2702 	ERROR 	trialnum=95 ERROR,5 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[32.3 32.1 33.2 33.4 32.9] and was these frames: [ 3  5  6 10 20]
+304.2705 	INFO 	flankers also=[15.7 32.3 17.7 17.7 32.1 33.2 32.1 33.2 17.3 16.1 33.4 17.  17.1 32.9
+ 16.9]
+304.5057 	DATA 	Keypress: g
+304.7563 	DATA 	Keypress: b
+306.7552 	EXP 	window1: recordFrameIntervals = False
+307.0735 	DATA 	Keypress: g
+307.2897 	DATA 	Keypress: b
+309.5397 	EXP 	window1: recordFrameIntervals = False
+309.7739 	DATA 	Keypress: g
+309.9905 	DATA 	Keypress: b
+312.1247 	DATA 	Keypress: g
+312.2718 	EXP 	window1: recordFrameIntervals = False
+312.5737 	DATA 	Keypress: g
+312.8065 	DATA 	Keypress: b
+314.8381 	EXP 	window1: recordFrameIntervals = False
+315.1570 	DATA 	Keypress: g
+315.4082 	DATA 	Keypress: b
+317.8881 	EXP 	window1: recordFrameIntervals = False
+318.2402 	DATA 	Keypress: g
+318.5240 	DATA 	Keypress: b
+320.6382 	EXP 	window1: recordFrameIntervals = False
+321.0236 	DATA 	Keypress: g
+321.3072 	DATA 	Keypress: b
+323.6041 	EXP 	window1: recordFrameIntervals = False
+323.6051 	ERROR 	trialnum=102 ERROR,1 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[22.] and was these frames: [40]
+323.6057 	INFO 	flankers also=[15.6 22.  12.2]
+323.9079 	DATA 	Keypress: g
+324.1746 	DATA 	Keypress: b
+326.2696 	EXP 	window1: recordFrameIntervals = False
+326.2707 	ERROR 	trialnum=103 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[23.1 22.4 23.3 22.9 23.1 24. ] and was these frames: [ 3 13 17 26 36 39]
+326.2717 	INFO 	flankers also=[15.9 23.1 10.4 17.3 22.4 10.3 16.4 23.3  9.8 16.3 22.9 16.7 17.1 23.1
+  9.6 16.9 24.   9.3]
+326.6052 	DATA 	Keypress: g
+326.8397 	DATA 	Keypress: b
+329.0589 	DATA 	Keypress: g
+329.2220 	EXP 	window1: recordFrameIntervals = False
+329.2747 	DATA 	Keypress: b
+329.7570 	DATA 	Keypress: g
+331.9374 	EXP 	window1: recordFrameIntervals = False
+331.9380 	ERROR 	trialnum=105 ERROR,1 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[23.6] and was these frames: [25]
+331.9382 	INFO 	flankers also=[16.  23.6 10.5]
+332.2732 	DATA 	Keypress: g
+332.4896 	DATA 	Keypress: b
+334.9540 	EXP 	window1: recordFrameIntervals = False
+335.2564 	DATA 	Keypress: b
+335.4402 	DATA 	Keypress: g
+337.7548 	EXP 	window1: recordFrameIntervals = False
+338.2410 	DATA 	Keypress: b
+338.4750 	DATA 	Keypress: g
+340.6209 	EXP 	window1: recordFrameIntervals = False
+341.0403 	DATA 	Keypress: g
+341.3234 	DATA 	Keypress: b
+343.3892 	EXP 	window1: recordFrameIntervals = False
+343.7569 	DATA 	Keypress: g
+343.9223 	DATA 	Keypress: b
+346.1885 	EXP 	window1: recordFrameIntervals = False
+346.1897 	ERROR 	trialnum=110 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[26.7 27.2 28.5 28.  28.3 27.5] and was these frames: [32 34 36 38 40 42]
+346.1905 	INFO 	flankers also=[19.6 26.7  5.2  5.2 27.2  5.1  5.1 28.5  5.   5.  28.   5.3  5.3 28.3
+  5.2  5.2 27.5  6.5]
+346.8086 	DATA 	Keypress: b
+347.0234 	DATA 	Keypress: g
+349.0860 	EXP 	window1: recordFrameIntervals = False
+349.0867 	ERROR 	trialnum=111 ERROR,4 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[27.3 29.3 29.6 31.4] and was these frames: [10 13 22 30]
+349.0870 	INFO 	flankers also=[17.7 27.3  6.  15.6 29.3  5.6 16.1 29.6  4.5 16.  31.4  3.1]
+349.6545 	DATA 	Keypress: b
+349.8085 	DATA 	Keypress: g
+351.8045 	EXP 	window1: recordFrameIntervals = False
+352.1896 	DATA 	Keypress: g
+352.4235 	DATA 	Keypress: b
+354.5040 	EXP 	window1: recordFrameIntervals = False
+354.8735 	DATA 	Keypress: g
+355.1074 	DATA 	Keypress: b
+357.5213 	EXP 	window1: recordFrameIntervals = False
+357.8235 	DATA 	Keypress: g
+357.9735 	DATA 	Keypress: b
+360.3865 	EXP 	window1: recordFrameIntervals = False
+360.3871 	ERROR 	trialnum=115 ERROR,5 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[22.6 23.9 23.3 23.9 23.8] and was these frames: [ 7 32 34 36 40]
+360.3876 	INFO 	flankers also=[16.8 22.6 10.7 16.4 23.9  9.7  9.7 23.3  9.9  9.9 23.9  9.5 16.6 23.8
+  9.8]
+360.6417 	DATA 	Keypress: g
+360.8072 	DATA 	Keypress: b
+363.2694 	EXP 	window1: recordFrameIntervals = False
+363.2712 	ERROR 	trialnum=116 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[25.1 26.7 25.4 26.  25.3 26.2] and was these frames: [ 7 12 17 26 33 37]
+363.2717 	INFO 	flankers also=[17.  25.1  6.9 16.6 26.7  7.5 17.3 25.4  6.7 17.1 26.   7.9 16.8 25.3
+ 16.5  7.1 26.2 16.4]
+363.7155 	DATA 	Keypress: g
+363.9900 	DATA 	Keypress: b
+366.3358 	EXP 	window1: recordFrameIntervals = False
+366.9390 	DATA 	Keypress: g
+367.1720 	DATA 	Keypress: b
+369.6373 	EXP 	window1: recordFrameIntervals = False
+370.2401 	DATA 	Keypress: g
+370.4386 	DATA 	Keypress: b
+372.9035 	EXP 	window1: recordFrameIntervals = False
+373.7904 	DATA 	Keypress: g
+374.0393 	DATA 	Keypress: b
+376.4213 	EXP 	window1: recordFrameIntervals = False
+376.7555 	DATA 	Keypress: g
+377.0226 	DATA 	Keypress: b
+379.4036 	EXP 	window1: recordFrameIntervals = False
+380.8384 	DATA 	Keypress: g
+381.0232 	DATA 	Keypress: b
+383.3536 	EXP 	window1: recordFrameIntervals = False
+384.0231 	DATA 	Keypress: g
+384.2729 	DATA 	Keypress: b
+386.6202 	EXP 	window1: recordFrameIntervals = False
+387.2411 	DATA 	Keypress: g
+387.4065 	DATA 	Keypress: b
+389.5193 	EXP 	window1: recordFrameIntervals = False
+389.9063 	DATA 	Keypress: g
+390.0890 	DATA 	Keypress: b
+392.2539 	EXP 	window1: recordFrameIntervals = False
+392.2547 	ERROR 	trialnum=125 ERROR,2 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[23.4 21.7] and was these frames: [12 42]
+392.2550 	INFO 	flankers also=[16.5 23.4  9.8 17.3 21.7 12.3]
+392.5899 	DATA 	Keypress: g
+392.8400 	DATA 	Keypress: b
+395.1355 	EXP 	window1: recordFrameIntervals = False
+395.1362 	ERROR 	trialnum=126 ERROR,1 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[24.9] and was these frames: [1]
+395.1368 	INFO 	flankers also=[17.3 24.9  8.4]
+395.3727 	DATA 	Keypress: g
+395.5728 	DATA 	Keypress: b
+397.7241 	DATA 	Keypress: g
+397.8544 	EXP 	window1: recordFrameIntervals = False
+398.0730 	DATA 	Keypress: g
+398.2729 	DATA 	Keypress: b
+400.4865 	EXP 	window1: recordFrameIntervals = False
+400.8579 	DATA 	Keypress: g
+401.1231 	DATA 	Keypress: b
+403.1700 	EXP 	window1: recordFrameIntervals = False
+403.1708 	ERROR 	trialnum=129 ERROR,7 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[33.5 31.6 27.8 28.8 29.  27.5 27.5] and was these frames: [24 27 30 33 36 39 41]
+403.1715 	INFO 	flankers also=[16.6 33.5  5.6 13.1 31.6 15.5  7.1 27.8 16.3  5.7 28.8 15.7  4.8 29.
+ 16.1  5.9 27.5  5.8  5.8 27.5  5.4]
+403.5056 	DATA 	Keypress: g
+403.7731 	DATA 	Keypress: b
+406.0355 	EXP 	window1: recordFrameIntervals = False
+406.5395 	DATA 	Keypress: g
+406.7898 	DATA 	Keypress: b
+409.1075 	DATA 	Keypress: g
+409.1696 	EXP 	window1: recordFrameIntervals = False
+409.5238 	DATA 	Keypress: g
+409.7896 	DATA 	Keypress: b
+411.9703 	EXP 	window1: recordFrameIntervals = False
+412.9052 	DATA 	Keypress: g
+413.1895 	DATA 	Keypress: b
+415.4859 	EXP 	window1: recordFrameIntervals = False
+415.8227 	DATA 	Keypress: g
+416.1181 	DATA 	Keypress: b
+418.1689 	EXP 	window1: recordFrameIntervals = False
+418.1696 	ERROR 	trialnum=134 ERROR,2 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[29.9 28.8] and was these frames: [16 22]
+418.1702 	INFO 	flankers also=[15.9 29.9  3.1 17.8 28.8  3. ]
+418.4882 	DATA 	Keypress: g
+418.7390 	DATA 	Keypress: b
+420.7360 	EXP 	window1: recordFrameIntervals = False
+421.0557 	DATA 	Keypress: g
+421.3389 	DATA 	Keypress: b
+423.6899 	EXP 	window1: recordFrameIntervals = False
+425.0887 	DATA 	Keypress: b
+425.2235 	DATA 	Keypress: g
+427.2854 	EXP 	window1: recordFrameIntervals = False
+427.2861 	ERROR 	trialnum=137 ERROR,4 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[24.5 23.  22.3 23.9] and was these frames: [ 2 13 32 39]
+427.2866 	INFO 	flankers also=[16.3 24.5  8.6 17.7 23.   9.  18.1 22.3 17.3 10.3 23.9 15.9]
+428.4554 	DATA 	Keypress: b
+428.6716 	DATA 	Keypress: g
+430.9023 	EXP 	window1: recordFrameIntervals = False
+431.6226 	DATA 	Keypress: b
+431.8712 	DATA 	Keypress: g
+433.9035 	EXP 	window1: recordFrameIntervals = False
+434.4557 	DATA 	Keypress: b
+434.6405 	DATA 	Keypress: g
+436.7364 	EXP 	window1: recordFrameIntervals = False
+437.4066 	DATA 	Keypress: g
+437.6069 	DATA 	Keypress: b
+439.7357 	EXP 	window1: recordFrameIntervals = False
+440.0878 	DATA 	Keypress: b
+440.2882 	DATA 	Keypress: g
+442.6373 	EXP 	window1: recordFrameIntervals = False
+442.9558 	DATA 	Keypress: b
+443.1721 	DATA 	Keypress: g
+445.4529 	EXP 	window1: recordFrameIntervals = False
+445.8918 	DATA 	Keypress: g
+446.0907 	DATA 	Keypress: b
+448.3856 	EXP 	window1: recordFrameIntervals = False
+448.6884 	DATA 	Keypress: g
+448.8242 	DATA 	Keypress: b
+451.2696 	EXP 	window1: recordFrameIntervals = False
+451.6223 	DATA 	Keypress: g
+451.8391 	DATA 	Keypress: b
+454.2862 	EXP 	window1: recordFrameIntervals = False
+454.4238 	DATA 	Keypress: b
+454.6719 	DATA 	Keypress: g
+456.8357 	EXP 	window1: recordFrameIntervals = False
+457.4571 	DATA 	Keypress: b
+457.5916 	DATA 	Keypress: g
+460.0024 	EXP 	window1: recordFrameIntervals = False
+460.3554 	DATA 	Keypress: g
+460.5551 	DATA 	Keypress: b
+462.7678 	EXP 	window1: recordFrameIntervals = False
+462.7687 	ERROR 	trialnum=149 ERROR,8 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[24.4 26.3 24.2 24.  24.3 26.  25.9 26.3] and was these frames: [ 2  5 10 12 22 31 35 40]
+462.7694 	INFO 	flankers also=[16.8 24.4  8.2 16.1 26.3  7.4 16.4 24.2  9.6  9.6 24.   7.8 17.8 24.3
+ 16.5 15.8 26.   7.4 16.2 25.9  7.3 16.2 26.3  7.9]
+462.9869 	DATA 	Keypress: g
+463.1389 	DATA 	Keypress: b
+465.1351 	EXP 	window1: recordFrameIntervals = False
+465.6889 	DATA 	Keypress: g
+465.8236 	DATA 	Keypress: b
+468.1854 	EXP 	window1: recordFrameIntervals = False
+468.4727 	DATA 	Keypress: b
+468.6710 	DATA 	Keypress: g
+470.6854 	EXP 	window1: recordFrameIntervals = False
+471.4392 	DATA 	Keypress: b
+471.5739 	DATA 	Keypress: g
+473.6863 	EXP 	window1: recordFrameIntervals = False
+473.9066 	DATA 	Keypress: g
+474.1382 	DATA 	Keypress: b
+476.2698 	EXP 	window1: recordFrameIntervals = False
+476.5714 	DATA 	Keypress: g
+476.7401 	DATA 	Keypress: b
+478.9857 	EXP 	window1: recordFrameIntervals = False
+479.3380 	DATA 	Keypress: g
+479.4905 	DATA 	Keypress: b
+481.6019 	EXP 	window1: recordFrameIntervals = False
+481.9704 	DATA 	Keypress: b
+482.1071 	DATA 	Keypress: g
+484.2846 	EXP 	window1: recordFrameIntervals = False
+484.8879 	DATA 	Keypress: b
+485.1545 	DATA 	Keypress: g
+487.3853 	EXP 	window1: recordFrameIntervals = False
+487.3858 	ERROR 	trialnum=158 ERROR,6 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[28.5 31.9 32.8 32.3 33.  32.8] and was these frames: [ 9 32 33 37 38 40]
+487.3862 	INFO 	flankers also=[17.6 28.5 19.2 16.8 31.9 32.8 31.9 32.8 17.2 17.2 32.3 33.  32.3 33.
+ 17.5 17.5 32.8 17.6]
+487.8378 	DATA 	Keypress: b
+488.1047 	DATA 	Keypress: g
+490.2381 	EXP 	window1: recordFrameIntervals = False
+490.5536 	DATA 	Keypress: g
+490.8217 	DATA 	Keypress: b
+492.9013 	EXP 	window1: recordFrameIntervals = False
+492.9019 	ERROR 	trialnum=160 ERROR,2 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[22.2 21.7] and was these frames: [17 41]
+492.9021 	INFO 	flankers also=[15.6 22.2 11.1 16.7 21.7 11.8]
+493.1713 	DATA 	Keypress: g
+493.4213 	DATA 	Keypress: b
+495.6058 	DATA 	Keypress: g
+495.7018 	EXP 	window1: recordFrameIntervals = False
+496.0879 	DATA 	Keypress: g
+496.3371 	DATA 	Keypress: b
+498.6683 	EXP 	window1: recordFrameIntervals = False
+499.0046 	DATA 	Keypress: g
+499.2390 	DATA 	Keypress: b
+501.3355 	EXP 	window1: recordFrameIntervals = False
+501.4235 	DATA 	Keypress: g
+501.7371 	DATA 	Keypress: b
+504.2018 	EXP 	window1: recordFrameIntervals = False
+504.4045 	DATA 	Keypress: g
+504.6047 	DATA 	Keypress: b
+506.6041 	EXP 	window1: recordFrameIntervals = False
+506.9036 	DATA 	Keypress: g
+507.1384 	DATA 	Keypress: b
+509.6009 	EXP 	window1: recordFrameIntervals = False
+510.4045 	DATA 	Keypress: b
+510.6216 	DATA 	Keypress: g
+512.6521 	EXP 	window1: recordFrameIntervals = False
+513.2722 	DATA 	Keypress: g
+513.4561 	DATA 	Keypress: b
+515.7350 	EXP 	window1: recordFrameIntervals = False
+516.5540 	DATA 	Keypress: b
+516.8211 	DATA 	Keypress: g
+519.0356 	EXP 	window1: recordFrameIntervals = False
+519.9882 	DATA 	Keypress: g
+520.2048 	DATA 	Keypress: b
+522.5189 	EXP 	window1: recordFrameIntervals = False
+523.2387 	DATA 	Keypress: g
+523.4872 	DATA 	Keypress: b
+525.6175 	EXP 	window1: recordFrameIntervals = False
+526.3219 	DATA 	Keypress: g
+526.5884 	DATA 	Keypress: b
+528.5849 	EXP 	window1: recordFrameIntervals = False
+529.1210 	DATA 	Keypress: g
+529.3875 	DATA 	Keypress: b
+531.4335 	EXP 	window1: recordFrameIntervals = False
+531.4345 	ERROR 	trialnum=173 ERROR,3 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[26.3 26.1 28.3] and was these frames: [ 0  4 18]
+531.4349 	INFO 	flankers also=[26.3  7.  16.2 26.1  7.2 15.5 28.3  5.3]
+532.4373 	DATA 	Keypress: b
+532.6710 	DATA 	Keypress: g
+534.9355 	EXP 	window1: recordFrameIntervals = False
+535.3544 	DATA 	Keypress: g
+535.6545 	DATA 	Keypress: b
+537.7009 	EXP 	window1: recordFrameIntervals = False
+538.5873 	DATA 	Keypress: b
+538.7874 	DATA 	Keypress: g
+540.8859 	EXP 	window1: recordFrameIntervals = False
+541.1206 	DATA 	Keypress: b
+541.3881 	DATA 	Keypress: g
+543.8007 	EXP 	window1: recordFrameIntervals = False
+544.3886 	DATA 	Keypress: b
+544.6223 	DATA 	Keypress: g
+546.6512 	EXP 	window1: recordFrameIntervals = False
+547.4056 	DATA 	Keypress: g
+547.6372 	DATA 	Keypress: b
+549.8510 	EXP 	window1: recordFrameIntervals = False
+550.2539 	DATA 	Keypress: b
+550.5542 	DATA 	Keypress: g
+553.0845 	EXP 	window1: recordFrameIntervals = False
+553.0854 	ERROR 	trialnum=180 ERROR,11 frames were longer than 21.67 ms apparently screen refreshes skipped, interframe durs were:[30.7 31.1 32.9 33.5 33.  33.  33.  33.5 33.  33.1 32.5] and was these frames: [10 21 30 31 32 34 35 36 37 38 41]
+553.0860 	INFO 	flankers also=[16.2 30.7 19.5 16.1 31.1 18.7 15.5 32.9 33.5 32.9 33.5 33.  33.5 33.
+ 17.9 17.9 33.  33.  33.  33.  33.5 33.  33.5 33.  33.5 33.  33.1 33.
+ 33.1 18.1 16.  32.5 18. ]
+553.5052 	DATA 	Keypress: b
+553.7706 	DATA 	Keypress: g
+555.6674 	DATA 	Keypress: space
+557.8010 	EXP 	window1: recordFrameIntervals = False
+558.1527 	DATA 	Keypress: g
+558.4028 	DATA 	Keypress: b
+560.7683 	EXP 	window1: recordFrameIntervals = False
+561.1870 	DATA 	Keypress: g
+561.4865 	DATA 	Keypress: b
+562.0054 	DATA 	Keypress: escape
+562.3696 	DATA 	Keypress: escape
+562.6378 	DATA 	Keypress: escape
+562.8531 	DATA 	Keypress: escape
+563.0889 	DATA 	Keypress: escape
+563.5375 	DATA 	Keypress: escape
+563.7514 	EXP 	window1: recordFrameIntervals = False
+563.7599 	DATA 	Keypress: escape
+563.7861 	INFO 	Finishing at 09:28 on 20 Mar 2019
+563.7862 	ERROR 	user aborted experiment on keypress with trials done=183 of 361
+564.2206 	EXP 	window1: mouseVisible = True

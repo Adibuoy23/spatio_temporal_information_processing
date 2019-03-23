@@ -44,7 +44,7 @@ if os.path.isdir('.'+os.sep+'data'):
     logsDir = 'logs'
     trialsDir = 'trial_order'
     stimsDir = 'stim_in_trials'
-    expt_name = 'RSVP_central_cue_between_letter_presentation'
+    expt_name = 'RSVP_two_streams_bigger_cue_size_new'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -92,12 +92,12 @@ viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
-INS_MSG += "The stream of letters can appear anywhere on the horizontal axis of the screen, and their position varies from trial to trial.\n\n"
-INS_MSG += "The letter you're supposed to identify is accompanied by a probe that appears on the fixation point.\n\n"
+INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
 INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
-INS_MSG += "Your task is identify the letter that was present when the probe appeared.\n\n"
+INS_MSG += "This probe is embedded in another Rapid Stream of letters.\n\n"
+INS_MSG += "Your task is identify the foveal letter that was present when the probe appeared.\n\n"
 INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
-INS_MSG += "Oh! And one more thing! You will perform this task while fixating in the center, and identifying the letters with your peripheral vision.\n\n"
+INS_MSG += "Oh! And one more thing! You will perform this task while fixating in the center, and detecting the probe with your peripheral vision.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
 
@@ -497,10 +497,10 @@ for i in range(numRespsWanted):
     dataFile.write('response'+str(i)+'\t')
     dataFile.write('correct'+str(i)+'\t')
     dataFile.write('responsePosRelative'+str(i)+'\t')
-    dataFile.write('ltrSpatialPos'+str(i+1)+'\t')
+    dataFile.write('cueSpatialPos'+str(i+1)+'\t')
     dataFile.write('ltrEccentricity'+str(i+1)+'\t')
     stimsInTrialsFile.write('answerPos'+str(i)+'\t')
-    stimsInTrialsFile.write('ltrSpatialPos'+str(i+1)+'\t')
+    stimsInTrialsFile.write('cueSpatialPos'+str(i+1)+'\t')
     stimsInTrialsFile.write('ltrEccentricity'+str(i+1)+'\t')
 
 for i in range(26):
@@ -713,11 +713,11 @@ def do_RSVP_stim(cue1pos, ltrEcc, ltrSpatialLoc, cue2lag, proportnNoise, trialN)
         # if i%4>=2 or demo or exportImages: #flicker fixation on and off at framerate to see when skip frame
         #      fixation.draw()
         # else: fixationBlank.draw()
-        fixationPoint.draw()
+        #fixationPoint.draw()
         myWin.flip()  # end fixation interval
     # myWin.setRecordFrameIntervals(True);  #can't get it to stop detecting superlong frames
     #fixation_center.setAutoDraw(True)
-    fixation_center.setAutoDraw(True)
+    fixationPoint.setAutoDraw(True)
     # myWin.flip()
     t0 = trialClock.getTime()
     for n in range(trialDurFrames):  # this is the loop for this trial's stimulus!
@@ -730,7 +730,7 @@ def do_RSVP_stim(cue1pos, ltrEcc, ltrSpatialLoc, cue2lag, proportnNoise, trialN)
         t = trialClock.getTime()-t0
         ts.append(t)
     # fixation_center.setAutoDraw(False)
-    fixation_center.setAutoDraw(False)
+    fixationPoint.setAutoDraw(False)
     # myWin.flip()
     # end of big stimulus loop
     myWin.setRecordFrameIntervals(False)
