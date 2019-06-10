@@ -28,13 +28,17 @@
 
 
     <script>
-       
+        var counter = Math.floor(Math.random() * (13-7)) + 7;
         var toggleBall = function() {
             var delay = Math.floor(Math.random() * (1050-950)) + 950;
             $("ball").toggle();
-            setTimeout(toggleBall, delay);
+            if (counter>0) {
+                setTimeout(toggleBall, delay);
+            }
         }
         setTimeout(toggleBall, 0);
+        
+   
     </script>
 
 </body>
