@@ -28,40 +28,13 @@
 
 
     <script>
-        
-        //var ballElement = document.getElementById("ball");
-        var ballElement = $("#ball")[0]
-        var startTime;
-        
-        function exist() {
-            // get the start time
-            startTime = new Date().getTime();
-            // create an interval that will make a new frame every 10 ms (actually not that fast in real life)
-            //var intervalID = setInterval(newFrame, 10);
-            // stop the new frame interval after 2 seconds
-            for (i=0; i < 2; i++){
-                console.log(i)
-                setTimeout(delay(), 1050);
-                
-            }
-            
+       
+        var toggleBall = function() {
+            var delay = Math.floor(Math.random() * (1050-950)) + 950;
+            $("ball").toggle();
+            setTimeout(toggleBall, delay);
         }
-
-        function delay() {
-            // get the current time
-            //currentTime = new Date().getTime();
-            // calculate the elapsed time
-            //elapsedTime = currentTime - startTime;
-            // calculate the position based on the elapsed time
-            xPosition = 50 //* elapsedTime;
-            yPosition = 120 //* elapsedTime;
-            // update the position by changing the ball element's style
-            ballElement.style.top = xPosition + 'px';
-            ballElement.style.left = yPosition + 'px';
-            $("#ball").show()
-            setTimeout(function(){$("#ball").hide();}, 1050);
-        }
-
+        setTimeout(toggleBall, 0);
     </script>
 
 </body>
