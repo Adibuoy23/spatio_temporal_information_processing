@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <html>
-
 <style>
-    
+
     #ball {
         width: 50px;
         height: 50px;
@@ -15,7 +13,6 @@
         /* this makes it a circle: */
         border-radius: 50%;
     }
-
 </style>
 
 <body>
@@ -24,23 +21,20 @@
     <br>
     <br>
     <br>
-    <button onclick="exist()">Click Here</button>
-
 
     <script>
+        // Standard disk randomized duration and IS
         var counter = Math.floor(Math.random() * (13-7)) + 7;
         var toggleBall = function() {
             var delay = Math.floor(Math.random() * (1050-950)) + 950;
-            $("ball").toggle();
+            $('#ball').toggle();
             if (counter>0) {
+                counter -= 1;
                 setTimeout(toggleBall, delay);
             }
         }
-        setTimeout(toggleBall, 0);
-        
-   
+        setTimeout(toggleBall, 0)
+
     </script>
-
 </body>
-
 </html>
