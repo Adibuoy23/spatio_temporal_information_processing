@@ -1,79 +1,110 @@
 <!DOCTYPE html>
-<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <html>
 <style>
 
-    #ball {
-        width: 50px;
-        height: 50px;
+    /* Initialize standard disk */
+    #std {
+        width: 500px;
+        height: 500px;
         position: absolute;
         top: 50px;
         left: 120px;
-        background-color: red;
+        background-color: black;
         /* this makes it a circle: */
         border-radius: 50%;
     }
-    
+
+    /* Initialize oddball */
     #oddBall {
-        width: 50px;
-        height: 50px;
+        width: 500px;
+        height: 500px;
         position: absolute;
         top: 50px;
         left: 120px;
-        background-color: red;
+        background-color: black;
         /* this makes it a circle: */
         border-radius: 50%;
     }
 </style>
-
 <body>
-
-    <div id="ball"></div>
-    <div id = "oddBall"></div>
+    <div id="std"></div>
+    <div id="oddBall"></div>
     <br>
     <br>
     <br>
-
     <script>
-        $('#oddBall').hide()
-        $('ball').hide()
-        // Standard disk randomized duration and IS
-        var counter = (Math.floor(Math.random() * (13-7)) + 7)*2;
-        var stdDelay = 1050
-        var oddBallDelay = 650
+
+        // Initialize a blank screen
+        $('#std').hide();
+        $('#oddBall').hide();
+
+        // Standard disk duration
+        var stdDelay = 1050;
+
+        // Randomized oddball disk duration array
+        var oddBallDelay = 650;
+
+        // Recursive ball-toggling function
+
+        // Randomized standard disk frequency (6 < disk freq. < 13)
+        var counter = (Math.floor(Math.random() * (13 - 7)) + 7) * 2;
         var toggleBall = function() {
             var delay = Math.floor(Math.random() * (1050-950)) + 950;
-            $('#ball').toggle();
-            if (counter>0) {
+            console.log(counter);
+            $('#std').toggle();
+            if (counter > 0) {
                 counter -= 1;
-                console.log(counter)
-                if (counter%2 ==0 && counter >0){
-                    setTimeout(toggleBall, stdDelay)
+                if (counter % 2 == 0 && counter > 0) {
+                    setTimeout(toggleBall, stdDelay);
                 }
-                else{
-                setTimeout(toggleBall, delay);
+                else {
+                    setTimeout(toggleBall, delay);
                 }
             }
-            else{
-                setTimeout(toggleOddBall,0)
+            else {
+                $('#std').hide()
+                setTimeout(toggleOddBall, 0);
             }
         }
-        
-        var oddBallCounter = 1
-        var toggleOddBall = function(){
-            var delay = Math.floor(Math.random()* (1050-950) + 950);
-            $('#oddBall').toggle(oddBallDelay)
-            if (oddBallCounter > 0){
+
+        // Randomized oddball duration
+        var oddBallCounter = 1;
+        var toggleOddBall = function() {
+            var delay = Math.floor(Math.random() * (1050 - 950) + 950);
+            $('#oddBall').toggle(oddBallDelay);
+            if (oddBallCounter > 0) {
                 oddBallCounter -= 1;
-                if (oddBallCounter %2 ==0){
-                    setTimeout(toggleOddBall,oddBallDelay)
+                if (oddBallCounter % 2 == 0 && oddBallCounter > 0) {
+                    setTimeout(toggleOddBall, oddBallDelay);
                 }
-                else{
-                    setTimeout(toggleOddBall, delay)
+                else {
+                    setTimeout(toggleOddBall, delay);
+                }
+            }
+            else {
+                $('#oddBall').hide()
+                setTimeout(toggleBallThree, delay);
+            }
+        }
+
+        // 3 follow-up standard disks
+        var countThree = 2 * 2;
+        var toggleBallThree = function() {
+            var delay = Math.floor(Math.random() * (1050-950)) + 950;
+            console.log(countThree);
+            $('#std').toggle();
+            if (countThree > 0) {
+                countThree -= 1;
+                if (countThree % 2 == 0 && countThree > 0) {
+                    setTimeout(toggleBallThree, stdDelay);
+                }
+                else {
+                    setTimeout(toggleBallThree, delay);
                 }
             }
         }
-        setTimeout(toggleBall, 0)
+        setTimeout(toggleBall, 0);
 
     </script>
 </body>
