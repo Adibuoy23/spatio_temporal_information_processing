@@ -12,7 +12,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: black;
-        /* this makes it a circle: */
         border-radius: 50%;
     }
 
@@ -25,7 +24,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: black;
-        /* this makes it a circle: */
         border-radius: 50%;
     }
 </style>
@@ -59,12 +57,10 @@
                 counter -= 1;
                 if (counter % 2 == 0 && counter > 0) {
                     setTimeout(toggleBall, stdDelay);
-                }
-                else {
+                } else {
                     setTimeout(toggleBall, delay);
                 }
-            }
-            else {
+            } else {
                 $('#std').hide()
                 setTimeout(toggleOddBall, 0);
             }
@@ -74,17 +70,16 @@
         var oddBallCounter = 1;
         var toggleOddBall = function() {
             var delay = Math.floor(Math.random() * (1050 - 950) + 950);
+            grow()
             $('#oddBall').toggle(oddBallDelay);
             if (oddBallCounter > 0) {
                 oddBallCounter -= 1;
                 if (oddBallCounter % 2 == 0 && oddBallCounter > 0) {
                     setTimeout(toggleOddBall, oddBallDelay);
-                }
-                else {
+                } else {
                     setTimeout(toggleOddBall, delay);
                 }
-            }
-            else {
+            } else {
                 $('#oddBall').hide()
                 setTimeout(toggleBallThree, delay);
             }
@@ -100,13 +95,11 @@
                 countThree -= 1;
                 if (countThree % 2 == 0 && countThree > 0) {
                     setTimeout(toggleBallThree, stdDelay);
-                }
-                else {
+                } else {
                     setTimeout(toggleBallThree, delay);
                 }
             }
-        }
-        setTimeout(toggleBall, 0);
+        } setTimeout(toggleBall, 0);
 
     </script>
 </body>
