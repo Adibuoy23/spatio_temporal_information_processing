@@ -17,8 +17,8 @@
 
     /* Initialize oddball */
     #oddBall {
-        width: 100px;
-        height: 100px;
+        width: 500px;
+        height: 500px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -81,34 +81,18 @@
                 else {
                     $('#oddBall').toggle();
                     oddBallCounter -= 1;
-                } else {
                     setTimeout(toggleOddBall, delay);
                 }
-            } else {
+            } 
+            else {
                 $('#oddBall').hide()
                 $('#std').hide()
                 window.counter = (Math.floor(Math.random() * (13 - 7)) + 7) * 2;
                 window.oddBallCounter = 2
                 setTimeout(toggleBall, 0);
-                setTimeout(toggleBallThree, delay);
             }
         }
 
-        // 3 follow-up standard disks
-        var countThree = 2 * 2;
-        var toggleBallThree = function() {
-            var delay = Math.floor(Math.random() * (1050-950)) + 950;
-            console.log(countThree);
-            $('#std').toggle();
-            if (countThree > 0) {
-                countThree -= 1;
-                if (countThree % 2 == 0 && countThree > 0) {
-                    setTimeout(toggleBallThree, stdDelay);
-                } else {
-                    setTimeout(toggleBallThree, delay);
-                }
-            }
-        }
         setTimeout(toggleBall, 0);
 
     </script>
