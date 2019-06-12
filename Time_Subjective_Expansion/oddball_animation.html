@@ -17,8 +17,8 @@
 
     /* Initialize oddball */
     #oddBall {
-        width: 500px;
-        height: 500px;
+        width: 100px;
+        height: 100px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -70,7 +70,6 @@
         var oddBallCounter = 1;
         var toggleOddBall = function() {
             var delay = Math.floor(Math.random() * (1050 - 950) + 950);
-            grow()
             $('#oddBall').toggle(oddBallDelay);
             if (oddBallCounter > 0) {
                 oddBallCounter -= 1;
@@ -99,7 +98,8 @@
                     setTimeout(toggleBallThree, delay);
                 }
             }
-        } setTimeout(toggleBall, 0);
+        }
+        setTimeout(toggleBall, 0);
 
     </script>
 </body>
