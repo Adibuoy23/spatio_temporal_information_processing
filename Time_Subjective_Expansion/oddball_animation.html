@@ -17,8 +17,8 @@
 
     /* Initialize oddball */
     #oddBall {
-        width: 100px;
-        height: 100px;
+        width: 1px;
+        height: 1px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -42,10 +42,28 @@
         // Standard disk duration
         var stdDelay = 1050;
 
-        // Randomized oddball disk duration array
-        var oddBallDelay = 650;
+        // Randomized oddball disk duration array and Knuth shuffle
+        function shuffle(array) {
+          var currentIndex = array.length, temporaryValue, randomIndex;
+          while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+          return array;
+        }
 
-        // Recursive ball-toggling function
+
+          function cycles() {
+            while (sixCycles > 0) {
+              if (indexCount < 8) {
+                arr = shuffle(arr);
+              sixCycles -= 1;
+              }
+            }
+          }
 
         // Randomized standard disk frequency (6 < disk freq. < 13)
         var counter = (Math.floor(Math.random() * (13 - 7)) + 7) * 2;
@@ -54,7 +72,7 @@
             var delay = Math.floor(Math.random() * (1050-950)) + 950;
             $('#std').toggle();
             if (counter > 0) {
-                console.log("std counter :",counter)
+                console.log("std counter: ",counter);
                 counter -= 1;
                 if (counter % 2 == 0 && counter > 0) {
                     setTimeout(toggleBall, stdDelay);
@@ -62,51 +80,42 @@
                     setTimeout(toggleBall, delay);
                 }
             } else {
-                $('#std').hide()
-                $('#oddBall').hide()
-                setTimeout(toggleOddBall, 0);
+                $('#std').hide();
+                $('#oddBall').hide();
+                setTimeout(animateOddball, 0);
             }
         }
 
         // Randomized oddball duration
-        var toggleOddBall = function() {
+        var animateOddBall = function() {
             var delay = Math.floor(Math.random() * (1050 - 950) + 950);
+            var indexCount = 0;
+            var sixCycles = 6;
+            var arr = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
+            for cycle in range(6) {
+              shuffle(arr);
+              for duration in range(len(arr)) {
+                var dur = arr[duration];
+                $('#oddBall').animate({height: '+=499px', width: '+=499px'}, dur, 'linear');
+                $('#oddBall').hide(0,'linear');
+                oddBallCounter -= 1;
+                setTimeout(animateOddBall, arr[indexCount]);
+              }
+            }
             if (oddBallCounter > 0) {
-                console.log("OddBall counter :",oddBallCounter)
+                console.log("oddBall counter: ",oddBallCounter);
                 if (oddBallCounter % 2 == 0 && oddBallCounter > 0) {
-                    $('#oddBall').toggle(oddBallDelay);
-                    oddBallCounter -= 1;
-                    setTimeout(toggleOddBall, oddBallDelay);
-                }
-                else {
+                } else {
                     $('#oddBall').toggle();
                     oddBallCounter -= 1;
-                } else {
-                    setTimeout(toggleOddBall, delay);
+                    setTimeout(animateOddBall, delay);
                 }
             } else {
-                $('#oddBall').hide()
-                $('#std').hide()
+                $('#oddBall').hide();
+                $('#std').hide();
                 window.counter = (Math.floor(Math.random() * (13 - 7)) + 7) * 2;
-                window.oddBallCounter = 2
+                window.oddBallCounter = 2;
                 setTimeout(toggleBall, 0);
-                setTimeout(toggleBallThree, delay);
-            }
-        }
-
-        // 3 follow-up standard disks
-        var countThree = 2 * 2;
-        var toggleBallThree = function() {
-            var delay = Math.floor(Math.random() * (1050-950)) + 950;
-            console.log(countThree);
-            $('#std').toggle();
-            if (countThree > 0) {
-                countThree -= 1;
-                if (countThree % 2 == 0 && countThree > 0) {
-                    setTimeout(toggleBallThree, stdDelay);
-                } else {
-                    setTimeout(toggleBallThree, delay);
-                }
             }
         }
         setTimeout(toggleBall, 0);
