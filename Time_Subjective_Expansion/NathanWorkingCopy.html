@@ -147,8 +147,8 @@
     function newFrame(frame) {
       var trialCount = frame.length;
       for (trialNumber = 0; trialNumber < 20; trialNumber++) {
-        ballAnimation(frame[trialNumber]);
-        trialNumber++;
+        console.log(trialNumber)
+        await ballAnimation(frame[trialNumber]);
       }
     }
 

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="jquery-csv.js"></script>
 <style>
   /* Initialize standard disk */
   #std {
@@ -146,7 +145,8 @@
           setTimeout($('#oddBall').animate({
           height: '+=40px',
           width: '+=40px'
-        }, frameWindow.duration, 'linear'), 0);}
+        }, frameWindow.duration, 'linear'), 0);//$('#oddBall').hide();
+          $('#oddBall').css({height: '1px', width: '1px'});}
       else {
         $('#std').hide();
         $('#oddBall').hide();
