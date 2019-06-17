@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+  /* Initialize standard disk */
+  #std {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  /* Initialize looming oddball */
+  #oddBall {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  /* Initialize colored (red) disk */
+  #redBall {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    border-radius: 50%;
+  }
+
+  /* Initialize spiky disk */
+  #spikeyBall {
+    background: black;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    text-align: center;
+  }
+
+  #spikeyBall:before,
+  #spikeyBall:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 80px;
+    background: black;
+  }
+
+  #spikeyBall:before {
+    transform: rotate(30deg);
+  }
+
+  #spikeyBall:after {
+    transform: rotate(60deg);
+  }
+</style>
+
+<body>
+  <div id="std"></div>
+  <div id="oddBall"></div>
+  <script>
+    $('#std').hide();
+    $('#oddBall').hide();
+    // Randomized oddball disk duration array and Knuth shuffle
+    function shuffle(array) {
+      var currentIndex = array.length,
+        temporaryValue, randomIndex;
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
+    }
+
+    // Generates each experiment after looping through 54 oddballs, 7-12 standard disks and ending with 3 disks.
+    function trialGenerator() {
+      var trialInfo = [];
+      var oddBag = [];
+      var oddBallDurations = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
+      for (reps = 0; reps < 6; reps++) {
+        oddBag = oddBag.concat(shuffle(oddBallDurations));
+      }
+      var oddBallIndex;
+      for (oddBallIndex = 0; oddBallIndex < 54; oddBallIndex++) {
+        var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7);
+        for (stdCount = 0; stdCount < stdNumber; stdCount++) {
+          var isi = Math.floor(Math.random() * (1050 - 950) + 950);
+          trialInfo.push({
+            type: 'std',
+            duration: 1050,
+            isi: isi,
+            judgment: null
+          });
+        }
+        isi = Math.floor(Math.random() * (1050 - 950) + 950);
+        trialInfo.push({
+          type: 'odd',
+          duration: oddBag[oddBallIndex],
+          isi: isi,
+          judgment: null
+        });
+      }
+      var stdThree = 3;
+      trialInfo.push()
+      for (stdCount = 0; stdCount < stdThree; stdCount++) {
+        isi = Math.floor(Math.random() * (1050 - 950) + 950);
+        trialInfo.push({
+          type: 'std',
+          duration: 1050,
+          isi: isi,
+          judgment: null
+        });
+      }
+      return trialInfo;
+    }
+
+    // The output of function trialGenerator()
+    var frame = trialGenerator();
+
+    // Standard disk toggling function
+    function ballAnimation(frameWindow) {
+      if (frameWindow.type == 'std') {
+        $('#std').show();
+        setTimeout($('#std').show(), 1050);
+      } else if (frameWindow.type == 'odd') {
+          $('#oddBall').show();
+          setTimeout($('#std').hide(), 1050);
+          setTimeout($('#oddBall').animate({
+          height: '+=499px',
+          width: '+=499px'
+        }, frameWindow.duration, 'linear'), frameWindow.isi);
+      }
+      else {
+        $('#std').hide();
+        $('#oddBall').hide();
+        setTimeout(animateOddball, 0);
+      }
+    }
+
+    // Carries out each experiment trial via animations from jquery
+    // trialInfo: [{type: 'std/odd', duration: 1050/offBag[oddBallIndex], isi: isi, judgment: null}]
+    function newFrame(frame) {
+      var trialCount = frame.length;
+      for (var trialNumber = 0; trialNumber < trialCount; trialNumber++) {
+          ballAnimation(frame[trialNumber]);
+      }
+    }
+
+    newFrame(frame);
+
+  </script>
+</body>
+
+</html>
