@@ -28,8 +28,8 @@
 
   /* Initialize colored (red) disk */
   #redBall {
-    width: 1px;
-    height: 1px;
+    width: 500px;
+    height: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -46,7 +46,6 @@
     position: relative;
     text-align: center;
   }
-
   #spikeyBall:before,
   #spikeyBall:after {
     content: "";
@@ -57,17 +56,15 @@
     width: 80px;
     background: black;
   }
-
   #spikeyBall:before {
     transform: rotate(30deg);
   }
-
   #spikeyBall:after {
     transform: rotate(60deg);
   }
 </style>
-
 <body>
+  <p><button>Begin Experiment</button></p>
   <div id="std"></div>
   <div id="oddBall"></div>
   <script>
@@ -101,29 +98,26 @@
         for (stdCount = 0; stdCount < stdNumber; stdCount++) {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
-            type: 'std',
-            duration: 1050,
-            isi: isi,
-            judgment: null
-          });
+            'type': 'std',
+            'duration': 1050,
+            'isi': isi,
+            'judgment': null});
         }
-        isi = Math.floor(Math.random() * (1050 - 950) + 950);
+        var isi = Math.floor(Math.random() * (1050 - 950) + 950);
         trialInfo.push({
-          type: 'odd',
-          duration: oddBag[oddBallIndex],
-          isi: isi,
-          judgment: null
-        });
+          'type': 'odd',
+          'duration': oddBag[oddBallIndex],
+          'isi': isi,
+          'judgment': null});
       }
       var stdThree = 3;
-      trialInfo.push()
       for (stdCount = 0; stdCount < stdThree; stdCount++) {
-        isi = Math.floor(Math.random() * (1050 - 950) + 950);
+        var isi = Math.floor(Math.random() * (1050 - 950) + 950);
         trialInfo.push({
-          type: 'std',
-          duration: 1050,
-          isi: isi,
-          judgment: null
+          'type': 'std',
+          'duration': 1050,
+          'isi': isi,
+          'judgment': null
         });
       }
       return trialInfo;
@@ -134,21 +128,17 @@
 
     // Standard disk toggling function
     function ballAnimation(frameWindow) {
-      if (frameWindow.type == 'std') {
-        $('#std').show();
-        setTimeout($('#std').show(), 1050);
-      } else if (frameWindow.type == 'odd') {
-          $('#oddBall').show();
-          setTimeout($('#std').hide(), 1050);
-          setTimeout($('#oddBall').animate({
-          height: '+=499px',
-          width: '+=499px'
-        }, frameWindow.duration, 'linear'), frameWindow.isi);
-      }
-      else {
-        $('#std').hide();
-        $('#oddBall').hide();
-        setTimeout(animateOddball, 0);
+      console.log(frameWindow)
+      if (frameWindow['type'] == 'std') {
+        //console.log('std')
+        $('#std').delay(frameWindow['isi']).show();
+        $('#std').delay(frameWindow['duration']).hide();
+      } else {
+          //console.log('odd')
+          $('#oddBall').delay(frameWindow['isi']).show();
+          $('#oddBall').animate({height: '+=499px', width: '+=499px'}, frameWindow['duration'], 'linear')
+          $('#oddBall').hide();
+          $('#oddBall').css({height: '1px', width: '1px'});
       }
     }
 
@@ -156,13 +146,15 @@
     // trialInfo: [{type: 'std/odd', duration: 1050/offBag[oddBallIndex], isi: isi, judgment: null}]
     function newFrame(frame) {
       var trialCount = frame.length;
-      for (var trialNumber = 0; trialNumber < trialCount; trialNumber++) {
-          ballAnimation(frame[trialNumber]);
+      for (trialNumber = 0; trialNumber < 20; trialNumber++) {
+        ballAnimation(frame[trialNumber]);
+        trialNumber++;
       }
     }
 
-    newFrame(frame);
-
+    $( "button" ).click(function() {
+      newFrame(frame);
+    })
   </script>
 </body>
 
