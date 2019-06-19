@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<!--Created by Nathan Liang 06/10/2019-->
+<html lang="en" dir="ltr" style="text-align:center">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A replication of the original oddball paradigm.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, JQuery, Cognition, CogSci, Cognitive Psychology">
+  <meta name="author" content="Nathan Liang, Shanmukh Aditya Upadhyayula">
+  <link rel="shortcut icon" type="image/png" href="https://avatars0.githubusercontent.com/u/23708834?s=460&v=4"/>
+  <link rel="stylesheet" type="text/css" href="Oddball_Instructions.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Oddball Paradigm</title>
+</head>
+
+<body>
+  <img src="https://static1.squarespace.com/static/53868534e4b03e5662d8336e/t/53a23905e4b0365dad7a353c/1403140386069/" alt="The Vision Sciences Group" width="750px" style="border-radius:5%">
+  <div class="boxed">
+    <h1><strong>Instructions</strong></h1>
+    <!--|___________This is the width for the intro paragraph___________|-->
+    <p id="p1">Welcome! Thank you for agreeing to participate in this study.<br>
+    Please read the following directions carefully before beginning the experiment.</p>
+
+    <p id="p2">You will be presented with a series of regular black disks.
+      These disks will occasionally be interrupted by oddball disks.
+      Your task is to identify whether the duration for which each
+      oddball disk is presented on the screen is longer
+      or shorter than the duration of each regular disk.</p>
+
+
+    <p id="p3">Once you've identified whether the oddball lasted longer or shorter,
+      type (L) or (R) on the keyboard. Make sure to submit your response before the following three disks are presented.</p>
+
+    <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt-"llama!" width="250px" style="border-radius: 50%" id="llamaPic">
+    <p class="llamaText">If you're feeling like this guy at any point during the experiment, you can press the [ESC] key to exit!</p>
+
+    <button class="btn-hover color" id="regularButton">Continue</button>
+    <button class="btn-hover color-start" id="startButton">Begin Experiment</button>
+  </div>
+</body>
+
+<script>
+  $("button").hide();
+  $("#p1").show();
+  $("#p2").hide();
+  $("#p3").hide();
+  $("#llamaPic").hide();
+  $(".llamaText").hide();
+  setTimeout(function(){$("#regularButton").fadeIn("slow")},2500);
+  $("#regularButton").click(function() {
+    $("#regularButton").hide();
+    $("#p1").hide();
+    $("#p2").fadeIn("5000");
+    setTimeout(function(){$("#regularButton").fadeIn("slow")},3000);
+    $("#regularButton").click(function() {
+      $("#regularButton").hide();
+      $("#p2").hide();
+      $("#p3").fadeIn("1500");
+      setTimeout(function(){$("#regularButton").fadeIn("slow")},3000);
+      $("#regularButton").click(function() {
+        $("#regularButton").remove();
+        $("#p3").remove();
+        $(".boxed").css("height","+=150");
+        $(".llamaText").show();
+        $("#llamaPic").show();
+        setTimeout(function(){$("#startButton").fadeIn("slow")},1000);
+        $("#startButton").click(function() {
+          $(".boxed").remove();
+          $("img").remove();
+        })
+      })
+    })
+  })
+</script>
+
+</html>
