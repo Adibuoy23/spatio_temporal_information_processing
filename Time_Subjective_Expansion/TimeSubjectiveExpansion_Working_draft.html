@@ -4,8 +4,8 @@
 <style>
   /* Initialize standard disk */
   #std {
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,12 +24,13 @@
     transform: translate(-50%, -50%);
     background-color: black;
     border-radius: 50%;
+    overflow: auto
   }
 
   /* Initialize colored (red) disk */
   #redBall {
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -41,8 +42,8 @@
   /* Initialize spiky disk */
   #spikeyBall {
     background: black;
-    width: 80px;
-    height: 80px;
+    width: 250px;
+    height: 250px;
     position: relative;
     text-align: center;
   } #spikeyBall:before,
@@ -51,8 +52,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 80px;
-    width: 80px;
+    height: 250px;
+    width: 250px;
     background: black;
   } #spikeyBall:before {
     transform: rotate(30deg);
@@ -135,6 +136,12 @@
           'judgment': null
         });
       }
+        trialInfo.push({
+            'type': 'None',
+            'duration': 'None',
+            'isi' : 'None',
+            'judgement':'None'
+        })
       return trialInfo;
     }
 
@@ -142,33 +149,46 @@
     var frame = trialGenerator();
 
     // Standard disk toggling function
-    function ballAnimation(frameWindow) {
-      console.log(frameWindow)
-      if (frameWindow['type'] == 'std') {
-        //console.log('std')
-        $('#std').delay(frameWindow['isi']).show();
-        $('#std').delay(frameWindow['duration']).hide();
-      } else {
-          //console.log('odd')
-          $('#oddBall').delay(frameWindow['isi']).show();
-          $('#oddBall').animate({height: '+=499px', width: '+=499px'}, frameWindow['duration'], 'linear')
-          $('#oddBall').hide();
-          $('#oddBall').css({height: '1px', width: '1px'});
+      
+    var ballAnimation = function(frame, counter) {
+      console.log(counter)
+      console.log(window.frame.length)
+      //console.log(frameWindow)
+      var frameWindow
+      
+      if (counter < window.frame.length-1){
+          frameWindow = frame[counter]
+          if (frameWindow['type'] == 'std') {
+            //console.log('std')
+            $('#oddBall').height(1);
+            $('#oddBall').width(1);
+            setTimeout(function(){$('#std').show();},frameWindow['isi']);
+            setTimeout(function(){$('#std').hide();},frameWindow['isi']+frameWindow['duration']);
+            counter++
+            setTimeout(function(){ballAnimation(frame,counter);},frameWindow['isi']+frameWindow['duration'])
+          } else{
+              //console.log('odd')
+              setTimeout(function(){$('#oddBall').show();},frameWindow['isi']);
+              var expansion = '250px'
+              console.log(expansion)
+              $('#oddBall').animate({height: expansion, width: expansion}, frameWindow['isi']+frameWindow['duration'], 'linear')
+              setTimeout(function(){$('#oddBall').hide();}, frameWindow['isi']+frameWindow['duration'])
+              console.log($('#oddBall').height())
+              counter++
+             setTimeout(function(){ballAnimation(frame,counter);},frameWindow['isi']+frameWindow['duration'])
+            } 
+          }
+      else{
+          $('#std').hide()
+          $('#oddBall').hide()
       }
     }
 
     // Carries out each experiment trial via animations from jquery
     // trialInfo: [{type: 'std/odd', duration: 1050/offBag[oddBallIndex], isi: isi, judgment: null}]
-    function newFrame(frame) {
-      var trialCount = frame.length;
-      for (trialNumber = 0; trialNumber < 20; trialNumber++) {
-        console.log(trialNumber)
-        await ballAnimation(frame[trialNumber]);
-      }
-    }
-
+    var counter = 0
     $( "button" ).click(function() {
-      newFrame(frame);
+      ballAnimation(frame,counter);
     })
   </script>
 </body>
