@@ -1,86 +1,42 @@
 <!DOCTYPE html>
-<html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
-  /* Initialize standard disk */
-  #std {
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: black;
-    border-radius: 50%;
-  }
-
-  /* Initialize looming oddball */
-  #oddBall {
-    width: 1px;
-    height: 1px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: black;
-    border-radius: 50%;
-    overflow: auto
-  }
-
-  /* Initialize colored (red) disk */
-  #redBall {
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: red;
-    border-radius: 50%;
-  }
-
-  /* Initialize spiky disk */
-  #spikeyBall {
-    background: black;
-    width: 250px;
-    height: 250px;
-    position: relative;
-    text-align: center;
-  } #spikeyBall:before,
-  #spikeyBall:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 250px;
-    width: 250px;
-    background: black;
-  } #spikeyBall:before {
-    transform: rotate(30deg);
-  } #spikeyBall:after {
-    transform: rotate(60deg);
-  }
-
-  .button {
-  background-color: #404040;
-  top: 50%;
-  left: 50%;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transform: translate(-50%, -50%);
-  } .button:hover {
-  background-color: #606060;
-  color: white;
-  }
-
-</style>
+<html lang="en" dir="ltr" style="text-align:center">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A replication of the original oddball paradigm.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, JQuery, Cognition, CogSci, Cognitive Psychology">
+  <meta name="author" content="Nathan Liang, Shanmukh Aditya Upadhyayula">
+  <link rel="shortcut icon" type="image/png" href="https://avatars0.githubusercontent.com/u/23708834?s=460&v=4"/>
+  <link rel="stylesheet" type="text/css" href="Oddball_Instructions.css">
+  <title>Oddball Paradigm</title>
+</head>
 <body>
-  <p><button>Begin Experiment</button></p>
+    <img src="https://static1.squarespace.com/static/53868534e4b03e5662d8336e/t/53a23905e4b0365dad7a353c/1403140386069/" alt="The Vision Sciences Group" width="750px" style="border-radius:5%">
+    <div class="boxed">
+      <h1><strong>Instructions</strong></h1>
+      <!--|___________This is the width for the intro paragraph___________|-->
+      <p id="p1">Welcome! Thank you for agreeing to participate in this study.<br>
+      Please read the following directions carefully before beginning the experiment.</p>
+
+      <p id="p2">You will be presented with a series of regular black disks.
+        These disks will occasionally be interrupted by oddball disks.
+        Your task is to identify whether the duration for which each
+        oddball disk is presented on the screen is longer
+        or shorter than the duration of each regular disk.</p>
+
+
+      <p id="p3">Once you've identified whether the oddball lasted longer or shorter,
+        type (L) or (R) on the keyboard. Make sure to submit your response before the following three disks are presented.</p>
+
+      <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt-"llama!" width="250px" style="border-radius: 50%" id="llamaPic">
+      <p class="llamaText">If you're feeling like this guy at any point during the experiment, you can press the [ESC] key to exit!</p>
+
+      <button class="btn-hover color" id="regularButton">Continue</button>
+      <button class="btn-hover color-start" id="startButton">Begin Experiment</button>
+    </div>
+
+
   <div id="std"></div>
   <div id="oddBall"></div>
   <script>
@@ -149,13 +105,13 @@
     var frame = trialGenerator();
 
     // Standard disk toggling function
-      
+
     var ballAnimation = function(frame, counter) {
       console.log(counter)
       console.log(window.frame.length)
       //console.log(frameWindow)
       var frameWindow
-      
+
       if (counter < window.frame.length-1){
           frameWindow = frame[counter]
           if (frameWindow['type'] == 'std') {
@@ -176,7 +132,7 @@
               console.log($('#oddBall').height())
               counter++
              setTimeout(function(){ballAnimation(frame,counter);},frameWindow['isi']+frameWindow['duration'])
-            } 
+            }
           }
       else{
           $('#std').hide()
@@ -186,9 +142,38 @@
 
     // Carries out each experiment trial via animations from jquery
     // trialInfo: [{type: 'std/odd', duration: 1050/offBag[oddBallIndex], isi: isi, judgment: null}]
-    var counter = 0
-    $( "button" ).click(function() {
-      ballAnimation(frame,counter);
+    $("button").hide();
+    $("#p1").show();
+    $("#p2").hide();
+    $("#p3").hide();
+    $("#llamaPic").hide();
+    $(".llamaText").hide();
+    setTimeout(function(){$("#regularButton").fadeIn("slow")},2500);
+    $("#regularButton").click(function() {
+      $("#regularButton").hide();
+      $("#p1").hide();
+      $("#p2").fadeIn("5000");
+      setTimeout(function(){$("#regularButton").fadeIn("slow")},3000);
+      $("#regularButton").click(function() {
+        $("#regularButton").hide();
+        $("#p2").hide();
+        $("#p3").fadeIn("1500");
+        setTimeout(function(){$("#regularButton").fadeIn("slow")},3000);
+        $("#regularButton").click(function() {
+          $("#regularButton").remove();
+          $("#p3").remove();
+          $(".boxed").css("height","+=150");
+          $(".llamaText").show();
+          $("#llamaPic").show();
+          setTimeout(function(){$("#startButton").fadeIn("slow")},1000);
+          $("#startButton").click(function() {
+            $(".boxed").remove();
+            $("img").remove();
+            var counter = 0;
+            ballAnimation(frame,counter);
+          })
+        })
+      })
     })
   </script>
 </body>

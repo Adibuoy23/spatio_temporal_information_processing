@@ -64,3 +64,78 @@ p {
   left: 50%;
   margin: 0 auto;
 }
+
+#std {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 50%;
+}
+
+/* Initialize looming oddball */
+#oddBall {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 50%;
+  overflow: auto
+}
+
+/* Initialize colored (red) disk */
+#redBall {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  border-radius: 50%;
+}
+
+/* Initialize spiky disk */
+#spikeyBall {
+  background: black;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  text-align: center;
+} #spikeyBall:before,
+#spikeyBall:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 250px;
+  width: 250px;
+  background: black;
+} #spikeyBall:before {
+  transform: rotate(30deg);
+} #spikeyBall:after {
+  transform: rotate(60deg);
+}
+
+.button {
+background-color: #404040;
+top: 50%;
+left: 50%;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+transform: translate(-50%, -50%);
+} .button:hover {
+background-color: #606060;
+color: white;
+}
