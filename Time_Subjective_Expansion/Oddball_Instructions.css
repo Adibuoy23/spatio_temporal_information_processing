@@ -41,8 +41,8 @@
 }
 
 .btn-hover.color-start {
-    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    background-image: linear-gradient(to right, #0ba360, #30dd9d, #32cd32, #c7e846);
+    box-shadow: 0 4px 15px 0 rgba(50,205,50, 0.75);
 }
 h1 {
   font-size: 18pt;
@@ -74,6 +74,7 @@ p {
   transform: translate(-50%, -50%);
   background-color: black;
   border-radius: 50%;
+  z-index:-50;
 }
 
 /* Initialize looming oddball */
@@ -101,27 +102,23 @@ p {
   border-radius: 50%;
 }
 
-/* Initialize spiky disk */
 #spikeyBall {
   background: black;
-  width: 250px;
-  height: 250px;
-  position: relative;
-  text-align: center;
-} #spikeyBall:before,
-#spikeyBall:after {
-  content: "";
+  width: 200px;
+  height: 200px;
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 250px;
-  width: 250px;
-  background: black;
-} #spikeyBall:before {
-  transform: rotate(30deg);
-} #spikeyBall:after {
-  transform: rotate(60deg);
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -100px;
+  transform: rotate(0deg);
+  -webkit-animation:spin 2.6s linear infinite;
+  -moz-animation:spin 2.6s linear infinite;
+  animation:spin 2.6s linear infinite;
 }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .button {
 background-color: #404040;
