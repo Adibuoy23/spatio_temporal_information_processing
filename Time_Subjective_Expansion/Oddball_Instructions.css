@@ -104,16 +104,16 @@ p {
 
 #spikeyBall {
   background: black;
-  width: 200px;
-  height: 200px;
+  width: 225px;
+  height: 225px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -100px 0 0 -100px;
+  margin: -112.5px 0 0 -112.5px;
   transform: rotate(0deg);
-  -webkit-animation:spin 2.6s linear infinite;
-  -moz-animation:spin 2.6s linear infinite;
-  animation:spin 2.6s linear infinite;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
