@@ -64,9 +64,12 @@
     function trialGenerator() {
       var trialInfo = [];
       var oddBag = [];
+      var oddType = [];
       var oddBallDurations = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
+      var oddBallTypes = ['odd','spikey','red', 'odd','spikey','red','odd','spikey','red']
       for (reps = 0; reps < 6; reps++) {
         oddBag = oddBag.concat(shuffle(oddBallDurations));
+        oddType = oddType.concat(shuffle(oddBallTypes))  
       }
       var oddBallIndex;
       for (oddBallIndex = 0; oddBallIndex < 54; oddBallIndex++) {
@@ -80,30 +83,35 @@
             'judgment': null
           });
         }
+        
+        if (oddType[oddBallIndex]=='odd'){
+            var isi = Math.floor(Math.random() * (1050 - 950) + 950);
+            trialInfo.push({
+            'type': 'odd',
+            'duration': oddBag[oddBallIndex],
+            'isi': isi,
+            'judgment': null
+            });
+            
+        } else if(oddType[oddBallIndex]=='red'){
+            var isi = Math.floor(Math.random() * (1050 - 950) + 950);
+            trialInfo.push({
+            'type': 'red',
+            'duration': oddBag[oddBallIndex],
+            'isi': isi,
+            'judgment': null
+            });
+            
+        } else{
+            var isi = Math.floor(Math.random() * (1050 - 950) + 950);
+            trialInfo.push({
+            'type': 'spikey',
+            'duration': oddBag[oddBallIndex],
+            'isi': isi,
+            'judgment': null
+            });
+        }
 
-        // var isi = Math.floor(Math.random() * (1050 - 950) + 950);
-        // trialInfo.push({
-        //   'type': 'odd',
-        //   'duration': oddBag[oddBallIndex],
-        //   'isi': isi,
-        //   'judgment': null
-        // });
-
-        // var isi = Math.floor(Math.random() * (1050 - 950) + 950);
-        // trialInfo.push({
-        //   'type': 'redBall',
-        //   'duration': oddBag[oddBallIndex],
-        //   'isi': isi,
-        //   'judgment': null
-        // });
-
-        var isi = Math.floor(Math.random() * (1050 - 950) + 950);
-        trialInfo.push({
-          'type': 'spikeyBall',
-          'duration': oddBag[oddBallIndex],
-          'isi': isi,
-          'judgment': null
-        });
       }
       var stdThree = 3;
       for (stdCount = 0; stdCount < stdThree; stdCount++) {
@@ -126,84 +134,98 @@
 
     // The output of function trialGenerator()
     var frame = trialGenerator();
-
+    var responseTimeStamp = 0;
     // Standard disk toggling function
 
     var ballAnimation = function(frame, counter) {
-      var frameWindow;
+      var frameWindow;   
       if (counter < window.frame.length - 1) {
         frameWindow = frame[counter];
-
+        console.log(frameWindow)  
         if (frameWindow['type'] == 'std') {
-          $('#oddBall').height(1);
-          $('#oddBall').width(1);
-          setTimeout(function() {
-            $('#std').show();
-          }, frameWindow['isi']);
-          setTimeout(function() {
-            $('#std').hide();
-          }, frameWindow['isi'] + frameWindow['duration']);
-          counter++;
-          setTimeout(function() {
-            ballAnimation(frame, counter);
+              $('#oddBall').height(1);
+              $('#oddBall').width(1);
+              $('#oddBall').hide()
+              $('#redBall').hide()
+              $('#spikeyBall').hide()
+              setTimeout(function() {
+                $('#std').show();
+              }, frameWindow['isi']);
+              setTimeout(function() {
+                $('#std').hide();
+              }, frameWindow['isi'] + frameWindow['duration']);
+                counter++;
+                setTimeout(function() {
+                ballAnimation(frame, counter);
+              }, frameWindow['isi'] + frameWindow['duration'])
+
+
+
+        } else if (frameWindow['type'] == 'odd') {
+              window.responseTimeStamp = counter
+              $('#std').hide()
+              $('#oddBall').hide()
+              $('#redBall').hide()
+              $('#spikeyBall').hide()
+              setTimeout(function() {
+                $('#oddBall').show();
+              }, frameWindow['isi']);
+              var expansion = '250px';
+              console.log(expansion);
+              $('#oddBall').animate({
+                height: expansion,
+                width: expansion
+              }, frameWindow['isi'] + frameWindow['duration'], 'linear')
+              setTimeout(function() {
+                $('#oddBall').hide();
+              }, frameWindow['isi'] + frameWindow['duration'])
+              console.log($('#oddBall').height())
+              counter++
+              setTimeout(function() {
+                ballAnimation(frame, counter);
           }, frameWindow['isi'] + frameWindow['duration'])
 
-        } else if (frameWindow['type'] == 'oddBall') {
-          setTimeout(function() {
-            $('#oddBall').show();
-          }, frameWindow['isi']);
-          var expansion = '250px';
-          console.log(expansion);
-          $('#oddBall').animate({
-            height: expansion,
-            width: expansion
-          }, frameWindow['isi'] + frameWindow['duration'], 'linear')
-          setTimeout(function() {
-            $('#oddBall').hide();
-          }, frameWindow['isi'] + frameWindow['duration'])
-          console.log($('#oddBall').height())
-          counter++
-          setTimeout(function() {
-            ballAnimation(frame, counter);
-          }, frameWindow['isi'] + frameWindow['duration'])
-
-        } else if (frameWindow['type'] == 'redBall') {
-          setTimeout(function() {
-            $('#redBall').show();
-          }, frameWindow['isi']);
-          var expansion = '250px';
-          console.log(expansion);
-          $('#redBall').animate({
-            height: expansion,
-            width: expansion
-          }, frameWindow['isi'] + frameWindow['duration'], 'linear')
-          setTimeout(function() {
-            $('#redBall').hide();
-          }, frameWindow['isi'] + frameWindow['duration'])
-          console.log($('#redBall').height())
-          counter++
-          setTimeout(function() {
-            ballAnimation(frame, counter);
-          }, frameWindow['isi'] + frameWindow['duration'])
-        } else if (frameWindow['type'] == 'spikeyBall') {
-          setTimeout(function() {
-            $('#std').show();
-            $('#spikeyBall').show();
-          }, frameWindow['isi']);
-          setTimeout(function() {
-            $('#std').hide();
-            $('#spikeyBall').hide();
-          }, frameWindow['isi'] + frameWindow['duration'])
-          counter++
-          setTimeout(function() {
-            ballAnimation(frame, counter);
-          }, frameWindow['isi'] + frameWindow['duration'])
-        }
+        } else if (frameWindow['type'] == 'red') {
+              window.responseTimeStamp = counter
+              $('#std').hide()
+              $('#oddBall').hide()
+              $('#redBall').hide()
+              $('#spikeyBall').hide()
+              setTimeout(function() {
+                $('#redBall').show();
+              }, frameWindow['isi']);
+              setTimeout(function() {
+                $('#redBall').hide();
+              }, frameWindow['isi'] + frameWindow['duration']);
+              counter++;
+              setTimeout(function() {
+                ballAnimation(frame, counter);
+              }, frameWindow['isi'] + frameWindow['duration'])
+            
+        } else if(frameWindow['type']=='spikey'){
+              window.responseTimeStamp = counter
+              $('#std').hide()
+              $('#oddBall').hide()
+              $('#redBall').hide()
+              $('#spikeyBall').hide()
+              setTimeout(function() {
+                $('#std').show();
+                $('#spikeyBall').show();
+              }, frameWindow['isi']);
+              setTimeout(function() {
+                $('#std').hide();
+                $('#spikeyBall').hide();
+              }, frameWindow['isi'] + frameWindow['duration'])
+              counter++
+              setTimeout(function() {
+                ballAnimation(frame, counter);
+              }, frameWindow['isi'] + frameWindow['duration'])
+            }
 
       } else {
         $('#std').hide();
-        // $('#oddBall').hide();
-        // $('#redBall').hide();
+        $('#oddBall').hide();
+        $('#redBall').hide();
         $('#spikeyBall').hide();
       }
     }
