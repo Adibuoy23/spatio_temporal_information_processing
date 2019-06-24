@@ -26,15 +26,19 @@
       oddball disk is presented on the screen is longer
       or shorter than the duration of each regular disk.</p>
     <p id="p3">Once you've identified whether the oddball lasted longer or shorter,
-      type (L) or (R) on the keyboard. Make sure to submit your response before the following three disks are presented.</p>
+      type (S) or (L) on the keyboard. Make sure to submit your response before the following three disks are presented.</p>
 
     <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt-"llama!" width="250px" style="border-radius: 50%" id="llamaPic">
-    <p class="llamaText">If you're feeling like this guy at any point during the experiment, you can press the [ESC] key to exit!</p>
+    <p class="llamaText">Add oddBall is something that is not usually observed, for example, this guy over here. Also, you can press the [ESC] key anytime to exit!</p>
 
     <button class="btn-hover color" id="regularButton">Continue</button>
     <button class="btn-hover color-start" id="startButton">Begin Experiment</button>
+      
   </div>
-
+    
+    <div class="instructionsClass">
+        <p id="instructions"> Remember to press S /L to indicate if you perceived the oddball to be Shorter / Longer than the rest of the balls</p>
+    </div>
 
   <div id="std"></div>
   <div id="oddBall"></div>
@@ -127,20 +131,34 @@
         'type': 'None',
         'duration': 'None',
         'isi': 'None',
-        'judgement': 'None'
+        'judgment': 'None'
       });
       return trialInfo;
     }
 
     // The output of function trialGenerator()
     var frame = trialGenerator();
-    var responseTimeStamp = 0;
-    // Standard disk toggling function
+    var loop_active = true
+    var responseTimeStamp = 15;  
+    var counter = 0;  
 
+    // Standard disk toggling function
+    $(document).keyup(function(e) { console.log(e.keyCode)
+    if (e.keyCode == 83 || e.keyCode == 76 && !window.loop_active) {
+        window.loop_active = true
+        window.counter++
+        window.responseTimeStamp = 15+window.counter;
+        setTimeout(function() {
+        ballAnimation(frame, window.counter);
+        }, 0);
+        console.log(window.frame[window.responseTimeStamp])
+        window.frame[window.responseTimeStamp]['judgment'] = e.keyCode
+    } else {}
+    });  
     var ballAnimation = function(frame, counter) {
-      var frameWindow;   
-      if (counter < window.frame.length - 1) {
-        frameWindow = frame[counter];
+      var frameWindow;  
+      if (window.counter < window.frame.length - 1) {
+        frameWindow = frame[window.counter];
         console.log(frameWindow)  
         if (frameWindow['type'] == 'std') {
               $('#oddBall').height(1);
@@ -154,15 +172,19 @@
               setTimeout(function() {
                 $('#std').hide();
               }, frameWindow['isi'] + frameWindow['duration']);
-                counter++;
+              if(window.counter < window.responseTimeStamp + 3 && window.loop_active){
+                window.counter++;
                 setTimeout(function() {
-                ballAnimation(frame, counter);
-              }, frameWindow['isi'] + frameWindow['duration'])
-
+                ballAnimation(frame, window.counter);
+                }, frameWindow['isi'] + frameWindow['duration'])
+                  
+              }else{
+                  window.loop_active = false
+              }
 
 
         } else if (frameWindow['type'] == 'odd') {
-              window.responseTimeStamp = counter
+              window.responseTimeStamp = window.counter
               $('#std').hide()
               $('#oddBall').hide()
               $('#redBall').hide()
@@ -180,13 +202,13 @@
                 $('#oddBall').hide();
               }, frameWindow['isi'] + frameWindow['duration'])
               console.log($('#oddBall').height())
-              counter++
+              window.counter++
               setTimeout(function() {
-                ballAnimation(frame, counter);
+                ballAnimation(frame, window.counter);
           }, frameWindow['isi'] + frameWindow['duration'])
 
         } else if (frameWindow['type'] == 'red') {
-              window.responseTimeStamp = counter
+              window.responseTimeStamp = window.counter
               $('#std').hide()
               $('#oddBall').hide()
               $('#redBall').hide()
@@ -197,13 +219,13 @@
               setTimeout(function() {
                 $('#redBall').hide();
               }, frameWindow['isi'] + frameWindow['duration']);
-              counter++;
+              window.counter++;
               setTimeout(function() {
-                ballAnimation(frame, counter);
+                ballAnimation(frame, window.counter);
               }, frameWindow['isi'] + frameWindow['duration'])
             
         } else if(frameWindow['type']=='spikey'){
-              window.responseTimeStamp = counter
+              window.responseTimeStamp = window.counter
               $('#std').hide()
               $('#oddBall').hide()
               $('#redBall').hide()
@@ -216,9 +238,9 @@
                 $('#std').hide();
                 $('#spikeyBall').hide();
               }, frameWindow['isi'] + frameWindow['duration'])
-              counter++
+              window.counter++
               setTimeout(function() {
-                ballAnimation(frame, counter);
+                ballAnimation(frame, window.counter);
               }, frameWindow['isi'] + frameWindow['duration'])
             }
 
@@ -238,6 +260,7 @@
     $("#p3").hide();
     $("#llamaPic").hide();
     $(".llamaText").hide();
+    $("#instructions").hide();
     setTimeout(function() {
       $("#regularButton").fadeIn("slow")
     }, 2500);
@@ -267,7 +290,7 @@
           $("#startButton").click(function() {
             $(".boxed").remove();
             $("img").remove();
-            var counter = 0;
+            $("#instructions").show()  
             ballAnimation(frame, counter);
           })
         })
