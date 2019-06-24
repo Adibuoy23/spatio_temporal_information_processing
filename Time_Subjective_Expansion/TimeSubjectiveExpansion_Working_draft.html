@@ -20,11 +20,9 @@
     <!--|___________This is the width for the intro paragraph___________|-->
     <p id="p1">Welcome! Thank you for agreeing to participate in this study.<br>
       Please read the following directions carefully before beginning the experiment.</p>
-    <p id="p2">You will be presented with a series of regular black disks.
-      These disks will occasionally be interrupted by oddball disks.
-      Your task is to identify whether the duration for which each
-      oddball disk is presented on the screen is longer
-      or shorter than the duration of each regular disk.</p>
+    <p id="p2">You will be presented with a series of regular black disks. These disks will be presented for exact duration on the screen. Occasionally you will also be presented with stimuli that look different than the regular disks
+    Your task is to judge whether these different looking disks are presented for longer
+      or shorter duration than that of the regular disks.</p>
     <p id="p3">Once you've identified whether the oddball lasted longer or shorter,
       type (S) or (L) on the keyboard. Make sure to submit your response before the following three disks are presented.</p>
 
@@ -172,7 +170,7 @@
               setTimeout(function() {
                 $('#std').hide();
               }, frameWindow['isi'] + frameWindow['duration']);
-              if(window.counter < window.responseTimeStamp + 3 && window.loop_active){
+              if(window.counter < window.responseTimeStamp+1 && window.loop_active){
                 window.counter++;
                 setTimeout(function() {
                 ballAnimation(frame, window.counter);
