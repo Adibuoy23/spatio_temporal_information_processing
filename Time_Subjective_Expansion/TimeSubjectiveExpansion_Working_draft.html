@@ -35,13 +35,14 @@
         <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt="llama!" height="180px" style="border-radius:50%" id="llamaPic">
         <p class="llamaText">If you're feeling like this guy at any point during the experiment, <br> you can press the [ESC] key to exit!</p>
         <button class="btn-hover color" id="regularButton">Continue →</button>
-        <button class="btn-hover color-start" id="startButton" style="z-index:50;">Begin Experiment!</button>
-        <img src=https://www.stickpng.com/assets/thumbs/5935b4213cdd5d2b9146e0db.png alt="typing hands" id="typingHands">
+        <button class="btn-hover color-start" id="startButton">Begin Experiment!</button>
       </div>
     </div>
   </div>
   <!-- Mid-experiment reminder to make a duration choice -->
-  <p id="p5" style="text-align:center;left:50%;top:50%;"> Press: <br> [S] = Shorter / [L] = Longer </p>
+  <div id="p5">
+    <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer </p>
+  </div>
 
   <!-- Initialize stimuli -->
   <div id="std"></div>
@@ -172,24 +173,23 @@
           $('#redBall').hide();
           $('#spikeyBall').hide();
           console.log(window.counter)
-          console.log(window.responseTimeStamp)    
-          if (window.counter < window.responseTimeStamp  && window.loop_active) {
+          console.log(window.responseTimeStamp)
+          if (window.counter < window.responseTimeStamp && window.loop_active) {
             window.counter++;
             setTimeout(function() {
-                $('#std').show();
-                }, frameWindow['isi']);
+              $('#std').show();
+            }, frameWindow['isi']);
             setTimeout(function() {
-                $('#std').hide();
-                }, frameWindow['isi'] + frameWindow['duration']);
+              $('#std').hide();
+            }, frameWindow['isi'] + frameWindow['duration']);
             setTimeout(function() {
-                ballAnimation(frame, window.counter);
-                }, frameWindow['isi'] + frameWindow['duration'])
-              
+              ballAnimation(frame, window.counter);
+            }, frameWindow['isi'] + frameWindow['duration'])
+
 
           } else {
             window.loop_active = false;
-            $("#p5").fadeIn("2100");  
-            
+            $("#p5").fadeIn("2100");
           }
 
         } else if (frameWindow['type'] == 'odd') {
@@ -203,7 +203,7 @@
           }, frameWindow['isi']);
           var expansion = '250px';
           console.log(window.counter)
-          console.log(window.responseTimeStamp)   
+          console.log(window.responseTimeStamp)
           $('#oddBall').animate({
             height: expansion,
             width: expansion
@@ -220,7 +220,7 @@
         } else if (frameWindow['type'] == 'red') {
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
-          console.log(window.responseTimeStamp)   
+          console.log(window.responseTimeStamp)
           $('#std').hide();
           $('#oddBall').hide();
           $('#redBall').hide();
@@ -239,7 +239,7 @@
         } else if (frameWindow['type'] == 'spikey') {
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
-          console.log(window.responseTimeStamp)   
+          console.log(window.responseTimeStamp)
           $('#std').hide();
           $('#oddBall').hide();
           $('#redBall').hide();
@@ -275,7 +275,6 @@
     $("#p4").hide();
     $("#p5").hide();
     $("#llamaPic").hide();
-    $("#typingHands").hide()
     $(".llamaText").hide();
     setTimeout(function() {
       $("#regularButton").fadeIn("slow")
@@ -295,27 +294,18 @@
           $("#regularButton").fadeIn("slow")
         }, 3000);
         $("#regularButton").click(function() {
-          $("#regularButton").hide();
+          $("#regularButton").remove();
           $("#p3").remove();
           $(".boxed").css("height", "+=50");
           $(".llamaText").show();
           $("#llamaPic").show();
           setTimeout(function() {
-            $("#regularButton").fadeIn("slow")
+            $("#startButton").fadeIn("slow")
           }, 3000);
-          $("#regularButton").click(function() {
-            $("#p4").show();
-            $(".boxed").css("height", "-=250");
-            $(".llamaText").remove();
-            $("#llamaPic").remove();
-            $("#regularButton").remove();
-            $("#typingHands").show();
-            $("typingHands").slide();
-            $(document).keyup(function() {
-              $(".boxed").remove();
-              $("img").remove();
-              ballAnimation(frame, counter);
-            })
+          $("#startButton").click(function() {
+            $("img").remove();
+            $(".outer").remove();
+            ballAnimation(frame, counter)
           })
         })
       })
