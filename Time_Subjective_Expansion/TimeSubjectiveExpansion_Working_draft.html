@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" style="text-align:center">
+<!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Timestamp Data -->
+<script>
+  var currentDate = new Date();
+  var date = currentDate.getDate();
+  var month = currentDate.getMonth();
+  var year = currentDate.getFullYear();
+  var dateString = date + "-" + (month + 1) + "-" + year;
+</script>
+
+<!-- ======================== METADATA =======================-->
 
 <head>
   <meta charset="utf-8" />
@@ -13,16 +25,17 @@
   <title>Oddball Paradigm</title>
 </head>
 
+<!-- ======================== INTRODUCTION =======================-->
+
 <body>
   <!-- Vision Sciences Group Logo -->
   <img src="https://static1.squarespace.com/static/53868534e4b03e5662d8336e/t/53a23905e4b0365dad7a353c/1403140386069/" alt="The Vision Sciences Group" width="800px" id="visionLogo">
 
-  <!-- Vertically and horizontally entered intro block -->
+  <!-- Vertically and horizontally entered intro block wrapper -->
   <div class="outer">
     <div class="middle">
       <div class="boxed">
         <h1><strong>Instructions</strong></h1>
-        <!--|___________This is the width for the intro paragraph___________|-->
         <p id="p1">Welcome! Thank you for agreeing to participate in this study.
           Please read the following directions carefully before beginning.</p>
         <p id="p2">You will be presented with a series of regular black disks. These disks will be presented for a precisely equal duration on the screen. <br><br>
@@ -39,24 +52,27 @@
       </div>
     </div>
   </div>
+
   <!-- Mid-experiment reminder to make a duration choice -->
   <div id="p5">
     <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer </p>
   </div>
 
-  <!-- Initialize stimuli -->
+  <!-- ======================== STIMULI =======================-->
   <div id="std"></div>
   <div id="oddBall"></div>
   <div id="redBall"></div>
   <div id="spikeyBall"></div>
 
-  <!-- Start of animation -->
+  <!-- ======================== ANIMATIONS =======================-->
+
   <script>
     $('#std').hide();
     $('#oddBall').hide();
     $('#redBall').hide();
     $('#spikeyBall').hide();
 
+    // ======================== FISHER-YATES/KNUTH SHUFFLE ======================= //
     // Randomized oddball disk duration array and Knuth shuffle
     function shuffle(array) {
       var currentIndex = array.length,
@@ -71,6 +87,7 @@
       return array;
     }
 
+    // ======================== TRIAL GENERATOR ======================= //
     // Generates each experiment after looping through 54 oddballs, 7-12 standard disks and ending with 3 disks.
     function trialGenerator() {
       var trialInfo = [];
@@ -84,7 +101,7 @@
       }
       var oddBallIndex;
       for (oddBallIndex = 0; oddBallIndex < 54; oddBallIndex++) {
-        var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7) /* Between 7-12 regular disks */ ;
+        var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7); /* Between 7-12 regular disks */
         for (stdCount = 0; stdCount < stdNumber; stdCount++) {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
@@ -94,7 +111,8 @@
             'judgment': null
           });
         }
-        if (oddType[oddBallIndex] == 'odd') /* Looming black oddball */ {
+        if (oddType[oddBallIndex] == 'odd') {
+          /* Looming black oddball */
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'odd',
@@ -102,7 +120,8 @@
             'isi': isi,
             'judgment': null
           });
-        } else if (oddType[oddBallIndex] == 'red') /* Stationary red oddball */ {
+        } else if (oddType[oddBallIndex] == 'red') {
+          /* Stationary red oddball */
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'red',
@@ -111,7 +130,8 @@
             'judgment': null
           });
 
-        } else /*Spiky oddball */ {
+        } else {
+          /* Spiky oddball */
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'spikey',
@@ -120,33 +140,17 @@
             'judgment': null
           });
         }
-
       }
-      var stdThree = 3;
-      for (stdCount = 0; stdCount < stdThree; stdCount++) {
-        var isi = Math.floor(Math.random() * (1050 - 950) + 950);
-        trialInfo.push({
-          'type': 'std',
-          'duration': 1050,
-          'isi': isi,
-          'judgment': null
-        });
-      }
-      trialInfo.push({
-        'type': 'None',
-        'duration': 'None',
-        'isi': 'None',
-        'judgment': 'None'
-      });
       return trialInfo;
     }
 
-    // The output of function trialGenerator()
+    // ======================== TRIAL GENERATION ======================= //
     var frame = trialGenerator();
     var loop_active = true;
     var responseTimeStamp = 15;
     var counter = 0;
 
+    // ======================== TRIAL GENERATION RUN ======================= //
     // Standard disk toggling function
     $(document).keyup(function(e) {
       console.log(e.keyCode);
@@ -185,13 +189,12 @@
             setTimeout(function() {
               ballAnimation(frame, window.counter);
             }, frameWindow['isi'] + frameWindow['duration'])
-
-
           } else {
             window.loop_active = false;
-            $("#p5").fadeIn("2100");
+            setTimeout(function(){
+              $("#p5").show();
+            },1050);
           }
-
         } else if (frameWindow['type'] == 'odd') {
           window.responseTimeStamp = window.counter;
           $('#std').hide();
@@ -216,7 +219,6 @@
           setTimeout(function() {
             ballAnimation(frame, window.counter);
           }, frameWindow['isi'] + frameWindow['duration']);
-
         } else if (frameWindow['type'] == 'red') {
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
@@ -235,7 +237,6 @@
           setTimeout(function() {
             ballAnimation(frame, window.counter);
           }, frameWindow['isi'] + frameWindow['duration'])
-
         } else if (frameWindow['type'] == 'spikey') {
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
@@ -257,17 +258,24 @@
             ballAnimation(frame, window.counter);
           }, frameWindow['isi'] + frameWindow['duration'])
         }
-
       } else {
         $('#std').hide();
         $('#oddBall').hide();
         $('#redBall').hide();
         $('#spikeyBall').hide();
+
+        // Debriefing
+
+        // Random Code Generation
       }
     }
 
+    var cursorCheck = false;
+    if (cursorCheck == true) {
+      document.body.style.cursor = 'none';
+    }
+    // ======================== MAIN BLOCK ======================= //
     // Carries out each experiment trial via animations from JQuery
-    // trialInfo: [{type: 'std/odd', duration: 1050/offBag[oddBallIndex], isi: isi, judgment: null}]
     $("button").hide();
     $("#p1").show();
     $("#p2").hide();
@@ -303,9 +311,11 @@
             $("#startButton").fadeIn("slow")
           }, 3000);
           $("#startButton").click(function() {
+            cursorCheck = true;
             $("img").remove();
             $(".outer").remove();
-            ballAnimation(frame, counter)
+            ballAnimation(frame, counter);
+            cursorCheck = false;
           })
         })
       })
@@ -314,3 +324,8 @@
 </body>
 
 </html>
+
+
+<!-- ADI: Multiple keypress error, saving data into separate .csv file-->
+<!-- NATHAN: Make random ID, make input box for mTurk ID, Cursor hide and inform them, debrief, random code submission generator -->
+<!-- Comments in trialInfo-->
