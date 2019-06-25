@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A replication of the original oddball paradigm.">
-  <meta name="keywords" content="HTML, CSS, JavaScript, JQuery, Cognition, CogSci, Cognitive Psychology">
+  <meta name="keywords" content="HTML, CSS, JavaScript, jQuery, Cognition, Cognitive Science, Cognitive Psychology, Oddball Paradigm">
   <meta name="author" content="Nathan Liang, Shanmukh Aditya Upadhyayula">
   <link rel="shortcut icon" type="image/png" href="https://avatars0.githubusercontent.com/u/23708834?s=460&v=4" />
   <link rel="stylesheet" type="text/css" href="Oddball_Instructions.css">
@@ -14,40 +14,48 @@
 </head>
 
 <body>
-  <img src="https://static1.squarespace.com/static/53868534e4b03e5662d8336e/t/53a23905e4b0365dad7a353c/1403140386069/" alt="The Vision Sciences Group" width="600px" style="border-radius:5%">
-  <div class="boxed">
-    <h1><strong>Instructions</strong></h1>
-    <!--|___________This is the width for the intro paragraph___________|-->
-    <p id="p1">Welcome! Thank you for agreeing to participate in this study.<br>
-      Please read the following directions carefully before beginning the experiment.</p>
-    <p id="p2">You will be presented with a series of regular black disks. These disks will be presented for exact duration on the screen. Occasionally you will also be presented with stimuli that look different than the regular disks
-      Your task is to judge whether these different looking disks are presented for longer
-      or shorter duration than that of the regular disks.</p>
-    <p id="p3">Once you've identified whether the oddball lasted longer or shorter,
-      type (S) or (L) on the keyboard.</p>
-    <p id="p4">Now, get ready! Place one finger on the [S] key and another on the [L] key on your keyboard.</p>
+  <!-- Vision Sciences Group Logo -->
+  <img src="https://static1.squarespace.com/static/53868534e4b03e5662d8336e/t/53a23905e4b0365dad7a353c/1403140386069/" alt="The Vision Sciences Group" width="800px" id="visionLogo">
 
-    <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt-"llama!" width="250px" style="border-radius: 50%" id="llamaPic">
-    <p class="llamaText">An oddball is any event that occurs unexpectedly, like this guy over here.
-      If you feel like him at any point during the experiment, you can press the [ESC] key to exit!</p>
-
-    <button class="btn-hover color" id="regularButton">Continue</button>
-    <button class="btn-hover color-start" id="startButton">Begin Experiment</button>
-
+  <!-- Vertically and horizontally entered intro block -->
+  <div class="outer">
+    <div class="middle">
+      <div class="boxed">
+        <h1><strong>Instructions</strong></h1>
+        <!--|___________This is the width for the intro paragraph___________|-->
+        <p id="p1">Welcome! Thank you for agreeing to participate in this study.
+          Please read the following directions carefully before beginning.</p>
+        <p id="p2">You will be presented with a series of regular black disks. These disks will be presented for a precisely equal duration on the screen. <br><br>
+          Occasionally, you will also be presented with a variety of irregular disks.
+          Your task is to judge whether each of these "oddball" disks appears on the screen for a longer
+          or shorter amount of time than the regular disks.</p>
+        <p id="p3">Once you've identified whether each oddball lasted longer or shorter than the regular disks,
+          press [S] or [L] on the keyboard.</p>
+        <p id="p4">Now, get ready! Place one finger on the [S] key and another on the [L] key on your keyboard.</p>
+        <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt="llama!" height="180px" style="border-radius:50%" id="llamaPic">
+        <p class="llamaText">If you're feeling like this guy at any point during the experiment, <br> you can press the [ESC] key to exit!</p>
+        <button class="btn-hover color" id="regularButton">Continue →</button>
+        <button class="btn-hover color-start" id="startButton" style="z-index:50;">Begin Experiment!</button>
+        <img src=https://www.stickpng.com/assets/thumbs/5935b4213cdd5d2b9146e0db.png alt="typing hands" id="typingHands">
+      </div>
+    </div>
   </div>
-
+  <!-- Mid-experiment reminder to make a duration choice -->
   <p id="p5" style="text-align:center;left:50%;top:50%;"> Press: <br> [S] = Shorter / [L] = Longer </p>
 
+  <!-- Initialize stimuli -->
   <div id="std"></div>
   <div id="oddBall"></div>
   <div id="redBall"></div>
   <div id="spikeyBall"></div>
 
+  <!-- Start of animation -->
   <script>
     $('#std').hide();
     $('#oddBall').hide();
     $('#redBall').hide();
     $('#spikeyBall').hide();
+
     // Randomized oddball disk duration array and Knuth shuffle
     function shuffle(array) {
       var currentIndex = array.length,
@@ -68,14 +76,14 @@
       var oddBag = [];
       var oddType = [];
       var oddBallDurations = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
-      var oddBallTypes = ['odd', 'spikey', 'red', 'odd', 'spikey', 'red', 'odd', 'spikey', 'red']
+      var oddBallTypes = ['odd', 'spikey', 'red', 'odd', 'spikey', 'red', 'odd', 'spikey', 'red'];
       for (reps = 0; reps < 6; reps++) {
         oddBag = oddBag.concat(shuffle(oddBallDurations));
-        oddType = oddType.concat(shuffle(oddBallTypes))
+        oddType = oddType.concat(shuffle(oddBallTypes));
       }
       var oddBallIndex;
       for (oddBallIndex = 0; oddBallIndex < 54; oddBallIndex++) {
-        var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7);
+        var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7) /* Between 7-12 regular disks */ ;
         for (stdCount = 0; stdCount < stdNumber; stdCount++) {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
@@ -85,8 +93,7 @@
             'judgment': null
           });
         }
-
-        if (oddType[oddBallIndex] == 'odd') {
+        if (oddType[oddBallIndex] == 'odd') /* Looming black oddball */ {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'odd',
@@ -94,8 +101,7 @@
             'isi': isi,
             'judgment': null
           });
-
-        } else if (oddType[oddBallIndex] == 'red') {
+        } else if (oddType[oddBallIndex] == 'red') /* Stationary red oddball */ {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'red',
@@ -104,7 +110,7 @@
             'judgment': null
           });
 
-        } else {
+        } else /*Spiky oddball */ {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'spikey',
@@ -136,7 +142,7 @@
 
     // The output of function trialGenerator()
     var frame = trialGenerator();
-    var loop_active = true
+    var loop_active = true;
     var responseTimeStamp = 15;
     var counter = 0;
 
@@ -182,7 +188,6 @@
             window.loop_active = false;
             $("#p5").show();
           }
-
 
         } else if (frameWindow['type'] == 'odd') {
           window.responseTimeStamp = window.counter;
@@ -262,8 +267,8 @@
     $("#p4").hide();
     $("#p5").hide();
     $("#llamaPic").hide();
+    $("#typingHands").hide()
     $(".llamaText").hide();
-    $("#instructions").hide();
     setTimeout(function() {
       $("#regularButton").fadeIn("slow")
     }, 2500);
@@ -284,7 +289,7 @@
         $("#regularButton").click(function() {
           $("#regularButton").hide();
           $("#p3").remove();
-          $(".boxed").css("height", "+=150");
+          $(".boxed").css("height", "+=50");
           $(".llamaText").show();
           $("#llamaPic").show();
           setTimeout(function() {
@@ -292,17 +297,15 @@
           }, 3000);
           $("#regularButton").click(function() {
             $("#p4").show();
-            $(".boxed").css("height", "-=550");
+            $(".boxed").css("height", "-=250");
             $(".llamaText").remove();
             $("#llamaPic").remove();
             $("#regularButton").remove();
-            setTimeout(function() {
-              $("#startButton").fadeIn("slow")
-            }, 3000);
-            $("#startButton").click(function() {
+            $("#typingHands").show();
+            $("typingHands").slide();
+            $(document).keyup(function() {
               $(".boxed").remove();
               $("img").remove();
-              $("#instructions").show()
               ballAnimation(frame, counter);
             })
           })
