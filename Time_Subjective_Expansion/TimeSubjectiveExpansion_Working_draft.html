@@ -165,28 +165,31 @@
       var frameWindow;
       if (window.counter < window.frame.length - 1) {
         frameWindow = frame[window.counter];
-        console.log(frameWindow)
         if (frameWindow['type'] == 'std') {
           $('#oddBall').height(1);
           $('#oddBall').width(1);
           $('#oddBall').hide();
           $('#redBall').hide();
           $('#spikeyBall').hide();
-          setTimeout(function() {
-            $('#std').show();
-          }, frameWindow['isi']);
-          setTimeout(function() {
-            $('#std').hide();
-          }, frameWindow['isi'] + frameWindow['duration']);
-          if (window.counter < window.responseTimeStamp && window.loop_active) {
+          console.log(window.counter)
+          console.log(window.responseTimeStamp)    
+          if (window.counter < window.responseTimeStamp  && window.loop_active) {
             window.counter++;
             setTimeout(function() {
-              ballAnimation(frame, window.counter);
-            }, frameWindow['isi'] + frameWindow['duration'])
+                $('#std').show();
+                }, frameWindow['isi']);
+            setTimeout(function() {
+                $('#std').hide();
+                }, frameWindow['isi'] + frameWindow['duration']);
+            setTimeout(function() {
+                ballAnimation(frame, window.counter);
+                }, frameWindow['isi'] + frameWindow['duration'])
+              
 
           } else {
             window.loop_active = false;
-            $("#p5").show();
+            $("#p5").fadeIn("2100");  
+            
           }
 
         } else if (frameWindow['type'] == 'odd') {
@@ -199,7 +202,8 @@
             $('#oddBall').show();
           }, frameWindow['isi']);
           var expansion = '250px';
-          console.log(expansion);
+          console.log(window.counter)
+          console.log(window.responseTimeStamp)   
           $('#oddBall').animate({
             height: expansion,
             width: expansion
@@ -215,6 +219,8 @@
 
         } else if (frameWindow['type'] == 'red') {
           window.responseTimeStamp = window.counter;
+          console.log(window.counter)
+          console.log(window.responseTimeStamp)   
           $('#std').hide();
           $('#oddBall').hide();
           $('#redBall').hide();
@@ -232,6 +238,8 @@
 
         } else if (frameWindow['type'] == 'spikey') {
           window.responseTimeStamp = window.counter;
+          console.log(window.counter)
+          console.log(window.responseTimeStamp)   
           $('#std').hide();
           $('#oddBall').hide();
           $('#redBall').hide();
