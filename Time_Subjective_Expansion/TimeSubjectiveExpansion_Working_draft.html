@@ -3,7 +3,7 @@
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-<!-- Timestamp Data -->
+<!-- ======================== TIMESTAMP =======================-->
 <script>
   var currentDate = new Date();
   var date = currentDate.getDate();
@@ -38,13 +38,16 @@
         <h1><strong>Instructions</strong></h1>
         <p id="p1">Welcome! Thank you for agreeing to participate in this study.
           Please read the following directions carefully before beginning.</p>
-        <p id="p2">You will be presented with a series of regular black disks. These disks will be presented for a precisely equal duration on the screen. <br><br>
+        <p id="p2">You will be presented with a series of regular black disks.
+          These disks will be presented for a precisely equal duration on the screen. <br><br>
           Occasionally, you will also be presented with a variety of irregular disks.
-          Your task is to judge whether each of these "oddball" disks appears on the screen for a longer
-          or shorter amount of time than the regular disks.</p>
-        <p id="p3">Once you've identified whether each oddball lasted longer or shorter than the regular disks,
-          press [S] or [L] on the keyboard.</p>
-        <p id="p4">Now, get ready! Place one finger on the [S] key and another on the [L] key on your keyboard.</p>
+          Your task is to judge whether each of these abnormal disks appears on the
+          screen for a longer or shorter amount of time than the regular disks.</p>
+        <p id="p3">Once you've identified whether each oddball lasted longer or shorter than
+          the regular disks, press [S] or [L] on the keyboard. <br> <br> Now, get ready! Press F11
+          to make your viewport fullscreen, then place one finger on the [S] key and another on the
+          [L] key on your keyboard. Be aware that your mouse cursor will disappear on the screen
+          for the duration of the experiment to prevent distraction!</p>
         <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt="llama!" height="180px" style="border-radius:50%" id="llamaPic">
         <p class="llamaText">If you're feeling like this guy at any point during the experiment, <br> you can press the [ESC] key to exit!</p>
         <button class="btn-hover color" id="regularButton">Continue →</button>
@@ -67,6 +70,10 @@
   <!-- ======================== ANIMATIONS =======================-->
 
   <script>
+    var cursorCheck = false;
+    if (cursorCheck == true) {
+      document.body.style.cursor = 'none';
+    }
     $('#std').hide();
     $('#oddBall').hide();
     $('#redBall').hide();
@@ -270,10 +277,6 @@
       }
     }
 
-    var cursorCheck = false;
-    if (cursorCheck == true) {
-      document.body.style.cursor = 'none';
-    }
     // ======================== MAIN BLOCK ======================= //
     // Carries out each experiment trial via animations from JQuery
     $("button").hide();
