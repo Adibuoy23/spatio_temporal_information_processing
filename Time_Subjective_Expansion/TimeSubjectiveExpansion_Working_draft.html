@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" style="text-align:center">
+
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
@@ -20,9 +21,9 @@
   <meta name="description" content="A replication of the original oddball paradigm.">
   <meta name="keywords" content="HTML, CSS, JavaScript, jQuery, Cognition, Cognitive Science, Cognitive Psychology, Oddball Paradigm">
   <meta name="author" content="Nathan Liang, Shanmukh Aditya Upadhyayula">
-  <link rel="shortcut icon" type="image/png" href="https://avatars0.githubusercontent.com/u/23708834?s=460&v=4" />
+  <link rel="shortcut icon" type="image/png" href="https://cdn.tutsplus.com/net/uploads/legacy/371_cssBestPractices/circle.png" />
   <link rel="stylesheet" type="text/css" href="Oddball_Instructions.css">
-  <title>Oddball Paradigm</title>
+  <title>JHU VSG Study 1</title>
 </head>
 
 <!-- ======================== INTRODUCTION ======================= -->
@@ -35,27 +36,39 @@
   <div class="outer">
     <div class="middle">
       <div class="boxed">
-        <h1><strong>Instructions</strong></h1>
-        <p id="p1">Welcome! Thank you for agreeing to participate in this study.
-          Please read the following directions carefully before beginning.</p>
-        <p id="p2">In this experiment, we will be testing your ability to perceive duration,
-          how long something lasts on the screen. The task is simple: You will see black disks flash on and off.
-          The black disks will all last for exactly the same amount of time.
-          Occasionally, you will see things other than a black disk appear and disappear
-          — these might be spinning or differently colored things. </p>
-        <p id="p3">
-          All you need to do is judge whether that 'oddball' — the thing that is <strong> not </strong> a black disk
-          — lasted longer or shorter on the screen than than the black disks.</p>
-        <p id="p4">After seeing each oddball, you will be prompted to press the [S] key
-          if you think the oddball lasted shorter than the black disks,
-          or the [L] key if you think it lasted longer. <br> <br> Now, get ready! Press F11
-          to make your viewport into fullscreen mode, then place one finger on the [S] key and another on the
-          [L] key on your keyboard. Be aware that your mouse cursor will disappear on the screen
-          for the duration of the experiment to prevent distraction!</p>
-        <textarea id="feedbackBox" rows="4" cols="50" placeholder="Feedback here"></textarea><br>
-        <button class="btn-hover color" id="regularButton">Continue →</button>
-        <button class="btn-hover color-start" id="startButton">Begin Experiment!</button>
-        <button class="btn-hover color-start" id="endButton">Submit</button>
+        <div>
+          <h1><strong>Instructions</strong></h1>
+          <p id="p1">Welcome! Thank you for agreeing to participate in this study.
+            Please read the following directions carefully before beginning.</p>
+          <p id="p2">In this experiment, we will be testing your ability to perceive duration,
+            how long something lasts on the screen. The task is simple: You will see black disks flash on and off.
+            The black disks will all last for exactly the same amount of time.
+            Occasionally, you will see things other than a black disk appear and disappear
+            — these might be spinning or differently colored things. </p>
+          <p id="p3">
+            All you need to do is judge whether that 'oddball' — the thing that is <strong> not </strong> a black disk
+            — lasted longer or shorter on the screen than than the black disks.</p>
+          <p id="p4">After seeing each oddball, you will be prompted to press the [S] key
+            if you think the oddball lasted shorter than the black disks,
+            or the [L] key if you think it lasted longer. <br> <br> Now, get ready! Press F11
+            to make your viewport into fullscreen mode, then place one finger on the [S] key and another on the
+            [L] key on your keyboard. Be aware that your mouse cursor will disappear on the screen
+            for the duration of the experiment to prevent distraction!</p>
+          <button class="btn-hover color" id="regularButton">Continue →</button>
+          <button class="btn-hover color-start" id="startButton">Begin Experiment!</button>
+          <textarea id="feedbackBox" rows="4" cols="50" placeholder="Feedback Here!"></textarea>
+          <button class="btn-hover color-start" id="endButton">Submit</button>
+        </div>
+        <div id="debrief">
+          <h1>Debriefing Form</h1>
+          <p id="topDisplay">
+            You are done with the study! Thank you for participating.
+            In this study, we were primarily interested in how cognitive processes
+            such as attention influence how we perceive time.
+            Please describe any problems that you might have faced, and click [Submit].</p>
+          <p id="feedback">Thank you! Please let us know if you had any
+            problems or confusion while completing this HIT.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -92,6 +105,7 @@
 
     // ======================== GET BROWSER ======================= //
     // Get browser (credit to Nimesh and other users of StackOverflow)
+
     function getBrowser() {
       if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf("OPR")) != -1) {
         return "Opera";
@@ -109,8 +123,9 @@
       }
     }
 
-    // ======================== GET SUBJECT ID ======================== //
+    // ======================== GET AMAZON MTURK WORKER ID ======================= //
     // Get inferred subject ID from URL (credit to Eyal Peer)
+
     function getSubjectID() {
       var paramstr = window.location.search.substring(1);
       var parampairs = paramstr.split("&");
@@ -122,35 +137,31 @@
       }
     }
 
-
-    //========================= END PAGE ===============================//
+    // ======================== ENDPAGE ======================= //
 
     function showEndPage() {
-      $("#topDisplay").text("You are done with the study! Thank you for participating. In this study, we were primarily interested in how cognitive processes such as attention influence how we perceive time.");
-      $("#p5").text("Please describe any problems that you might have faced, and click 'Submit'");
-      $("#feedbackBox,#endButton").show();
+      $("#topDisplay,#feedbackBox,#endButton").show();
       $("#endButton").attr("onclick", "postData()");
       $("#endButton").html("Submit");
-      $("#p5").show();
-      $("#p5").text("Thank you!\r\nPlease let us know if you had any problems or confusion while completing this HIT");
+      $("#feedback").show();
     }
 
-    //========================= POST DATA TO THE SERVER =================//
+    // ======================== POST DATA TO SERVER ======================= //
 
     function postData() {
-    // update final participant stats in last trial of response
-    feedback = $("#feedbackBox").val();
-    endTime = new Date();
-    window.frame[window.frame.length -1].feedback = feedback;
-    window.frame[window.frame.length -1].endTime = endTime;
-    // Collect responses into JSON / csv file
-    var dataString = JSON.stringify(window.frame);
-    // post response to server
-    $.post("logTrial.py", {
-      subjectID: window.subjectID,
-      dataString: dataString
-    });
-    $("#instructions").text("Thank you - the password is C97");
+      // update final participant stats in last trial of response
+      feedback = $("#feedbackBox").val();
+      endTime = new Date();
+      window.frame[window.frame.length - 1].feedback = feedback;
+      window.frame[window.frame.length - 1].endTime = endTime;
+      // Collect responses into JSON / csv file
+      var dataString = JSON.stringify(window.frame);
+      // post response to server
+      $.post("logTrial.py", {
+        subjectID: window.subjectID,
+        dataString: dataString
+      });
+      $("#instructions").text("Thank you - the password is C97");
     }
 
     // ======================== TRIAL GENERATOR ======================= //
@@ -178,9 +189,9 @@
             'judgment': 'null',
             'browser': window.browser,
             'subjectID': window.subjectID,
-            'startTime':window.startTime,
-            'endTime':'null',
-            'feedback':'null'
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
         }
         if (oddType[oddBallIndex] == 'odd') {
@@ -193,9 +204,9 @@
             'judgment': 'null',
             'browser': window.browser,
             'subjectID': window.subjectID,
-            'startTime':window.startTime,
-            'endTime':'null',
-            'feedback':'null'
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
         } else if (oddType[oddBallIndex] == 'red') {
           // Stationary red oddball
@@ -207,9 +218,9 @@
             'judgment': 'null',
             'browser': window.browser,
             'subjectID': window.subjectID,
-            'startTime':window.startTime,
-            'endTime':'null',
-            'feedback':'null'
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
         } else {
           // Spiky oddball
@@ -221,9 +232,9 @@
             'judgment': 'null',
             'browser': window.browser,
             'subjectID': window.subjectID,
-            'startTime':window.startTime,
-            'endTime':'null',
-            'feedback':'null'
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
         }
       }
@@ -231,6 +242,7 @@
     }
 
     // ======================== TRIAL GENERATION ======================= //
+
     var browser = getBrowser();
     var subjectID = getSubjectID()
     var frame = trialGenerator();
@@ -240,6 +252,7 @@
 
     // ======================== TRIAL GENERATION RUN ======================= //
     // Standard disk toggling function
+
     $(document).keyup(function(e) {
       console.log(e.keyCode);
       if ((e.keyCode == 83 || e.keyCode == 76) && !window.loop_active) {
@@ -351,34 +364,47 @@
     // ======================== MAIN BLOCK ======================= //
     // Carries out each experiment trial via animations
     $("#feedbackBox,button,#p2,#p3,#p4,#p5").hide();
-    $("#p1").show();
+    setTimeout(function() {
+      $("#p1").fadeIn("slow")
+    }, 500);
     startTime = new Date();
     setTimeout(function() {
       $("#regularButton").fadeIn("slow")
     }, 1750);
     $("#regularButton").click(function() {
       $("#regularButton,#p1").hide();
-      $("#p2").fadeIn("5000");
+      setTimeout(function() {
+        $("#p2").fadeIn("slow")
+      }, 500);
       setTimeout(function() {
         $("#regularButton").fadeIn("slow")
       }, 3000);
       $("#regularButton").click(function() {
-        $("#regularButton,#p2").hide();
-        $("#p3").fadeIn("1500");
+        $("#regularButton").hide();
+        $("#p2").remove();
+        setTimeout(function() {
+          $("#p3").fadeIn("slow")
+        }, 500);
         setTimeout(function() {
           $("#regularButton").fadeIn("slow")
         }, 2000);
         $("#regularButton").click(function() {
           $("#regularButton,#p3").remove();
-          $("#p4").fadeIn("1500");
+          setTimeout(function() {
+            $("#p4").fadeIn("slow")
+          }, 500);
           setTimeout(function() {
             $("#startButton").fadeIn("slow")
           }, 2000);
           $("#startButton").click(function() {
             $("#startButton,img,.outer").remove();
-            $("html").css({"cursor": "none"})
+            $("html").css({
+              "cursor": "none"
+            })
             ballAnimation(frame, counter);
-            $("html").css({"cursor": "default"})
+            $("html").css({
+              "cursor": "default"
+            })
           })
         })
       })
