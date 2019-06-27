@@ -44,7 +44,7 @@
           Occasionally, you will see things other than a black disk appear and disappear
           — these might be spinning or differently colored things. </p>
         <p id="p3">
-          All you need to do is judge whether that 'oddball' — the thing that is not a black disk
+          All you need to do is judge whether that 'oddball' — the thing that is <strong> not </strong> a black disk
           — lasted longer or shorter on the screen than than the black disks.</p>
         <p id="p4">After seeing each oddball, you will be prompted to press the [S] key
           if you think the oddball lasted shorter than the black disks,
@@ -62,7 +62,7 @@
 
   <!-- Mid-experiment reminder to make a duration choice -->
   <div id="p5">
-    <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer </p>
+    <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer</p>
   </div>
 
   <!-- ======================== STIMULI ======================= -->
@@ -73,10 +73,7 @@
 
   <!-- ======================== ANIMATIONS ======================= -->
   <script>
-    $('#std').hide();
-    $('#oddBall').hide();
-    $('#redBall').hide();
-    $('#spikeyBall').hide();
+    $('#std,#oddBall,#redBall,#spikeyBall').hide();
 
     // ======================== FISHER-YATES/KNUTH SHUFFLE ======================= //
     // Randomized oddball disk duration array and Knuth shuffle
@@ -130,8 +127,7 @@
     function showEndPage() {
       $("#topDisplay").text("You are done with the study! Thank you for participating. In this study, we were primarily interested in how cognitive processes such as attention influence how we perceive time.");
       $("#p5").text("Please describe any problems that you might have faced, and click 'Submit'");
-      $("#feedbackBox").show();
-      $("#endButton").show();
+      $("#feedbackBox,#endButton").show();
       $("#endButton").attr("onclick", "postData()");
       $("#endButton").html("Submit");
       $("#p5").show();
@@ -264,11 +260,8 @@
       if (window.counter < window.frame.length - 1) {
         frameWindow = frame[window.counter];
         if (frameWindow['type'] == 'std') {
-          $('#oddBall').height(1);
-          $('#oddBall').width(1);
-          $('#oddBall').hide();
-          $('#redBall').hide();
-          $('#spikeyBall').hide();
+          $('#oddBall').height(1).width(1);
+          $('#oddBall,#redBall,#spikeyBall').hide();
           console.log(window.counter)
           console.log(window.responseTimeStamp)
           if (window.counter < window.responseTimeStamp && window.loop_active) {
@@ -290,10 +283,7 @@
           }
         } else if (frameWindow['type'] == 'odd') {
           window.responseTimeStamp = window.counter;
-          $('#std').hide();
-          $('#oddBall').hide();
-          $('#redBall').hide();
-          $('#spikeyBall').hide();
+          $('#std,#oddBall,#redBall,#spikeyBall').hide();
           setTimeout(function() {
             $('#oddBall').show();
           }, frameWindow['isi']);
@@ -316,10 +306,7 @@
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
           console.log(window.responseTimeStamp)
-          $('#std').hide();
-          $('#oddBall').hide();
-          $('#redBall').hide();
-          $('#spikeyBall').hide();
+          $('#std,#oddBall,#redBall,#spikeyBall').hide();
           setTimeout(function() {
             $('#redBall').show();
           }, frameWindow['isi']);
@@ -334,10 +321,7 @@
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
           console.log(window.responseTimeStamp)
-          $('#std').hide();
-          $('#oddBall').hide();
-          $('#redBall').hide();
-          $('#spikeyBall').hide();
+          $('#std,#oddBall,#redBall,#spikeyBall').hide();
           setTimeout(function() {
             $('#std').show();
             $('#spikeyBall').show();
@@ -352,11 +336,7 @@
           }, frameWindow['isi'] + frameWindow['duration'])
         }
       } else {
-        $('#std').hide();
-        $('#oddBall').hide();
-        $('#redBall').hide();
-        $('#spikeyBall').hide();
-
+        $('#std,#oddBall,#redBall,#spikeyBall').hide();
         showEndPage();
         // Questions Comments
 
@@ -371,27 +351,20 @@
 
     // ======================== MAIN BLOCK ======================= //
     // Carries out each experiment trial via animations
-    $("#feedbackBox").hide();
-    $("button").hide();
+    $("#feedbackBox,button,#p2,#p3,#p4,#p5").hide();
     $("#p1").show();
-    $("#p2").hide();
-    $("#p3").hide();
-    $("#p4").hide();
-    $("#p5").hide();
     startTime = new Date();
     setTimeout(function() {
       $("#regularButton").fadeIn("slow")
     }, 1750);
     $("#regularButton").click(function() {
-      $("#regularButton").hide();
-      $("#p1").hide();
+      $("#regularButton,#p1").hide();
       $("#p2").fadeIn("5000");
       setTimeout(function() {
         $("#regularButton").fadeIn("slow")
       }, 3000);
       $("#regularButton").click(function() {
-        $("#regularButton").hide();
-        $("#p2").hide();
+        $("#regularButton,#p2").hide();
         $("#p3").fadeIn("1500");
         setTimeout(function() {
           $("#regularButton").fadeIn("slow")
@@ -410,8 +383,7 @@
             $("#workerID").show();
             $("#submit").click(function() {
               $("#startButton").click(function() {
-                $("img").remove();
-                $(".outer").remove();
+                $("img,.outer").remove();
                 $("html").css({"cursor": "none"})
                 ballAnimation(frame, counter);
                 $("html").css({"cursor": "default"})
@@ -426,7 +398,4 @@
 
 </html>
 
-
-<!-- ADI: Multiple keypress error, saving data into separate .csv file-->
 <!-- NATHAN: Make random ID, make input box for mTurk ID, Cursor hide and inform them, debrief, random code submission generator -->
-<!-- Comments in trialInfo-->
