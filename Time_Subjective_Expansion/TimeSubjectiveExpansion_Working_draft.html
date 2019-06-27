@@ -93,6 +93,38 @@
       }
       return array;
     }
+      
+    // ======================== GET BROWSER ============================//
+    // get browser (credit to Nimesh and other users of stackoverflow)
+    function getBrowser() {
+        if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf("OPR")) != -1) {
+            return "Opera";
+        } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+            return "Chrome";
+        } else if (navigator.userAgent.indexOf("Safari") != -1) {
+            return "Safari";
+        } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+            browser = "Firefox";
+        } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+        {
+            return "IE";
+        } else {
+            return "Unknown";
+        }
+    }
+    
+    // ======================== GET SUBJECT ID ======================== //
+      
+    // get inferred subject ID from URL (credit to Eyal Peer)
+    function getSubjectID() {
+        var paramstr = window.location.search.substring(1);
+        var parampairs = paramstr.split("&");
+        for (i in parampairs) {
+            var pair = parampairs[i].split("=");
+            if (pair[0] == "workerId")
+                return pair[1];
+        }
+    }      
 
     // ======================== TRIAL GENERATOR ======================= //
     // Generates each experiment after looping through 54 oddballs, 7-12 standard disks and ending with 3 disks.
@@ -101,13 +133,14 @@
       var oddBag = [];
       var oddType = [];
       var oddBallDurations = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
-      var oddBallTypes = ['odd', 'spikey', 'red', 'odd', 'spikey', 'red', 'odd', 'spikey', 'red'];
-      for (reps = 0; reps < 6; reps++) {
+      var oddBallTypes = ['odd', 'spikey', 'red', 'odd', 'spikey', 'red', 'odd', 'spikey', 'red']; 
+      var nreps = 3;    
+      for (reps = 0; reps < nreps; reps++) {
         oddBag = oddBag.concat(shuffle(oddBallDurations));
         oddType = oddType.concat(shuffle(oddBallTypes));
       }
       var oddBallIndex;
-      for (oddBallIndex = 0; oddBallIndex < 54; oddBallIndex++) {
+      for (oddBallIndex = 0; oddBallIndex < 9 * nreps; oddBallIndex++) {
         var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7); /* Between 7-12 regular disks */
         for (stdCount = 0; stdCount < stdNumber; stdCount++) {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
@@ -115,7 +148,9 @@
             'type': 'std',
             'duration': 1050,
             'isi': isi,
-            'judgment': null
+            'judgment': 'null',
+            'browser' :window.browser,
+            'subjectID':window.subjectID  
           });
         }
         if (oddType[oddBallIndex] == 'odd') {
@@ -125,7 +160,9 @@
             'type': 'odd',
             'duration': oddBag[oddBallIndex],
             'isi': isi,
-            'judgment': null
+            'judgment': 'null',
+            'browser' : window.browser,
+            'subjectID':window.subjectID  
           });
         } else if (oddType[oddBallIndex] == 'red') {
           /* Stationary red oddball */
@@ -134,7 +171,9 @@
             'type': 'red',
             'duration': oddBag[oddBallIndex],
             'isi': isi,
-            'judgment': null
+            'judgment': 'null',
+            'browser':window.browser,
+            'subjectID':window.subjectID  
           });
 
         } else {
@@ -144,7 +183,9 @@
             'type': 'spikey',
             'duration': oddBag[oddBallIndex],
             'isi': isi,
-            'judgment': null
+            'judgment': 'null',
+            'browser' : window.browser,
+            'subjectID':window.subjectID  
           });
         }
       }
@@ -152,6 +193,8 @@
     }
 
     // ======================== TRIAL GENERATION ======================= //
+    var browser = getBrowser();
+    var subjectID = 'Adi' //Replace it with getSubjectID() later  
     var frame = trialGenerator();
     var loop_active = true;
     var responseTimeStamp = 15;
@@ -161,17 +204,18 @@
     // Standard disk toggling function
     $(document).keyup(function(e) {
       console.log(e.keyCode);
-      if (e.keyCode == 83 || e.keyCode == 76 && !window.loop_active) {
+      if ((e.keyCode == 83 || e.keyCode == 76) && !window.loop_active) {
         $("#p5").hide();
         window.loop_active = true;
         window.counter++;
-        window.responseTimeStamp = 15 + window.counter;
         setTimeout(function() {
           ballAnimation(frame, window.counter);
         }, 0);
         console.log(window.frame[window.responseTimeStamp]);
         window.frame[window.responseTimeStamp]['judgment'] = e.keyCode;
-      } else {}
+        window.responseTimeStamp = 15 + window.counter;  
+      } else if (e.keyCode == 83 || e.keyCode == 76){$("#p5").hide();}
+        else {}
     });
     var ballAnimation = function(frame, counter) {
       var frameWindow;
@@ -270,7 +314,13 @@
         $('#oddBall').hide();
         $('#redBall').hide();
         $('#spikeyBall').hide();
-
+        // Collect responses into json / csv file 
+        var dataString = JSON.stringify(window.frame);
+        // post response to server
+        $.post("logTrial.py", {
+            subjectID: window.subjectID,
+            dataString: dataString
+        });          
         // Debriefing
 
         // Random Code Generation
