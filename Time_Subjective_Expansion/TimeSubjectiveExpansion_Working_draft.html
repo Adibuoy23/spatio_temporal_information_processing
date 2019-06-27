@@ -116,8 +116,9 @@
       var parampairs = paramstr.split("&");
       for (i in parampairs) {
         var pair = parampairs[i].split("=");
-        if (pair[0] == "workerId")
+        if (pair[0] == "workerId") {
           return pair[1];
+        }
       }
     }
 
@@ -323,12 +324,10 @@
           console.log(window.responseTimeStamp)
           $('#std,#oddBall,#redBall,#spikeyBall').hide();
           setTimeout(function() {
-            $('#std').show();
-            $('#spikeyBall').show();
+            $('#std,#spikeyBall').show();
           }, frameWindow['isi']);
           setTimeout(function() {
-            $('#std').hide();
-            $('#spikeyBall').hide();
+            $('#std,#spikeyBall').hide();
           }, frameWindow['isi'] + frameWindow['duration']);
           window.counter++;
           setTimeout(function() {
@@ -370,25 +369,16 @@
           $("#regularButton").fadeIn("slow")
         }, 2000);
         $("#regularButton").click(function() {
-          $("#regularButton").show();
-          $("#p3").remove();
+          $("#regularButton,#p3").remove();
           $("#p4").fadeIn("1500");
           setTimeout(function() {
-            $("#regularButton").fadeIn("slow")
+            $("#startButton").fadeIn("slow")
           }, 2000);
-          $("#regularButton").click(function() {
-            $(".boxed").css("height", "+=50");
-            $("#regularButton").remove();
-            $("p4").hide();
-            $("#workerID").show();
-            $("#submit").click(function() {
-              $("#startButton").click(function() {
-                $("img,.outer").remove();
-                $("html").css({"cursor": "none"})
-                ballAnimation(frame, counter);
-                $("html").css({"cursor": "default"})
-              })
-            })
+          $("#startButton").click(function() {
+            $("#startButton,img,.outer").remove();
+            $("html").css({"cursor": "none"})
+            ballAnimation(frame, counter);
+            $("html").css({"cursor": "default"})
           })
         })
       })
@@ -397,5 +387,3 @@
 </body>
 
 </html>
-
-<!-- NATHAN: Make random ID, make input box for mTurk ID, Cursor hide and inform them, debrief, random code submission generator -->
