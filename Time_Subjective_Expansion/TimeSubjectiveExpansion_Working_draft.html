@@ -52,10 +52,10 @@
           to make your viewport into fullscreen mode, then place one finger on the [S] key and another on the
           [L] key on your keyboard. Be aware that your mouse cursor will disappear on the screen
           for the duration of the experiment to prevent distraction!</p>
-        <textarea id="feedbackBox" rows="4" cols="50" placeholder="Feedback here"></textarea><br>  
+        <textarea id="feedbackBox" rows="4" cols="50" placeholder="Feedback here"></textarea><br>
         <button class="btn-hover color" id="regularButton">Continue →</button>
         <button class="btn-hover color-start" id="startButton">Begin Experiment!</button>
-        <button class="btn-hover color-start" id="endButton">Submit</button>  
+        <button class="btn-hover color-start" id="endButton">Submit</button>
       </div>
     </div>
   </div>
@@ -123,23 +123,23 @@
           return pair[1];
       }
     }
-      
-    
+
+
     //========================= END PAGE ===============================//
-    
+
     function showEndPage() {
-    $("#topDisplay").text("You are done with the study! Thank you for participating. In this study, we were primarily interested in how cognitive processes such as attention influence how we perceive time.");
-    $("#p5").text("Please describe any problems that you might have faced, and click 'Submit'");
-    $("#feedbackBox").show();
-    $("#endButton").show();
-    $("#endButton").attr("onclick", "postData()");
-    $("#endButton").html("Submit");
-    $("#p5").show();
-    $("#p5").text("Thank you!\r\nPlease let us know if you had any problems or confusion while completing this HIT");
+      $("#topDisplay").text("You are done with the study! Thank you for participating. In this study, we were primarily interested in how cognitive processes such as attention influence how we perceive time.");
+      $("#p5").text("Please describe any problems that you might have faced, and click 'Submit'");
+      $("#feedbackBox").show();
+      $("#endButton").show();
+      $("#endButton").attr("onclick", "postData()");
+      $("#endButton").html("Submit");
+      $("#p5").show();
+      $("#p5").text("Thank you!\r\nPlease let us know if you had any problems or confusion while completing this HIT");
     }
-    
+
     //========================= POST DATA TO THE SERVER =================//
-    
+
     function postData() {
     // update final participant stats in last trial of response
     feedback = $("#feedbackBox").val();
@@ -154,7 +154,7 @@
       dataString: dataString
     });
     $("#instructions").text("Thank you - the password is C97");
-    } 
+    }
 
     // ======================== TRIAL GENERATOR ======================= //
     // Generates each experiment after looping through 54 oddballs, 7-12 standard disks and ending with 3 disks.
@@ -198,7 +198,7 @@
             'subjectID': window.subjectID,
             'startTime':window.startTime,
             'endTime':'null',
-            'feedback':'null'  
+            'feedback':'null'
           });
         } else if (oddType[oddBallIndex] == 'red') {
           // Stationary red oddball
@@ -212,7 +212,7 @@
             'subjectID': window.subjectID,
             'startTime':window.startTime,
             'endTime':'null',
-            'feedback':'null'   
+            'feedback':'null'
           });
         } else {
           // Spiky oddball
@@ -226,7 +226,7 @@
             'subjectID': window.subjectID,
             'startTime':window.startTime,
             'endTime':'null',
-            'feedback':'null'       
+            'feedback':'null'
           });
         }
       }
@@ -356,13 +356,13 @@
         $('#oddBall').hide();
         $('#redBall').hide();
         $('#spikeyBall').hide();
-          
-        showEndPage();  
+
+        showEndPage();
         // Questions Comments
 
 
         // Debriefing
-        
+
 
 
         // Random Code Generation
