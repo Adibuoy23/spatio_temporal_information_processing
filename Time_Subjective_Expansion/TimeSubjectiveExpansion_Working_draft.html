@@ -3,7 +3,7 @@
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-<!-- ======================== TIMESTAMP =======================-->
+<!-- ======================== TIMESTAMP ======================= -->
 <script>
   var currentDate = new Date();
   var date = currentDate.getDate();
@@ -12,7 +12,7 @@
   var dateString = date + "-" + (month + 1) + "-" + year;
 </script>
 
-<!-- ======================== METADATA =======================-->
+<!-- ======================== METADATA ======================= -->
 
 <head>
   <meta charset="utf-8" />
@@ -25,7 +25,7 @@
   <title>Oddball Paradigm</title>
 </head>
 
-<!-- ======================== INTRODUCTION =======================-->
+<!-- ======================== INTRODUCTION ======================= -->
 
 <body>
   <!-- Vision Sciences Group Logo -->
@@ -38,18 +38,25 @@
         <h1><strong>Instructions</strong></h1>
         <p id="p1">Welcome! Thank you for agreeing to participate in this study.
           Please read the following directions carefully before beginning.</p>
-        <p id="p2">You will be presented with a series of regular black disks.
-          These disks will be presented for a precisely equal duration on the screen. <br><br>
-          Occasionally, you will also be presented with a variety of irregular disks.
-          Your task is to judge whether each of these abnormal disks appears on the
-          screen for a longer or shorter amount of time than the regular disks.</p>
-        <p id="p3">Once you've identified whether each oddball lasted longer or shorter than
-          the regular disks, press [S] or [L] on the keyboard. <br> <br> Now, get ready! Press F11
+        <p id="p2">In this experiment, we want to test your ability to perceive duration:
+          how long something lasts on the screen. The task is simple.
+          You will see black disks flash on an off. The black disks all last for exactly the same amount of time.
+          Occasionally, you will see something other than a black disk appear and disappear
+          — it might be something spinning or a different color etc. All you need to do is judge whether that 'oddball'
+          — the thing that is not a black disk — laster longer or shorter than than the black disks.
+        <p id="p3">After seeing each oddball, you will be prompted to press the [S] key
+          if you think the oddball lasted shorter than the black disks,
+          or the [L] key if you think it lasted longer. <br> <br> Now, get ready! Press F11
           to make your viewport fullscreen, then place one finger on the [S] key and another on the
           [L] key on your keyboard. Be aware that your mouse cursor will disappear on the screen
           for the duration of the experiment to prevent distraction!</p>
-        <img src=https://media.apnarm.net.au/media/images/2017/06/12/twb120617zoo-feutriv2y5yr8dxbeo2_t460.JPG alt="llama!" height="180px" style="border-radius:50%" id="llamaPic">
-        <p class="llamaText">If you're feeling like this guy at any point during the experiment, <br> you can press the [ESC] key to exit!</p>
+        <form action="/action_page.php" id="workerID">
+          Please enter your mTurk Worker ID below:
+          <br><br>
+          <input type="text" name="mTurkWorkerID">
+          <br><br>
+          <input type="submit" value="Submit" id="submit">
+        </form>
         <button class="btn-hover color" id="regularButton">Continue →</button>
         <button class="btn-hover color-start" id="startButton">Begin Experiment!</button>
       </div>
@@ -61,7 +68,7 @@
     <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer </p>
   </div>
 
-  <!-- ======================== STIMULI =======================-->
+  <!-- ======================== STIMULI ======================= -->
   <div id="std"></div>
   <div id="oddBall"></div>
   <div id="redBall"></div>
@@ -70,10 +77,6 @@
   <!-- ======================== ANIMATIONS =======================-->
 
   <script>
-    var cursorCheck = false;
-    if (cursorCheck == true) {
-      document.body.style.cursor = 'none';
-    }
     $('#std').hide();
     $('#oddBall').hide();
     $('#redBall').hide();
@@ -93,38 +96,37 @@
       }
       return array;
     }
-      
-    // ======================== GET BROWSER ============================//
-    // get browser (credit to Nimesh and other users of stackoverflow)
+
+    // ======================== GET BROWSER ======================= //
+    // Get browser (credit to Nimesh and other users of StackOverflow)
     function getBrowser() {
-        if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf("OPR")) != -1) {
-            return "Opera";
-        } else if (navigator.userAgent.indexOf("Chrome") != -1) {
-            return "Chrome";
-        } else if (navigator.userAgent.indexOf("Safari") != -1) {
-            return "Safari";
-        } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-            browser = "Firefox";
-        } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
-        {
-            return "IE";
-        } else {
-            return "Unknown";
-        }
+      if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf("OPR")) != -1) {
+        return "Opera";
+      } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+        return "Chrome";
+      } else if (navigator.userAgent.indexOf("Safari") != -1) {
+        return "Safari";
+      } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+        browser = "Firefox";
+      } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) {
+        // If IE > 10
+        return "IE";
+      } else {
+        return "Unknown";
+      }
     }
-    
+
     // ======================== GET SUBJECT ID ======================== //
-      
-    // get inferred subject ID from URL (credit to Eyal Peer)
+    // Get inferred subject ID from URL (credit to Eyal Peer)
     function getSubjectID() {
-        var paramstr = window.location.search.substring(1);
-        var parampairs = paramstr.split("&");
-        for (i in parampairs) {
-            var pair = parampairs[i].split("=");
-            if (pair[0] == "workerId")
-                return pair[1];
-        }
-    }      
+      var paramstr = window.location.search.substring(1);
+      var parampairs = paramstr.split("&");
+      for (i in parampairs) {
+        var pair = parampairs[i].split("=");
+        if (pair[0] == "workerId")
+          return pair[1];
+      }
+    }
 
     // ======================== TRIAL GENERATOR ======================= //
     // Generates each experiment after looping through 54 oddballs, 7-12 standard disks and ending with 3 disks.
@@ -133,15 +135,15 @@
       var oddBag = [];
       var oddType = [];
       var oddBallDurations = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
-      var oddBallTypes = ['odd', 'spikey', 'red', 'odd', 'spikey', 'red', 'odd', 'spikey', 'red']; 
-      var nreps = 3;    
+      var oddBallTypes = ['odd', 'spikey', 'red', 'odd', 'spikey', 'red', 'odd', 'spikey', 'red'];
+      var nreps = 3;
       for (reps = 0; reps < nreps; reps++) {
         oddBag = oddBag.concat(shuffle(oddBallDurations));
         oddType = oddType.concat(shuffle(oddBallTypes));
       }
       var oddBallIndex;
       for (oddBallIndex = 0; oddBallIndex < 9 * nreps; oddBallIndex++) {
-        var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7); /* Between 7-12 regular disks */
+        var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7); // Between 7-12 regular disks
         for (stdCount = 0; stdCount < stdNumber; stdCount++) {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
@@ -149,43 +151,43 @@
             'duration': 1050,
             'isi': isi,
             'judgment': 'null',
-            'browser' :window.browser,
-            'subjectID':window.subjectID  
+            'browser': window.browser,
+            'subjectID': window.subjectID
           });
         }
         if (oddType[oddBallIndex] == 'odd') {
-          /* Looming black oddball */
+          // Looming black oddball
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'odd',
             'duration': oddBag[oddBallIndex],
             'isi': isi,
             'judgment': 'null',
-            'browser' : window.browser,
-            'subjectID':window.subjectID  
+            'browser': window.browser,
+            'subjectID': window.subjectID
           });
         } else if (oddType[oddBallIndex] == 'red') {
-          /* Stationary red oddball */
+          // Stationary red oddball
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'red',
             'duration': oddBag[oddBallIndex],
             'isi': isi,
             'judgment': 'null',
-            'browser':window.browser,
-            'subjectID':window.subjectID  
+            'browser': window.browser,
+            'subjectID': window.subjectID
           });
 
         } else {
-          /* Spiky oddball */
+          // Spiky oddball
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
             'type': 'spikey',
             'duration': oddBag[oddBallIndex],
             'isi': isi,
             'judgment': 'null',
-            'browser' : window.browser,
-            'subjectID':window.subjectID  
+            'browser': window.browser,
+            'subjectID': window.subjectID
           });
         }
       }
@@ -194,7 +196,7 @@
 
     // ======================== TRIAL GENERATION ======================= //
     var browser = getBrowser();
-    var subjectID = 'Adi' //Replace it with getSubjectID() later  
+    var subjectID = 'Adi' //Replace it with getSubjectID() later
     var frame = trialGenerator();
     var loop_active = true;
     var responseTimeStamp = 15;
@@ -213,9 +215,10 @@
         }, 0);
         console.log(window.frame[window.responseTimeStamp]);
         window.frame[window.responseTimeStamp]['judgment'] = e.keyCode;
-        window.responseTimeStamp = 15 + window.counter;  
-      } else if (e.keyCode == 83 || e.keyCode == 76){$("#p5").hide();}
-        else {}
+        window.responseTimeStamp = 15 + window.counter;
+      } else if (e.keyCode == 83 || e.keyCode == 76) {
+        $("#p5").hide();
+      } else {}
     });
     var ballAnimation = function(frame, counter) {
       var frameWindow;
@@ -242,9 +245,9 @@
             }, frameWindow['isi'] + frameWindow['duration'])
           } else {
             window.loop_active = false;
-            setTimeout(function(){
+            setTimeout(function() {
               $("#p5").show();
-            },1050);
+            }, 1050);
           }
         } else if (frameWindow['type'] == 'odd') {
           window.responseTimeStamp = window.counter;
@@ -314,13 +317,16 @@
         $('#oddBall').hide();
         $('#redBall').hide();
         $('#spikeyBall').hide();
-        // Collect responses into json / csv file 
+        // Collect responses into JSON / csv file
         var dataString = JSON.stringify(window.frame);
         // post response to server
         $.post("logTrial.py", {
-            subjectID: window.subjectID,
-            dataString: dataString
-        });          
+          subjectID: window.subjectID,
+          dataString: dataString
+        });
+        // Questions Comments
+
+
         // Debriefing
 
         // Random Code Generation
@@ -328,18 +334,17 @@
     }
 
     // ======================== MAIN BLOCK ======================= //
-    // Carries out each experiment trial via animations from JQuery
+    // Carries out each experiment trial via animations
+    $("#workerID").hide();
     $("button").hide();
     $("#p1").show();
     $("#p2").hide();
     $("#p3").hide();
     $("#p4").hide();
     $("#p5").hide();
-    $("#llamaPic").hide();
-    $(".llamaText").hide();
     setTimeout(function() {
       $("#regularButton").fadeIn("slow")
-    }, 2500);
+    }, 1750);
     $("#regularButton").click(function() {
       $("#regularButton").hide();
       $("#p1").hide();
@@ -353,22 +358,22 @@
         $("#p3").fadeIn("1500");
         setTimeout(function() {
           $("#regularButton").fadeIn("slow")
-        }, 3000);
+        }, 2000);
         $("#regularButton").click(function() {
           $("#regularButton").remove();
           $("#p3").remove();
           $(".boxed").css("height", "+=50");
           $(".llamaText").show();
           $("#llamaPic").show();
-          setTimeout(function() {
-            $("#startButton").fadeIn("slow")
-          }, 3000);
-          $("#startButton").click(function() {
-            cursorCheck = true;
-            $("img").remove();
-            $(".outer").remove();
-            ballAnimation(frame, counter);
-            cursorCheck = false;
+          $("#workerID").show();
+          $("#submit").click(function() {
+            $("#startButton").click(function() {
+              $("img").remove();
+              $(".outer").remove();
+              $("html").css({"cursor": "none"})
+              ballAnimation(frame, counter);
+              $("html").css({"cursor": "default"})
+            })
           })
         })
       })
