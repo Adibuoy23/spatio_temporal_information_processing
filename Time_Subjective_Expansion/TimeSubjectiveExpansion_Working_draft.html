@@ -13,7 +13,6 @@
 </script>
 
 <!-- ======================== METADATA ======================= -->
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +25,6 @@
 </head>
 
 <!-- ======================== INTRODUCTION ======================= -->
-
 <body>
   <!-- Vision Sciences Group Logo -->
   <img src="https://static1.squarespace.com/static/53868534e4b03e5662d8336e/t/53a23905e4b0365dad7a353c/1403140386069/" alt="The Vision Sciences Group" width="800px" id="visionLogo">
@@ -70,6 +68,35 @@
     <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer </p>
   </div>
 
+
+  <!-- Questions/comments entry space -->
+  <div id="qc">
+    <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer </p>
+  </div>
+
+  <!-- Debrief form -->
+  <div id="debrief">
+    <h1> <strong>Debriefing Form</strong></h1>
+    
+    Protocol #: Title (match the protocol number and title on iProtocol)
+
+Thank you for agreeing to participate in this study!  The general purpose of this research is explain the basic constructs of the study.  Make sure that you write the information so that the participant can understand it.
+
+We invited people who describe the selection criteria.  The experimenter does not know whether you were in the low or high anxiety group (for example).  In this study, you were asked to describe what the participant did and describe how this relates to the purpose/ thesis of the study. The results from this study will provide a description of what you hope to accomplish with the study.
+
+If you feel especially concerned about describe potential concerns that may occur, please feel free to phone provide researcher/ lab contact info about options for counseling.  Alternatively, you could also phone the UVA Counseling and Psychological Services (434-243-5556) or the Mary D. Ainsworth Psychological Clinic in the psychology department (434-982-4737) (provide alternative contacts if participants may need additional help).
+
+Thank you for your participation in this study.  If you have further questions about the study, please contact researcher contact information.  In addition, if you have any concerns about any aspect of the study, you may contact Tonya Moon, Ph.D., Chair, Institutional Review Board for the Social and Behavioral Sciences, One Morton Drive, Suite 500, University of Virginia, P.O. Box 800392, Charlottesville, VA 22908-0392. Telephone: (434) 924-5999.
+Email: irbsbshelp@virginia.edu
+Website: www.virginia.edu/vpr/irb/sbs
+
+
+
+Additional Reading:
+
+Provide two references (text, article, on-line reference, etc.) that can be easily accessed by the targeted population in this study. If you have academic and non-academic participants, you should create either two debriefing forms or provide references that are easily accessible to the non-academic population.
+
+  </div>
   <!-- ======================== STIMULI ======================= -->
   <div id="std"></div>
   <div id="oddBall"></div>
@@ -324,14 +351,17 @@
           subjectID: window.subjectID,
           dataString: dataString
         });
-        // Questions Comments
 
+        // Questions Comments
+        $("#qc").show();
 
         // Debriefing
-        
+        $("#debrief").show();
+
 
 
         // Random Code Generation
+        $("#randCode").show()
       }
     }
 
@@ -390,8 +420,4 @@
 </body>
 
 </html>
-
-
-<!-- ADI: Multiple keypress error, saving data into separate .csv file-->
 <!-- NATHAN: Make random ID, make input box for mTurk ID, Cursor hide and inform them, debrief, random code submission generator -->
-<!-- Comments in trialInfo-->
