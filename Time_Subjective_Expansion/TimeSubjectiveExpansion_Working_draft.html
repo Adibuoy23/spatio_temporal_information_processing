@@ -38,16 +38,18 @@
         <h1><strong>Instructions</strong></h1>
         <p id="p1">Welcome! Thank you for agreeing to participate in this study.
           Please read the following directions carefully before beginning.</p>
-        <p id="p2">In this experiment, we want to test your ability to perceive duration:
-          how long something lasts on the screen. The task is simple.
-          You will see black disks flash on an off. The black disks all last for exactly the same amount of time.
-          Occasionally, you will see something other than a black disk appear and disappear
-          — it might be something spinning or a different color etc. All you need to do is judge whether that 'oddball'
-          — the thing that is not a black disk — laster longer or shorter than than the black disks.
-        <p id="p3">After seeing each oddball, you will be prompted to press the [S] key
+        <p id="p2">In this experiment, we will be testing your ability to perceive duration,
+          how long something lasts on the screen. The task is simple: You will see black disks flash on and off.
+          The black disks will all last for exactly the same amount of time.
+          Occasionally, you will see things other than a black disk appear and disappear
+          — these might be spinning or differently colored things. </p>
+        <p id="p3">
+          All you need to do is judge whether that 'oddball' — the thing that is not a black disk
+          — lasted longer or shorter on the screen than than the black disks.</p>
+        <p id="p4">After seeing each oddball, you will be prompted to press the [S] key
           if you think the oddball lasted shorter than the black disks,
           or the [L] key if you think it lasted longer. <br> <br> Now, get ready! Press F11
-          to make your viewport fullscreen, then place one finger on the [S] key and another on the
+          to make your viewport into fullscreen mode, then place one finger on the [S] key and another on the
           [L] key on your keyboard. Be aware that your mouse cursor will disappear on the screen
           for the duration of the experiment to prevent distraction!</p>
         <form action="/action_page.php" id="workerID">
@@ -74,8 +76,7 @@
   <div id="redBall"></div>
   <div id="spikeyBall"></div>
 
-  <!-- ======================== ANIMATIONS =======================-->
-
+  <!-- ======================== ANIMATIONS ======================= -->
   <script>
     $('#std').hide();
     $('#oddBall').hide();
@@ -177,7 +178,6 @@
             'browser': window.browser,
             'subjectID': window.subjectID
           });
-
         } else {
           // Spiky oddball
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
@@ -328,6 +328,8 @@
 
 
         // Debriefing
+        
+
 
         // Random Code Generation
       }
@@ -360,19 +362,25 @@
           $("#regularButton").fadeIn("slow")
         }, 2000);
         $("#regularButton").click(function() {
-          $("#regularButton").remove();
+          $("#regularButton").show();
           $("#p3").remove();
-          $(".boxed").css("height", "+=50");
-          $(".llamaText").show();
-          $("#llamaPic").show();
-          $("#workerID").show();
-          $("#submit").click(function() {
-            $("#startButton").click(function() {
-              $("img").remove();
-              $(".outer").remove();
-              $("html").css({"cursor": "none"})
-              ballAnimation(frame, counter);
-              $("html").css({"cursor": "default"})
+          $("#p4").fadeIn("1500");
+          setTimeout(function() {
+            $("#regularButton").fadeIn("slow")
+          }, 2000);
+          $("#regularButton").click(function() {
+            $(".boxed").css("height", "+=50");
+            $("#regularButton").remove();
+            $("p4").hide();
+            $("#workerID").show();
+            $("#submit").click(function() {
+              $("#startButton").click(function() {
+                $("img").remove();
+                $(".outer").remove();
+                $("html").css({"cursor": "none"})
+                ballAnimation(frame, counter);
+                $("html").css({"cursor": "default"})
+              })
             })
           })
         })
