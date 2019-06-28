@@ -41,12 +41,12 @@
           <p id="p1">Welcome! Thank you for agreeing to participate in this study.
             Please read the following directions carefully before beginning.</p>
           <p id="p2">In this experiment, we will be testing your ability to perceive duration,
-            how long something lasts on the screen. The task is simple: You will see black disks flash on and off.
-            The black disks will all last for exactly the same amount of time.
+            how long something lasts on the screen. The task is simple: You will see black disks move across the screen.
+            The black disks will all travel at exactly the same speed.
             Occasionally, you will see things other than a black disk appear and disappear
             — these might be spinning or differently colored things. </p>
           <p id="p3">
-            All you need to do is judge whether that "oddball" — the thing that is <strong> not </strong> a black disk
+            All you need to do is judge whether that 'oddball' — the thing that is <strong> not </strong> a black disk
             — lasted longer or shorter on the screen than than the black disks.</p>
           <p id="p4">After seeing each oddball, you will be prompted to press the [S] key
             if you think the oddball lasted shorter than the black disks,
@@ -81,12 +81,10 @@
   <!-- ======================== STIMULI ======================= -->
   <div id="std"></div>
   <div id="oddBall"></div>
-  <div id="redBall"></div>
-  <div id="spikeyBall"></div>
 
   <!-- ======================== ANIMATIONS ======================= -->
   <script>
-    $("#std,#oddBall,#redBall,#spikeyBall").hide();
+    $('#std,#oddBall').hide();
 
     // ======================== FISHER-YATES/KNUTH SHUFFLE ======================= //
     // Randomized oddball disk duration array and Knuth shuffle
@@ -114,7 +112,7 @@
       } else if (navigator.userAgent.indexOf("Safari") != -1) {
         return "Safari";
       } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-        return "Firefox";
+        browser = "Firefox";
       } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) {
         // If IE > 10
         return "IE";
@@ -140,9 +138,10 @@
     // ======================== ENDPAGE ======================= //
 
     function showEndPage() {
-      $("#topDisplay,#feedbackBox,#endButton,#feedback").show();
+      $("#topDisplay,#feedbackBox,#endButton").show();
       $("#endButton").attr("onclick", "postData()");
       $("#endButton").html("Submit");
+      $("#feedback").show();
     }
 
     // ======================== POST DATA TO SERVER ======================= //
@@ -160,7 +159,7 @@
         subjectID: window.subjectID,
         dataString: dataString
       });
-      $("#instructions").text("Thank you — please copy and enter the following code into the HIT: ADI91NL99");
+      $("#instructions").text("Thank you - the password is C97");
     }
 
     // ======================== TRIAL GENERATOR ======================= //
@@ -170,7 +169,7 @@
       var oddBag = [];
       var oddType = [];
       var oddBallDurations = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
-      var oddBallTypes = ["odd", "spikey", "red", "odd", "spikey", "red", "odd", "spikey", "red"];
+      var oddBallTypes = ['odd', 'spikey', 'red', 'odd', 'spikey', 'red', 'odd', 'spikey', 'red'];
       var nreps = 3;
       for (reps = 0; reps < nreps; reps++) {
         oddBag = oddBag.concat(shuffle(oddBallDurations));
@@ -182,58 +181,58 @@
         for (stdCount = 0; stdCount < stdNumber; stdCount++) {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
-            "type": "std",
-            "duration": 1050,
-            "isi": isi,
-            "judgment": "null",
-            "browser": window.browser,
-            "subjectID": window.subjectID,
-            "startTime": window.startTime,
-            "endTime": "null",
-            "feedback": "null"
+            'type': 'std',
+            'duration': 1050,
+            'isi': isi,
+            'judgment': 'null',
+            'browser': window.browser,
+            'subjectID': window.subjectID,
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
         }
-        if (oddType[oddBallIndex] == "odd") {
+        if (oddType[oddBallIndex] == 'odd') {
           // Looming black oddball
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
-            "type": "odd",
-            "duration": oddBag[oddBallIndex],
-            "isi": isi,
-            "judgment": "null",
-            "browser": window.browser,
-            "subjectID": window.subjectID,
-            "startTime": window.startTime,
-            "endTime": "null",
-            "feedback": "null"
+            'type': 'odd',
+            'duration': oddBag[oddBallIndex],
+            'isi': isi,
+            'judgment': 'null',
+            'browser': window.browser,
+            'subjectID': window.subjectID,
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
-        } else if (oddType[oddBallIndex] == "red") {
+        } else if (oddType[oddBallIndex] == 'red') {
           // Stationary red oddball
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
-            "type": "red",
-            "duration": oddBag[oddBallIndex],
-            "isi": isi,
-            "judgment": "null",
-            "browser": window.browser,
-            "subjectID": window.subjectID,
-            "startTime": window.startTime,
-            "endTime": "null",
-            "feedback": "null"
+            'type': 'red',
+            'duration': oddBag[oddBallIndex],
+            'isi': isi,
+            'judgment': 'null',
+            'browser': window.browser,
+            'subjectID': window.subjectID,
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
         } else {
           // Spiky oddball
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
           trialInfo.push({
-            "type": "spikey",
-            "duration": oddBag[oddBallIndex],
-            "isi": isi,
-            "judgment": "null",
-            "browser": window.browser,
-            "subjectID": window.subjectID,
-            "startTime": window.startTime,
-            "endTime": "null",
-            "feedback": "null"
+            'type': 'spikey',
+            'duration': oddBag[oddBallIndex],
+            'isi': isi,
+            'judgment': 'null',
+            'browser': window.browser,
+            'subjectID': window.subjectID,
+            'startTime': window.startTime,
+            'endTime': 'null',
+            'feedback': 'null'
           });
         }
       }
@@ -262,7 +261,7 @@
           ballAnimation(frame, window.counter);
         }, 0);
         console.log(window.frame[window.responseTimeStamp]);
-        window.frame[window.responseTimeStamp]["judgment"] = e.keyCode;
+        window.frame[window.responseTimeStamp]['judgment'] = e.keyCode;
         window.responseTimeStamp = 15 + window.counter;
       } else if (e.keyCode == 83 || e.keyCode == 76) {
         $("#p5").hide();
@@ -272,83 +271,91 @@
       var frameWindow;
       if (window.counter < window.frame.length - 1) {
         frameWindow = frame[window.counter];
-        if (frameWindow["type"] == "std") {
-          $("#oddBall").height(1).width(1);
-          $("#oddBall,#redBall,#spikeyBall").hide();
+        if (frameWindow['type'] == 'std') {
+          $('#oddBall').height(1).width(1);
+          $('#oddBall,#redBall,#spikeyBall').hide();
           console.log(window.counter)
           console.log(window.responseTimeStamp)
           if (window.counter < window.responseTimeStamp && window.loop_active) {
             window.counter++;
             setTimeout(function() {
-              $("#std").show();
-            }, frameWindow["isi"]);
+              $('#std').show();
+            }, frameWindow['isi']);
             setTimeout(function() {
-              $("#std").hide();
-            }, frameWindow["isi"] + frameWindow["duration"]);
+              $('#std').hide();
+            }, frameWindow['isi'] + frameWindow['duration']);
             setTimeout(function() {
               ballAnimation(frame, window.counter);
-            }, frameWindow["isi"] + frameWindow["duration"])
+            }, frameWindow['isi'] + frameWindow['duration'])
           } else {
             window.loop_active = false;
             setTimeout(function() {
               $("#p5").show();
             }, 1050);
           }
-        } else if (frameWindow["type"] == "odd") {
+        } else if (frameWindow['type'] == 'odd') {
           window.responseTimeStamp = window.counter;
-          $("#std,#oddBall,#redBall,#spikeyBall").hide();
+          $('#std,#oddBall,#redBall,#spikeyBall').hide();
           setTimeout(function() {
-            $("#oddBall").show();
-          }, frameWindow["isi"]);
-          var expansion = "250px";
+            $('#oddBall').show();
+          }, frameWindow['isi']);
+          var expansion = '250px';
           console.log(window.counter)
           console.log(window.responseTimeStamp)
-          $("#oddBall").animate({
+          $('#oddBall').animate({
             height: expansion,
             width: expansion
-          }, frameWindow["isi"] + frameWindow["duration"], "linear")
+          }, frameWindow['isi'] + frameWindow['duration'], 'linear')
           setTimeout(function() {
-            $("#oddBall").hide();
-          }, frameWindow["isi"] + frameWindow["duration"]);
-          console.log($("#oddBall").height());
+            $('#oddBall').hide();
+          }, frameWindow['isi'] + frameWindow['duration']);
+          console.log($('#oddBall').height());
           window.counter++;
           setTimeout(function() {
             ballAnimation(frame, window.counter);
-          }, frameWindow["isi"] + frameWindow["duration"]);
-        } else if (frameWindow["type"] == "red") {
+          }, frameWindow['isi'] + frameWindow['duration']);
+        } else if (frameWindow['type'] == 'red') {
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
           console.log(window.responseTimeStamp)
-          $("#std,#oddBall,#redBall,#spikeyBall").hide();
+          $('#std,#oddBall,#redBall,#spikeyBall').hide();
           setTimeout(function() {
-            $("#redBall").show();
-          }, frameWindow["isi"]);
+            $('#redBall').show();
+          }, frameWindow['isi']);
           setTimeout(function() {
-            $("#redBall").hide();
-          }, frameWindow["isi"] + frameWindow["duration"]);
+            $('#redBall').hide();
+          }, frameWindow['isi'] + frameWindow['duration']);
           window.counter++;
           setTimeout(function() {
             ballAnimation(frame, window.counter);
-          }, frameWindow["isi"] + frameWindow["duration"])
-        } else if (frameWindow["type"] == "spikey") {
+          }, frameWindow['isi'] + frameWindow['duration'])
+        } else if (frameWindow['type'] == 'spikey') {
           window.responseTimeStamp = window.counter;
           console.log(window.counter)
           console.log(window.responseTimeStamp)
-          $("#std,#oddBall,#redBall,#spikeyBall").hide();
+          $('#std,#oddBall,#redBall,#spikeyBall').hide();
           setTimeout(function() {
-            $("#std,#spikeyBall").show();
-          }, frameWindow["isi"]);
+            $('#std,#spikeyBall').show();
+          }, frameWindow['isi']);
           setTimeout(function() {
-            $("#std,#spikeyBall").hide();
-          }, frameWindow["isi"] + frameWindow["duration"]);
+            $('#std,#spikeyBall').hide();
+          }, frameWindow['isi'] + frameWindow['duration']);
           window.counter++;
           setTimeout(function() {
             ballAnimation(frame, window.counter);
-          }, frameWindow["isi"] + frameWindow["duration"])
+          }, frameWindow['isi'] + frameWindow['duration'])
         }
       } else {
-        $("#std,#oddBall,#redBall,#spikeyBall").hide();
+        $('#std,#oddBall,#redBall,#spikeyBall').hide();
         showEndPage();
+        // Questions Comments
+
+
+        // Debriefing
+
+
+
+        // Random Code Generation
       }
     }
 
