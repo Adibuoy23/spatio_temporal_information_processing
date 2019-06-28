@@ -274,7 +274,7 @@
         frameWindow = frame[window.counter];
         if (frameWindow["type"] == "std") {
           $("#oddBall").height(1).width(1);
-          $("#oddBall,#redBall,#spikeyBall").hide();
+          $("#oddBall,#redBall,#spikeyBall,#p5").hide();
           console.log(window.counter)
           console.log(window.responseTimeStamp)
           if (window.counter < window.responseTimeStamp && window.loop_active) {
@@ -290,11 +290,9 @@
             }, frameWindow["isi"] + frameWindow["duration"])
           } else {
               window.loop_active = false;
-              if (e.keyCode == 83 || e.keyCode == 76) {
                 setTimeout(function() {
-                  $("#p5").hide();
-              }, 10050);
-            }
+                  $("#p5").show();
+              }, 1050);
           }
         } else if (frameWindow["type"] == "odd") {
           window.responseTimeStamp = window.counter;
