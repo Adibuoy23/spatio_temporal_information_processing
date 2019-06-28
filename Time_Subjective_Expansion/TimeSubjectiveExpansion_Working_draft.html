@@ -274,7 +274,7 @@
         frameWindow = frame[window.counter];
         if (frameWindow["type"] == "std") {
           $("#oddBall").height(1).width(1);
-          $("#oddBall,#redBall,#spikeyBall").hide();
+          $("#oddBall,#redBall,#spikeyBall,#p5").hide();
           console.log(window.counter)
           console.log(window.responseTimeStamp)
           if (window.counter < window.responseTimeStamp && window.loop_active) {
@@ -289,10 +289,10 @@
               ballAnimation(frame, window.counter);
             }, frameWindow["isi"] + frameWindow["duration"])
           } else {
-            window.loop_active = false;
-            setTimeout(function() {
-              $("#p5").show();
-            }, 1050);
+              window.loop_active = false;
+                setTimeout(function() {
+                  $("#p5").show();
+              }, 1050);
           }
         } else if (frameWindow["type"] == "odd") {
           window.responseTimeStamp = window.counter;
