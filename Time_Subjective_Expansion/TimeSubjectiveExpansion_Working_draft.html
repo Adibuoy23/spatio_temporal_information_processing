@@ -52,31 +52,35 @@
             if you think the oddball lasted shorter than the black disks,
             or the [L] key if you think it lasted longer. <br> <br> Now, get ready! Press F11
             to make your viewport into fullscreen mode, then place one finger on the [S] key and another on the
-            [L] key on your keyboard. <br> <br> Be aware that your mouse cursor will disappear on the screen
-            for the duration of the experiment to prevent distraction!</p>
+            [L] key on your keyboard. <br> </p>
           <button class="btn-hover color" id="regularButton">Continue →</button>
           <button class="btn-hover color-start" id="startButton">Begin Experiment!</button>
-          <textarea id="feedbackBox" rows="4" cols="50" placeholder="Feedback Here!"></textarea>
-          <button class="btn-hover color-start" id="endButton">Submit</button>
-        </div>
-        <div id="debrief">
-          <h1>Debriefing Form</h1>
-          <p id="topDisplay">
-            You are done with the study! Thank you for participating.
-            In this study, we were primarily interested in how cognitive processes
-            such as attention influence how we perceive time.
-            Please describe any problems that you might have faced, and click [Submit].</p>
-          <p id="feedback">Thank you! Please let us know if you had any
-            problems or confusion while completing this HIT.</p>
         </div>
       </div>
     </div>
   </div>
+    
+  <div class = "End">
+      <div id="debrief">
+      <h1>Debriefing Form</h1>
+      <p id="topDisplay">
+        You are done with the study! Thank you for participating.
+        In this study, we were primarily interested in how cognitive processes
+        such as attention influence how we perceive time.
+        Please describe any problems that you might have faced, and click [Submit].</p>
+      <textarea id="feedbackBox" rows="4" cols="50" placeholder="Feedback Here!"></textarea>
+      <button class="btn-hover color-start" id="endButton">Submit</button>
+      <p id="feedback">Thank you! Please let us know if you had any
+        problems or confusion while completing this HIT.</p>     
+    </div>     
+  </div>   
 
   <!-- Mid-experiment reminder to make a duration choice -->
   <div id="p5">
     <p> <strong>Press:</strong> <br> [S] = Shorter <br> [L] = Longer</p>
   </div>
+    
+    <div id = "instructions"><p> Instruct here!</p> </div>
 
   <!-- ======================== STIMULI ======================= -->
   <div id="std"></div>
@@ -140,7 +144,8 @@
     // ======================== ENDPAGE ======================= //
 
     function showEndPage() {
-      $("#topDisplay,#feedbackBox,#endButton,#feedback").show();
+      $("#debrief").show()
+      $("#instructions").hide()    
       $("#endButton").attr("onclick", "postData()");
       $("#endButton").html("Submit");
     }
@@ -149,6 +154,7 @@
 
     function postData() {
       // update final participant stats in last trial of response
+      $("#debrief").hide()
       feedback = $("#feedbackBox").val();
       endTime = new Date();
       window.frame[window.frame.length - 1].feedback = feedback;
@@ -160,6 +166,7 @@
         subjectID: window.subjectID,
         dataString: dataString
       });
+      $("#instructions").show();    
       $("#instructions").text("Thank you — please copy and enter the following code into the HIT: ADI91NL99");
     }
 
@@ -169,6 +176,7 @@
       var trialInfo = [];
       var oddBag = [];
       var oddType = [];
+      var startTime = new Date();
       var oddBallDurations = [450, 525, 600, 675, 750, 825, 900, 975, 1050];
       var oddBallTypes = ["odd", "spikey", "red", "odd", "spikey", "red", "odd", "spikey", "red"];
       var nreps = 3;
@@ -177,7 +185,7 @@
         oddType = oddType.concat(shuffle(oddBallTypes));
       }
       var oddBallIndex;
-      for (oddBallIndex = 0; oddBallIndex < 9 * nreps; oddBallIndex++) {
+      for (oddBallIndex = 0; oddBallIndex < oddBallDurations.length * nreps; oddBallIndex++) {
         var stdNumber = (Math.floor(Math.random() * (13 - 7)) + 7); // Between 7-12 regular disks
         for (stdCount = 0; stdCount < stdNumber; stdCount++) {
           var isi = Math.floor(Math.random() * (1050 - 950) + 950);
@@ -188,7 +196,7 @@
             "judgment": "null",
             "browser": window.browser,
             "subjectID": window.subjectID,
-            "startTime": window.startTime,
+            "startTime": startTime,
             "endTime": "null",
             "feedback": "null"
           });
@@ -203,7 +211,7 @@
             "judgment": "null",
             "browser": window.browser,
             "subjectID": window.subjectID,
-            "startTime": window.startTime,
+            "startTime": startTime,
             "endTime": "null",
             "feedback": "null"
           });
@@ -217,7 +225,7 @@
             "judgment": "null",
             "browser": window.browser,
             "subjectID": window.subjectID,
-            "startTime": window.startTime,
+            "startTime": startTime,
             "endTime": "null",
             "feedback": "null"
           });
@@ -231,7 +239,7 @@
             "judgment": "null",
             "browser": window.browser,
             "subjectID": window.subjectID,
-            "startTime": window.startTime,
+            "startTime": startTime,
             "endTime": "null",
             "feedback": "null"
           });
@@ -245,7 +253,9 @@
     var browser = getBrowser();
     var subjectID = getSubjectID()
     var frame = trialGenerator();
+    console.log("frame length :",frame.length)
     var loop_active = true;
+    var loop_break = false
     var responseTimeStamp = 15;
     var counter = 0;
 
@@ -254,7 +264,8 @@
 
     $(document).keyup(function(e) {
       console.log(e.keyCode);
-      if ((e.keyCode == 83 || e.keyCode == 76) && !window.loop_active) {
+      if ((e.keyCode == 83 || e.keyCode == 76) && !window.loop_active && !window.loop_break) {
+        console.log("Loop Break?",window.loop_break)  
         $("#p5").hide();
         window.loop_active = true;
         window.counter++;
@@ -264,13 +275,21 @@
         console.log(window.frame[window.responseTimeStamp]);
         window.frame[window.responseTimeStamp]["judgment"] = e.keyCode;
         window.responseTimeStamp = 15 + window.counter;
-      } else if (e.keyCode == 83 || e.keyCode == 76) {
+      } else if ((e.keyCode == 83 || e.keyCode == 76) && !window.loop_break) {
         $("#p5").hide();
-      } else {}
+      } else if (window.loop_break) {
+          console.log("The End!")
+          $("#p5").hide();
+          showEndPage();
+          $("#topDisplay,#feedbackBox,#endButton,#feedback").show();
+          $("#endButton").attr("onclick", "postData()");
+          $("#endButton").html("Submit");
+      }
+        else{}
     });
     var ballAnimation = function(frame, counter) {
       var frameWindow;
-      if (window.counter < window.frame.length - 1) {
+      if (window.counter < window.frame.length) {
         frameWindow = frame[window.counter];
         if (frameWindow["type"] == "std") {
           $("#oddBall").height(1).width(1);
@@ -347,18 +366,22 @@
           }, frameWindow["isi"] + frameWindow["duration"])
         }
       } else {
-        $("#std,#oddBall,#redBall,#spikeyBall").hide();
-        showEndPage();
+            window.loop_break = true;
+            setTimeout(function() {
+              $("#p5").show();
+            }, 1050);  
+            console.log("Loop break?",window.loop_break)
+            $("#std,#oddBall,#redBall,#spikeyBall").hide();
       }
     }
 
     // ======================== MAIN BLOCK ======================= //
     // Carries out each experiment trial via animations
-    $("#feedbackBox,button,#p2,#p3,#p4,#p5,#debrief").hide();
+    $("#feedbackBox,button,#p2,#p3,#p4,#p5,#debrief,#instructions").hide();
     setTimeout(function() {
       $("#p1").fadeIn("slow")
     }, 500);
-    startTime = new Date();
+    
     setTimeout(function() {
       $("#regularButton").fadeIn("slow")
     }, 1750);
