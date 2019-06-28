@@ -289,12 +289,10 @@
               ballAnimation(frame, window.counter);
             }, frameWindow["isi"] + frameWindow["duration"])
           } else {
-              window.loop_active = false;
-              if (e.keyCode == 83 || e.keyCode == 76) {
-                setTimeout(function() {
-                  $("#p5").hide();
-              }, 10050);
-            }
+            window.loop_active = false;
+            setTimeout(function() {
+              $("#p5").show();
+            }, 1050);
           }
         } else if (frameWindow["type"] == "odd") {
           window.responseTimeStamp = window.counter;
