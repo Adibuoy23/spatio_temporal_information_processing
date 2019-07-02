@@ -9,14 +9,17 @@ import pylab
 import random
 import psignifit
 
-def fileAppender(fileList)
-filenames = ['file1.txt', 'file2.txt', ...]
-with open('path/to/output/file', 'w') as outfile:
-    for fname in filenames:
-        with open(fname) as infile:
-            for line in infile:
-                outfile.write(line)
-
+def fileAppender(fileList):
+    """
+    Takes all the filenames
+    and adds them to one list
+    """
+    filenames = ['file1.txt', 'file2.txt', ...]
+    with open('path/to/output/file', 'w') as outfile:
+        for fname in filenames:
+            with open(fname) as infile:
+                for line in infile:
+                    outfile.write(line)
 
 def duplicateChecker(fname):
     with open(fname, 'r', newline='') as txtfile:
@@ -28,6 +31,14 @@ def duplicateChecker(fname):
     for obj in full
     Data:
 
+def renamer():
+    i = 0
+    for filename in os.listdir("???"):
+        dst ="OddballParticipant" + str(i) + ".csv"
+        src ='???'+ filename
+        dst ='???'+ dst
+        os.rename(src, dst)
+        i += 1
         for
         return masterList
 
@@ -46,8 +57,6 @@ def makeCSV(list):
         dataRow += object["endTime"]
         dataRow += object["feedback"]
         filewriter.writerow(dataRow)
-        retur
-
 
 if __name__ == '__main__':
     fileAppender(fileList)
