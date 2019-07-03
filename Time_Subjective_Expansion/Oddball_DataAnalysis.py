@@ -40,23 +40,26 @@ def renamer():
         os.rename(src, dst)
         i += 1
         for
-        return masterList
+            return masterList
 
 def makeCSV(list):
+    with open('PilotMaster.txt', 'r+', newline='') as txtfile:
+        masterList = txtfile.readlines()
     with open('masterData.csv', 'w+', newline='') as csvfile:
-    filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    for obj in masterList:
-        dataRow = []
-        dataRow += object["type"]
-        dataRow += object["duration"]
-        dataRow += object["isi"]
-        dataRow += object["judgment"]
-        dataRow += object["browser"]
-        dataRow += object["subjectID"]
-        dataRow += object["startTime"]
-        dataRow += object["endTime"]
-        dataRow += object["feedback"]
-        filewriter.writerow(dataRow)
+        filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        filewriter.writerow(["type","duration","isi","judgment","browser","subjectID","startTime","endTime","feedback"])
+        for obj in masterList:
+            dataRow = []
+            dataRow += obj["type"]
+            dataRow += obj["duration"]
+            dataRow += obj["isi"]
+            dataRow += obj["judgment"]
+            dataRow += obj["browser"]
+            dataRow += obj["subjectID"]
+            dataRow += obj["startTime"]
+            dataRow += obj["endTime"]
+            dataRow += obj["feedback"]
+            filewriter.writerow(dataRow)
 
 if __name__ == '__main__':
     fileAppender(fileList)
