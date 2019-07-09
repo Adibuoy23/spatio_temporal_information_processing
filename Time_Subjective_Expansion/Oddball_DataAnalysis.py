@@ -1,14 +1,39 @@
+'''
+Created on May 20, 2019
+@author: Nathan Liang
+'''
 #import all the modules
-import numpy as np
-import math
-import time
 import sys
 import os
 import csv
 import pylab
-import random
 import psignifit
+import csv
+import pandas as pd
+import glob2 as g2
+import matplotlib.pyplot as plt
 
+def makeCSV():
+    g2.glob('Time_Subjective_Expansion/*.txt')
+    dfArray = []
+    df = pd.read_json('PilotMaster.txt',orient="columns")
+    df = df[df.judgment != "null"]
+    dfArray.append(df)
+    # dfArray.plot(x=dfArray.)
+    # '''
+    with open('masterData.csv', 'w+', newline='') as csvfile:
+        filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        dataString = df.to_csv(header=True,index=False)
+        csvfile.write(dataString)
+
+
+if __name__ == '__main__':
+    makeCSV()
+
+
+
+
+'''
 def fileAppender(fileList):
     """
     Takes all the filenames
@@ -65,3 +90,4 @@ if __name__ == '__main__':
     fileAppender(fileList)
     masterList = duplicateChecker("fullData")
     makeCSV(masterList)
+'''
