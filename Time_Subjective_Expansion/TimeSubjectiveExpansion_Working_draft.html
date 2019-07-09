@@ -272,12 +272,13 @@
         setTimeout(function() {
           ballAnimation(frame, window.counter);
         }, 0);
-        console.log(window.frame[window.responseTimeStamp]);
         window.frame[window.responseTimeStamp]["judgment"] = e.keyCode;
+        console.log(window.frame[window.responseTimeStamp]);  
         window.responseTimeStamp = 15 + window.counter;
-      } else if ((e.keyCode == 83 || e.keyCode == 76) && !window.loop_break) {
+      } else if ((e.keyCode == 83 || e.keyCode == 76)) {
         $("#p5").hide();
-      } else if (window.loop_break) {
+      } else if ((e.keyCode == 83 || e.keyCode == 76) && window.loop_break) {
+          window.frame[window.responseTimeStamp]["judgment"] = e.keyCode;
           console.log("The End!")
           $("#p5").hide();
           showEndPage();
