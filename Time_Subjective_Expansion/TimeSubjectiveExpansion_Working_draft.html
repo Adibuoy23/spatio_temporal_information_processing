@@ -52,7 +52,12 @@
             if you think the oddball lasted shorter than the black disks,
             or the [L] key if you think it lasted longer. <br> <br> Now, get ready! Press F11
             to make your viewport into fullscreen mode, then place one finger on the [S] key and another on the
-            [L] key on your keyboard. <br> </p>
+            [L] key on your keyboard. Oh! And one more thing!<br> </p>
+          <p id="p23">
+            This study should take about 10-12 minutes to complete — following which you will paste the unique code into the MTurk website to submit the hit. <br>
+            Your data will be invalid to us if you perform poorly in this task. So, please give your best. <br> </p>
+           <p id = "p231">
+            Please email us at visualthinkinglabjhu@gmail.com and let us know if you have any problems or confusion while completing this HIT</p>            
           <button class="btn-hover color" id="regularButton">Continue →</button>
           <button class="btn-hover color-start" id="startButton">Begin Experiment!</button>
         </div>
@@ -70,7 +75,7 @@
         Please describe any problems that you might have faced, and click [Submit].</p>
       <textarea id="feedbackBox" rows="4" cols="50" placeholder="Feedback Here!"></textarea>
       <button class="btn-hover color-start" id="endButton">Submit</button>
-      <p id="feedback">Thank you! Please let us know if you had any
+      <p id="feedback">Thank you! Please email us at visualthinkinglabjhu@gmail.com and let us know if you had any
         problems or confusion while completing this HIT.</p>     
     </div>     
   </div>   
@@ -275,7 +280,7 @@
         window.frame[window.responseTimeStamp]["judgment"] = e.keyCode;
         console.log(window.frame[window.responseTimeStamp]);  
         window.responseTimeStamp = 15 + window.counter;
-      } else if ((e.keyCode == 83 || e.keyCode == 76)) {
+      } else if ((e.keyCode == 83 || e.keyCode == 76) && !window.loop_break) {
         $("#p5").hide();
       } else if ((e.keyCode == 83 || e.keyCode == 76) && window.loop_break) {
           window.frame[window.responseTimeStamp]["judgment"] = e.keyCode;
@@ -378,7 +383,7 @@
 
     // ======================== MAIN BLOCK ======================= //
     // Carries out each experiment trial via animations
-    $("#feedbackBox,button,#p2,#p3,#p4,#p5,#debrief,#instructions").hide();
+    $("#feedbackBox,button,#p2,#p3,#p4,#p5,#debrief,#instructions,#p23,#p231").hide();
     setTimeout(function() {
       $("#p1").fadeIn("slow")
     }, 500);
@@ -404,22 +409,34 @@
           $("#regularButton").fadeIn("slow")
         }, 2000);
         $("#regularButton").click(function() {
-          $("#regularButton,#p3").remove();
+          $("#p3").remove();
+          $('#regularButton').hide();    
           setTimeout(function() {
             $("#p4").fadeIn("slow")
           }, 500);
           setTimeout(function() {
-            $("#startButton").fadeIn("slow")
+            $("#regularButton").fadeIn("slow")
           }, 2000);
-          $("#startButton").click(function() {
-            $("#startButton,img,.outer").remove();
-            $("html").css({
-              "cursor": "none"
-            })
-            ballAnimation(frame, counter);
-            $("html").css({
-              "cursor": "default"
-            })
+          $("#regularButton").click(function() {
+            //$("#regularButton,img,.outer").remove();
+            $('#regularButton').remove();
+            $('#p4').remove();  
+            $('#p23').show(); 
+            setTimeout(function(){$('#p231').fadeIn("slow")}, 1000);  
+          setTimeout(function() {
+            $("#startButton").fadeIn("slow")
+          }, 2000);  
+              $('#startButton').click(function(){
+                 $("#startButton,img,.outer").remove(); 
+                $("html").css({
+                  "cursor": "none"
+                })
+                ballAnimation(frame, counter);
+                $("html").css({
+                  "cursor": "default"
+                })
+              })
+
           })
         })
       })
