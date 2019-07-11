@@ -1,0 +1,184 @@
+/* --------------------------------------------------------
+last modified: 06.24.2019 by Nathan Liang
+author(s): Nathan Liang, Shanmukh Aditya Upadhyayula
+email: nliang4@jhu.edu
+website: http://
+----------------------------------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Century Gothic", CenturyGothic, sans-serif;
+}
+
+.btn-hover {
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color {
+  background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+  box-shadow: 0 2px 5px 0 rgba(45, 54, 65, 0.75);
+}
+
+.btn-hover.color-start {
+  background-image: linear-gradient(to right, #25d366, #32cd32, #b6d846);
+  box-shadow: 0 4px 15px 0 rgba(50, 205, 50, 0.75);
+}
+
+h1 {
+  font-size: 18pt;
+}
+
+p {
+  font-size: 14pt;
+}
+
+#p5 {
+  text-align: center;
+  border: 5px solid black;
+  width: 200px;
+  height: 125px;
+  margin: 275px auto;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.boxed {
+  border: 5px solid black;
+  padding: 10px 50px 10px;
+  width: 750px;
+  height: 425px;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+}
+
+#visionLogo {
+  position: absolute;
+  right: 25.8%;
+}
+
+#std {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 50%;
+  z-index: -50;
+}
+
+/* Initialize looming oddball */
+#oddBall {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 50%;
+  overflow: auto;    
+}
+
+/* Initialize colored (red) disk */
+#redBall {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  border-radius: 50%;   
+}
+
+#spikeyBall {
+  background: black;
+  width: 225px;
+  height: 225px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -112.5px 0 0 -112.5px;
+  transform: rotate(0deg);
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.button {
+  background-color: #404040;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transform: translate(-50%, -50%);
+}
+
+.button:hover {
+  background-color: #606060;
+  color: white;
+}
