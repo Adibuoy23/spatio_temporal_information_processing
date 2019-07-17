@@ -97,8 +97,8 @@ p {
 }
 
 #std {
-  width: 250px;
-  height: 250px;
+  width: 125px;
+  height: 125px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -110,21 +110,24 @@ p {
 
 /* Initialize looming oddball */
 #oddBall {
-  width: 25px;
-  height: 25px;
+  width: 125px;
+  height: 125px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: black;
   border-radius: 50%;
-  overflow: auto;    
+  overflow: auto;
+  -webkit-animation: example 4s linear infinite;
+  -moz-animation: example 4s linear infinite;
+  animation: example 4s linear infinite    
 }
 
 /* Initialize colored (red) disk */
 #redBall {
-  width: 250px;
-  height: 250px;
+  width: 125px;
+  height: 125px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -135,16 +138,16 @@ p {
 
 #spikeyBall {
   background: black;
-  width: 225px;
-  height: 225px;
+  width: 112px;
+  height: 112px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -112.5px 0 0 -112.5px;
-  transform: rotate(0deg);
-  -webkit-animation: spin 4s linear infinite;
+  margin: -56.5px 0 0 -56.5px;
+  transform: rotate(90deg);
+  /*-webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
-  animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;*/
 }
 
 @-moz-keyframes spin {
@@ -164,6 +167,29 @@ p {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  0%   {background-color: darkviolet;}
+  25%  {background-color: yellowgreen;}
+  50%  {background-color: skyblue;}
+  100% {background-color: orange;}
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {background-color: darkviolet;}
+  25%  {background-color: yellowgreen;}
+  50%  {background-color: skyblue;}
+  100% {background-color: orange;}
+}
+
+@-moz-keyframes example {
+  0%   {background-color: darkviolet;}
+  25%  {background-color: yellowgreen;}
+  50%  {background-color: skyblue;}
+  100% {background-color: orange;}
 }
 
 .button {

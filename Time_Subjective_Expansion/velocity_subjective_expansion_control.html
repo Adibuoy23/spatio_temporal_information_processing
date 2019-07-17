@@ -29,7 +29,7 @@
 <!-- ======================== INTRODUCTION ======================= -->
 
 <body>
-  <!-- Vision Sciences Group Logo -->
+  <!-- Vision Sciences Group Logo -->    
   <img src="https://static1.squarespace.com/static/53868534e4b03e5662d8336e/t/53a23905e4b0365dad7a353c/1403140386069/" alt="The Vision Sciences Group" width="800px" id="visionLogo">
 
   <!-- Vertically and horizontally entered intro block wrapper -->
@@ -41,9 +41,9 @@
           <p id="p1">Welcome! Thank you for agreeing to participate in this study.
             Please read the following directions carefully before beginning.</p>
           <p id="p2">In this experiment, we will be testing your ability to perceive duration,
-            how long something lasts on the screen. <br> <br> The task is simple: You will see black disks flash on and off.
+            how long something lasts on the screen. <br> <br> The task is simple: You will see black disks appear, move and disappear.
             The black disks will all last for exactly the same amount of time. <br> <br>
-            Occasionally, you will see things other than a black disk appear and disappear
+            Occasionally, you will see things other than a black disk appear, move and disappear
             — these might be spinning or differently colored things. </p>
           <p id="p3">
             All you need to do is judge whether that "oddball" — the thing that is <strong> not </strong> a black disk
@@ -95,6 +95,7 @@
 
   <!-- ======================== ANIMATIONS ======================= -->
   <script>
+    $("#body").append('<h1 style="visibility:hidden">M</h1>');  
     $("#std,#oddBall,#redBall,#spikeyBall").hide();
 
     // ======================== FISHER-YATES/KNUTH SHUFFLE ======================= //
@@ -167,7 +168,7 @@
       // Collect responses into JSON / csv file
       var dataString = JSON.stringify(window.frame);
       // post response to server
-      $.post("logTrial.py", {
+      $.post("logTrial_velocity_control.py", {
         subjectID: window.subjectID,
         dataString: dataString
       });
@@ -298,7 +299,7 @@
       if (window.counter < window.frame.length) {
         frameWindow = frame[window.counter];
         if (frameWindow["type"] == "std") {
-          $("#oddBall").height(25).width(25);
+          //$("#oddBall").height(25).width(25);
           $("#oddBall,#redBall,#spikeyBall,#p5").hide();
           console.log(window.counter)
           console.log(window.responseTimeStamp)
@@ -352,7 +353,7 @@
             $("#oddBall").css("top", movex+"%");
             $("#oddBall").css("top", movey+"%");  
           }, frameWindow["isi"]);
-          var expansion = "250px";
+          //var expansion = "125px";
 
 //          $("#oddBall").animate({
 //            height: expansion,
@@ -370,8 +371,8 @@
             $("#oddBall").animate({
             top: movex1,
             left: movey1,
-            height:expansion,
-            width:expansion,
+            //height:expansion,
+            //width:expansion,
           }, frameWindow["duration"], "linear") 
           }, frameWindow["isi"]);            
           setTimeout(function() {
