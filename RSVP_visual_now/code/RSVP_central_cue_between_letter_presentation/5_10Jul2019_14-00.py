@@ -736,7 +736,7 @@ def do_RSVP_stim(cue1pos, ltrEcc, ltrSpatialLoc, cue2lag, proportnNoise, trialN)
     myWin.setRecordFrameIntervals(False)
 
     if task == 'T1':
-        respPromptStim.setText('Which letter was present when the probe appeared?', log=False)
+        respPromptStim.setText('Which letter was present when the probe appeared in the fixation?', log=False)
     elif task == 'T1T2':
         respPromptStim.setText('Which two letters were circled?', log=False)
     else:
@@ -1083,7 +1083,7 @@ else:  # not staircase
                   len(trials))  # ' trials.thisN=',trials.thisN
             if (nDoneMain > 2 and nDoneMain %
                     (len(trials)*pctCompletedBreak/100.) == 0) and nDoneMain != len(trials):  # dont modulus 0 because then will do it for last trial
-                nextText.setText('Press "SPACE" to continue!')
+                nextText.setText('The location of the probe will change now! \n\n Press "SPACE" to continue!')
                 nextText.draw()
                 progressMsg = 'Completed ' + str(nDoneMain) + \
                     ' of ' + str(len(trials)) + ' trials'
