@@ -34,7 +34,7 @@ if os.path.isdir('.'+os.sep+'data'):
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'Eccentricity_duration_interaction'
+    expt_name = 'Eccentricity_duration_interaction static stimuli'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'

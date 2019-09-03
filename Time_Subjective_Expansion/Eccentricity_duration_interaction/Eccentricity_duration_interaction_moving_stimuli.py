@@ -34,7 +34,7 @@ if os.path.isdir('.'+os.sep+'data'):
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'Eccentricity_duration_interaction'
+    expt_name = 'Eccentricity_duration_interaction moving stimuli'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -73,7 +73,7 @@ viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, you will judge the duration of the items presented on the screen.\n\n"
-INS_MSG += "The task is simple: You will see black disks appear, move and disappear on the screen. The black disks will all last for exactly the same amount of time. .\n\n"
+INS_MSG += "The task is simple: You will see black disks appear, stay for a bit, and disappear on the screen. The black disks will all last for exactly the same amount of time. .\n\n"
 INS_MSG += "Occasionally, you will see things other than a black disk appear and disappear — these might be spinning or differently colored things.\n\n"
 INS_MSG += "All you need to do is judge whether that oddball — the thing that is not a black disk — lasted longer or shorter on the screen than than the black disks.\n\n"
 INS_MSG += "These disks might appear at different locations on the screen, and move in circular orbits.\n\n"
