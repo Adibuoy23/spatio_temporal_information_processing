@@ -448,6 +448,9 @@ for ix,dur in enumerate(possibleOddballDurations):
     fixation.setAutoDraw(False)
     display_text.setText("Press SPACE for as long as you think the scene lasted")
     myWin.flip()
+    core.wait(0.5)
+    display_text.setText("")
+    myWin.flip()
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)

@@ -322,8 +322,8 @@ oddBallMinRadius = 1.06/2
 oddBallMaxRadius1 = 1.06/2
 
 
-TEXT_HEIGHT = 0.35   # The height in visual degrees of instruction text
-TEXT_WRAP = 20  # The character limit of each line of text before word wrap
+TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
+TEXT_WRAP = 30  # The character limit of each line of text before word wrap
 display_text = visual.TextStim(
     win=myWin,
     ori=0,
@@ -332,7 +332,7 @@ display_text = visual.TextStim(
     font='Arial',
     pos=[
         0,
-        0],
+        -5],
     wrapWidth=TEXT_WRAP,
     height=TEXT_HEIGHT,
     color=stimColor,
@@ -340,31 +340,6 @@ display_text = visual.TextStim(
     opacity=1,
     depth=-1.0)
 
-def display_message(win, txt, msg):
-    """A function to display text to the experiment window.
-
-    win: psychopy.visual.Window
-        The window to write the message to.
-
-    fix: psychopy.visual.Circle
-        The fixation point to be removed from the screen.
-
-    txt: psychopy.visual.TextStim
-        The text object to present to the screen.
-
-    msg: String
-        The contents for the text object.
-
-    """
-
-    txt.setText(msg)
-    txt.setAutoDraw(True)
-    win.flip()
-
-    event.waitKeys()
-
-    txt.setAutoDraw(False)
-    win.flip()
 
 
 oddBallStim1 = visual.Circle(myWin,
@@ -393,18 +368,13 @@ fixation = visual.Circle(myWin,
                     interpolate=True,
                     autoLog=False)  # this stim changes too much for autologging to be useful
 
-
+fixation.setAutoDraw(True)
+myWin.flip()
 oddBallClock = core.Clock()
 response = []
 counter = -20
 display_message(myWin, display_text, INS_MSG)
-fixation.setAutoDraw(True)
-myWin.flip()
 for ix,dur in enumerate(possibleOddballDurations):
-
-    fixation.setAutoDraw(True)
-    myWin.flip()
-    core.wait(1)
     oddBallStim1.setAutoDraw(True)
     myWin.flip()
     oddBallClock.reset()
@@ -445,8 +415,10 @@ for ix,dur in enumerate(possibleOddballDurations):
     kb.clock.reset()  # when you want to start the timer from
     waiting = True
     display_text.setAutoDraw(True)
-    fixation.setAutoDraw(False)
     display_text.setText("Press SPACE for as long as you think the scene lasted")
+    myWin.flip()
+    core.wait(0.5)
+    display_text.setText("")
     myWin.flip()
 
     while waiting:
@@ -459,13 +431,11 @@ for ix,dur in enumerate(possibleOddballDurations):
 
         if 'space' in keys:
             for key in keys:
-                fixation.setAutoDraw(False)
                 display_text.setText('Space duration : ' + str(np.round(key.duration,2)))
                 response.append({'Duration':dur, 'Response':key.duration, 'Each condition':ix})
                 myWin.flip()
             waiting=False
     display_text.setAutoDraw(False)
-
     core.wait(1)
 
 

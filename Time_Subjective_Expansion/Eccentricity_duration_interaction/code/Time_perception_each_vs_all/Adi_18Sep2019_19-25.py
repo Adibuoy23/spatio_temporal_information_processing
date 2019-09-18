@@ -445,8 +445,10 @@ for ix,dur in enumerate(possibleOddballDurations):
     kb.clock.reset()  # when you want to start the timer from
     waiting = True
     display_text.setAutoDraw(True)
-    fixation.setAutoDraw(False)
     display_text.setText("Press SPACE for as long as you think the scene lasted")
+    myWin.flip()
+    core.wait(0.5)
+    display_text.setText("")
     myWin.flip()
 
     while waiting:

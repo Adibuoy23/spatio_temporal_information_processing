@@ -81,12 +81,10 @@ if demo:
 viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
-INS_MSG += "In this study, you will judging the duration of items displayed on the screen.\n\n"
-INS_MSG += "In a given trial, an item appears on the screen and disappears after some time.\n\n"
-INS_MSG += "Once the item disappears, you will need to press and hold the SPACE BAR for as long as you thought the stimulus has appeared.\n\n"
-INS_MSG += "The experiment will advance to the next trial once you release the space bar.\n\n"
-INS_MSG += "The items can appear anywhere on the horizontal axis of the screen.\n\n"
-INS_MSG += "You will need to make the duration judgments while fixating at the center of the screen, and using your peripheral vision (whenever applicable).\n\n"
+INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
+INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
+INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
+INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
 
@@ -322,8 +320,8 @@ oddBallMinRadius = 1.06/2
 oddBallMaxRadius1 = 1.06/2
 
 
-TEXT_HEIGHT = 0.35   # The height in visual degrees of instruction text
-TEXT_WRAP = 20  # The character limit of each line of text before word wrap
+TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
+TEXT_WRAP = 30  # The character limit of each line of text before word wrap
 display_text = visual.TextStim(
     win=myWin,
     ori=0,
@@ -332,7 +330,7 @@ display_text = visual.TextStim(
     font='Arial',
     pos=[
         0,
-        0],
+        -5],
     wrapWidth=TEXT_WRAP,
     height=TEXT_HEIGHT,
     color=stimColor,
@@ -340,31 +338,6 @@ display_text = visual.TextStim(
     opacity=1,
     depth=-1.0)
 
-def display_message(win, txt, msg):
-    """A function to display text to the experiment window.
-
-    win: psychopy.visual.Window
-        The window to write the message to.
-
-    fix: psychopy.visual.Circle
-        The fixation point to be removed from the screen.
-
-    txt: psychopy.visual.TextStim
-        The text object to present to the screen.
-
-    msg: String
-        The contents for the text object.
-
-    """
-
-    txt.setText(msg)
-    txt.setAutoDraw(True)
-    win.flip()
-
-    event.waitKeys()
-
-    txt.setAutoDraw(False)
-    win.flip()
 
 
 oddBallStim1 = visual.Circle(myWin,
@@ -393,18 +366,13 @@ fixation = visual.Circle(myWin,
                     interpolate=True,
                     autoLog=False)  # this stim changes too much for autologging to be useful
 
-
+fixation.setAutoDraw(True)
+myWin.flip()
 oddBallClock = core.Clock()
 response = []
 counter = -20
-display_message(myWin, display_text, INS_MSG)
-fixation.setAutoDraw(True)
-myWin.flip()
-for ix,dur in enumerate(possibleOddballDurations):
 
-    fixation.setAutoDraw(True)
-    myWin.flip()
-    core.wait(1)
+for ix,dur in enumerate(possibleOddballDurations):
     oddBallStim1.setAutoDraw(True)
     myWin.flip()
     oddBallClock.reset()
@@ -445,8 +413,10 @@ for ix,dur in enumerate(possibleOddballDurations):
     kb.clock.reset()  # when you want to start the timer from
     waiting = True
     display_text.setAutoDraw(True)
-    fixation.setAutoDraw(False)
     display_text.setText("Press SPACE for as long as you think the scene lasted")
+    myWin.flip()
+    core.wait(0.5)
+    display_text.setText("")
     myWin.flip()
 
     while waiting:
@@ -459,13 +429,11 @@ for ix,dur in enumerate(possibleOddballDurations):
 
         if 'space' in keys:
             for key in keys:
-                fixation.setAutoDraw(False)
                 display_text.setText('Space duration : ' + str(np.round(key.duration,2)))
                 response.append({'Duration':dur, 'Response':key.duration, 'Each condition':ix})
                 myWin.flip()
             waiting=False
     display_text.setAutoDraw(False)
-
     core.wait(1)
 
 
