@@ -365,7 +365,7 @@ fix_MSG = "Please fixate on the red dot while the stimuli appear on the screen. 
 display_message(myWin, display_text, fix_MSG)
 
 
-display_text.setText("Please press l if the 1st stimulus lasted for shorter duration, s if the 2nd stimulus lasted for shorter duration")
+display_text.setText("Please press l if the 1st stimulus lasted for longer duration, s if the 2nd stimulus lasted for shorter duration")
 for ix,dur in enumerate(possibleOddballDurations):
     initial_dir = np.random.choice([0,180])
     dotPatch.setDir(initial_dir)
