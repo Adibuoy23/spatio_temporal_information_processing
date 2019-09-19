@@ -297,10 +297,7 @@ oddBallDur = []
 possibleOddballDurations = np.tile([.427, .480, .533, .587, .640, .693],10)
 np.random.shuffle(possibleOddballDurations)
 
-if np.random.choice([0,1]):
-    oddBallType = np.repeat([1,0],30)
-else:
-    oddBallType = np.repeat([0,1],30)
+oddBallType = np.repeat([1,0],30)
 
 Durations = .480 #sec
 
@@ -365,13 +362,12 @@ clock = core.Clock()
 response = []
 
 display_message(myWin, display_text, INS_MSG)
-
+fix_MSG = "Press any key to begin the experiment."
+display_message(myWin, display_text, fix_MSG)
 
 
 display_text.setText("Please press [L] for long, \n [S] for short")
 for ix,dur in enumerate(possibleOddballDurations):
-    fix_MSG = "Press any key to begin."
-    display_message(myWin, display_text, fix_MSG)
     initial_dir = np.random.choice([0,180])
     dotPatch.setDir(initial_dir)
     if oddBallType[ix]:
@@ -407,7 +403,6 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     waiting = True
     while waiting:
-        display_text.setText("Please press [L] for long, \n [S] for short")
         display_text.setAutoDraw(True)
         fixation.setAutoDraw(False)
         myWin.flip()

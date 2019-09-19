@@ -75,8 +75,7 @@ INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, you will judge the duration of the items presented on the screen.\n\n"
 INS_MSG += "The task is simple: You will see a field of dots that moves either to the left / right .\n\n"
 INS_MSG += "After an interval, the direction of motion changes for the remainder of the trial.\n\n"
-INS_MSG += "All you need to do is judge whether the second interval lasted longer/shorter than the first.\n\n"
-INS_MSG += "You will indicate your judgment by typing [S]/ [L] keys.\n\n"
+INS_MSG += "All you need to do is judge whether the first interval lasted longer than the second.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
 
@@ -297,10 +296,7 @@ oddBallDur = []
 possibleOddballDurations = np.tile([.427, .480, .533, .587, .640, .693],10)
 np.random.shuffle(possibleOddballDurations)
 
-if np.random.choice([0,1]):
-    oddBallType = np.repeat([1,0],30)
-else:
-    oddBallType = np.repeat([0,1],30)
+oddBallType = np.repeat([1,0],30)
 
 Durations = .480 #sec
 
@@ -365,13 +361,12 @@ clock = core.Clock()
 response = []
 
 display_message(myWin, display_text, INS_MSG)
+fix_MSG = "Press any key to begin the experiment."
+display_message(myWin, display_text, fix_MSG)
 
 
-
-display_text.setText("Please press [L] for long, \n [S] for short")
+display_text.setText("Please press [L] if the 2nd stimulus lasted for longer duration, \n [S] if the 2nd stimulus lasted for shorter duration")
 for ix,dur in enumerate(possibleOddballDurations):
-    fix_MSG = "Press any key to begin."
-    display_message(myWin, display_text, fix_MSG)
     initial_dir = np.random.choice([0,180])
     dotPatch.setDir(initial_dir)
     if oddBallType[ix]:
@@ -407,7 +402,6 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     waiting = True
     while waiting:
-        display_text.setText("Please press [L] for long, \n [S] for short")
         display_text.setAutoDraw(True)
         fixation.setAutoDraw(False)
         myWin.flip()

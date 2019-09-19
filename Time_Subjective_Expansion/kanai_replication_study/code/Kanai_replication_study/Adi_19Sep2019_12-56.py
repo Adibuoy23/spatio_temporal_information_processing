@@ -365,13 +365,12 @@ clock = core.Clock()
 response = []
 
 display_message(myWin, display_text, INS_MSG)
-
+fix_MSG = "Press any key to begin the experiment."
+display_message(myWin, display_text, fix_MSG)
 
 
 display_text.setText("Please press [L] for long, \n [S] for short")
 for ix,dur in enumerate(possibleOddballDurations):
-    fix_MSG = "Press any key to begin."
-    display_message(myWin, display_text, fix_MSG)
     initial_dir = np.random.choice([0,180])
     dotPatch.setDir(initial_dir)
     if oddBallType[ix]:
@@ -407,7 +406,6 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     waiting = True
     while waiting:
-        display_text.setText("Please press [L] for long, \n [S] for short")
         display_text.setAutoDraw(True)
         fixation.setAutoDraw(False)
         myWin.flip()
@@ -425,7 +423,11 @@ for ix,dur in enumerate(possibleOddballDurations):
                     response.append({'Correct':1, 'oddBallDur':dur, 'standardStimDur':Durations, 'keyPress': key, 'Stimulus Onset': oddBallType[ix], 'Initial Direction': initial_dir})
                 else:
                     response.append({'Correct':0, 'oddBallDur':dur, 'standardStimDur':Durations, 'keyPress': key, 'Stimulus Onset': oddBallType[ix], 'Initial Direction': initial_dir})
-
+                core.wait(1)
+                fix_MSG = "Press any key to advance the trial."
+                display_message(myWin, display_text, fix_MSG)
+                display_text.setAutoDraw(True)
+                myWin.flip()    
             if key in ['escape']:
                 expStop = True
                 core.quit()
