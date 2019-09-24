@@ -43,7 +43,7 @@ if os.path.isdir('.'+os.sep+'data'):
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'Time_perception_each_vs_all'
+    expt_name = 'eccentricity_dependent_duration'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -55,9 +55,9 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 2880#5120  # monitor width in pixels of Agosta
-heightPix = 1800#2880  # 800 #monitor height in pixels
-monitorwidth = 52  # 28.2  # monitor width in cm
+widthPix = 1920  # monitor width in pixels of Agosta
+heightPix = 1080  # 800 #monitor height in pixels
+monitorwidth = 56 # Chaz's labspace Ames 27  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
@@ -78,17 +78,22 @@ if demo:
     heightPix = 2880
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 65.0  # cm
+viewdist = 80.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, we want to examine your ability to perceive duration — how long something lasts.\n\n"
 INS_MSG += "The task is simple. In each trial, you will see a black disc appear on the screen and then disappear.\n\n"
 INS_MSG += "Once the item disappears, you will need to press and hold the SPACE BAR for as long as you thought the stimulus has appeared.\n\n"
-INS_MSG += "The experiment will advance to the next trial once you release the space bar.\n\n"
+INS_MSG += "The experiment will be self paced, and should last approximately for not more than 30 minutes.\n\n"
 INS_MSG += "The items can appear anywhere on the horizontal axis of the screen.\n\n"
 INS_MSG += "You will need to make the duration judgments while fixating at the center of the screen, and using your peripheral vision (whenever applicable).\n\n"
-INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
-INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
+
+INS_MSG += "Press any key to continue to the next page. \n\n"
+
+INS_MSG2 = "We really want you to be as accurate as you can. So a game will be played to make it more fun. We want you to hold down the space bar for as long as you saw the disc last! The closer you get to the right answer, the more points we will award you in that trial. So you need to be as accurate as possible to earn the max. Each trial will be for 10 points. There are about 120 trials. If you collect a total of 950 points by the end, we will double the credit you get for the experiment.\n\n"
+INS_MSG2 += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
+INS_MSG2 += "Press any key you are ready to do some practice trials.\n\n"
+
 
 pixelperdegree = widthPix / (atan(monitorwidth/viewdist) / np.pi*180)
 print('pixelperdegree=', pixelperdegree)
@@ -191,7 +196,7 @@ defaultNoiseLevel = 0.0  # to use if no staircase, can be set by user
 trialsPerCondition = 6  # default value
 dlgLabelsOrdered = list()
 
-myDlg = gui.Dlg(title="RSVP experiment", pos=(200, 400))
+myDlg = gui.Dlg(title="Eccentricity dependent duration", pos=(200, 400))
 if not autopilot:
     myDlg.addField('Subject name (default="Adi"):', 'Adi', tip='or subject code')
     dlgLabelsOrdered.append('subject')
@@ -304,8 +309,8 @@ fixationBlank = visual.PatchStim(myWin, tex=-1*fixatnNoiseTexture, size=(fixSize
 oddBallDur = []
 
 # SETTING THE CONDITIONS
-possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],6) # total 60
-type = np.tile([0,1,2,3],15)
+possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],12) # total 60
+type = np.tile([0,1,2,3],30)
 conditions = np.array([possibleOddballDurations, type])
 conditions = conditions.T
 shuffle(conditions)
@@ -322,8 +327,8 @@ oddBallMinRadius = 1.06/2
 oddBallMaxRadius1 = 1.06/2
 
 
-TEXT_HEIGHT = 0.35   # The height in visual degrees of instruction text
-TEXT_WRAP = 20  # The character limit of each line of text before word wrap
+TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
+TEXT_WRAP = 35  # The character limit of each line of text before word wrap
 display_text = visual.TextStim(
     win=myWin,
     ori=0,
@@ -366,7 +371,49 @@ def display_message(win, txt, msg):
     txt.setAutoDraw(False)
     win.flip()
 
+def between_trial(win, txt, msg):
+    """A function to display text to the experiment window.
 
+    win: psychopy.visual.Window
+        The window to write the message to.
+
+    fix: psychopy.visual.Circle
+        The fixation point to be removed from the screen.
+
+    txt: psychopy.visual.TextStim
+        The text object to present to the screen.
+
+    msg: String
+        The contents for the text object.
+
+    """
+
+    txt.setText(msg)
+    txt.setAutoDraw(True)
+    fixation.setAutoDraw(False)
+    win.flip()
+
+    event.waitKeys(keyList = ['space'])
+
+    txt.setAutoDraw(False)
+    win.flip()
+
+reward_text = visual.TextStim(
+    win=myWin,
+    ori=0,
+    name='text',
+    text="Total points : 0",
+    font='Arial',
+    pos=[
+        5,
+        5],
+    wrapWidth=TEXT_WRAP,
+    height=TEXT_HEIGHT,
+    color=stimColor,
+    colorSpace='rgb',
+    opacity=1,
+    depth=-1.0)
+    
 oddBallStim1 = visual.Circle(myWin,
                     radius=oddBallMaxRadius1,  # Martini used circles with diameter of 12 deg
                     lineColorSpace='rgb',
@@ -396,27 +443,119 @@ fixation = visual.Circle(myWin,
 
 oddBallClock = core.Clock()
 response = []
-counter = -20
+reward_counter=0
 display_message(myWin, display_text, INS_MSG)
+display_message(myWin, display_text, INS_MSG2)
 fixation.setAutoDraw(True)
+reward_text.setAutoDraw(True)
 myWin.flip()
+temp = possibleOddballDurations
+shuffle(temp)
+for ix,dur in enumerate(temp[0:3]):
+
+    fixation.setAutoDraw(True)
+    myWin.flip()
+    core.wait(1)
+    oddBallStim1.setAutoDraw(True)
+    oddBallClock.reset()
+    print(type[ix])
+    if type[ix]==0:
+        ecc = [3,0]
+    elif type[ix]==1:
+        ecc=[-3,0]
+    elif type[ix]==2:
+        ecc = [12,0]
+    else:
+        ecc = [-12,0]
+    
+    oddBallStim1.setPos(ecc)
+    myWin.flip()
+
+    # expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
+
+    counter = i
+    # e = np.array([expansionRate1])
+    # shuffle(e)
+    # print(e)
+    #core.wait(Durations[i])
+    # while oddBallClock.getTime() < dur/1000:
+    #     oddBallStim1.setRadius(oddBallMinRadius + (e[0]) * oddBallClock.getTime())
+    #     myWin.flip()
+
+
+    core.wait(dur/1000)
+    oddBallStim1.setAutoDraw(False)
+    myWin.flip()
+    # oddBallStim1.setRadius(oddBallMinRadius)
+
+
+    core.wait(0.5)
+
+    kb = keyboard.Keyboard()
+
+    kb = keyboard.Keyboard()
+
+    # during your trial
+    kb.clock.reset()  # when you want to start the timer from
+    kb.start()
+    waiting = True
+    between_trial(myWin, display_text, "Press and hold [SPACE] to report the duration of the stimulus")
+
+    myWin.flip()
+    oddBallClock.reset()
+    counter = i
+    kb = keyboard.Keyboard()
+    kb.clock.reset()
+    
+
+    waiting = True
+    keys = []
+
+    while waiting:
+        keys = kb.getKeys(['space', 'escape'], waitRelease=True)
+        if 'escape' in keys:
+            core.quit()
+            myWin.close()
+
+        if 'space' in keys:
+            for key in keys:
+                diff_time = np.abs(key.duration-dur/1000)
+                current_points = np.round((np.exp(-diff_time*1.5)),2)*10
+                reward_counter+= current_points
+                kb.stop()
+                myWin.flip()
+                between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
+                reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
+
+            waiting=False
+
+reward_counter = 0
+reward_text.setText("Total points : 0")
+display_message(myWin, display_text, "Great! Press any key to start the experiment")
+
+###########################
+###### Actual experiment ##
+###########################
+
 for ix,dur in enumerate(possibleOddballDurations):
 
     fixation.setAutoDraw(True)
     myWin.flip()
     core.wait(1)
     oddBallStim1.setAutoDraw(True)
-    myWin.flip()
     oddBallClock.reset()
     print(type[ix])
     if type[ix]==0:
-        oddBallStim1.setPos([3,0])
+        ecc = [3,0]
     elif type[ix]==1:
-        oddBallStim1.setPos([-3,0])
+        ecc=[-3,0]
     elif type[ix]==2:
-        oddBallStim1.setPos([9,0])
+        ecc = [12,0]
     else:
-        oddBallStim1.setPos([-9,0])
+        ecc = [-12,0]
+    
+    oddBallStim1.setPos(ecc)
+    myWin.flip()
 
 
     # expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
@@ -437,44 +576,48 @@ for ix,dur in enumerate(possibleOddballDurations):
     # oddBallStim1.setRadius(oddBallMinRadius)
 
 
+    core.wait(0.5)
 
+    kb = keyboard.Keyboard()
 
     kb = keyboard.Keyboard()
 
     # during your trial
     kb.clock.reset()  # when you want to start the timer from
+    kb.start()
     waiting = True
-    display_text.setAutoDraw(True)
-    fixation.setAutoDraw(False)
-    display_text.setText("Press SPACE for as long as you think the scene lasted")
+    between_trial(myWin, display_text, "Press and hold [SPACE] to report the duration of the stimulus")
+
     myWin.flip()
+    oddBallClock.reset()
+    counter = i
+    kb = keyboard.Keyboard()
+    kb.clock.reset()
+    
+
+    waiting = True
+    keys = []
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
-
         if 'escape' in keys:
-            print(key.name, key.rt, key.duration)
             core.quit()
             myWin.close()
 
         if 'space' in keys:
             for key in keys:
-                fixation.setAutoDraw(False)
-                display_text.setText('Space duration : ' + str(np.round(key.duration,2)))
-                if type[ix]==0:
-                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[3,0]})
-                elif type[ix]==1:
-                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[-3,0]})
-                elif type[ix]==2:
-                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[9,0]})
-                else:
-                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[-9,0]})
-
+                response.append({'Duration':dur/1000, 'Response':key.duration, 'Stimulus condition':type[ix], 'Eccentricity':ecc})
+                diff_time = np.abs(key.duration-dur/1000)
+                current_points = np.round((np.exp(-diff_time*1.5)),2)*10
+                reward_counter+= current_points
+                kb.stop()
                 myWin.flip()
-            waiting=False
-    display_text.setAutoDraw(False)
+                between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
+                reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
 
-    core.wait(1)
+            waiting=False
+
+
 
 
 
