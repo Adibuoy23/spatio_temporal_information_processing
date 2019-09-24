@@ -1,28 +1,18 @@
+# encoding: utf-8
 #import all the modules
 from __future__ import print_function
 from psychopy import monitors, visual, event, data, logging, core, sound, gui
-from psychopy.hardware import keyboard
 import psychopy.info
 import numpy as np
 from math import atan, log, ceil
 from copy import deepcopy
 import time
+import random
 import sys
 import os
 import csv
 import pylab
 from random import sample, shuffle, randint
-from pyglet.window import Window
-from pyglet.window import key
-
-try:
-    from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
-except ImportError:
-    print('Could not import from noiseStaircaseHelpers.py (you need that file to be in the same directory)')
-try:
-    import stringResponse
-except ImportError:
-    print('Could not import stringResponse.py (you need that file to be in the same directory)')
 
 descendingPsycho = True
 # THINGS THAT COULD PREVENT SUCCESS ON A STRANGE MACHINE
@@ -37,14 +27,14 @@ if autopilot:
     subject = 'auto'
 
 print(os.getcwd())
-os.chdir(os.path.join(os.getcwd(),'/Volumes/My Passport/Github/spatio_temporal_information_processing/Time_Subjective_Expansion'))
+os.chdir(os.path.join(os.getcwd(),'/Volumes/My Passport/Github/spatio_temporal_information_processing/Time_Subjective_Expansion/Kanai_replication_study/'))
 
 if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'TSE_2004_replication'
+    expt_name = 'Kanai_replication_study'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -58,7 +48,7 @@ if demo:
 
 widthPix = 2880  # monitor width in pixels of Agosta
 heightPix = 1800  # 800 #monitor height in pixels
-monitorwidth = 52  # 28.2  # monitor width in cm
+monitorwidth = 52  # 52 in lab testing suite  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
@@ -82,10 +72,12 @@ if demo:
 viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
-INS_MSG += "You will be presented with a Rapid Stream of letters. Your task is to identify one of the letters.\n\n"
-INS_MSG += "The letter you're supposed to identify is accompanied by a probe that can appear anywhere on the horizontal axis of the screen.\n\n"
-INS_MSG += "The probe is a circular disk that will be flashed for a very brief time.\n\n"
-INS_MSG += "Once you've identified the letter after the trial ends, type it out on the keyboard.\n\n"
+INS_MSG += "In this study, you will judge the duration of the items presented on the screen.\n\n"
+INS_MSG += "The task is simple: You will see black disks appear, stay for a bit, and disappear on the screen. The black disks will all last for exactly the same amount of time. .\n\n"
+INS_MSG += "Occasionally, you will see things other than a black disk appear and disappear — these might be spinning or differently colored things.\n\n"
+INS_MSG += "All you need to do is judge whether that oddball — the thing that is not a black disk — lasted longer or shorter on the screen than than the black disks.\n\n"
+INS_MSG += "These disks might appear at different locations on the screen, and move in circular orbits.\n\n"
+INS_MSG += "You will maintain fixation at the center of the screen while making the duration judgments.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
 
@@ -303,21 +295,15 @@ fixationBlank = visual.PatchStim(myWin, tex=-1*fixatnNoiseTexture, size=(fixSize
 oddBallDur = []
 
 # SETTING THE CONDITIONS
-possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],6) # total 60
-type = np.tile([0,1],30)
-conditions = np.array([possibleOddballDurations, type])
+conditions = np.array([np.tile([1.427, 1.480, 1.533, 1.587, 1.640, 1.693],10), np.repeat([0,1],30)])
 conditions = conditions.T
-shuffle(conditions)
-possibleOddballDurations = conditions[:,0]
-type = conditions[:,1]
+np.random.shuffle(conditions)
+print(conditions)
+possibleOddballDurations = conditions[:,0] # Motion duration
+oddBallType = conditions[:,1] #Motion onset
 
-Durations = 1.05 #sec
+Durations = 1.480 #sec
 
-
-# Define the visual stimuli (standard and oddball)
-
-stdStimRadius = 3.53/2
-oddBallMinRadius = 1.06/2
 
 
 TEXT_HEIGHT = 0.5   # The height in visual degrees of instruction text
@@ -339,137 +325,112 @@ display_text = visual.TextStim(
     depth=-1.0)
 
 
+dotPatch =  visual.DotStim(myWin, color=(0.0, 0.0, 0.0), dir=0,
+    nDots=200, fieldShape='square', fieldPos=(0.0, 0.0), fieldSize=8,
+    dotLife=13,  # number of frames for each dot to be drawn
+    signalDots='same',  # are signal dots 'same' on each frame? (see Scase et al)
+    noiseDots='direction',  # do the noise dots follow random- 'walk', 'direction', or 'position'
+    speed=0.01, coherence=1.0,
+    dotSize = 6.0)
 
-oddBallStim1 = visual.Circle(myWin,
-                    radius=oddBallMinRadius,  # Martini used circles with diameter of 12 deg
-                    lineColorSpace='rgb',
-                    lineColor=stimColor,
-                    lineWidth=2.0,  # in pixels
-                    units='deg',
-                    fillColorSpace='rgb',
-                    fillColor=stimColor,  # beware, with convex shapes fill colors don't work
-                    # the anchor (rotation and vertices are position with respect to this)
-                    pos=[5*np.cos(90*np.pi/180), 5*np.sin(90*np.pi/180)],
-                    interpolate=True,
-                    autoLog=False)  # this stim changes too much for autologging to be useful
+def display_message(win, txt, msg):
+    """A function to display text to the experiment window.
 
-oddBallStim2 = visual.Circle(myWin,
-                    radius=oddBallMinRadius,  # Martini used circles with diameter of 12 deg
-                    lineColorSpace='rgb',
-                    lineColor=stimColor,
-                    lineWidth=2.0,  # in pixels
-                    units='deg',
-                    fillColorSpace='rgb',
-                    fillColor=stimColor,  # beware, with convex shapes fill colors don't work
-                    # the anchor (rotation and vertices are position with respect to this)
-                    pos=[5*np.cos(210*np.pi/180), 5*np.sin(210*np.pi/180)],
-                    interpolate=True,
-                    autoLog=False)  # this stim changes too much for autologging to be useful
+    win: psychopy.visual.Window
+        The window to write the message to.
 
-oddBallStim3 = visual.Circle(myWin,
-                    radius=oddBallMinRadius,  # Martini used circles with diameter of 12 deg
-                    lineColorSpace='rgb',
-                    lineColor=stimColor,
-                    lineWidth=2.0,  # in pixels
-                    units='deg',
-                    fillColorSpace='rgb',
-                    fillColor=stimColor,  # beware, with convex shapes fill colors don't work
-                    # the anchor (rotation and vertices are position with respect to this)
-                    pos=[5*np.cos(330*np.pi/180), 5*np.sin(330*np.pi/180)],
-                    interpolate=True,
-                    autoLog=False)  # this stim changes too much for autologging to be useful
+    fix: psychopy.visual.Circle
+        The fixation point to be removed from the screen.
 
-oddBallClock = core.Clock()
+    txt: psychopy.visual.TextStim
+        The text object to present to the screen.
+
+    msg: String
+        The contents for the text object.
+
+    """
+
+    txt.setText(msg)
+    txt.setAutoDraw(True)
+    win.flip()
+
+    event.waitKeys()
+
+    txt.setAutoDraw(False)
+    win.flip()
+
+
+
+clock = core.Clock()
 response = []
-counter = -20
 
+display_message(myWin, display_text, INS_MSG)
+fix_MSG = "Please fixate on the red dot while the stimuli appear on the screen. Press any key to begin the experiment."
+display_message(myWin, display_text, fix_MSG)
+
+
+display_text.setText("Please press l if the 1st stimulus lasted for shorter duration, s if the 2nd stimulus lasted for shorter duration")
 for ix,dur in enumerate(possibleOddballDurations):
-    oddBallStim1.setAutoDraw(True)
-    oddBallStim2.setAutoDraw(True)
-    oddBallStim3.setAutoDraw(True)
-    myWin.flip()
-    oddBallClock.reset()
-    if type[ix]:
-        oddBallMaxRadius1 = 3.53/2
-        oddBallMaxRadius2 = 3.53/3
-        oddBallMaxRadius3 = 3.53/4
-    else:
-        oddBallMaxRadius1 = 3.53/2
-        oddBallMaxRadius2 = 3.53/2
-        oddBallMaxRadius3 = 3.53/2
+    # if oddBallType[ix]:
+    #     dotPatch.setSpeed(0.0)
+    #     dotPatch.dotLife = 12000
+    #     dotPatch.setAutoDraw(True)
+    #     myWin.flip()
+    #     core.wait(random.uniform(1,2))
+    # else:
+    #     dotPatch.setSpeed(0.000001)
+    #     dotPatch.dotLife = 9
+    #     dotPatch.setAutoDraw(True)
+    #     core.wait(random.uniform(1,2))
+    #     myWin.flip()
 
-    expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
-    expansionRate2 = (oddBallMaxRadius2 - oddBallMinRadius)/Durations
-    expansionRate3 = (oddBallMaxRadius3 - oddBallMinRadius)/Durations
-    counter = i
-    e = np.array([expansionRate1, expansionRate2, expansionRate3])
-    shuffle(e)
-    print(e)
-    #core.wait(Durations[i])
-    while oddBallClock.getTime() < dur/1000:
-        oddBallStim1.setRadius(oddBallMinRadius + (e[0]) * oddBallClock.getTime())
-        oddBallStim2.setRadius(oddBallMinRadius + (e[1]) * oddBallClock.getTime())
-        oddBallStim3.setRadius(oddBallMinRadius + (e[2]) * oddBallClock.getTime())
+    # dotPatch.setSpeed(0.000001)
+    # dotPatch.dotLife = 9
+    myWin.flip()
+    clock.reset()
+
+    while clock.getTime() <= Durations + dur:
+        dotPatch.draw()
         myWin.flip()
-    oddBallStim1.setAutoDraw(False)
-    oddBallStim2.setAutoDraw(False)
-    oddBallStim3.setAutoDraw(False)
+        break1 = 1
+        if clock.getTime() >= Durations and break1:
+            temp = dotPatch.dir
+            dotPatch.setDir(temp + 180)
+            myWin.flip()
+            break1 = 0
+
     myWin.flip()
-    oddBallStim1.setRadius(oddBallMinRadius)
-    oddBallStim2.setRadius(oddBallMinRadius)
-    oddBallStim3.setRadius(oddBallMinRadius)
+    clock.reset()
 
 
-
-    kb = keyboard.Keyboard()
-
-    # during your trial
-    kb.clock.reset()  # when you want to start the timer from
     waiting = True
-    display_text.setAutoDraw(True)
-    display_text.setText("Press SPACE for as long as you think the scene lasted")
-    myWin.flip()
-    core.wait(0.5)
-    display_text.setText("")
-    myWin.flip()
-
     while waiting:
-        keys = kb.getKeys(['space', 'escape'], waitRelease=True)
-
-        if 'escape' in keys:
-            print(key.name, key.rt, key.duration)
-            core.quit()
-            myWin.close()
-
-        if 'space' in keys:
-            for key in keys:
-                display_text.setText('Space duration : ' + str(np.round(key.duration,2)))
+        display_text.setAutoDraw(True)
+        fixation.setAutoDraw(False)
+        myWin.flip()
+        if expStop == True:
+            break
+        for key in event.getKeys():  # check if pressed abort-type key
+            print(key)
+            if key in ['s', 'l', 'escape']:
+                waiting = False
+                display_text.setAutoDraw(False)
                 myWin.flip()
-            waiting=False
-    display_text.setAutoDraw(False)
-    core.wait(1)
+                if dur <= Durations and key in ['s']:
+                    response.append({'Correct':1, 'oddBallDur':dur, 'standardStimDur':Durations, 'keyPress': key, 'Stimulus Onset': oddBallType[ix]})
+                elif dur > Durations and key in ['l']:
+                    response.append({'Correct':1, 'oddBallDur':dur, 'standardStimDur':Durations, 'keyPress': key, 'Stimulus Onset': oddBallType[ix]})
+                else:
+                    response.append({'Correct':0, 'oddBallDur':dur, 'standardStimDur':Durations, 'keyPress': key, 'Stimulus Onset': oddBallType[ix]})
 
-    # while waiting:
-    #     keyboard = key.KeyStateHandler()
-    #     myWin.winHandle.push_handlers(keyboard)
-    #     print(keyboard[key.A])
-    #     if keyboard[key.A] and not space_pressed:
-    #         space_pressed = true
-    #         kbClock.reset()
-    #         display_text.setText('space press detected')
-    #         display_text.setAutoDraw(True)
-    #         myWin.flip()
-    #     elif keyboard[key.ESCAPE]:
-    #         core.quit()
-    #         myWin.close()
-    #     elif space_pressed and not keyboard[key.A]:
-    #         waiting=False
-    #         space_duration = kbClock.getTime()
-    #         space_released=True
-    #         display_text.setText('space_duration : ' + str(space_duration))
-    #         myWin.flip()
-    #         core.wait(1)
-    #         display_text.setAutoDraw(false)
+            if key in ['escape']:
+                expStop = True
+                core.quit()
+                myWin.clearBuffer()
+                core.wait(.2)
+                time.sleep(.2)
+                myWin.close()
+        #i += 1
 
 
 

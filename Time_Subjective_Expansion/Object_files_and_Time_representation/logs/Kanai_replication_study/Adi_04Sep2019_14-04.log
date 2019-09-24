@@ -1,0 +1,468 @@
+10.5139 	WARNING 	User requested fullscreen with size [2880 1800], but screen is actually [1440, 900]. Using actual size
+11.5290 	INFO 	Successfully set darwin thread to realtime
+12.5891 	INFO 	#[ PsychoPy3 RuntimeInfoStart ]
+  #[[ PsychoPy ]] #---------
+    psychopyVersion: 3.2.0
+    psychopyHaveExtRush: True
+  #[[ Experiment ]] #---------
+    experimentRunTime: 2019_09_04 14:04 (Year_Month_Day Hour:Min)
+    experimentRunTime.epoch: 1567620270
+    experimentScript: Kanai_replication_study.py
+    experimentScript.digestSHA1: 7db30520ad806e460430978d354a5f201e28a184
+    experimentScript.directory: /Volumes/My Passport/Github/spatio_temporal_information_processing/Time_Subjective_Expansion/kanai_replication_study
+  #[[ System ]] #---------
+    systemHaveInternetAccess: True
+    systemHostName: pbs-jf-aldi.local
+    systemLocale: C
+    systemMemFreeRAM: 6151.2421875
+    systemMemTotalRAM: 16384.0
+    systemPlatform: darwin 10.14.6 x86_64
+    systemRavailable: R version 3.4.1 (2017-06-30) -- Single Candle
+    systemRebooted: Aug 29 17:36
+    systemSec.OpenSSLVersion: OpenSSL 1.1.1a  20 Nov 2018
+    systemSec.pythonSSL: True
+    systemTimeNumpySD1000000_sec: 0.0038
+    systemUser: supadhy6
+    systemUserID: 1903061739
+    systemUserProcCount: 344
+    systemUserProcFlagged: iTunes mdworker Safari 'Google Chrome' Dropbox KeyNote
+    systemUsersCount: 1
+  #[[ Window ]] #---------
+    windowWinType: pyglet
+    windowUnits: deg
+    windowSize_pix: [2880 1800]
+    windowScreen: 0
+    windowRgb: [255. 255. 255.]
+    windowRefreshTimeSD_ms: 0.720
+    windowRefreshTimeMedian_ms: 16.665
+    windowRefreshTimeAvg_ms: 16.668
+    windowPos_pix: [0.0, 0.0]
+    windowMonitor.name: testmonitor
+    windowMonitor.getWidth_cm: 52.0
+    windowMonitor.getDistance_cm: 65.0
+    windowMonitor.currentCalibName: 2019_01_28 08:48
+    windowIsFullScr: True
+  #[[ Python ]] #---------
+    pythonVersion: 3.6.0
+  #[[ OpenGL ]] #---------
+#[ PsychoPy3 RuntimeInfoEnd ]
+
+12.6738 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='black', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.5, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0, pos=array([ 0., -5.]), rgb=array([0., 0., 0.]), text=str(...), units='deg', win=Window(...), wrapWidth=30)
+12.6776 	EXP 	Created unnamed DotStim = DotStim(__class__=<class 'psychopy.visual.dot.DotStim'>, autoLog=True, coherence=1.0, color=array([0., 0., 0.]), colorSpace='rgb', contrast=1.0, depth=0, dir=0, dotLife=12000, dotSize=12.0, element=None, fieldPos=array([0., 0.]), fieldShape='square', fieldSize=array([8., 8.]), nDots=200, name='unnamed DotStim', noiseDots='direction', opacity=1.0, rgb=array([0., 0., 0.]), signalDots='same', speed=0.0, units='deg', win=Window(...))
+12.8025 	EXP 	text: text = "Welcome! Thank you for agreeing to participate in this study.\n\nIn this study, you will judge the duration of the items presented on the screen.\n\nThe task is simple: You will see black disks appear, stay for a bit, and disappear on the screen. The black disks will all last for exactly the same amount of time. .\n\nOccasionally, you will see things other than a black disk appear and disappear — these might be spinning or differently colored things.\n\nAll you need to do is judge whether that oddball — the thing that is not a black disk — lasted longer or shorter on the screen than than the black disks.\n\nThese disks might appear at different locations on the screen, and move in circular orbits.\n\nYou will maintain fixation at the center of the screen while making the duration judgments.\n\nIf you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\nPress any key when you are ready to begin the experiment.\n\n"
+12.8025 	EXP 	text: autoDraw = True
+13.6506 	DATA 	Keypress: space
+13.6520 	EXP 	text: autoDraw = False
+13.6652 	EXP 	text: text = 'Please fixate on the red dot while the stimuli appear on the screen. Press any key to begin the experiment.'
+13.6652 	EXP 	text: autoDraw = True
+14.2115 	DATA 	Keypress: space
+14.2127 	EXP 	text: autoDraw = False
+14.2390 	EXP 	text: text = 'Please press l if the 1st stimulus lasted for shorter duration, s if the 2nd stimulus lasted for shorter duration'
+14.2390 	EXP 	unnamed DotStim: speed = 0.0
+14.2390 	EXP 	unnamed DotStim: dotLife = 12000
+14.2390 	EXP 	unnamed DotStim: autoDraw = True
+15.9082 	EXP 	unnamed DotStim: speed = 0.0001
+15.9082 	EXP 	unnamed DotStim: dotLife = 9
+17.4204 	EXP 	unnamed DotStim: dir = 180.0
+17.4538 	EXP 	unnamed DotStim: dir = 360.0
+17.4862 	EXP 	unnamed DotStim: dir = 540.0
+17.5205 	EXP 	unnamed DotStim: dir = 720.0
+17.5538 	EXP 	unnamed DotStim: dir = 900.0
+17.5874 	EXP 	unnamed DotStim: dir = 1080.0
+17.6203 	EXP 	unnamed DotStim: dir = 1260.0
+17.6538 	EXP 	unnamed DotStim: dir = 1440.0
+17.6864 	EXP 	unnamed DotStim: dir = 1620.0
+17.7194 	EXP 	unnamed DotStim: dir = 1800.0
+17.7531 	EXP 	unnamed DotStim: dir = 1980.0
+17.7864 	EXP 	unnamed DotStim: dir = 2160.0
+17.8199 	EXP 	unnamed DotStim: dir = 2340.0
+17.8531 	EXP 	unnamed DotStim: dir = 2520.0
+17.8860 	EXP 	unnamed DotStim: dir = 2700.0
+17.9198 	EXP 	unnamed DotStim: dir = 2880.0
+17.9530 	EXP 	unnamed DotStim: dir = 3060.0
+17.9861 	EXP 	unnamed DotStim: dir = 3240.0
+18.0195 	EXP 	unnamed DotStim: dir = 3420.0
+18.0528 	EXP 	unnamed DotStim: dir = 3600.0
+18.0860 	EXP 	unnamed DotStim: dir = 3780.0
+18.1201 	EXP 	unnamed DotStim: dir = 3960.0
+18.1530 	EXP 	unnamed DotStim: dir = 4140.0
+18.1861 	EXP 	unnamed DotStim: dir = 4320.0
+18.2202 	EXP 	unnamed DotStim: dir = 4500.0
+18.2533 	EXP 	unnamed DotStim: dir = 4680.0
+18.2860 	EXP 	unnamed DotStim: dir = 4860.0
+18.3199 	EXP 	unnamed DotStim: dir = 5040.0
+18.3527 	EXP 	unnamed DotStim: dir = 5220.0
+18.3861 	EXP 	unnamed DotStim: dir = 5400.0
+18.4194 	EXP 	unnamed DotStim: dir = 5580.0
+18.4527 	EXP 	unnamed DotStim: dir = 5760.0
+18.4856 	EXP 	unnamed DotStim: dir = 5940.0
+18.5191 	EXP 	unnamed DotStim: dir = 6120.0
+18.5528 	EXP 	unnamed DotStim: dir = 6300.0
+18.5855 	EXP 	unnamed DotStim: dir = 6480.0
+18.6196 	EXP 	unnamed DotStim: dir = 6660.0
+18.6537 	EXP 	unnamed DotStim: dir = 6840.0
+18.6860 	EXP 	unnamed DotStim: dir = 7020.0
+18.7191 	EXP 	unnamed DotStim: dir = 7200.0
+18.7536 	EXP 	unnamed DotStim: dir = 7380.0
+18.7857 	EXP 	unnamed DotStim: dir = 7560.0
+18.8190 	EXP 	unnamed DotStim: dir = 7740.0
+18.8527 	EXP 	unnamed DotStim: dir = 7920.0
+18.8854 	EXP 	unnamed DotStim: dir = 8100.0
+18.9186 	EXP 	unnamed DotStim: dir = 8280.0
+18.9530 	EXP 	unnamed DotStim: dir = 8460.0
+18.9858 	EXP 	unnamed DotStim: dir = 8640.0
+19.0190 	EXP 	unnamed DotStim: dir = 8820.0
+19.0526 	EXP 	unnamed DotStim: dir = 9000.0
+19.0858 	EXP 	unnamed DotStim: dir = 9180.0
+19.1033 	EXP 	unnamed DotStim: autoDraw = False
+19.1193 	EXP 	text: autoDraw = True
+19.1356 	EXP 	text: autoDraw = True
+19.1517 	EXP 	text: autoDraw = True
+19.1694 	EXP 	text: autoDraw = True
+19.1880 	EXP 	text: autoDraw = True
+19.2029 	EXP 	text: autoDraw = True
+19.2189 	EXP 	text: autoDraw = True
+19.2362 	EXP 	text: autoDraw = True
+19.2519 	EXP 	text: autoDraw = True
+19.2690 	EXP 	text: autoDraw = True
+19.2852 	EXP 	text: autoDraw = True
+19.3031 	EXP 	text: autoDraw = True
+19.3192 	EXP 	text: autoDraw = True
+19.3353 	EXP 	text: autoDraw = True
+19.3523 	EXP 	text: autoDraw = True
+19.3697 	EXP 	text: autoDraw = True
+19.3850 	EXP 	text: autoDraw = True
+19.4024 	EXP 	text: autoDraw = True
+19.4188 	EXP 	text: autoDraw = True
+19.4360 	EXP 	text: autoDraw = True
+19.4528 	EXP 	text: autoDraw = True
+19.4688 	EXP 	text: autoDraw = True
+19.4853 	EXP 	text: autoDraw = True
+19.5028 	EXP 	text: autoDraw = True
+19.5202 	EXP 	text: autoDraw = True
+19.5359 	EXP 	text: autoDraw = True
+19.5533 	EXP 	text: autoDraw = True
+19.5703 	EXP 	text: autoDraw = True
+19.5868 	EXP 	text: autoDraw = True
+19.6027 	EXP 	text: autoDraw = True
+19.6190 	EXP 	text: autoDraw = True
+19.6357 	EXP 	text: autoDraw = True
+19.6526 	EXP 	text: autoDraw = True
+19.6698 	EXP 	text: autoDraw = True
+19.6858 	EXP 	text: autoDraw = True
+19.7030 	EXP 	text: autoDraw = True
+19.7213 	EXP 	text: autoDraw = True
+19.7356 	EXP 	text: autoDraw = True
+19.7525 	EXP 	text: autoDraw = True
+19.7700 	EXP 	text: autoDraw = True
+19.7860 	EXP 	text: autoDraw = True
+19.8026 	EXP 	text: autoDraw = True
+19.8197 	EXP 	text: autoDraw = True
+19.8353 	EXP 	text: autoDraw = True
+19.8526 	EXP 	text: autoDraw = True
+19.8693 	EXP 	text: autoDraw = True
+19.8861 	EXP 	text: autoDraw = True
+19.9025 	EXP 	text: autoDraw = True
+19.9194 	EXP 	text: autoDraw = True
+19.9361 	EXP 	text: autoDraw = True
+19.9526 	EXP 	text: autoDraw = True
+19.9686 	EXP 	text: autoDraw = True
+19.9859 	EXP 	text: autoDraw = True
+20.0023 	EXP 	text: autoDraw = True
+20.0190 	EXP 	text: autoDraw = True
+20.0362 	EXP 	text: autoDraw = True
+20.0529 	EXP 	text: autoDraw = True
+20.0696 	EXP 	text: autoDraw = True
+20.0856 	EXP 	text: autoDraw = True
+20.1036 	EXP 	text: autoDraw = True
+20.1193 	EXP 	text: autoDraw = True
+20.1358 	EXP 	text: autoDraw = True
+20.1526 	EXP 	text: autoDraw = True
+20.1695 	EXP 	text: autoDraw = True
+20.1848 	EXP 	text: autoDraw = True
+20.2028 	EXP 	text: autoDraw = True
+20.2187 	EXP 	text: autoDraw = True
+20.2363 	EXP 	text: autoDraw = True
+20.2520 	EXP 	text: autoDraw = True
+20.2695 	EXP 	text: autoDraw = True
+20.2852 	EXP 	text: autoDraw = True
+20.3019 	EXP 	text: autoDraw = True
+20.3194 	EXP 	text: autoDraw = True
+20.3352 	EXP 	text: autoDraw = True
+20.3521 	EXP 	text: autoDraw = True
+20.3695 	EXP 	text: autoDraw = True
+20.3854 	EXP 	text: autoDraw = True
+20.4013 	EXP 	text: autoDraw = True
+20.4196 	EXP 	text: autoDraw = True
+20.4354 	EXP 	text: autoDraw = True
+20.4521 	EXP 	text: autoDraw = True
+20.4689 	EXP 	text: autoDraw = True
+20.4854 	EXP 	text: autoDraw = True
+20.5019 	EXP 	text: autoDraw = True
+20.5194 	EXP 	text: autoDraw = True
+20.5354 	EXP 	text: autoDraw = True
+20.5530 	EXP 	text: autoDraw = True
+20.5688 	EXP 	text: autoDraw = True
+20.5854 	EXP 	text: autoDraw = True
+20.6035 	EXP 	text: autoDraw = True
+20.6181 	EXP 	text: autoDraw = True
+20.6364 	EXP 	text: autoDraw = True
+20.6521 	EXP 	text: autoDraw = True
+20.6686 	EXP 	text: autoDraw = True
+20.6857 	EXP 	text: autoDraw = True
+20.7020 	EXP 	text: autoDraw = True
+20.7187 	EXP 	text: autoDraw = True
+20.7354 	EXP 	text: autoDraw = True
+20.7520 	EXP 	text: autoDraw = True
+20.7688 	EXP 	text: autoDraw = True
+20.7852 	EXP 	text: autoDraw = True
+20.8021 	EXP 	text: autoDraw = True
+20.8196 	EXP 	text: autoDraw = True
+20.8353 	EXP 	text: autoDraw = True
+20.8521 	EXP 	text: autoDraw = True
+20.8703 	EXP 	text: autoDraw = True
+20.8855 	EXP 	text: autoDraw = True
+20.9033 	EXP 	text: autoDraw = True
+20.9188 	EXP 	text: autoDraw = True
+20.9355 	EXP 	text: autoDraw = True
+20.9533 	EXP 	text: autoDraw = True
+20.9681 	EXP 	text: autoDraw = True
+20.9856 	EXP 	text: autoDraw = True
+21.0020 	EXP 	text: autoDraw = True
+21.0193 	EXP 	text: autoDraw = True
+21.0358 	EXP 	text: autoDraw = True
+21.0514 	EXP 	text: autoDraw = True
+21.0686 	EXP 	text: autoDraw = True
+21.0847 	EXP 	text: autoDraw = True
+21.1020 	EXP 	text: autoDraw = True
+21.1188 	EXP 	text: autoDraw = True
+21.1353 	EXP 	text: autoDraw = True
+21.1521 	EXP 	text: autoDraw = True
+21.1703 	EXP 	text: autoDraw = True
+21.1853 	EXP 	text: autoDraw = True
+21.2019 	EXP 	text: autoDraw = True
+21.2191 	EXP 	text: autoDraw = True
+21.2367 	EXP 	text: autoDraw = True
+21.2520 	EXP 	text: autoDraw = True
+21.2687 	EXP 	text: autoDraw = True
+21.2854 	EXP 	text: autoDraw = True
+21.3019 	EXP 	text: autoDraw = True
+21.3197 	EXP 	text: autoDraw = True
+21.3354 	EXP 	text: autoDraw = True
+21.3520 	EXP 	text: autoDraw = True
+21.3687 	EXP 	text: autoDraw = True
+21.3855 	EXP 	text: autoDraw = True
+21.4019 	EXP 	text: autoDraw = True
+21.4192 	EXP 	text: autoDraw = True
+21.4352 	EXP 	text: autoDraw = True
+21.4519 	EXP 	text: autoDraw = True
+21.4686 	EXP 	text: autoDraw = True
+21.4847 	EXP 	text: autoDraw = True
+21.5032 	EXP 	text: autoDraw = True
+21.5198 	EXP 	text: autoDraw = True
+21.5366 	EXP 	text: autoDraw = True
+21.5531 	EXP 	text: autoDraw = True
+21.5698 	EXP 	text: autoDraw = True
+21.5862 	EXP 	text: autoDraw = True
+21.6031 	EXP 	text: autoDraw = True
+21.6199 	EXP 	text: autoDraw = True
+21.6353 	EXP 	text: autoDraw = True
+21.6533 	EXP 	text: autoDraw = True
+21.6700 	EXP 	text: autoDraw = True
+21.6867 	EXP 	text: autoDraw = True
+21.7018 	EXP 	text: autoDraw = True
+21.7199 	EXP 	text: autoDraw = True
+21.7362 	EXP 	text: autoDraw = True
+21.7520 	EXP 	text: autoDraw = True
+21.7697 	EXP 	text: autoDraw = True
+21.7865 	EXP 	text: autoDraw = True
+21.8030 	EXP 	text: autoDraw = True
+21.8199 	EXP 	text: autoDraw = True
+21.8365 	EXP 	text: autoDraw = True
+21.8529 	EXP 	text: autoDraw = True
+21.8695 	EXP 	text: autoDraw = True
+21.8866 	EXP 	text: autoDraw = True
+21.9033 	EXP 	text: autoDraw = True
+21.9194 	EXP 	text: autoDraw = True
+21.9365 	EXP 	text: autoDraw = True
+21.9531 	EXP 	text: autoDraw = True
+21.9703 	EXP 	text: autoDraw = True
+21.9867 	EXP 	text: autoDraw = True
+22.0034 	EXP 	text: autoDraw = True
+22.0199 	EXP 	text: autoDraw = True
+22.0365 	EXP 	text: autoDraw = True
+22.0532 	EXP 	text: autoDraw = True
+22.0701 	EXP 	text: autoDraw = True
+22.0865 	EXP 	text: autoDraw = True
+22.1034 	EXP 	text: autoDraw = True
+22.1196 	EXP 	text: autoDraw = True
+22.1358 	EXP 	text: autoDraw = True
+22.1529 	EXP 	text: autoDraw = True
+22.1695 	EXP 	text: autoDraw = True
+22.1865 	EXP 	text: autoDraw = True
+22.2032 	EXP 	text: autoDraw = True
+22.2200 	EXP 	text: autoDraw = True
+22.2362 	EXP 	text: autoDraw = True
+22.2531 	EXP 	text: autoDraw = True
+22.2699 	EXP 	text: autoDraw = True
+22.2866 	EXP 	text: autoDraw = True
+22.3032 	EXP 	text: autoDraw = True
+22.3198 	EXP 	text: autoDraw = True
+22.3365 	EXP 	text: autoDraw = True
+22.3526 	EXP 	text: autoDraw = True
+22.3699 	EXP 	text: autoDraw = True
+22.3866 	EXP 	text: autoDraw = True
+22.4032 	EXP 	text: autoDraw = True
+22.4198 	EXP 	text: autoDraw = True
+22.4365 	EXP 	text: autoDraw = True
+22.4528 	EXP 	text: autoDraw = True
+22.4700 	EXP 	text: autoDraw = True
+22.4866 	EXP 	text: autoDraw = True
+22.5032 	EXP 	text: autoDraw = True
+22.5198 	EXP 	text: autoDraw = True
+22.5366 	EXP 	text: autoDraw = True
+22.5536 	EXP 	text: autoDraw = True
+22.5693 	EXP 	text: autoDraw = True
+22.5865 	EXP 	text: autoDraw = True
+22.6033 	EXP 	text: autoDraw = True
+22.6195 	EXP 	text: autoDraw = True
+22.6364 	EXP 	text: autoDraw = True
+22.6520 	EXP 	text: autoDraw = True
+22.6696 	EXP 	text: autoDraw = True
+22.6865 	EXP 	text: autoDraw = True
+22.7032 	EXP 	text: autoDraw = True
+22.7202 	EXP 	text: autoDraw = True
+22.7365 	EXP 	text: autoDraw = True
+22.7532 	EXP 	text: autoDraw = True
+22.7698 	EXP 	text: autoDraw = True
+22.7860 	EXP 	text: autoDraw = True
+22.8035 	EXP 	text: autoDraw = True
+22.8195 	EXP 	text: autoDraw = True
+22.8365 	EXP 	text: autoDraw = True
+22.8533 	EXP 	text: autoDraw = True
+22.8700 	EXP 	text: autoDraw = True
+22.8864 	EXP 	text: autoDraw = True
+22.9029 	EXP 	text: autoDraw = True
+22.9197 	EXP 	text: autoDraw = True
+22.9367 	EXP 	text: autoDraw = True
+22.9534 	EXP 	text: autoDraw = True
+22.9698 	EXP 	text: autoDraw = True
+22.9857 	EXP 	text: autoDraw = True
+23.0032 	EXP 	text: autoDraw = True
+23.0200 	EXP 	text: autoDraw = True
+23.0366 	EXP 	text: autoDraw = True
+23.0532 	EXP 	text: autoDraw = True
+23.0699 	EXP 	text: autoDraw = True
+23.0866 	EXP 	text: autoDraw = True
+23.1029 	EXP 	text: autoDraw = True
+23.1198 	EXP 	text: autoDraw = True
+23.1365 	EXP 	text: autoDraw = True
+23.1534 	EXP 	text: autoDraw = True
+23.1700 	EXP 	text: autoDraw = True
+23.1866 	EXP 	text: autoDraw = True
+23.2032 	EXP 	text: autoDraw = True
+23.2188 	EXP 	text: autoDraw = True
+23.2366 	EXP 	text: autoDraw = True
+23.2533 	EXP 	text: autoDraw = True
+23.2701 	EXP 	text: autoDraw = True
+23.2865 	EXP 	text: autoDraw = True
+23.3033 	EXP 	text: autoDraw = True
+23.3187 	EXP 	text: autoDraw = True
+23.3364 	EXP 	text: autoDraw = True
+23.3530 	EXP 	text: autoDraw = True
+23.3698 	EXP 	text: autoDraw = True
+23.3865 	EXP 	text: autoDraw = True
+23.4031 	EXP 	text: autoDraw = True
+23.4198 	EXP 	text: autoDraw = True
+23.4353 	EXP 	text: autoDraw = True
+23.4533 	EXP 	text: autoDraw = True
+23.4699 	EXP 	text: autoDraw = True
+23.4866 	EXP 	text: autoDraw = True
+23.5033 	EXP 	text: autoDraw = True
+23.5200 	EXP 	text: autoDraw = True
+23.5360 	EXP 	text: autoDraw = True
+23.5529 	EXP 	text: autoDraw = True
+23.5701 	EXP 	text: autoDraw = True
+23.5866 	EXP 	text: autoDraw = True
+23.6034 	EXP 	text: autoDraw = True
+23.6201 	EXP 	text: autoDraw = True
+23.6362 	EXP 	text: autoDraw = True
+23.6532 	EXP 	text: autoDraw = True
+23.6698 	EXP 	text: autoDraw = True
+23.6867 	EXP 	text: autoDraw = True
+23.7034 	EXP 	text: autoDraw = True
+23.7200 	EXP 	text: autoDraw = True
+23.7365 	EXP 	text: autoDraw = True
+23.7527 	EXP 	text: autoDraw = True
+23.7700 	EXP 	text: autoDraw = True
+23.7869 	EXP 	text: autoDraw = True
+23.8028 	EXP 	text: autoDraw = True
+23.8199 	EXP 	text: autoDraw = True
+23.8364 	EXP 	text: autoDraw = True
+23.8531 	EXP 	text: autoDraw = True
+23.8698 	EXP 	text: autoDraw = True
+23.8866 	EXP 	text: autoDraw = True
+23.9034 	EXP 	text: autoDraw = True
+23.9202 	EXP 	text: autoDraw = True
+23.9367 	EXP 	text: autoDraw = True
+23.9534 	EXP 	text: autoDraw = True
+23.9695 	EXP 	text: autoDraw = True
+23.9864 	EXP 	text: autoDraw = True
+24.0036 	EXP 	text: autoDraw = True
+24.0200 	EXP 	text: autoDraw = True
+24.0365 	EXP 	text: autoDraw = True
+24.0533 	EXP 	text: autoDraw = True
+24.0695 	EXP 	text: autoDraw = True
+24.0865 	EXP 	text: autoDraw = True
+24.1034 	EXP 	text: autoDraw = True
+24.1202 	EXP 	text: autoDraw = True
+24.1361 	EXP 	text: autoDraw = True
+24.1530 	EXP 	text: autoDraw = True
+24.1702 	EXP 	text: autoDraw = True
+24.1866 	EXP 	text: autoDraw = True
+24.2034 	EXP 	text: autoDraw = True
+24.2198 	EXP 	text: autoDraw = True
+24.2351 	EXP 	text: autoDraw = True
+24.2535 	EXP 	text: autoDraw = True
+24.2696 	EXP 	text: autoDraw = True
+24.2855 	EXP 	text: autoDraw = True
+24.3029 	EXP 	text: autoDraw = True
+24.3199 	EXP 	text: autoDraw = True
+24.3362 	EXP 	text: autoDraw = True
+24.3531 	EXP 	text: autoDraw = True
+24.3701 	EXP 	text: autoDraw = True
+24.3864 	EXP 	text: autoDraw = True
+24.4031 	EXP 	text: autoDraw = True
+24.4201 	EXP 	text: autoDraw = True
+24.4365 	EXP 	text: autoDraw = True
+24.4532 	EXP 	text: autoDraw = True
+24.4699 	EXP 	text: autoDraw = True
+24.4867 	EXP 	text: autoDraw = True
+24.5022 	EXP 	text: autoDraw = True
+24.5197 	EXP 	text: autoDraw = True
+24.5367 	EXP 	text: autoDraw = True
+24.5523 	EXP 	text: autoDraw = True
+24.5699 	EXP 	text: autoDraw = True
+24.5865 	EXP 	text: autoDraw = True
+24.6032 	EXP 	text: autoDraw = True
+24.6201 	EXP 	text: autoDraw = True
+24.6365 	EXP 	text: autoDraw = True
+24.6531 	EXP 	text: autoDraw = True
+24.6699 	EXP 	text: autoDraw = True
+24.6864 	EXP 	text: autoDraw = True
+24.7025 	EXP 	text: autoDraw = True
+24.7196 	EXP 	text: autoDraw = True
+24.7357 	EXP 	text: autoDraw = True
+24.7537 	EXP 	text: autoDraw = True
+24.7697 	EXP 	text: autoDraw = True
+24.7869 	EXP 	text: autoDraw = True
+24.8029 	EXP 	text: autoDraw = True
+24.8195 	EXP 	text: autoDraw = True
+24.8368 	EXP 	text: autoDraw = True
+24.8534 	EXP 	text: autoDraw = True
+24.8700 	EXP 	text: autoDraw = True
+24.8866 	EXP 	text: autoDraw = True
+24.9027 	EXP 	text: autoDraw = True
+24.9066 	DATA 	Keypress: escape
+24.9191 	EXP 	text: autoDraw = False
+25.4093 	EXP 	window1: mouseVisible = True

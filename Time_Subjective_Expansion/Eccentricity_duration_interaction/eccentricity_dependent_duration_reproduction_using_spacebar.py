@@ -55,8 +55,8 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 5120  # monitor width in pixels of Agosta
-heightPix = 2880  # 800 #monitor height in pixels
+widthPix = 2880#5120  # monitor width in pixels of Agosta
+heightPix = 1800#2880  # 800 #monitor height in pixels
 monitorwidth = 52  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
@@ -81,8 +81,8 @@ if demo:
 viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
-INS_MSG += "In this study, you will judging the duration of items displayed on the screen.\n\n"
-INS_MSG += "In a given trial, an item appears on the screen and disappears after some time.\n\n"
+INS_MSG += "In this study, we want to examine your ability to perceive duration — how long something lasts.\n\n"
+INS_MSG += "The task is simple. In each trial, you will see a black disc appear on the screen and then disappear.\n\n"
 INS_MSG += "Once the item disappears, you will need to press and hold the SPACE BAR for as long as you thought the stimulus has appeared.\n\n"
 INS_MSG += "The experiment will advance to the next trial once you release the space bar.\n\n"
 INS_MSG += "The items can appear anywhere on the horizontal axis of the screen.\n\n"
@@ -411,9 +411,9 @@ for ix,dur in enumerate(possibleOddballDurations):
     print(type[ix])
     if type[ix]==0:
         oddBallStim1.setPos([3,0])
-    if type[ix]==1:
+    elif type[ix]==1:
         oddBallStim1.setPos([-3,0])
-    if type[ix]==2:
+    elif type[ix]==2:
         oddBallStim1.setPos([9,0])
     else:
         oddBallStim1.setPos([-9,0])
@@ -461,7 +461,15 @@ for ix,dur in enumerate(possibleOddballDurations):
             for key in keys:
                 fixation.setAutoDraw(False)
                 display_text.setText('Space duration : ' + str(np.round(key.duration,2)))
-                response.append({'Duration':dur, 'Response':key.duration, 'Each condition':ix})
+                if type[ix]==0:
+                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[3,0]})
+                elif type[ix]==1:
+                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[-3,0]})
+                elif type[ix]==2:
+                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[9,0]})
+                else:
+                    response.append({'Duration':dur, 'Response':key.duration, 'Eccentricity':[-9,0]})
+
                 myWin.flip()
             waiting=False
     display_text.setAutoDraw(False)
