@@ -55,9 +55,9 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 1920  # monitor width in pixels of Agosta
-heightPix = 1080  # 800 #monitor height in pixels
-monitorwidth = 56 # Chaz's labspace Ames 27  # 28.2  # monitor width in cm
+widthPix = 2560 #1920  # monitor width in pixels of Agosta
+heightPix = 1440 # 1080  # 800 #monitor height in pixels
+monitorwidth = 52 # Chaz's labspace Ames 27  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
@@ -78,7 +78,7 @@ if demo:
     heightPix = 2880
     monitorname = 'testMonitor'
     allowGUI = True
-viewdist = 80.0  # cm
+viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, we want to examine your ability to perceive duration — how long something lasts.\n\n"
@@ -90,7 +90,7 @@ INS_MSG += "You will need to make the duration judgments while fixating at the c
 
 INS_MSG += "Press any key to continue to the next page. \n\n"
 
-INS_MSG2 = "We really want you to be as accurate as you can. So a game will be played to make it more fun. We want you to hold down the space bar for as long as you saw the disc last! The closer you get to the right answer, the more points we will award you in that trial. So you need to be as accurate as possible to earn the max. Each trial will be for 10 points. There are about 120 trials. If you collect a total of 950 points by the end, we will double the credit you get for the experiment.\n\n"
+INS_MSG2 = "We really want you to be as accurate as you can. So a game will be played to make it more fun. We want you to hold down the space bar for as long as you saw the disc last! The closer you get to the right answer, the more points we will award you in that trial. So you need to be as accurate as possible to earn the max. Each trial will be for 10 points. There are about 240 trials. If you collect a total of 1900 points by the end, we will double the credit you get for the experiment.\n\n"
 INS_MSG2 += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG2 += "Press any key you are ready to do some practice trials.\n\n"
 
@@ -309,8 +309,8 @@ fixationBlank = visual.PatchStim(myWin, tex=-1*fixatnNoiseTexture, size=(fixSize
 oddBallDur = []
 
 # SETTING THE CONDITIONS
-possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],12) # total 60
-type = np.tile([0,1,2,3],30)
+possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],24) # total 240
+type = np.tile([0,1,2,3],60)
 conditions = np.array([possibleOddballDurations, type])
 conditions = conditions.T
 shuffle(conditions)
@@ -606,20 +606,20 @@ for ix,dur in enumerate(possibleOddballDurations):
 
         if 'space' in keys:
             for key in keys:
-                response.append({'Duration':dur/1000, 'Response':key.duration, 'Stimulus condition':type[ix], 'Eccentricity':ecc})
                 diff_time = np.abs(key.duration-dur/1000)
+                print(key.duration)
                 current_points = np.round((np.exp(-diff_time*1.5)),2)*10
                 reward_counter+= current_points
                 kb.stop()
                 myWin.flip()
+                response.append({"Duration":dur/1000, "Response":key.duration, "Stimulus condition":type[ix], "Eccentricity":ecc})
                 between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
                 reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
 
             waiting=False
 
 
-
-
+ 
 
 
     # end main trials loop
@@ -627,6 +627,8 @@ for ix,dur in enumerate(possibleOddballDurations):
 msg = 'Finishing at '+timeAndDateStr
 print(msg)
 logging.info(msg)
+
+
 if expStop:
     msg = 'user aborted experiment on keypress with trials done=' + \
         str(nDoneMain) + ' of ' + str(len(trials)+1)
@@ -638,3 +640,7 @@ with open(fileName+'.csv', 'w') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(response)
+    
+display_message(myWin, display_text, "Congratulations! You are done, please remember your score and tell it to the experimenter.")    
+myWin.close()
+core.quit()
