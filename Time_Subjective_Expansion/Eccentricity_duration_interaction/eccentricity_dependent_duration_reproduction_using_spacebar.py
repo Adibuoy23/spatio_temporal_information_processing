@@ -14,6 +14,7 @@ import pylab
 from random import sample, shuffle, randint
 from pyglet.window import Window
 from pyglet.window import key
+from numpy.random import shuffle
 
 try:
     from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
