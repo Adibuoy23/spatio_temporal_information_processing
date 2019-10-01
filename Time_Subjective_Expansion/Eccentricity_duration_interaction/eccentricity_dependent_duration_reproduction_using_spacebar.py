@@ -11,9 +11,10 @@ import sys
 import os
 import csv
 import pylab
-from random import sample, shuffle, randint
+from random import sample, randint
 from pyglet.window import Window
 from pyglet.window import key
+from numpy.random import shuffle
 
 try:
     from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
@@ -310,12 +311,12 @@ oddBallDur = []
 
 # SETTING THE CONDITIONS
 possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],24) # total 240
-type = np.tile([0,1,2,3],60)
-conditions = np.array([possibleOddballDurations, type])
+types = np.tile([0,1,2,3],60)
+conditions = np.array([possibleOddballDurations, types])
 conditions = conditions.T
 shuffle(conditions)
 possibleOddballDurations = conditions[:,0]
-type = conditions[:,1]
+types = conditions[:,1]
 
 Durations = 1.05 #sec
 
@@ -413,7 +414,7 @@ reward_text = visual.TextStim(
     colorSpace='rgb',
     opacity=1,
     depth=-1.0)
-    
+
 oddBallStim1 = visual.Circle(myWin,
                     radius=oddBallMaxRadius1,  # Martini used circles with diameter of 12 deg
                     lineColorSpace='rgb',
@@ -458,16 +459,16 @@ for ix,dur in enumerate(temp[0:3]):
     core.wait(1)
     oddBallStim1.setAutoDraw(True)
     oddBallClock.reset()
-    print(type[ix])
-    if type[ix]==0:
+    print(types[ix])
+    if types[ix]==0:
         ecc = [3,0]
-    elif type[ix]==1:
+    elif types[ix]==1:
         ecc=[-3,0]
-    elif type[ix]==2:
+    elif types[ix]==2:
         ecc = [12,0]
     else:
         ecc = [-12,0]
-    
+
     oddBallStim1.setPos(ecc)
     myWin.flip()
 
@@ -506,7 +507,7 @@ for ix,dur in enumerate(temp[0:3]):
     counter = i
     kb = keyboard.Keyboard()
     kb.clock.reset()
-    
+
 
     waiting = True
     keys = []
@@ -544,16 +545,16 @@ for ix,dur in enumerate(possibleOddballDurations):
     core.wait(1)
     oddBallStim1.setAutoDraw(True)
     oddBallClock.reset()
-    print(type[ix])
-    if type[ix]==0:
+    print(types[ix])
+    if types[ix]==0:
         ecc = [3,0]
-    elif type[ix]==1:
+    elif types[ix]==1:
         ecc=[-3,0]
-    elif type[ix]==2:
+    elif types[ix]==2:
         ecc = [12,0]
     else:
         ecc = [-12,0]
-    
+
     oddBallStim1.setPos(ecc)
     myWin.flip()
 
@@ -593,7 +594,7 @@ for ix,dur in enumerate(possibleOddballDurations):
     counter = i
     kb = keyboard.Keyboard()
     kb.clock.reset()
-    
+
 
     waiting = True
     keys = []
@@ -612,14 +613,14 @@ for ix,dur in enumerate(possibleOddballDurations):
                 reward_counter+= current_points
                 kb.stop()
                 myWin.flip()
-                response.append({"Duration":dur/1000, "Response":key.duration, "Stimulus condition":type[ix], "Eccentricity":ecc})
+                response.append({"Duration":dur/1000, "Response":key.duration, "Stimulus condition":types[ix], "Eccentricity":ecc})
                 between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
                 reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
 
             waiting=False
 
 
- 
+
 
 
     # end main trials loop
@@ -640,7 +641,7 @@ with open(fileName+'.csv', 'w') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(response)
-    
-display_message(myWin, display_text, "Congratulations! You are done, please remember your score and tell it to the experimenter.")    
+
+display_message(myWin, display_text, "Congratulations! You are done, please remember your score and tell it to the experimenter.")
 myWin.close()
 core.quit()
