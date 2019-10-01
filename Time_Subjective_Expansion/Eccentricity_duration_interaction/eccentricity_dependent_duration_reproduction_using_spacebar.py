@@ -14,7 +14,7 @@ import pylab
 from random import sample, shuffle, randint
 from pyglet.window import Window
 from pyglet.window import key
- 
+
 try:
     from noiseStaircaseHelpers import printStaircase, toStaircase, outOfStaircase, createNoise, plotDataAndPsychometricCurve
 except ImportError:
@@ -413,7 +413,7 @@ reward_text = visual.TextStim(
     colorSpace='rgb',
     opacity=1,
     depth=-1.0)
-    
+
 oddBallStim1 = visual.Circle(myWin,
                     radius=oddBallMaxRadius1,  # Martini used circles with diameter of 12 deg
                     lineColorSpace='rgb',
@@ -467,7 +467,7 @@ for ix,dur in enumerate(temp[0:3]):
         ecc = [12,0]
     else:
         ecc = [-12,0]
-    
+
     oddBallStim1.setPos(ecc)
     myWin.flip()
 
@@ -506,7 +506,7 @@ for ix,dur in enumerate(temp[0:3]):
     counter = i
     kb = keyboard.Keyboard()
     kb.clock.reset()
-    
+
 
     waiting = True
     keys = []
@@ -553,7 +553,7 @@ for ix,dur in enumerate(possibleOddballDurations):
         ecc = [12,0]
     else:
         ecc = [-12,0]
-    
+
     oddBallStim1.setPos(ecc)
     myWin.flip()
 
@@ -593,7 +593,7 @@ for ix,dur in enumerate(possibleOddballDurations):
     counter = i
     kb = keyboard.Keyboard()
     kb.clock.reset()
-    
+
 
     waiting = True
     keys = []
@@ -619,7 +619,7 @@ for ix,dur in enumerate(possibleOddballDurations):
             waiting=False
 
 
- 
+
 
 
     # end main trials loop
@@ -640,7 +640,7 @@ with open(fileName+'.csv', 'w') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(response)
-    
-display_message(myWin, display_text, "Congratulations! You are done, please remember your score and tell it to the experimenter.")    
+
+display_message(myWin, display_text, "Congratulations! You are done, please remember your score and tell it to the experimenter.")
 myWin.close()
 core.quit()
