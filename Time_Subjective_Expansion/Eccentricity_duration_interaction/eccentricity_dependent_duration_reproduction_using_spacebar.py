@@ -11,7 +11,7 @@ import sys
 import os
 import csv
 import pylab
-from random import sample, shuffle, randint
+from random import sample, randint
 from pyglet.window import Window
 from pyglet.window import key
 from numpy.random import shuffle
