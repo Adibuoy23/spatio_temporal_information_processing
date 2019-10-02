@@ -1,0 +1,1295 @@
+9.4850 	ERROR 	Screen apparently NOT the desired resolution of 3840x2160 pixels!!
+12.7291 	WARNING 	User requested fullscreen with size [3840 2160], but screen is actually [1920, 1080]. Using actual size
+13.3099 	INFO 	Successfully set darwin thread to realtime
+14.3737 	INFO 	#[ PsychoPy3 RuntimeInfoStart ]
+  #[[ PsychoPy ]] #---------
+    psychopyVersion: 3.2.3
+    psychopyHaveExtRush: True
+  #[[ Experiment ]] #---------
+    experimentRunTime: 2019_10_02 14:37 (Year_Month_Day Hour:Min)
+    experimentRunTime.epoch: 1570041464
+    experimentScript: duration_judgments_using_space_bar.py
+    experimentScript.digestSHA1: 5e088fecb52f70dc4032971e1f2c46374624cbfa
+    experimentScript.directory: /Users/supadhy6/Documents/GitHub/spatio_temporal_information_processing/Time_Subjective_Expansion/Jon_Ian_collaboration
+  #[[ System ]] #---------
+    systemHaveInternetAccess: True
+    systemHostName: pbs-cf-mini1.local
+    systemLocale: C
+    systemMemFreeRAM: 13274.73046875
+    systemMemTotalRAM: 16384.0
+    systemPlatform: darwin 10.12.6 x86_64
+    systemPyoVersion: -
+    systemRebooted: Sep 25 02:06
+    systemSec.OpenSSLVersion: OpenSSL 0.9.8zh 14 Jan 2016
+    systemSec.pythonSSL: True
+    systemTimeNumpySD1000000_sec: 0.0060
+    systemUser: supadhy6
+    systemUserID: 1903061739
+    systemUsersCount: 1
+  #[[ Window ]] #---------
+    windowWinType: pyglet
+    windowUnits: deg
+    windowSize_pix: [1920 1080]
+    windowScreen: 0
+    windowRgb: [255. 255. 255.]
+    windowRefreshTimeSD_ms: 0.054
+    windowRefreshTimeMedian_ms: 16.666
+    windowRefreshTimeAvg_ms: 16.666
+    windowPos_pix: [0.0, 0.0]
+    windowMonitor.name: testmonitor
+    windowMonitor.getWidth_cm: 56.0
+    windowMonitor.getDistance_cm: 65.0
+    windowMonitor.currentCalibName: 2019_09_24 12:00
+    windowIsFullScr: True
+  #[[ Python ]] #---------
+    pythonVersion: 3.6.1
+  #[[ OpenGL ]] #---------
+#[ PsychoPy3 RuntimeInfoEnd ]
+
+14.4686 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='black', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.35, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([0., 0., 0.]), text=str(...), units='deg', win=Window(...), wrapWidth=20)
+14.4758 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='black', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.35, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0, pos=array([5., 5.]), rgb=array([0., 0., 0.]), text='Total points : 0', units='deg', win=Window(...), wrapWidth=20)
+14.5899 	EXP 	text: text = 'Welcome! Thank you for agreeing to participate in this study.\n\nIn this study, we want to examine your ability to perceive duration — how long something lasts.\n\nThe task is simple. In each trial, you will see a black disc appear on the screen and then disappear. Actually, the disc will appear and disappear three times in each trial, and each time, it will last for the same amount of time. We want you to pay attention to how long the disc lasts. Get a sense of its duration. It is repeated three times in a trial to help you get an accurate sense of its duration.\n\nAfter the third time the disc disappears it will be your turn to report its duration. Press and hold down the spacebar. This will make a disc appear on the screen. Let go of the spacebar when you think your disc has been on the screen as long as the standard disc you saw on that trial. So the point is we want you to reproduce the duration that you experienced. Remember we want to know how long each of the three black discs lasted, not how long they lasted in all together. \n\nPress any key to continue to the next page. \n\n'
+14.5899 	EXP 	text: autoDraw = True
+67.2778 	DATA 	Keypress: space
+67.2787 	EXP 	text: autoDraw = False
+67.3566 	EXP 	text: text = "We really want you to be as accurate as you can. So a game will be played to make it more fun. We want you to hold down the space bar for as long as you saw the standard disc last, but no longer! The closer you get to the right answer, the more points we will award you in that trial. But if you go over, your disc will disappear on its own and you won't get any points on that trial. So you need to be as accurate as possible without going over to earn the max. Each trial will be for 10 points. There are about 120 trials. If you collect a total of 650 points by the end, we will double the credit you get for the experiment.\n\nIf you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\nPress any key you are ready to do some practice trials.\n\n"
+67.3566 	EXP 	text: autoDraw = True
+102.9006 	DATA 	Keypress: space
+102.9014 	EXP 	text: autoDraw = False
+102.9061 	EXP 	text: autoDraw = True
+108.3063 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+108.3063 	EXP 	text: autoDraw = True
+111.2286 	DATA 	Keypress: space
+111.2296 	EXP 	text: autoDraw = False
+111.8268 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+111.8440 	EXP 	text: text = 'You earned 7.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+111.8440 	EXP 	text: autoDraw = True
+114.2443 	DATA 	Keypress: space
+114.2452 	EXP 	text: autoDraw = False
+114.2561 	EXP 	text: text = 'Total points : 7.4'
+120.1583 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+120.1583 	EXP 	text: autoDraw = True
+121.0845 	DATA 	Keypress: space
+121.0855 	EXP 	text: autoDraw = False
+121.7388 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+121.7562 	EXP 	text: text = 'You earned 5.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+121.7562 	EXP 	text: autoDraw = True
+123.5242 	DATA 	Keypress: space
+123.5253 	EXP 	text: autoDraw = False
+123.5395 	EXP 	text: text = 'Total points : 13.0'
+130.3418 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+130.3418 	EXP 	text: autoDraw = True
+131.2765 	DATA 	Keypress: space
+131.2775 	EXP 	text: autoDraw = False
+132.4229 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+132.4561 	EXP 	text: text = 'You earned 7.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+132.4561 	EXP 	text: autoDraw = True
+150.6927 	DATA 	Keypress: space
+150.6937 	EXP 	text: autoDraw = False
+150.7110 	EXP 	text: text = 'Total points : 20.7'
+150.7110 	EXP 	text: text = 'Total points : 0'
+150.7110 	EXP 	text: text = 'Great! Now press any key to begin the experiment'
+150.7110 	EXP 	text: autoDraw = True
+152.2363 	DATA 	Keypress: space
+152.2374 	EXP 	text: autoDraw = False
+159.4000 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+159.4000 	EXP 	text: autoDraw = True
+160.4364 	DATA 	Keypress: space
+160.4376 	EXP 	text: autoDraw = False
+161.4189 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+161.4327 	EXP 	text: text = 'You earned 4.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+161.4327 	EXP 	text: autoDraw = True
+162.4043 	DATA 	Keypress: space
+162.4053 	EXP 	text: autoDraw = False
+162.4228 	EXP 	text: text = 'Total points : 4.6'
+169.8250 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+169.8250 	EXP 	text: autoDraw = True
+171.0685 	DATA 	Keypress: space
+171.0696 	EXP 	text: autoDraw = False
+172.2108 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+172.2239 	EXP 	text: text = 'You earned 5.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+172.2239 	EXP 	text: autoDraw = True
+173.1723 	DATA 	Keypress: space
+173.1733 	EXP 	text: autoDraw = False
+173.1894 	EXP 	text: text = 'Total points : 10.0'
+180.5920 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+180.5920 	EXP 	text: autoDraw = True
+182.0284 	DATA 	Keypress: space
+182.0295 	EXP 	text: autoDraw = False
+183.0729 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+183.1061 	EXP 	text: text = 'You earned 4.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+183.1061 	EXP 	text: autoDraw = True
+184.0603 	DATA 	Keypress: space
+184.0613 	EXP 	text: autoDraw = False
+184.0728 	EXP 	text: text = 'Total points : 14.2'
+190.8746 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+190.8746 	EXP 	text: autoDraw = True
+191.8604 	DATA 	Keypress: space
+191.8614 	EXP 	text: autoDraw = False
+192.7788 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+192.7918 	EXP 	text: text = 'You earned 5.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+192.7918 	EXP 	text: autoDraw = True
+193.6603 	DATA 	Keypress: space
+193.6612 	EXP 	text: autoDraw = False
+193.6728 	EXP 	text: text = 'Total points : 19.4'
+200.8338 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+200.8338 	EXP 	text: autoDraw = True
+201.8923 	DATA 	Keypress: space
+201.8934 	EXP 	text: autoDraw = False
+202.8828 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+202.8971 	EXP 	text: text = 'You earned 4.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+202.8971 	EXP 	text: autoDraw = True
+203.7963 	DATA 	Keypress: space
+203.7972 	EXP 	text: autoDraw = False
+203.8062 	EXP 	text: text = 'Total points : 24.0'
+211.2090 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+211.2090 	EXP 	text: autoDraw = True
+212.2044 	DATA 	Keypress: space
+212.2053 	EXP 	text: autoDraw = False
+213.8396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+213.8561 	EXP 	text: text = 'Total points : 24.0'
+213.8561 	EXP 	text: text = 'Your response exceeded the actual time.\n\n Press [SPACE] to advance'
+213.8561 	EXP 	text: autoDraw = True
+214.9004 	DATA 	Keypress: space
+214.9014 	EXP 	text: autoDraw = False
+222.0842 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+222.0842 	EXP 	text: autoDraw = True
+222.9964 	DATA 	Keypress: space
+222.9975 	EXP 	text: autoDraw = False
+223.8268 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+223.9022 	EXP 	text: text = 'You earned 3.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+223.9022 	EXP 	text: autoDraw = True
+224.6923 	DATA 	Keypress: space
+224.6933 	EXP 	text: autoDraw = False
+224.7061 	EXP 	text: text = 'Total points : 27.4'
+231.5132 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+231.5132 	EXP 	text: autoDraw = True
+232.3564 	DATA 	Keypress: space
+232.3574 	EXP 	text: autoDraw = False
+233.1468 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+233.1599 	EXP 	text: text = 'You earned 4.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+233.1599 	EXP 	text: autoDraw = True
+234.5323 	DATA 	Keypress: space
+234.5334 	EXP 	text: autoDraw = False
+234.5395 	EXP 	text: text = 'Total points : 31.4'
+241.3423 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+241.3423 	EXP 	text: autoDraw = True
+242.2124 	DATA 	Keypress: space
+242.2133 	EXP 	text: autoDraw = False
+243.0508 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+243.0644 	EXP 	text: text = 'You earned 4.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+243.0644 	EXP 	text: autoDraw = True
+243.7643 	DATA 	Keypress: space
+243.7653 	EXP 	text: autoDraw = False
+243.7727 	EXP 	text: text = 'Total points : 35.8'
+249.0752 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+249.0752 	EXP 	text: autoDraw = True
+249.9644 	DATA 	Keypress: space
+249.9654 	EXP 	text: autoDraw = False
+250.3228 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+250.3395 	EXP 	text: text = 'You earned 4.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+250.3395 	EXP 	text: autoDraw = True
+251.3483 	DATA 	Keypress: space
+251.3492 	EXP 	text: autoDraw = False
+251.3562 	EXP 	text: text = 'Total points : 40.4'
+258.7585 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+258.7585 	EXP 	text: autoDraw = True
+259.8286 	DATA 	Keypress: space
+259.8295 	EXP 	text: autoDraw = False
+260.6188 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+260.6322 	EXP 	text: text = 'You earned 2.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+260.6322 	EXP 	text: autoDraw = True
+262.9483 	DATA 	Keypress: space
+262.9494 	EXP 	text: autoDraw = False
+262.9561 	EXP 	text: text = 'Total points : 43.1'
+269.1582 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+269.1582 	EXP 	text: autoDraw = True
+269.9083 	DATA 	Keypress: space
+269.9093 	EXP 	text: autoDraw = False
+270.4109 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+270.4228 	EXP 	text: text = 'You earned 3.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+270.4228 	EXP 	text: autoDraw = True
+271.1565 	DATA 	Keypress: space
+271.1575 	EXP 	text: autoDraw = False
+271.1728 	EXP 	text: text = 'Total points : 46.5'
+277.5836 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+277.5836 	EXP 	text: autoDraw = True
+278.4524 	DATA 	Keypress: space
+278.4534 	EXP 	text: autoDraw = False
+279.0029 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+279.0228 	EXP 	text: text = 'You earned 3.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+279.0228 	EXP 	text: autoDraw = True
+279.7483 	DATA 	Keypress: space
+279.7493 	EXP 	text: autoDraw = False
+279.7561 	EXP 	text: text = 'Total points : 49.7'
+285.5086 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+285.5086 	EXP 	text: autoDraw = True
+286.4205 	DATA 	Keypress: space
+286.4214 	EXP 	text: autoDraw = False
+286.8428 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+286.8562 	EXP 	text: text = 'You earned 3.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+286.8562 	EXP 	text: autoDraw = True
+287.6602 	DATA 	Keypress: space
+287.6612 	EXP 	text: autoDraw = False
+287.6729 	EXP 	text: text = 'Total points : 53.6'
+294.8338 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+294.8338 	EXP 	text: autoDraw = True
+295.8444 	DATA 	Keypress: space
+295.8454 	EXP 	text: autoDraw = False
+296.9563 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+296.9894 	EXP 	text: text = 'You earned 5.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+296.9894 	EXP 	text: autoDraw = True
+297.8923 	DATA 	Keypress: space
+297.8932 	EXP 	text: autoDraw = False
+297.9061 	EXP 	text: text = 'Total points : 59.3'
+304.1084 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+304.1084 	EXP 	text: autoDraw = True
+305.1325 	DATA 	Keypress: space
+305.1336 	EXP 	text: autoDraw = False
+306.0229 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+306.0561 	EXP 	text: text = 'You earned 6.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+306.0561 	EXP 	text: autoDraw = True
+306.9483 	DATA 	Keypress: space
+306.9492 	EXP 	text: autoDraw = False
+306.9561 	EXP 	text: text = 'Total points : 66.2'
+312.4658 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+312.4658 	EXP 	text: autoDraw = True
+313.4124 	DATA 	Keypress: space
+313.4135 	EXP 	text: autoDraw = False
+313.7548 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+313.7728 	EXP 	text: text = 'You earned 3.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+313.7728 	EXP 	text: autoDraw = True
+314.6364 	DATA 	Keypress: space
+314.6374 	EXP 	text: autoDraw = False
+314.6426 	EXP 	text: text = 'Total points : 70.0'
+322.0423 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+322.0423 	EXP 	text: autoDraw = True
+323.3563 	DATA 	Keypress: space
+323.3577 	EXP 	text: autoDraw = False
+324.7396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+324.7728 	EXP 	text: text = 'You earned 8.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+324.7728 	EXP 	text: autoDraw = True
+325.7163 	DATA 	Keypress: space
+325.7172 	EXP 	text: autoDraw = False
+325.7224 	EXP 	text: text = 'Total points : 78.4'
+331.6835 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+331.6835 	EXP 	text: autoDraw = True
+332.7564 	DATA 	Keypress: space
+332.7574 	EXP 	text: autoDraw = False
+333.3788 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+333.3922 	EXP 	text: text = 'You earned 5.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+333.3922 	EXP 	text: autoDraw = True
+334.3083 	DATA 	Keypress: space
+334.3093 	EXP 	text: autoDraw = False
+334.3228 	EXP 	text: text = 'Total points : 83.4'
+341.7258 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+341.7258 	EXP 	text: autoDraw = True
+342.8284 	DATA 	Keypress: space
+342.8295 	EXP 	text: autoDraw = False
+344.3396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+344.3561 	EXP 	text: text = 'Total points : 83.4'
+344.3561 	EXP 	text: text = 'Your response exceeded the actual time.\n\n Press [SPACE] to advance'
+344.3561 	EXP 	text: autoDraw = True
+345.3323 	DATA 	Keypress: space
+345.3334 	EXP 	text: autoDraw = False
+352.1587 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+352.1587 	EXP 	text: autoDraw = True
+353.2844 	DATA 	Keypress: space
+353.2855 	EXP 	text: autoDraw = False
+354.1062 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+354.1394 	EXP 	text: text = 'You earned 4.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+354.1394 	EXP 	text: autoDraw = True
+354.9003 	DATA 	Keypress: space
+354.9013 	EXP 	text: autoDraw = False
+354.9066 	EXP 	text: text = 'Total points : 87.5'
+360.4168 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+360.4168 	EXP 	text: autoDraw = True
+361.5165 	DATA 	Keypress: space
+361.5175 	EXP 	text: autoDraw = False
+362.0669 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+362.0804 	EXP 	text: text = 'You earned 5.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+362.0804 	EXP 	text: autoDraw = True
+362.8763 	DATA 	Keypress: space
+362.8772 	EXP 	text: autoDraw = False
+362.8895 	EXP 	text: text = 'Total points : 93.3'
+368.4002 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+368.4002 	EXP 	text: autoDraw = True
+369.4766 	DATA 	Keypress: space
+369.4775 	EXP 	text: autoDraw = False
+370.2396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+370.2728 	EXP 	text: text = 'You earned 8.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+370.2728 	EXP 	text: autoDraw = True
+371.1163 	DATA 	Keypress: space
+371.1172 	EXP 	text: autoDraw = False
+371.1227 	EXP 	text: text = 'Total points : 101.7'
+378.7338 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+378.7338 	EXP 	text: autoDraw = True
+379.7165 	DATA 	Keypress: space
+379.7176 	EXP 	text: autoDraw = False
+380.6668 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+380.6799 	EXP 	text: text = 'You earned 3.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+380.6799 	EXP 	text: autoDraw = True
+381.3403 	DATA 	Keypress: space
+381.3412 	EXP 	text: autoDraw = False
+381.3561 	EXP 	text: text = 'Total points : 104.9'
+388.7584 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+388.7584 	EXP 	text: autoDraw = True
+389.7005 	DATA 	Keypress: space
+389.7015 	EXP 	text: autoDraw = False
+390.4829 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+390.4959 	EXP 	text: text = 'You earned 2.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+390.4959 	EXP 	text: autoDraw = True
+391.2123 	DATA 	Keypress: space
+391.2132 	EXP 	text: autoDraw = False
+391.2228 	EXP 	text: text = 'Total points : 107.5'
+398.8338 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+398.8338 	EXP 	text: autoDraw = True
+399.6683 	DATA 	Keypress: space
+399.6695 	EXP 	text: autoDraw = False
+400.9388 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+400.9561 	EXP 	text: text = 'You earned 6.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+400.9561 	EXP 	text: autoDraw = True
+401.6923 	DATA 	Keypress: space
+401.6933 	EXP 	text: autoDraw = False
+401.7061 	EXP 	text: text = 'Total points : 113.5'
+407.0085 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+407.0085 	EXP 	text: autoDraw = True
+408.1564 	DATA 	Keypress: space
+408.1575 	EXP 	text: autoDraw = False
+408.6348 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+408.6467 	EXP 	text: text = 'You earned 5.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+408.6467 	EXP 	text: autoDraw = True
+409.4763 	DATA 	Keypress: space
+409.4774 	EXP 	text: autoDraw = False
+409.4895 	EXP 	text: text = 'Total points : 119.3'
+415.2419 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+415.2419 	EXP 	text: autoDraw = True
+416.2045 	DATA 	Keypress: space
+416.2054 	EXP 	text: autoDraw = False
+416.8508 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+416.8639 	EXP 	text: text = 'You earned 6.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+416.8639 	EXP 	text: autoDraw = True
+417.6843 	DATA 	Keypress: space
+417.6852 	EXP 	text: autoDraw = False
+417.6904 	EXP 	text: text = 'Total points : 125.3'
+423.4425 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+423.4425 	EXP 	text: autoDraw = True
+424.1165 	DATA 	Keypress: space
+424.1175 	EXP 	text: autoDraw = False
+424.7468 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+424.7599 	EXP 	text: text = 'You earned 5.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+424.7599 	EXP 	text: autoDraw = True
+425.4203 	DATA 	Keypress: space
+425.4212 	EXP 	text: autoDraw = False
+425.4265 	EXP 	text: text = 'Total points : 131.2'
+431.1753 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+431.1753 	EXP 	text: autoDraw = True
+432.3804 	DATA 	Keypress: space
+432.3815 	EXP 	text: autoDraw = False
+432.9148 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+432.9280 	EXP 	text: text = 'You earned 4.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+432.9280 	EXP 	text: autoDraw = True
+433.5803 	DATA 	Keypress: space
+433.5812 	EXP 	text: autoDraw = False
+433.5895 	EXP 	text: text = 'Total points : 136.0'
+439.5502 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+439.5502 	EXP 	text: autoDraw = True
+440.7725 	DATA 	Keypress: space
+440.7735 	EXP 	text: autoDraw = False
+441.4729 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+441.5061 	EXP 	text: text = 'You earned 5.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+441.5061 	EXP 	text: autoDraw = True
+442.2044 	DATA 	Keypress: space
+442.2055 	EXP 	text: autoDraw = False
+442.2228 	EXP 	text: text = 'Total points : 141.5'
+449.3834 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+449.3834 	EXP 	text: autoDraw = True
+450.4765 	DATA 	Keypress: space
+450.4776 	EXP 	text: autoDraw = False
+451.4396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+451.4728 	EXP 	text: text = 'You earned 4.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+451.4728 	EXP 	text: autoDraw = True
+452.1404 	DATA 	Keypress: space
+452.1413 	EXP 	text: autoDraw = False
+452.1561 	EXP 	text: text = 'Total points : 145.7'
+458.1167 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+458.1167 	EXP 	text: autoDraw = True
+459.1325 	DATA 	Keypress: space
+459.1335 	EXP 	text: autoDraw = False
+459.7468 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+459.7598 	EXP 	text: text = 'You earned 4.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+459.7598 	EXP 	text: autoDraw = True
+460.4843 	DATA 	Keypress: space
+460.4852 	EXP 	text: autoDraw = False
+460.4904 	EXP 	text: text = 'Total points : 150.6'
+466.6917 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+466.6917 	EXP 	text: autoDraw = True
+467.4124 	DATA 	Keypress: space
+467.4133 	EXP 	text: autoDraw = False
+467.9388 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+467.9561 	EXP 	text: text = 'You earned 3.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+467.9561 	EXP 	text: autoDraw = True
+468.6763 	DATA 	Keypress: space
+468.6774 	EXP 	text: autoDraw = False
+468.6895 	EXP 	text: text = 'Total points : 154.1'
+475.1003 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+475.1003 	EXP 	text: autoDraw = True
+475.8044 	DATA 	Keypress: space
+475.8054 	EXP 	text: autoDraw = False
+476.3468 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+476.3601 	EXP 	text: text = 'You earned 3.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+476.3601 	EXP 	text: autoDraw = True
+477.0202 	DATA 	Keypress: space
+477.0213 	EXP 	text: autoDraw = False
+477.0265 	EXP 	text: text = 'Total points : 157.2'
+482.5505 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+482.5505 	EXP 	text: autoDraw = True
+483.1884 	DATA 	Keypress: space
+483.1895 	EXP 	text: autoDraw = False
+483.6668 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+483.6787 	EXP 	text: text = 'You earned 5.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+483.6787 	EXP 	text: autoDraw = True
+484.8363 	DATA 	Keypress: space
+484.8373 	EXP 	text: autoDraw = False
+484.8426 	EXP 	text: text = 'Total points : 162.2'
+490.3491 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+490.3491 	EXP 	text: autoDraw = True
+491.1804 	DATA 	Keypress: space
+491.1815 	EXP 	text: autoDraw = False
+491.6828 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+491.6949 	EXP 	text: text = 'You earned 5.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+491.6949 	EXP 	text: autoDraw = True
+492.3162 	DATA 	Keypress: space
+492.3173 	EXP 	text: autoDraw = False
+492.3225 	EXP 	text: text = 'Total points : 167.5'
+498.2836 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+498.2836 	EXP 	text: autoDraw = True
+499.0365 	DATA 	Keypress: space
+499.0377 	EXP 	text: autoDraw = False
+499.5148 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+499.5265 	EXP 	text: text = 'You earned 3.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+499.5265 	EXP 	text: autoDraw = True
+500.0842 	DATA 	Keypress: space
+500.0853 	EXP 	text: autoDraw = False
+500.0906 	EXP 	text: text = 'Total points : 171.2'
+507.2498 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+507.2498 	EXP 	text: autoDraw = True
+508.0764 	DATA 	Keypress: space
+508.0776 	EXP 	text: autoDraw = False
+509.1948 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+509.2081 	EXP 	text: text = 'You earned 6.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+509.2081 	EXP 	text: autoDraw = True
+509.9403 	DATA 	Keypress: space
+509.9412 	EXP 	text: autoDraw = False
+509.9561 	EXP 	text: text = 'Total points : 177.2'
+516.3675 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+516.3675 	EXP 	text: autoDraw = True
+517.7005 	DATA 	Keypress: space
+517.7015 	EXP 	text: autoDraw = False
+518.5389 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+518.5562 	EXP 	text: text = 'You earned 5.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+518.5562 	EXP 	text: autoDraw = True
+519.2283 	DATA 	Keypress: space
+519.2292 	EXP 	text: autoDraw = False
+519.2394 	EXP 	text: text = 'Total points : 182.9'
+526.8500 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+526.8500 	EXP 	text: autoDraw = True
+528.2364 	DATA 	Keypress: space
+528.2375 	EXP 	text: autoDraw = False
+529.2908 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+529.3061 	EXP 	text: text = 'You earned 3.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+529.3061 	EXP 	text: autoDraw = True
+529.9884 	DATA 	Keypress: space
+529.9895 	EXP 	text: autoDraw = False
+530.0062 	EXP 	text: text = 'Total points : 186.8'
+535.5170 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+535.5170 	EXP 	text: autoDraw = True
+536.3568 	DATA 	Keypress: space
+536.3578 	EXP 	text: autoDraw = False
+537.1396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+537.1728 	EXP 	text: text = 'You earned 8.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+537.1728 	EXP 	text: autoDraw = True
+537.8443 	DATA 	Keypress: space
+537.8453 	EXP 	text: autoDraw = False
+537.8561 	EXP 	text: text = 'Total points : 195.4'
+544.6584 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+544.6584 	EXP 	text: autoDraw = True
+545.9245 	DATA 	Keypress: space
+545.9255 	EXP 	text: autoDraw = False
+547.0396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+547.0728 	EXP 	text: text = 'You earned 7.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+547.0728 	EXP 	text: autoDraw = True
+547.6923 	DATA 	Keypress: space
+547.6932 	EXP 	text: autoDraw = False
+547.7061 	EXP 	text: text = 'Total points : 202.8'
+555.3168 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+555.3168 	EXP 	text: autoDraw = True
+556.5564 	DATA 	Keypress: space
+556.5575 	EXP 	text: autoDraw = False
+557.2508 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+557.2639 	EXP 	text: text = 'You earned 1.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+557.2639 	EXP 	text: autoDraw = True
+558.0683 	DATA 	Keypress: space
+558.0692 	EXP 	text: autoDraw = False
+558.0745 	EXP 	text: text = 'Total points : 204.7'
+564.8741 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+564.8741 	EXP 	text: autoDraw = True
+565.6925 	DATA 	Keypress: space
+565.6935 	EXP 	text: autoDraw = False
+566.6428 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+566.6563 	EXP 	text: text = 'You earned 5.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+566.6563 	EXP 	text: autoDraw = True
+567.2843 	DATA 	Keypress: space
+567.2854 	EXP 	text: autoDraw = False
+567.2907 	EXP 	text: text = 'Total points : 210.2'
+572.8004 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+572.8004 	EXP 	text: autoDraw = True
+573.6284 	DATA 	Keypress: space
+573.6294 	EXP 	text: autoDraw = False
+574.2268 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+574.2399 	EXP 	text: text = 'You earned 6.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+574.2399 	EXP 	text: autoDraw = True
+574.9483 	DATA 	Keypress: space
+574.9493 	EXP 	text: autoDraw = False
+574.9561 	EXP 	text: text = 'Total points : 216.6'
+580.9172 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+580.9172 	EXP 	text: autoDraw = True
+581.6605 	DATA 	Keypress: space
+581.6615 	EXP 	text: autoDraw = False
+582.5230 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+582.5561 	EXP 	text: text = 'You earned 7.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+582.5561 	EXP 	text: autoDraw = True
+583.1484 	DATA 	Keypress: space
+583.1493 	EXP 	text: autoDraw = False
+583.1561 	EXP 	text: text = 'Total points : 224.2'
+590.3172 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+590.3172 	EXP 	text: autoDraw = True
+591.0205 	DATA 	Keypress: space
+591.0216 	EXP 	text: autoDraw = False
+591.8108 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+591.8239 	EXP 	text: text = 'You earned 3.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+591.8239 	EXP 	text: autoDraw = True
+592.4203 	DATA 	Keypress: space
+592.4212 	EXP 	text: autoDraw = False
+592.4265 	EXP 	text: text = 'Total points : 227.3'
+597.9333 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+597.9333 	EXP 	text: autoDraw = True
+598.7084 	DATA 	Keypress: space
+598.7094 	EXP 	text: autoDraw = False
+599.4269 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+599.4404 	EXP 	text: text = 'You earned 8.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+599.4404 	EXP 	text: autoDraw = True
+600.4364 	DATA 	Keypress: space
+600.4373 	EXP 	text: autoDraw = False
+600.4437 	EXP 	text: text = 'Total points : 235.4'
+605.7420 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+605.7420 	EXP 	text: autoDraw = True
+606.4205 	DATA 	Keypress: space
+606.4216 	EXP 	text: autoDraw = False
+607.0509 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+607.0639 	EXP 	text: text = 'You earned 7.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+607.0639 	EXP 	text: autoDraw = True
+607.5563 	DATA 	Keypress: space
+607.5574 	EXP 	text: autoDraw = False
+607.5728 	EXP 	text: text = 'Total points : 243.3'
+614.3756 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+614.3756 	EXP 	text: autoDraw = True
+615.3884 	DATA 	Keypress: space
+615.3895 	EXP 	text: autoDraw = False
+616.1068 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+616.1228 	EXP 	text: text = 'You earned 3.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+616.1228 	EXP 	text: autoDraw = True
+616.6843 	DATA 	Keypress: space
+616.6852 	EXP 	text: autoDraw = False
+616.6908 	EXP 	text: text = 'Total points : 246.8'
+623.8510 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+623.8510 	EXP 	text: autoDraw = True
+625.0925 	DATA 	Keypress: space
+625.0936 	EXP 	text: autoDraw = False
+626.3469 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+626.3602 	EXP 	text: text = 'You earned 7.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+626.3602 	EXP 	text: autoDraw = True
+626.9402 	DATA 	Keypress: space
+626.9413 	EXP 	text: autoDraw = False
+626.9562 	EXP 	text: text = 'Total points : 254.7'
+632.9167 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+632.9167 	EXP 	text: autoDraw = True
+633.8683 	DATA 	Keypress: space
+633.8694 	EXP 	text: autoDraw = False
+634.6188 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+634.6320 	EXP 	text: text = 'You earned 6.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+634.6320 	EXP 	text: autoDraw = True
+635.2043 	DATA 	Keypress: space
+635.2053 	EXP 	text: autoDraw = False
+635.2228 	EXP 	text: text = 'Total points : 261.1'
+640.5250 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+640.5250 	EXP 	text: autoDraw = True
+641.6766 	DATA 	Keypress: space
+641.6777 	EXP 	text: autoDraw = False
+642.1228 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+642.1394 	EXP 	text: text = 'You earned 5.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+642.1394 	EXP 	text: autoDraw = True
+642.8442 	DATA 	Keypress: space
+642.8452 	EXP 	text: autoDraw = False
+642.8561 	EXP 	text: text = 'Total points : 266.6'
+649.0582 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+649.0582 	EXP 	text: autoDraw = True
+649.9724 	DATA 	Keypress: space
+649.9734 	EXP 	text: autoDraw = False
+650.7548 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+650.7728 	EXP 	text: text = 'You earned 5.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+650.7728 	EXP 	text: autoDraw = True
+651.5483 	DATA 	Keypress: space
+651.5494 	EXP 	text: autoDraw = False
+651.5561 	EXP 	text: text = 'Total points : 272.5'
+657.9669 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+657.9669 	EXP 	text: autoDraw = True
+658.8365 	DATA 	Keypress: space
+658.8374 	EXP 	text: autoDraw = False
+659.5788 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+659.5921 	EXP 	text: text = 'You earned 4.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+659.5921 	EXP 	text: autoDraw = True
+660.1882 	DATA 	Keypress: space
+660.1893 	EXP 	text: autoDraw = False
+660.2061 	EXP 	text: text = 'Total points : 277.2'
+665.7168 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+665.7168 	EXP 	text: autoDraw = True
+666.5964 	DATA 	Keypress: space
+666.5974 	EXP 	text: autoDraw = False
+667.2188 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+667.2319 	EXP 	text: text = 'You earned 6.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+667.2319 	EXP 	text: autoDraw = True
+667.7963 	DATA 	Keypress: space
+667.7972 	EXP 	text: autoDraw = False
+667.8061 	EXP 	text: text = 'Total points : 283.9'
+675.2094 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+675.2094 	EXP 	text: autoDraw = True
+675.9724 	DATA 	Keypress: space
+675.9734 	EXP 	text: autoDraw = False
+677.0668 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+677.0800 	EXP 	text: text = 'You earned 4.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+677.0800 	EXP 	text: autoDraw = True
+677.6683 	DATA 	Keypress: space
+677.6694 	EXP 	text: autoDraw = False
+677.6746 	EXP 	text: text = 'Total points : 288.8'
+684.4758 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+684.4758 	EXP 	text: autoDraw = True
+685.4124 	DATA 	Keypress: space
+685.4134 	EXP 	text: autoDraw = False
+686.1948 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+686.2079 	EXP 	text: text = 'You earned 3.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+686.2079 	EXP 	text: autoDraw = True
+686.7163 	DATA 	Keypress: space
+686.7172 	EXP 	text: autoDraw = False
+686.7230 	EXP 	text: text = 'Total points : 292.7'
+692.9250 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+692.9250 	EXP 	text: autoDraw = True
+693.7645 	DATA 	Keypress: space
+693.7656 	EXP 	text: autoDraw = False
+694.3948 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+694.4080 	EXP 	text: text = 'You earned 4.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+694.4080 	EXP 	text: autoDraw = True
+694.9642 	DATA 	Keypress: space
+694.9653 	EXP 	text: autoDraw = False
+694.9728 	EXP 	text: text = 'Total points : 297.0'
+700.2741 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+700.2741 	EXP 	text: autoDraw = True
+700.9804 	DATA 	Keypress: space
+700.9814 	EXP 	text: autoDraw = False
+701.6896 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+701.7228 	EXP 	text: text = 'You earned 8.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+701.7228 	EXP 	text: autoDraw = True
+702.4603 	DATA 	Keypress: space
+702.4614 	EXP 	text: autoDraw = False
+702.4728 	EXP 	text: text = 'Total points : 305.8'
+707.7749 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+707.7749 	EXP 	text: autoDraw = True
+708.4283 	DATA 	Keypress: space
+708.4293 	EXP 	text: autoDraw = False
+709.0508 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+709.0638 	EXP 	text: text = 'You earned 7.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+709.0638 	EXP 	text: autoDraw = True
+709.7563 	DATA 	Keypress: space
+709.7572 	EXP 	text: autoDraw = False
+709.7728 	EXP 	text: text = 'Total points : 313.6'
+717.1752 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+717.1752 	EXP 	text: autoDraw = True
+718.3564 	DATA 	Keypress: space
+718.3575 	EXP 	text: autoDraw = False
+719.3628 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+719.3758 	EXP 	text: text = 'You earned 4.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+719.3758 	EXP 	text: autoDraw = True
+719.9724 	DATA 	Keypress: space
+719.9734 	EXP 	text: autoDraw = False
+719.9894 	EXP 	text: text = 'Total points : 317.7'
+727.3924 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+727.3924 	EXP 	text: autoDraw = True
+728.1804 	DATA 	Keypress: space
+728.1814 	EXP 	text: autoDraw = False
+729.2509 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+729.2640 	EXP 	text: text = 'You earned 4.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+729.2640 	EXP 	text: autoDraw = True
+729.8603 	DATA 	Keypress: space
+729.8613 	EXP 	text: autoDraw = False
+729.8728 	EXP 	text: text = 'Total points : 322.4'
+737.4838 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+737.4838 	EXP 	text: autoDraw = True
+738.9246 	DATA 	Keypress: space
+738.9256 	EXP 	text: autoDraw = False
+740.0748 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+740.0895 	EXP 	text: text = 'You earned 4.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+740.0895 	EXP 	text: autoDraw = True
+740.6523 	DATA 	Keypress: space
+740.6534 	EXP 	text: autoDraw = False
+740.6586 	EXP 	text: text = 'Total points : 327.1'
+746.1672 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+746.1672 	EXP 	text: autoDraw = True
+747.1483 	DATA 	Keypress: space
+747.1493 	EXP 	text: autoDraw = False
+747.7948 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+747.8080 	EXP 	text: text = 'You earned 7.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+747.8080 	EXP 	text: autoDraw = True
+748.3723 	DATA 	Keypress: space
+748.3733 	EXP 	text: autoDraw = False
+748.3895 	EXP 	text: text = 'Total points : 334.1'
+754.1418 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+754.1418 	EXP 	text: autoDraw = True
+754.9245 	DATA 	Keypress: space
+754.9254 	EXP 	text: autoDraw = False
+755.6108 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+755.6240 	EXP 	text: text = 'You earned 6.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+755.6240 	EXP 	text: autoDraw = True
+756.1243 	DATA 	Keypress: space
+756.1253 	EXP 	text: autoDraw = False
+756.1394 	EXP 	text: text = 'Total points : 340.6'
+761.8917 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+761.8917 	EXP 	text: autoDraw = True
+762.6204 	DATA 	Keypress: space
+762.6215 	EXP 	text: autoDraw = False
+763.2989 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+763.3122 	EXP 	text: text = 'You earned 6.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+763.3122 	EXP 	text: autoDraw = True
+763.7964 	DATA 	Keypress: space
+763.7974 	EXP 	text: autoDraw = False
+763.8062 	EXP 	text: text = 'Total points : 347.0'
+770.0082 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+770.0082 	EXP 	text: autoDraw = True
+771.0044 	DATA 	Keypress: space
+771.0055 	EXP 	text: autoDraw = False
+771.7548 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+771.7727 	EXP 	text: text = 'You earned 5.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+771.7727 	EXP 	text: autoDraw = True
+772.3643 	DATA 	Keypress: space
+772.3652 	EXP 	text: autoDraw = False
+772.3728 	EXP 	text: text = 'Total points : 352.5'
+778.1249 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+778.1249 	EXP 	text: autoDraw = True
+779.0603 	DATA 	Keypress: space
+779.0613 	EXP 	text: autoDraw = False
+779.6668 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+779.6801 	EXP 	text: text = 'You earned 5.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+779.6801 	EXP 	text: autoDraw = True
+780.2924 	DATA 	Keypress: space
+780.2934 	EXP 	text: autoDraw = False
+780.3062 	EXP 	text: text = 'Total points : 358.1'
+787.1085 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+787.1085 	EXP 	text: autoDraw = True
+787.9325 	DATA 	Keypress: space
+787.9336 	EXP 	text: autoDraw = False
+788.7148 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+788.7278 	EXP 	text: text = 'You earned 3.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+788.7278 	EXP 	text: autoDraw = True
+789.2043 	DATA 	Keypress: space
+789.2052 	EXP 	text: autoDraw = False
+789.2227 	EXP 	text: text = 'Total points : 362.0'
+795.1850 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+795.1850 	EXP 	text: autoDraw = True
+795.8284 	DATA 	Keypress: space
+795.8294 	EXP 	text: autoDraw = False
+796.5948 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+796.6079 	EXP 	text: text = 'You earned 6.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+796.6079 	EXP 	text: autoDraw = True
+797.1003 	DATA 	Keypress: space
+797.1013 	EXP 	text: autoDraw = False
+797.1066 	EXP 	text: text = 'Total points : 368.6'
+802.4082 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+802.4082 	EXP 	text: autoDraw = True
+803.0524 	DATA 	Keypress: space
+803.0534 	EXP 	text: autoDraw = False
+803.6508 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+803.6638 	EXP 	text: text = 'You earned 7.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+803.6638 	EXP 	text: autoDraw = True
+804.1563 	DATA 	Keypress: space
+804.1572 	EXP 	text: autoDraw = False
+804.1728 	EXP 	text: text = 'Total points : 376.0'
+809.4749 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+809.4749 	EXP 	text: autoDraw = True
+810.1085 	DATA 	Keypress: space
+810.1096 	EXP 	text: autoDraw = False
+810.8508 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+810.8638 	EXP 	text: text = 'You earned 9.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+810.8638 	EXP 	text: autoDraw = True
+811.9643 	DATA 	Keypress: space
+811.9652 	EXP 	text: autoDraw = False
+811.9728 	EXP 	text: text = 'Total points : 385.9'
+818.3837 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+818.3837 	EXP 	text: autoDraw = True
+818.9164 	DATA 	Keypress: space
+818.9173 	EXP 	text: autoDraw = False
+819.8229 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+819.8561 	EXP 	text: text = 'You earned 6.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+819.8561 	EXP 	text: autoDraw = True
+820.4284 	DATA 	Keypress: space
+820.4293 	EXP 	text: autoDraw = False
+820.4394 	EXP 	text: text = 'Total points : 392.0'
+825.7425 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+825.7425 	EXP 	text: autoDraw = True
+826.5324 	DATA 	Keypress: space
+826.5336 	EXP 	text: autoDraw = False
+827.5230 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+827.5395 	EXP 	text: text = 'Total points : 392.0'
+827.5395 	EXP 	text: text = 'Your response exceeded the actual time.\n\n Press [SPACE] to advance'
+827.5395 	EXP 	text: autoDraw = True
+828.0283 	DATA 	Keypress: space
+828.0293 	EXP 	text: autoDraw = False
+835.2174 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+835.2174 	EXP 	text: autoDraw = True
+836.0364 	DATA 	Keypress: space
+836.0374 	EXP 	text: autoDraw = False
+837.1949 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+837.2079 	EXP 	text: text = 'You earned 6.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+837.2079 	EXP 	text: autoDraw = True
+837.8522 	DATA 	Keypress: space
+837.8533 	EXP 	text: autoDraw = False
+837.8586 	EXP 	text: text = 'Total points : 398.5'
+843.3668 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+843.3668 	EXP 	text: autoDraw = True
+844.2444 	DATA 	Keypress: space
+844.2455 	EXP 	text: autoDraw = False
+845.0063 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+845.0395 	EXP 	text: text = 'You earned 8.5 out of 10 points in this round.\n\n Press [SPACE] to advance'
+845.0395 	EXP 	text: autoDraw = True
+845.7563 	DATA 	Keypress: space
+845.7574 	EXP 	text: autoDraw = False
+845.7728 	EXP 	text: text = 'Total points : 407.0'
+851.7332 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+851.7332 	EXP 	text: autoDraw = True
+852.4204 	DATA 	Keypress: space
+852.4215 	EXP 	text: autoDraw = False
+853.1868 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+853.2061 	EXP 	text: text = 'You earned 6.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+853.2061 	EXP 	text: autoDraw = True
+853.6923 	DATA 	Keypress: space
+853.6932 	EXP 	text: autoDraw = False
+853.7061 	EXP 	text: text = 'Total points : 413.6'
+860.1172 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+860.1172 	EXP 	text: autoDraw = True
+860.8605 	DATA 	Keypress: space
+860.8615 	EXP 	text: autoDraw = False
+861.5548 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+861.5728 	EXP 	text: text = 'You earned 4.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+861.5728 	EXP 	text: autoDraw = True
+862.0683 	DATA 	Keypress: space
+862.0693 	EXP 	text: autoDraw = False
+862.0746 	EXP 	text: text = 'Total points : 417.8'
+868.2753 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+868.2753 	EXP 	text: autoDraw = True
+869.0363 	DATA 	Keypress: space
+869.0373 	EXP 	text: autoDraw = False
+869.5148 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+869.5267 	EXP 	text: text = 'You earned 3.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+869.5267 	EXP 	text: autoDraw = True
+872.6524 	DATA 	Keypress: space
+872.6534 	EXP 	text: autoDraw = False
+872.6588 	EXP 	text: text = 'Total points : 421.0'
+878.4089 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+878.4089 	EXP 	text: autoDraw = True
+879.0684 	DATA 	Keypress: space
+879.0694 	EXP 	text: autoDraw = False
+879.8729 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+879.9061 	EXP 	text: text = 'You earned 7.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+879.9061 	EXP 	text: autoDraw = True
+880.4523 	DATA 	Keypress: space
+880.4533 	EXP 	text: autoDraw = False
+880.4586 	EXP 	text: text = 'Total points : 428.9'
+885.7590 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+885.7590 	EXP 	text: autoDraw = True
+886.3964 	DATA 	Keypress: space
+886.3975 	EXP 	text: autoDraw = False
+887.1068 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+887.1228 	EXP 	text: text = 'You earned 9.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+887.1228 	EXP 	text: autoDraw = True
+887.6203 	DATA 	Keypress: space
+887.6214 	EXP 	text: autoDraw = False
+887.6266 	EXP 	text: text = 'Total points : 438.2'
+893.8251 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+893.8251 	EXP 	text: autoDraw = True
+894.8525 	DATA 	Keypress: space
+894.8536 	EXP 	text: autoDraw = False
+895.6908 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+895.7062 	EXP 	text: text = 'You earned 6.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+895.7062 	EXP 	text: autoDraw = True
+896.1483 	DATA 	Keypress: space
+896.1494 	EXP 	text: autoDraw = False
+896.1562 	EXP 	text: text = 'Total points : 444.8'
+902.9587 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+902.9587 	EXP 	text: autoDraw = True
+903.6524 	DATA 	Keypress: space
+903.6534 	EXP 	text: autoDraw = False
+904.5563 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+904.5894 	EXP 	text: text = 'You earned 4.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+904.5894 	EXP 	text: autoDraw = True
+905.1484 	DATA 	Keypress: space
+905.1494 	EXP 	text: autoDraw = False
+905.1561 	EXP 	text: text = 'Total points : 449.6'
+912.7667 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+912.7667 	EXP 	text: autoDraw = True
+913.4125 	DATA 	Keypress: space
+913.4136 	EXP 	text: autoDraw = False
+914.4428 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+914.4560 	EXP 	text: text = 'You earned 3.7 out of 10 points in this round.\n\n Press [SPACE] to advance'
+914.4560 	EXP 	text: autoDraw = True
+914.9723 	DATA 	Keypress: space
+914.9734 	EXP 	text: autoDraw = False
+914.9895 	EXP 	text: text = 'Total points : 453.3'
+921.4002 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+921.4002 	EXP 	text: autoDraw = True
+922.4205 	DATA 	Keypress: space
+922.4216 	EXP 	text: autoDraw = False
+923.1228 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+923.1394 	EXP 	text: text = 'You earned 4.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+923.1394 	EXP 	text: autoDraw = True
+923.7002 	DATA 	Keypress: space
+923.7012 	EXP 	text: autoDraw = False
+923.7065 	EXP 	text: text = 'Total points : 457.6'
+930.1168 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+930.1168 	EXP 	text: autoDraw = True
+930.9325 	DATA 	Keypress: space
+930.9334 	EXP 	text: autoDraw = False
+931.9730 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+932.0061 	EXP 	text: text = 'You earned 8.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+932.0061 	EXP 	text: autoDraw = True
+932.6202 	DATA 	Keypress: space
+932.6211 	EXP 	text: autoDraw = False
+932.6265 	EXP 	text: text = 'Total points : 465.8'
+940.0251 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+940.0251 	EXP 	text: autoDraw = True
+940.6765 	DATA 	Keypress: space
+940.6776 	EXP 	text: autoDraw = False
+941.5388 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+941.5561 	EXP 	text: text = 'You earned 3.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+941.5561 	EXP 	text: autoDraw = True
+942.0364 	DATA 	Keypress: space
+942.0374 	EXP 	text: autoDraw = False
+942.0427 	EXP 	text: text = 'Total points : 468.9'
+949.6506 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+949.6506 	EXP 	text: autoDraw = True
+950.3884 	DATA 	Keypress: space
+950.3897 	EXP 	text: autoDraw = False
+951.4229 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+951.4561 	EXP 	text: text = 'You earned 3.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+951.4561 	EXP 	text: autoDraw = True
+951.9324 	DATA 	Keypress: space
+951.9334 	EXP 	text: autoDraw = False
+951.9391 	EXP 	text: text = 'Total points : 472.5'
+959.0996 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+959.0996 	EXP 	text: autoDraw = True
+959.6924 	DATA 	Keypress: space
+959.6934 	EXP 	text: autoDraw = False
+960.9730 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+961.0062 	EXP 	text: text = 'You earned 8.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+961.0062 	EXP 	text: autoDraw = True
+961.6443 	DATA 	Keypress: space
+961.6452 	EXP 	text: autoDraw = False
+961.6561 	EXP 	text: text = 'Total points : 480.5'
+967.8583 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+967.8583 	EXP 	text: autoDraw = True
+968.5645 	DATA 	Keypress: space
+968.5656 	EXP 	text: autoDraw = False
+969.5396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+969.5728 	EXP 	text: text = 'You earned 8.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+969.5728 	EXP 	text: autoDraw = True
+970.0922 	DATA 	Keypress: space
+970.0933 	EXP 	text: autoDraw = False
+970.1062 	EXP 	text: text = 'Total points : 488.7'
+975.4089 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+975.4089 	EXP 	text: autoDraw = True
+976.2763 	DATA 	Keypress: space
+976.2773 	EXP 	text: autoDraw = False
+976.8896 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+976.9228 	EXP 	text: text = 'You earned 7.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+976.9228 	EXP 	text: autoDraw = True
+977.4363 	DATA 	Keypress: space
+977.4374 	EXP 	text: autoDraw = False
+977.4428 	EXP 	text: text = 'Total points : 496.0'
+983.8501 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+983.8501 	EXP 	text: autoDraw = True
+984.4444 	DATA 	Keypress: space
+984.4454 	EXP 	text: autoDraw = False
+985.1308 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+985.1442 	EXP 	text: text = 'You earned 4.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+985.1442 	EXP 	text: autoDraw = True
+985.6363 	DATA 	Keypress: space
+985.6373 	EXP 	text: autoDraw = False
+985.6430 	EXP 	text: text = 'Total points : 500.2'
+991.6167 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+991.6167 	EXP 	text: autoDraw = True
+992.2207 	DATA 	Keypress: space
+992.2218 	EXP 	text: autoDraw = False
+993.0349 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+993.0480 	EXP 	text: text = 'You earned 7.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+993.0480 	EXP 	text: autoDraw = True
+993.4443 	DATA 	Keypress: space
+993.4452 	EXP 	text: autoDraw = False
+993.4561 	EXP 	text: text = 'Total points : 507.5'
+1001.0663 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1001.0663 	EXP 	text: autoDraw = True
+1001.5884 	DATA 	Keypress: space
+1001.5894 	EXP 	text: autoDraw = False
+1002.3708 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1002.3893 	EXP 	text: text = 'You earned 2.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1002.3893 	EXP 	text: autoDraw = True
+1002.8363 	DATA 	Keypress: space
+1002.8372 	EXP 	text: autoDraw = False
+1002.8429 	EXP 	text: text = 'Total points : 509.8'
+1008.1421 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1008.1421 	EXP 	text: autoDraw = True
+1008.5965 	DATA 	Keypress: space
+1008.5976 	EXP 	text: autoDraw = False
+1009.3068 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1009.3228 	EXP 	text: text = 'You earned 9.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1009.3228 	EXP 	text: autoDraw = True
+1009.7403 	DATA 	Keypress: space
+1009.7412 	EXP 	text: autoDraw = False
+1009.7562 	EXP 	text: text = 'Total points : 519.1'
+1016.5588 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1016.5588 	EXP 	text: autoDraw = True
+1017.1644 	DATA 	Keypress: space
+1017.1655 	EXP 	text: autoDraw = False
+1017.8988 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1017.9118 	EXP 	text: text = 'You earned 3.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1017.9118 	EXP 	text: autoDraw = True
+1018.3563 	DATA 	Keypress: space
+1018.3572 	EXP 	text: autoDraw = False
+1018.3728 	EXP 	text: text = 'Total points : 522.7'
+1025.1752 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1025.1752 	EXP 	text: autoDraw = True
+1025.8605 	DATA 	Keypress: space
+1025.8615 	EXP 	text: autoDraw = False
+1026.7868 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1026.8062 	EXP 	text: text = 'You earned 5.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1026.8062 	EXP 	text: autoDraw = True
+1027.1964 	DATA 	Keypress: space
+1027.1974 	EXP 	text: autoDraw = False
+1027.2062 	EXP 	text: text = 'Total points : 528.0'
+1033.1667 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1033.1667 	EXP 	text: autoDraw = True
+1033.9404 	DATA 	Keypress: space
+1033.9415 	EXP 	text: autoDraw = False
+1034.6028 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1034.6228 	EXP 	text: text = 'You earned 5.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1034.6228 	EXP 	text: autoDraw = True
+1034.9962 	DATA 	Keypress: space
+1034.9973 	EXP 	text: autoDraw = False
+1035.0061 	EXP 	text: text = 'Total points : 533.4'
+1041.2087 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1041.2087 	EXP 	text: autoDraw = True
+1041.8765 	DATA 	Keypress: space
+1041.8775 	EXP 	text: autoDraw = False
+1042.5628 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1042.5759 	EXP 	text: text = 'You earned 4.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1042.5759 	EXP 	text: autoDraw = True
+1042.9802 	DATA 	Keypress: space
+1042.9811 	EXP 	text: autoDraw = False
+1042.9895 	EXP 	text: text = 'Total points : 538.2'
+1048.7418 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1048.7418 	EXP 	text: autoDraw = True
+1049.4205 	DATA 	Keypress: space
+1049.4215 	EXP 	text: autoDraw = False
+1050.1788 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1050.1921 	EXP 	text: text = 'You earned 7.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1050.1921 	EXP 	text: autoDraw = True
+1050.5883 	DATA 	Keypress: space
+1050.5892 	EXP 	text: autoDraw = False
+1050.6061 	EXP 	text: text = 'Total points : 545.8'
+1056.8089 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1056.8089 	EXP 	text: autoDraw = True
+1057.6685 	DATA 	Keypress: space
+1057.6695 	EXP 	text: autoDraw = False
+1058.3868 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1058.4061 	EXP 	text: text = 'You earned 5.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1058.4061 	EXP 	text: autoDraw = True
+1058.8522 	DATA 	Keypress: space
+1058.8532 	EXP 	text: autoDraw = False
+1058.8584 	EXP 	text: text = 'Total points : 551.0'
+1066.4667 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1066.4667 	EXP 	text: autoDraw = True
+1066.9244 	DATA 	Keypress: space
+1066.9255 	EXP 	text: autoDraw = False
+1067.8563 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1067.8894 	EXP 	text: text = 'You earned 2.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1067.8894 	EXP 	text: autoDraw = True
+1068.8843 	DATA 	Keypress: space
+1068.8852 	EXP 	text: autoDraw = False
+1068.8911 	EXP 	text: text = 'Total points : 553.9'
+1074.4008 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1074.4008 	EXP 	text: autoDraw = True
+1075.0605 	DATA 	Keypress: space
+1075.0616 	EXP 	text: autoDraw = False
+1075.7868 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1075.8061 	EXP 	text: text = 'You earned 8.2 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1075.8061 	EXP 	text: autoDraw = True
+1076.2042 	DATA 	Keypress: space
+1076.2053 	EXP 	text: autoDraw = False
+1076.2228 	EXP 	text: text = 'Total points : 562.1'
+1083.8334 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1083.8334 	EXP 	text: autoDraw = True
+1084.6763 	DATA 	Keypress: space
+1084.6773 	EXP 	text: autoDraw = False
+1085.8908 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1085.9057 	EXP 	text: text = 'You earned 5.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1085.9057 	EXP 	text: autoDraw = True
+1086.4203 	DATA 	Keypress: space
+1086.4212 	EXP 	text: autoDraw = False
+1086.4276 	EXP 	text: text = 'Total points : 567.5'
+1092.8507 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1092.8507 	EXP 	text: autoDraw = True
+1093.5325 	DATA 	Keypress: space
+1093.5336 	EXP 	text: autoDraw = False
+1094.3949 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1094.4080 	EXP 	text: text = 'You earned 5.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1094.4080 	EXP 	text: autoDraw = True
+1094.8443 	DATA 	Keypress: space
+1094.8452 	EXP 	text: autoDraw = False
+1094.8561 	EXP 	text: text = 'Total points : 573.4'
+1102.4665 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1102.4665 	EXP 	text: autoDraw = True
+1103.0923 	DATA 	Keypress: space
+1103.0934 	EXP 	text: autoDraw = False
+1104.3729 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1104.4061 	EXP 	text: text = 'You earned 5.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1104.4061 	EXP 	text: autoDraw = True
+1104.9404 	DATA 	Keypress: space
+1104.9415 	EXP 	text: autoDraw = False
+1104.9561 	EXP 	text: text = 'Total points : 579.2'
+1110.7090 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1110.7090 	EXP 	text: autoDraw = True
+1111.4125 	DATA 	Keypress: space
+1111.4136 	EXP 	text: autoDraw = False
+1112.2896 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1112.3228 	EXP 	text: text = 'You earned 9.0 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1112.3228 	EXP 	text: autoDraw = True
+1112.9003 	DATA 	Keypress: space
+1112.9013 	EXP 	text: autoDraw = False
+1112.9066 	EXP 	text: text = 'Total points : 588.2'
+1119.3173 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1119.3173 	EXP 	text: autoDraw = True
+1119.9725 	DATA 	Keypress: space
+1119.9736 	EXP 	text: autoDraw = False
+1120.9708 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1120.9895 	EXP 	text: text = 'You earned 7.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1120.9895 	EXP 	text: autoDraw = True
+1121.4043 	DATA 	Keypress: space
+1121.4053 	EXP 	text: autoDraw = False
+1121.4228 	EXP 	text: text = 'Total points : 596.0'
+1127.6258 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1127.6258 	EXP 	text: autoDraw = True
+1128.2604 	DATA 	Keypress: space
+1128.2615 	EXP 	text: autoDraw = False
+1129.2396 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1129.2728 	EXP 	text: text = 'You earned 8.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1129.2728 	EXP 	text: autoDraw = True
+1129.8203 	DATA 	Keypress: space
+1129.8212 	EXP 	text: autoDraw = False
+1129.8265 	EXP 	text: text = 'Total points : 604.4'
+1136.9840 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1136.9840 	EXP 	text: autoDraw = True
+1137.5964 	DATA 	Keypress: space
+1137.5976 	EXP 	text: autoDraw = False
+1138.6988 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1138.7119 	EXP 	text: text = 'You earned 5.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1138.7119 	EXP 	text: autoDraw = True
+1139.1323 	DATA 	Keypress: space
+1139.1333 	EXP 	text: autoDraw = False
+1139.1390 	EXP 	text: text = 'Total points : 610.2'
+1146.7506 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1146.7506 	EXP 	text: autoDraw = True
+1147.5884 	DATA 	Keypress: space
+1147.5894 	EXP 	text: autoDraw = False
+1148.8668 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1148.8801 	EXP 	text: text = 'You earned 6.1 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1148.8801 	EXP 	text: autoDraw = True
+1149.3563 	DATA 	Keypress: space
+1149.3574 	EXP 	text: autoDraw = False
+1149.3731 	EXP 	text: text = 'Total points : 616.3'
+1156.7747 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1156.7747 	EXP 	text: autoDraw = True
+1157.5164 	DATA 	Keypress: space
+1157.5175 	EXP 	text: autoDraw = False
+1158.7308 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1158.7439 	EXP 	text: text = 'You earned 6.3 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1158.7439 	EXP 	text: autoDraw = True
+1159.2123 	DATA 	Keypress: space
+1159.2132 	EXP 	text: autoDraw = False
+1159.2228 	EXP 	text: text = 'Total points : 622.6'
+1165.6336 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1165.6336 	EXP 	text: autoDraw = True
+1166.4445 	DATA 	Keypress: space
+1166.4456 	EXP 	text: autoDraw = False
+1167.6728 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1167.6894 	EXP 	text: text = 'Total points : 622.6'
+1167.6894 	EXP 	text: text = 'Your response exceeded the actual time.\n\n Press [SPACE] to advance'
+1167.6894 	EXP 	text: autoDraw = True
+1168.4364 	DATA 	Keypress: space
+1168.4373 	EXP 	text: autoDraw = False
+1174.2086 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1174.2086 	EXP 	text: autoDraw = True
+1174.8443 	DATA 	Keypress: space
+1174.8454 	EXP 	text: autoDraw = False
+1175.5468 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1175.5601 	EXP 	text: text = 'You earned 6.8 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1175.5601 	EXP 	text: autoDraw = True
+1176.1083 	DATA 	Keypress: space
+1176.1092 	EXP 	text: autoDraw = False
+1176.1228 	EXP 	text: text = 'Total points : 629.4'
+1182.0837 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1182.0837 	EXP 	text: autoDraw = True
+1182.5405 	DATA 	Keypress: space
+1182.5415 	EXP 	text: autoDraw = False
+1183.2908 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1183.3062 	EXP 	text: text = 'You earned 6.4 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1183.3062 	EXP 	text: autoDraw = True
+1183.7483 	DATA 	Keypress: space
+1183.7493 	EXP 	text: autoDraw = False
+1183.7561 	EXP 	text: text = 'Total points : 635.8'
+1189.7168 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1189.7168 	EXP 	text: autoDraw = True
+1190.2603 	DATA 	Keypress: space
+1190.2613 	EXP 	text: autoDraw = False
+1191.0730 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1191.1061 	EXP 	text: text = 'You earned 6.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1191.1061 	EXP 	text: autoDraw = True
+1191.6283 	DATA 	Keypress: space
+1191.6294 	EXP 	text: autoDraw = False
+1191.6394 	EXP 	text: text = 'Total points : 642.7'
+1197.3924 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1197.3924 	EXP 	text: autoDraw = True
+1197.8683 	DATA 	Keypress: space
+1197.8693 	EXP 	text: autoDraw = False
+1198.7229 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1198.7561 	EXP 	text: text = 'You earned 8.6 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1198.7561 	EXP 	text: autoDraw = True
+1199.2203 	DATA 	Keypress: space
+1199.2212 	EXP 	text: autoDraw = False
+1199.2265 	EXP 	text: text = 'Total points : 651.3'
+1206.4007 	EXP 	text: text = 'Press and hold [SPACE] to report the duration of the stimulus'
+1206.4007 	EXP 	text: autoDraw = True
+1206.9163 	DATA 	Keypress: space
+1206.9173 	EXP 	text: autoDraw = False
+1207.6748 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1207.6895 	EXP 	text: text = 'You earned 2.9 out of 10 points in this round.\n\n Press [SPACE] to advance'
+1207.6895 	EXP 	text: autoDraw = True
+1208.0923 	DATA 	Keypress: space
+1208.0932 	EXP 	text: autoDraw = False
+1208.0978 	INFO 	Finishing at 14:57 on 02 Oct 2019
+1208.3595 	EXP 	window1: mouseVisible = True
