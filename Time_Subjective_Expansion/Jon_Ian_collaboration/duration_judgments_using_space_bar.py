@@ -278,7 +278,7 @@ if fullscr and not demo and not exportImages:
         verbose=False,  # True means report on everything
         # if verbose and userProcsDetailed, return (command, process-ID) of the user's processes
         userProcsDetailed=True,
-        # randomSeed='set:42', ## a way to record, and optionally set, a random seed of type str for making reproducible random sequences
+        # randomSeed='set:42', ## a way to record, and optionally set, a random seed oƒpe str for making reproducible random sequences
         # None -> default
         # 'time' will use experimentRuntime.epoch as the value for the seed, different value each time the script is run
         # 'set:time' --> seed value is set to experimentRuntime.epoch, and initialized: random.seed(info['randomSeed'])
@@ -307,17 +307,13 @@ oddBallDur = []
 
 # SETTING THE CONDITIONS
 possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],12) # total 60
-type = np.repeat([0,0,1,2],30)
+types = np.tile([0,0,1,2],30)
 
-conditions = np.array([possibleOddballDurations, type])
+conditions = np.array([possibleOddballDurations, types])
 conditions = conditions.T
-print(conditions)
 shuffle(conditions)
-print(conditions)
-shuffle(conditions)
-print(conditions)
 possibleOddballDurations = conditions[:,0]
-type = conditions[:,1]
+types = conditions[:,1]
 
 
 Durations = 1.05 #sec
@@ -624,9 +620,9 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     # oddBallStim1.setRadius(oddBallMinRadius)
 
-    if type[ix]==0:
+    if types[ix]==0:
         judgment = oddBallStim1
-    elif type[ix]==1:
+    elif types[ix]==1:
         judgment = oddBallStim2
     else:
         judgment = oddBallStim3
@@ -639,7 +635,7 @@ for ix,dur in enumerate(possibleOddballDurations):
     waiting = True
     between_trial(myWin, display_text, "Press and hold [SPACE] to report the duration of the stimulus")
     judgment.setAutoDraw(True)
-    if type[ix]==2:
+    if types[ix]==2:
         judgment.setRadius(oddBallMinRadius)
     myWin.flip()
     oddBallClock.reset()
@@ -653,7 +649,7 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
-        if type[ix]==2:
+        if types[ix]==2:
             judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
             myWin.flip()
         if oddBallClock.getTime() > dur/1000:
@@ -666,7 +662,7 @@ for ix,dur in enumerate(possibleOddballDurations):
             between_trial(myWin, display_text, "Your response exceeded the actual time.\n\n Press [SPACE] to advance")
             judgment.setAutoDraw(False)
             myWin.flip()
-            response.append({'Duration':dur/1000, 'Response':keys[0].duration, 'Stimulus condition':type[ix]})
+            response.append({'Duration':dur/1000, 'Response':keys[0].duration, 'Stimulus condition':types[ix]})
             oddBallClock.reset()
             kb.clock.reset()
         else:
@@ -676,7 +672,7 @@ for ix,dur in enumerate(possibleOddballDurations):
 
             if 'space' in keys:
                 for key in keys:
-                    response.append({'Duration':dur/1000, 'Response':key.duration, 'Stimulus condition':type[ix]})
+                    response.append({'Duration':dur/1000, 'Response':key.duration, 'Stimulus condition':types[ix]})
                     diff_time = np.abs(key.duration-dur/1000)
                     current_points = np.round((np.exp(-diff_time*2)),2)*10
                     reward_counter+= current_points
