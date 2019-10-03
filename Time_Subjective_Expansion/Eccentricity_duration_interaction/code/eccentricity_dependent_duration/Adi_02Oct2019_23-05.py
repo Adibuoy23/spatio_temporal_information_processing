@@ -38,6 +38,7 @@ if autopilot:
     subject = 'auto'
 
 print(os.getcwd())
+os.chdir(os.path.join(os.getcwd(),'/Volumes/My Passport/Github/spatio_temporal_information_processing/Time_Subjective_Expansion/Eccentricity_duration_interaction/'))
 
 if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
@@ -56,9 +57,9 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 2560 #1920  # monitor width in pixels of Agosta
-heightPix = 1440 # 1080  # 800 #monitor height in pixels
-monitorwidth = 52 # Chaz's labspace Ames 27  # 28.2  # monitor width in cm
+widthPix = 2880/2#2560 #1920  # monitor width in pixels of Agosta
+heightPix = 1800/2#1440 # 1080  # 800 #monitor height in pixels
+monitorwidth = 28.2#52 # Chaz's labspace Ames 27  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
@@ -450,7 +451,7 @@ display_message(myWin, display_text, INS_MSG2)
 fixation.setAutoDraw(True)
 reward_text.setAutoDraw(True)
 myWin.flip()
-temp = possibleOddballDurations.copy()
+temp = possibleOddballDurations
 shuffle(temp)
 for ix,dur in enumerate(temp[0:3]):
 
