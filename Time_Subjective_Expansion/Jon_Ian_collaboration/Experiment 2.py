@@ -83,7 +83,7 @@ viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, we want to examine your ability to perceive duration — how long something lasts.\n\n"
-INS_MSG += "The task is simple. In each trial, you will see a black disc appear on the screen and then disappear. Actually, the disc will appear and disappear four times in each trial, and each time, it will last for the same amount of time. We want you to pay attention to how long the disc lasts. Get a sense of its duration. It is repeated four times in a trial to help you get an accurate sense of its duration.\n\n"
+INS_MSG += "The task is simple. In each trial, you will see a disc appear on the screen and then disappear. Actually, the disc will appear and disappear four times in each trial, and each time, it will last for the same amount of time. We want you to pay attention to how long the disc lasts. Get a sense of its duration. It is repeated four times in a trial to help you get an accurate sense of its duration.\n\n"
 INS_MSG += "The fourth disk could be either the same / different type depending on the trial. After the fourth disc disappears it will be your turn to report its duration. Press and hold down the spacebar. So the point is we want you to reproduce the duration that you experienced. Remember we want to know how long each of the four discs lasted, not how long they lasted in all together. \n\n"
 
 INS_MSG += "Press any key to continue to the next page. \n\n"
@@ -513,16 +513,30 @@ for ix,dur in enumerate(practiceDurations):
         myWin.flip()
 
 
-
+    core.wait(1)
 
     # oddBallStim1.setRadius(oddBallMinRadius)
-
+    oddBallClock.reset()
     if practiceType[ix]==0:
         judgment = oddBallStim1
     elif practiceType[ix]==1:
         judgment = oddBallStim2
     else:
         judgment = oddBallStim3
+        judgment.setRadius(oddBallMinRadius)
+        
+    judgment.setAutoDraw(True)
+    myWin.flip()
+    if practiceType[ix]==2:
+        
+        while oddBallClock.getTime() <= dur/1000:
+            judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
+            myWin.flip()
+    else:
+        core.wait(dur/1000)
+        
+    judgment.setAutoDraw(False)
+    myWin.flip()
 
     kb = keyboard.Keyboard()
 
@@ -531,9 +545,7 @@ for ix,dur in enumerate(practiceDurations):
     kb.start()
     waiting = True
     between_trial(myWin, display_text, "Press and hold [SPACE] to report the duration of the stimulus")
-    judgment.setAutoDraw(True)
-    if practiceType[ix]==2:
-        judgment.setRadius(oddBallMinRadius)
+        
     myWin.flip()
     oddBallClock.reset()
     counter = i
@@ -546,18 +558,12 @@ for ix,dur in enumerate(practiceDurations):
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
-        if practiceType[ix]==2:
-            judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
-            myWin.flip()
-        if oddBallClock.getTime() > dur/1000:
-            judgment.setAutoDraw(False)
-            myWin.flip()
+
         if oddBallClock.getTime() > dur/1000 and 'space' in keys:
             waiting = False
             reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
             kb.stop()
             between_trial(myWin, display_text, "Your response exceeded the actual time.\n\n Press [SPACE] to advance")
-            judgment.setAutoDraw(False)
             myWin.flip()
             oddBallClock.reset()
             kb.clock.reset()
@@ -572,7 +578,6 @@ for ix,dur in enumerate(practiceDurations):
                     current_points = np.round((np.exp(-diff_time*2)),2)*10
                     reward_counter+= current_points
                     kb.stop()
-                    judgment.setAutoDraw(False)
                     myWin.flip()
                     between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
                     reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
@@ -618,14 +623,30 @@ for ix,dur in enumerate(possibleOddballDurations):
 
 
 
-    # oddBallStim1.setRadius(oddBallMinRadius)
+    core.wait(1)
 
+    # oddBallStim1.setRadius(oddBallMinRadius)
+    oddBallClock.reset()
     if types[ix]==0:
         judgment = oddBallStim1
     elif types[ix]==1:
         judgment = oddBallStim2
     else:
         judgment = oddBallStim3
+        judgment.setRadius(oddBallMinRadius)
+        
+    judgment.setAutoDraw(True)
+    myWin.flip()
+    if types[ix]==2:
+        
+        while oddBallClock.getTime() <= dur/1000:
+            judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
+            myWin.flip()
+    else:
+        core.wait(dur/1000)
+        
+    judgment.setAutoDraw(False)
+    myWin.flip()
 
     kb = keyboard.Keyboard()
 
@@ -634,9 +655,7 @@ for ix,dur in enumerate(possibleOddballDurations):
     kb.start()
     waiting = True
     between_trial(myWin, display_text, "Press and hold [SPACE] to report the duration of the stimulus")
-    judgment.setAutoDraw(True)
-    if types[ix]==2:
-        judgment.setRadius(oddBallMinRadius)
+
     myWin.flip()
     oddBallClock.reset()
     counter = i
@@ -649,18 +668,11 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
-        if types[ix]==2:
-            judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
-            myWin.flip()
-        if oddBallClock.getTime() > dur/1000:
-            judgment.setAutoDraw(False)
-            myWin.flip()
         if oddBallClock.getTime() > dur/1000 and 'space' in keys:
             waiting = False
             reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
             kb.stop()
             between_trial(myWin, display_text, "Your response exceeded the actual time.\n\n Press [SPACE] to advance")
-            judgment.setAutoDraw(False)
             myWin.flip()
             response.append({'Duration':dur/1000, 'Response':keys[0].duration, 'Stimulus condition':types[ix]})
             oddBallClock.reset()
@@ -677,7 +689,6 @@ for ix,dur in enumerate(possibleOddballDurations):
                     current_points = np.round((np.exp(-diff_time*2)),2)*10
                     reward_counter+= current_points
                     kb.stop()
-                    judgment.setAutoDraw(False)
                     myWin.flip()
                     between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
                     reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
