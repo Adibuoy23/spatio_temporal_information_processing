@@ -83,12 +83,12 @@ viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, we want to examine your ability to perceive duration — how long something lasts.\n\n"
-INS_MSG += "The task is simple. In each trial, you will see a disc appear on the screen and then disappear. Actually, the disc will appear and disappear four times in each trial, and each time, it will last for the same amount of time. We want you to pay attention to how long the disc lasts. Get a sense of its duration. It is repeated four times in a trial to help you get an accurate sense of its duration.\n\n"
-INS_MSG += "The fourth disk could be either the same / different type depending on the trial. After the fourth disc disappears it will be your turn to report its duration. Press and hold down the spacebar. So the point is we want you to reproduce the duration that you experienced. Remember we want to know how long each of the four discs lasted, not how long they lasted in all together. \n\n"
+INS_MSG += "The task is simple. In each trial, you will see a disc appear on the screen and then disappear. There will be four such disks. We want you to pay attention to how long the last disc lasts. Get a sense of its duration.\n\n"
+INS_MSG += "The fourth disk could be either the same / different type depending on the trial. After the fourth disc disappears it will be your turn to report its duration. Press and hold down the spacebar. \n\n"
 
 INS_MSG += "Press any key to continue to the next page. \n\n"
 
-INS_MSG2 = "We really want you to be as accurate as you can. So a game will be played to make it more fun. We want you to hold down the space bar for as long as you saw each of the discs last, but no longer! The closer you get to the right answer, the more points we will award you in that trial. But if you go over the actual duration you won't get any points on that trial. So you need to be as accurate as possible without going over to earn the max. Each trial will be for 10 points. There are about 120 trials. If you collect a total of 650 points by the end, we will double the credit you get for the experiment.\n\n"
+INS_MSG2 = "We really want you to be as accurate as you can. So a game will be played to make it more fun. We want you to hold down the space bar for as long as you saw the last disc lasted, but no longer! The closer you get to the right answer, the more points we will award you in that trial. But if you go over the actual duration you won't get any points on that trial. So you need to be as accurate as possible without going over to earn the max. Each trial will be for 10 points. There are about 100 trials. If you collect a total of 600 points by the end, we will double the credit you get for the experiment.\n\n"
 INS_MSG2 += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG2 += "Press any key you are ready to do some practice trials.\n\n"
 
@@ -306,8 +306,8 @@ fixationBlank = visual.PatchStim(myWin, tex=-1*fixatnNoiseTexture, size=(fixSize
 oddBallDur = []
 
 # SETTING THE CONDITIONS
-possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],12) # total 60
-types = np.tile([0,0,1,2],30)
+possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],10) # total 60
+types = np.tile([0,0,1,2],25)
 
 conditions = np.array([possibleOddballDurations, types])
 conditions = conditions.T
