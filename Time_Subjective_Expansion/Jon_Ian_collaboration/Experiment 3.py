@@ -1,4 +1,4 @@
- #import all the modules
+  #import all the modules
 from __future__ import print_function
 from psychopy import monitors, visual, event, data, logging, core, sound, gui
 from psychopy.hardware import keyboard
