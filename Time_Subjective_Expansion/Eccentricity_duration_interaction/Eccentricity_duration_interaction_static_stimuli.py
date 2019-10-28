@@ -27,14 +27,13 @@ if autopilot:
     subject = 'auto'
 
 print(os.getcwd())
-os.chdir(os.path.join(os.getcwd(),'/Volumes/My Passport/Github/spatio_temporal_information_processing/Time_Subjective_Expansion/Eccentricity_duration_interaction/'))
 
 if os.path.isdir('.'+os.sep+'data'):
     dataDir = 'data'
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'Eccentricity_duration_interaction static stimuli'
+    expt_name = 'Experiment_2'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -46,8 +45,8 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 2880  # monitor width in pixels of Agosta
-heightPix = 1800  # 800 #monitor height in pixels
+widthPix = 2560  # monitor width in pixels of Agosta
+heightPix = 1440  # 800 #monitor height in pixels
 monitorwidth = 52  # 52 in lab testing suite  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
@@ -72,11 +71,12 @@ if demo:
 viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
-INS_MSG += "In this study, you will judge the duration of the items presented on the screen.\n\n"
-INS_MSG += "The task is simple: You will see black disks appear, move and disappear on the screen. The black disks will all last for exactly the same amount of time. .\n\n"
-INS_MSG += "Occasionally, you will see things other than a black disk appear and disappear — these might be spinning or differently colored things.\n\n"
-INS_MSG += "All you need to do is judge whether that oddball — the thing that is not a black disk — lasted longer or shorter on the screen than than the black disks.\n\n"
-INS_MSG += "These disks might appear at different locations on the screen, and move in circular orbits.\n\n"
+INS_MSG += "In this study, you will judge the duration of the last item presented on the screen in a given trial.\n\n"
+INS_MSG += "The task is simple: In a given trial, you will see few disks appear, and disappear on the screen.\n\n"
+INS_MSG += "You will need to judge the duration of the last stimulus in relation to the stimuli that appeared before.\n\n"
+INS_MSG += "This last stimulus might be either a black /red colored disk, or a looming disk.\n\n"
+INS_MSG += "All you need to do is press [S /L] to indicate if the last disc lasted shorter or longer on the screen than the previous disks.\n\n"
+INS_MSG += "These disks might appear at different locations on the screen.\n\n"
 INS_MSG += "You will maintain fixation at the center of the screen while making the duration judgments.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
 INS_MSG += "Press any key when you are ready to begin the experiment.\n\n"
@@ -295,7 +295,7 @@ fixationBlank = visual.PatchStim(myWin, tex=-1*fixatnNoiseTexture, size=(fixSize
 oddBallDur = []
 
 # SETTING THE CONDITIONS
-conditions = np.array([np.tile([450, 525, 600, 675, 750, 825, 900, 975, 1050, 1125],6), np.repeat([3,6],30), np.repeat([0,1, 2],20)])
+conditions = np.array([np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],6), np.tile(np.repeat([3,12],3),10), np.tile([0,1, 2],20)])
 conditions = conditions.T
 np.random.shuffle(conditions)
 print(conditions)
@@ -322,7 +322,7 @@ display_text = visual.TextStim(
     font='Arial',
     pos=[
         0,
-        -5],
+        0],
     wrapWidth=TEXT_WRAP,
     height=TEXT_HEIGHT,
     color=stimColor,
@@ -370,8 +370,7 @@ loomingStim = visual.Circle(myWin,
                     interpolate=True,
                     autoLog=False)  # this stim changes too much for autologging to be useful
 
-star7Vert = [(0.0,0.5),(0.09,0.18),(0.39,0.31),(0.19,0.04),(0.49,-0.11),(0.16,-0.12),(0.22,-0.45),(0.0,-0.2),(-0.22,-0.45),(-0.16,-0.12),(-0.49,-0.11),(-0.19,0.04),(-0.39,0.31),(-0.09,0.18)]
-starStim = visual.ShapeStim(myWin, vertices=star7Vert, fillColor='green', lineWidth=2, lineColor='white')
+
 
 fixation = visual.Circle(myWin,
                     radius=oddBallMinRadius/4,  # Martini used circles with diameter of 12 deg
@@ -423,20 +422,102 @@ fix_MSG = "Please fixate on the red dot while the stimuli appear on the screen. 
 display_message(myWin, display_text, fix_MSG)
 
 
-display_text.setText("Please press s for short, and l for long to judge the oddball duration against the standard")
-for ix,dur in enumerate(possibleOddballDurations):
-    print(oddBallType[ix])
-    if oddBallType[ix]==0:
-        oddBallStim = loomingStim
-    elif oddBallType[ix]==1:
-        oddBallStim = starStim
-    elif oddBallType[ix]==2:
+display_text.setText("Please press s for short, and l for long to judge the duration of the last stimulus against the previous.")
+
+practiceDurations = [750,950,1250]
+practiceType = [0,1,2]
+practiceEccentricity = [3,12,3]
+
+for ix,dur in enumerate(practiceDurations):
+    print(practiceType[ix])
+    if practiceType[ix]==0:
+        oddBallStim = standardStim
+    elif practiceType[ix]==1:
         oddBallStim = redStim
+    elif practiceType[ix]==2:
+        oddBallStim = loomingStim
     fixation.setAutoDraw(True)
     myWin.flip()
     core.wait(1);
-    theta = np.random.choice([0, 45, 90, 135, 180, 225, 270, 315])
-    for num in range(1, randint(7,12)):
+    theta = np.random.choice([0, 180])*np.pi/180
+    for num in range(1, randint(3,5)):
+        #theta = 0#random.uniform(0,359)*np.pi/180
+        standardStim.setPos([practiceEccentricity[ix]*np.cos(theta),practiceEccentricity[ix]*np.sin(theta)])
+        standardStim.setAutoDraw(True)
+        myWin.flip()
+        omega = .01
+        direction = np.random.choice([-1,1])
+        changeDirection = np.random.choice([0,1])
+        changeDirectionCounter = random.randint(10,64)
+        standardBallClock.reset()
+        counter=0
+        flip = 1
+        core.wait(Durations) #Standard stimuli for a duration of 1050msec
+        standardStim.setAutoDraw(False)
+        myWin.flip()
+        core.wait(randint(950,1050)/1000) # wait for a random time between 950, 1050 msec
+
+    #theta = 0#random.uniform(0,359)*np.pi/180
+    oddBallStim.setPos([practiceEccentricity[ix]*np.cos(theta),practiceEccentricity[ix]*np.sin(theta)])
+    oddBallStim.setAutoDraw(True)
+    myWin.flip()
+    oddBallClock.reset()
+
+    expansionRate = (oddBallMaxRadius - oddBallMinRadius)/Durations
+    #core.wait(Durations[i])
+    direction = np.random.choice([-1,1])
+    changeDirection = np.random.choice([0,1])
+    changeDirectionCounter = random.randint(10,64)
+    flip = 1
+    counter = 0
+    while oddBallClock.getTime() < dur/1000:
+        if practiceType[ix]==2:
+            oddBallStim.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
+        myWin.flip()
+    oddBallStim.setAutoDraw(False)
+    myWin.flip()
+    if practiceType[ix]==2:
+        oddBallStim.setRadius(oddBallMinRadius)
+    core.wait(randint(950,1050)/1000)
+    i = 0
+    waiting = True
+    while waiting:
+        display_text.setAutoDraw(True)
+        fixation.setAutoDraw(False)
+        myWin.flip()
+        if expStop == True:
+            break
+        for key in event.getKeys():  # check if pressed abort-type key
+            print(key)
+            if key in ['s', 'l', 'escape']:
+                waiting = False
+                display_text.setAutoDraw(False)
+                myWin.flip()
+            if key in ['escape']:
+                expStop = True
+                core.quit()
+                myWin.clearBuffer()
+                core.wait(.2)
+                time.sleep(.2)
+                myWin.close()
+        #i += 1
+display_message(myWin, display_text, "Great! Now press any key to begin the experiment")
+display_text.setText("Please press s for short, and l for long to judge the duration of the last stimulus against the previous.")
+### Actual experiment ############################
+
+for ix,dur in enumerate(possibleOddballDurations):
+    print(oddBallType[ix])
+    if oddBallType[ix]==0:
+        oddBallStim = standardStim
+    elif oddBallType[ix]==1:
+        oddBallStim = redStim
+    elif oddBallType[ix]==2:
+        oddBallStim = loomingStim
+    fixation.setAutoDraw(True)
+    myWin.flip()
+    core.wait(1);
+    theta = np.random.choice([0, 180])*np.pi/180
+    for num in range(1, randint(3,5)):
         #theta = 0#random.uniform(0,359)*np.pi/180
         standardStim.setPos([eccentricity[ix]*np.cos(theta),eccentricity[ix]*np.sin(theta)])
         standardStim.setAutoDraw(True)
@@ -483,14 +564,12 @@ for ix,dur in enumerate(possibleOddballDurations):
         # print(counter)
         # theta = theta+(omega)*direction
         # oddBallStim.setPos([eccentricity[ix]*np.cos(theta),eccentricity[ix]*np.sin(theta)])
-        if oddBallType[ix]==0:
+        if oddBallType[ix]==2:
             oddBallStim.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
-        else:
-            oddBallStim.setOri(1, '-')  # rotate
         myWin.flip()
     oddBallStim.setAutoDraw(False)
     myWin.flip()
-    if oddBallType[ix]==0:
+    if oddBallType[ix]==2:
         oddBallStim.setRadius(oddBallMinRadius)
     core.wait(randint(950,1050)/1000)
     i = 0
