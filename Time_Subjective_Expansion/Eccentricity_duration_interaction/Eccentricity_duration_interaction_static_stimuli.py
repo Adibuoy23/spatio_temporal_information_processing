@@ -72,10 +72,11 @@ viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, you will judge the duration of the last item presented on the screen in a given trial.\n\n"
-INS_MSG += "The task is simple: In a given trial, you will see few disks appear, and disappear on the screen.\n\n"
+INS_MSG += "The task is simple: In a given trial, you will see few (randomly chosen between 3-7) disks appear, and disappear on the screen.\n\n"
+INS_MSG += "They will all last for the same duration. After these 3-7 random discs, you will see another disc appear on the screen.\n\n"
 INS_MSG += "You will need to judge the duration of the last stimulus in relation to the stimuli that appeared before.\n\n"
 INS_MSG += "This last stimulus might be either a black /red colored disk, or a looming disk.\n\n"
-INS_MSG += "All you need to do is press [S /L] to indicate if the last disc lasted shorter or longer on the screen than the previous disks.\n\n"
+INS_MSG += "All you need to do is press [S /L] to indicate if the last seen disc lasted shorter or longer on the screen than the previous disks.\n\n"
 INS_MSG += "These disks might appear at different locations on the screen.\n\n"
 INS_MSG += "You will maintain fixation at the center of the screen while making the duration judgments.\n\n"
 INS_MSG += "If you're feeling uncomfortable, you can press ESC key any time to stop the experiment.\n\n"
