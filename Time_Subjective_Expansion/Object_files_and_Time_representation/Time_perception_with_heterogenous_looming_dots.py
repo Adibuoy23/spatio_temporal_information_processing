@@ -44,7 +44,7 @@ if os.path.isdir('.'+os.sep+'data'):
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'Object_files_and_Time'
+    expt_name = 'Experiment 1'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -56,8 +56,8 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 2880  # monitor width in pixels of Agosta
-heightPix = 1800  # 800 #monitor height in pixels
+widthPix = 2560  # monitor width in pixels of Agosta
+heightPix = 1440  # 800 #monitor height in pixels
 monitorwidth = 52  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
@@ -304,12 +304,12 @@ oddBallDur = []
 
 # SETTING THE CONDITIONS
 possibleOddballDurations = np.repeat([750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525],6) # total 60
-type = np.tile([0,1],30)
-conditions = np.array([possibleOddballDurations, type])
+types = np.tile([0,1],30)
+conditions = np.array([possibleOddballDurations, types])
 conditions = conditions.T
 shuffle(conditions)
 possibleOddballDurations = conditions[:,0]
-type = conditions[:,1]
+types = conditions[:,1]
 
 Durations = 1.05 #sec
 
@@ -321,7 +321,7 @@ oddBallMinRadius = 1.06/2
 
 
 TEXT_HEIGHT = 0.35   # The height in visual degrees of instruction text
-TEXT_WRAP = 25  # The character limit of each line of text before word wrap
+TEXT_WRAP = 20  # The character limit of each line of text before word wrap
 display_text = visual.TextStim(
     win=myWin,
     ori=0,
@@ -331,6 +331,22 @@ display_text = visual.TextStim(
     pos=[
         0,
         0],
+    wrapWidth=TEXT_WRAP,
+    height=TEXT_HEIGHT,
+    color=stimColor,
+    colorSpace='rgb',
+    opacity=1,
+    depth=-1.0)
+
+reward_text = visual.TextStim(
+    win=myWin,
+    ori=0,
+    name='text',
+    text="Total points : 0",
+    font='Arial',
+    pos=[
+        5,
+        5],
     wrapWidth=TEXT_WRAP,
     height=TEXT_HEIGHT,
     color=stimColor,
@@ -357,13 +373,40 @@ def display_message(win, txt, msg):
 
     txt.setText(msg)
     txt.setAutoDraw(True)
+    fixation.setAutoDraw(False)
     win.flip()
 
-    event.waitKeys(keyList = ['right'])
+    event.waitKeys()
 
     txt.setAutoDraw(False)
     win.flip()
-    event.clearEvents('keyboard')
+
+def between_trial(win, txt, msg):
+    """A function to display text to the experiment window.
+
+    win: psychopy.visual.Window
+        The window to write the message to.
+
+    fix: psychopy.visual.Circle
+        The fixation point to be removed from the screen.
+
+    txt: psychopy.visual.TextStim
+        The text object to present to the screen.
+
+    msg: String
+        The contents for the text object.
+
+    """
+
+    txt.setText(msg)
+    txt.setAutoDraw(True)
+    fixation.setAutoDraw(False)
+    win.flip()
+
+    event.waitKeys(keyList = ['space'])
+
+    txt.setAutoDraw(False)
+    win.flip()
 
 oddBallStim1 = visual.Circle(myWin,
                     radius=oddBallMinRadius,  # Martini used circles with diameter of 12 deg
@@ -425,8 +468,6 @@ counter = -20
 display_message(myWin, display_text, INS_MSG)
 
 for ix,dur in enumerate(possibleOddballDurations):
-    fix_MSG = 'Press Right Arrow to advance'
-    display_message(myWin, display_text, fix_MSG)
     fixation.setAutoDraw(True)
     myWin.flip()
     core.wait(0.3)
@@ -435,7 +476,7 @@ for ix,dur in enumerate(possibleOddballDurations):
     oddBallStim3.setAutoDraw(True)
     myWin.flip()
     oddBallClock.reset()
-    if type[ix]:
+    if types[ix]:
         oddBallMaxRadius1 = 3.53/2
         oddBallMaxRadius2 = 3.53/3
         oddBallMaxRadius3 = 3.53/4
@@ -473,47 +514,50 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     # during your trial
     kb.clock.reset()  # when you want to start the timer from
+    kb.start()
     waiting = True
-    display_text.setAutoDraw(True)
-    display_text.setText("Press SPACE for as long as you think the scene lasted")
+    between_trial(myWin, display_text, "Press and hold [SPACE] to report the duration of the scene.")
+    feedbackStim.setAutoDraw(True)
     myWin.flip()
+    oddBallClock.reset()
+    counter = i
+    kb = keyboard.Keyboard()
+    kb.clock.reset()
+
     while waiting:
-        keys = kb.getKeys(['space', 'escape'], waitRelease=True, )
+        keys = kb.getKeys(['space', 'escape'], waitRelease=True)
+        if oddBallClock.getTime() > dur/1000:
+            feedbackStim.setAutoDraw(False)
+            myWin.flip()
+        if oddBallClock.getTime() > dur/1000 and 'space' in keys:
+            waiting = False
+            reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
+            kb.stop()
+            between_trial(myWin, display_text, "Your response exceeded the actual time.\n\n Press [SPACE] to advance")
+            myWin.flip()
+            response.append({'Duration':dur/1000, 'Response':keys[0].duration, 'Stimulus condition':types[ix]})
+            oddBallClock.reset()
+            kb.clock.reset()
+        else:
+            if 'escape' in keys:
+                core.quit()
+                myWin.close()
 
-        if 'escape' in keys:
-            print(key.name, key.rt, key.duration)
-            core.quit()
-            myWin.close()
+            if 'space' in keys:
+                for key in keys:
+                    response.append({'Duration':dur/1000, 'Response':key.duration, 'Stimulus condition':types[ix]})
+                    diff_time = np.abs(key.duration-dur/1000)
+                    current_points = np.round((np.exp(-diff_time*2)),2)*10
+                    reward_counter+= current_points
+                    kb.stop()
+                    feedbackStim.setAutoDraw(False)
+                    myWin.flip()
+                    between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
+                    reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
 
-        if 'space' in keys:
-            for key in keys:
-                display_text.setText('Space duration : ' + str(np.round(key.duration,2)))
-                myWin.flip()
-            waiting=False
-    display_text.setAutoDraw(False)
-    core.wait(1)
+                waiting=False
 
-    # while waiting:
-    #     keyboard = key.KeyStateHandler()
-    #     myWin.winHandle.push_handlers(keyboard)
-    #     print(keyboard[key.A])
-    #     if keyboard[key.A] and not space_pressed:
-    #         space_pressed = true
-    #         kbClock.reset()
-    #         display_text.setText('space press detected')
-    #         display_text.setAutoDraw(True)
-    #         myWin.flip()
-    #     elif keyboard[key.ESCAPE]:
-    #         core.quit()
-    #         myWin.close()
-    #     elif space_pressed and not keyboard[key.A]:
-    #         waiting=False
-    #         space_duration = kbClock.getTime()
-    #         space_released=True
-    #         display_text.setText('space_duration : ' + str(space_duration))
-    #         myWin.flip()
-    #         core.wait(1)
-    #         display_text.setAutoDraw(false)
+
 
 
 
