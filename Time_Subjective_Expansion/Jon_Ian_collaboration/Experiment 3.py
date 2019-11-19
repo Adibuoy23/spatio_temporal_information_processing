@@ -1,4 +1,4 @@
- #import all the modules
+  #import all the modules
 from __future__ import print_function
 from psychopy import monitors, visual, event, data, logging, core, sound, gui
 from psychopy.hardware import keyboard
@@ -56,9 +56,9 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 1920*2 #5120  # monitor width in pixels of Agosta
-heightPix = 1080*2 #2880  # 800 #monitor height in pixels
-monitorwidth = 56  # 28.2  # monitor width in cm
+widthPix = 2560#1920*2 #5120  # monitor width in pixels of Agosta
+heightPix = 1440#1080*2 #2880  # 800 #monitor height in pixels
+monitorwidth = 52#56  # 28.2  # monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
