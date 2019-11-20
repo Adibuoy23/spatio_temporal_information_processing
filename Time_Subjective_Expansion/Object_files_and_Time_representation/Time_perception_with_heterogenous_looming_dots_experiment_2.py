@@ -492,26 +492,26 @@ for ix,dur in enumerate(practiceDurations):
     myWin.flip()
     oddBallClock.reset()
     if practiceType[ix]:
-        oddBallMaxRadius1 = 3.53/2
-        oddBallMaxRadius2 = 3.53/3
-        oddBallMaxRadius3 = 3.53/4
+        oddBallMinRadius1 = 3.53*3/4
+        oddBallMinRadius2 = 3.53*1/2
+        oddBallMinRadius3 = 3.53*1/4
     else:
-        oddBallMaxRadius1 = 3.53/2
-        oddBallMaxRadius2 = 3.53/2
-        oddBallMaxRadius3 = 3.53/2
+        oddBallMinRadius1 = 3.53/2
+        oddBallMinRadius2 = 3.53/2
+        oddBallMinRadius3 = 3.53/2
 
-    expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
-    expansionRate2 = (oddBallMaxRadius2 - oddBallMinRadius)/Durations
-    expansionRate3 = (oddBallMaxRadius3 - oddBallMinRadius)/Durations
+    expansionRate1 = (stdStimRadius - oddBallMinRadius1)/Durations
+    expansionRate2 = (stdStimRadius - oddBallMinRadius2)/Durations
+    expansionRate3 = (stdStimRadius - oddBallMinRadius3)/Durations
     counter = i
     e = np.array([expansionRate1, expansionRate2, expansionRate3])
     shuffle(e)
     print(e)
     #core.wait(Durations[i])
     while oddBallClock.getTime() < dur/1000:
-        oddBallStim1.setRadius(oddBallMinRadius + (e[0]) * oddBallClock.getTime())
-        oddBallStim2.setRadius(oddBallMinRadius + (e[1]) * oddBallClock.getTime())
-        oddBallStim3.setRadius(oddBallMinRadius + (e[2]) * oddBallClock.getTime())
+        oddBallStim1.setRadius(oddBallMinRadius1 + (e[0]) * oddBallClock.getTime())
+        oddBallStim2.setRadius(oddBallMinRadius2 + (e[1]) * oddBallClock.getTime())
+        oddBallStim3.setRadius(oddBallMinRadius3 + (e[2]) * oddBallClock.getTime())
         myWin.flip()
     oddBallStim1.setAutoDraw(False)
     oddBallStim2.setAutoDraw(False)
@@ -585,26 +585,26 @@ for ix,dur in enumerate(possibleOddballDurations):
     myWin.flip()
     oddBallClock.reset()
     if types[ix]:
-        oddBallMaxRadius1 = 3.53/2
-        oddBallMaxRadius2 = 3.53/3
-        oddBallMaxRadius3 = 3.53/4
+        oddBallMinRadius1 = 3.53/2
+        oddBallMinRadius2 = 3.53/3
+        oddBallMinRadius3 = 3.53/4
     else:
-        oddBallMaxRadius1 = 3.53/2
-        oddBallMaxRadius2 = 3.53/2
-        oddBallMaxRadius3 = 3.53/2
+        oddBallMinRadius1 = 3.53/2
+        oddBallMinRadius2 = 3.53/2
+        oddBallMinRadius3 = 3.53/2
 
-    expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
-    expansionRate2 = (oddBallMaxRadius2 - oddBallMinRadius)/Durations
-    expansionRate3 = (oddBallMaxRadius3 - oddBallMinRadius)/Durations
+    expansionRate1 = (stdStimRadius - oddBallMinRadius1)/Durations
+    expansionRate2 = (stdStimRadius - oddBallMinRadius2)/Durations
+    expansionRate3 = (stdStimRadius - oddBallMinRadius3)/Durations
     counter = i
     e = np.array([expansionRate1, expansionRate2, expansionRate3])
     shuffle(e)
     print(e)
     #core.wait(Durations[i])
     while oddBallClock.getTime() < dur/1000:
-        oddBallStim1.setRadius(oddBallMinRadius + (e[0]) * oddBallClock.getTime())
-        oddBallStim2.setRadius(oddBallMinRadius + (e[1]) * oddBallClock.getTime())
-        oddBallStim3.setRadius(oddBallMinRadius + (e[2]) * oddBallClock.getTime())
+        oddBallStim1.setRadius(oddBallMinRadius1 + (e[0]) * oddBallClock.getTime())
+        oddBallStim2.setRadius(oddBallMinRadius2 + (e[1]) * oddBallClock.getTime())
+        oddBallStim3.setRadius(oddBallMinRadius3 + (e[2]) * oddBallClock.getTime())
         myWin.flip()
     oddBallStim1.setAutoDraw(False)
     oddBallStim2.setAutoDraw(False)
