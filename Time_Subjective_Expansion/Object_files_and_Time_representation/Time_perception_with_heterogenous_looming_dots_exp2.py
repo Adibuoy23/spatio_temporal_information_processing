@@ -492,9 +492,9 @@ for ix,dur in enumerate(practiceDurations):
     myWin.flip()
     oddBallClock.reset()
     if practiceType[ix]:
-        oddBallMaxRadius1 = 3.53*1/2
-        oddBallMaxRadius2 = 3.53*1/3
-        oddBallMaxRadius3 = 3.53*1/4
+        oddBallMaxRadius1 = 3.53/2
+        oddBallMaxRadius2 = 3.53/3
+        oddBallMaxRadius3 = 3.53/4
     else:
         oddBallMaxRadius1 = 3.53/2
         oddBallMaxRadius2 = 3.53/2
@@ -585,9 +585,9 @@ for ix,dur in enumerate(possibleOddballDurations):
     myWin.flip()
     oddBallClock.reset()
     if types[ix]:
-        oddBallMaxRadius1 = 3.53*1/2
-        oddBallMaxRadius2 = 3.53*1/3
-        oddBallMaxRadius3 = 3.53*1/4
+        oddBallMaxRadius1 = 3.53/2
+        oddBallMaxRadius2 = 3.53/3
+        oddBallMaxRadius3 = 3.53/4
     else:
         oddBallMaxRadius1 = 3.53/2
         oddBallMaxRadius2 = 3.53/2
