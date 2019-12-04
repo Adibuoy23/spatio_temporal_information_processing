@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v3.2.4),
-    on Tue Dec  3 11:02:00 2019
+    on Tue Dec  3 16:58:27 2019
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -15,7 +15,7 @@ from __future__ import absolute_import, division
 
 from psychopy import locale_setup
 from psychopy import prefs
-from psychopy import sound, gui, visual, core, data, event, logging, clock
+from psychopy import sound, gui, visual, core, data, event, logging, clock, parallel
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 
@@ -94,7 +94,6 @@ trialClock = core.Clock()
 stimulus = sound.Sound('A', secs=-1, stereo=True, hamming=True,
     name='stimulus')
 stimulus.setVolume(1)
-key_resp = keyboard.Keyboard()
 sound_1 = sound.Sound('A', secs=-1, stereo=True, hamming=True,
     name='sound_1')
 sound_1.setVolume(1)
@@ -110,14 +109,22 @@ text = visual.TextStim(win=win, name='text',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-5.0);
+    depth=-4.0);
+from psychopy.iohub import launchHubServer
+from psychopy.core import getTime
+
+# Start the ioHub process. 'io' can now be used during the
+# experiment to access iohub devices and read iohub device events.
+io = launchHubServer()
+
+keyboard = io.devices.keyboard
 text_2 = visual.TextStim(win=win, name='text_2',
     text=None,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-7.0);
+    depth=-6.0);
 
 # Initialize components for Routine "thanks"
 thanksClock = core.Clock()
@@ -242,8 +249,6 @@ for thisTrial in trials:
     # update component parameters for each repeat
     stimulus.setSound('A', secs=Duration/1000, hamming=True)
     stimulus.setVolume(1, log=False)
-    key_resp.keys = []
-    key_resp.rt = []
     sound_1.setSound('A', secs=Duration/1000, hamming=True)
     sound_1.setVolume(1, log=False)
     sound_2.setSound('A', secs=Duration/1000, hamming=True)
@@ -259,7 +264,7 @@ for thisTrial in trials:
     
     
     # keep track of which components have finished
-    trialComponents = [stimulus, key_resp, sound_1, sound_2, sound_3, text, text_2]
+    trialComponents = [stimulus, sound_1, sound_2, sound_3, text, text_2]
     for thisComponent in trialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -297,31 +302,6 @@ for thisTrial in trials:
                 stimulus.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(stimulus, 'tStopRefresh')  # time at next scr refresh
                 stimulus.stop()
-        
-        # *key_resp* updates
-        waitOnFlip = False
-        if key_resp.status == NOT_STARTED and tThisFlip >= 4*Duration/1000 + 5*randint(950,1050)/1000-frameTolerance:
-            # keep track of start time/frame for later
-            key_resp.frameNStart = frameN  # exact frame index
-            key_resp.tStart = t  # local t and not account for scr refresh
-            key_resp.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
-            key_resp.status = STARTED
-            # keyboard checking is just starting
-            waitOnFlip = True
-            win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
-        if key_resp.status == STARTED and not waitOnFlip:
-            theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
-            if len(theseKeys):
-                theseKeys = theseKeys[0]  # at least one key was pressed
-                
-                # check for quit:
-                if "escape" == theseKeys:
-                    endExpNow = True
-                key_resp.keys = theseKeys.name  # just the last key pressed
-                key_resp.rt = theseKeys.rt
-                # a response ends the routine
-                continueRoutine = False
         # start/stop sound_1
         if sound_1.status == NOT_STARTED and tThisFlip >= (Duration/1000) + 2*randint(950,1050)/1000-frameTolerance:
             # keep track of start time/frame for later
@@ -377,18 +357,15 @@ for thisTrial in trials:
             win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
             text.setAutoDraw(True)
         # Each Frame
-        keys = event.getKeys()
-        if not space and 'space' in keys:  # If space has not been pushed, reset clock when pushed
-            space = True
-            spaceClock.reset()
-        elif space and 'space' in keys:  # If space is pushed again, get RT
-            spaceRT = spaceClock.getTime()
-            space = False 
-        
-        
+        loop=True
+        while loop:
+            presses = keyboard.KeyboardPress().char()
+            if 'space' in presses:
+                spaceRT = keyboard.KeyboardRelease().duration()
+                loop=False
         
         # *text_2* updates
-        if text_2.status == NOT_STARTED and key_resp.status==FINISHED:
+        if text_2.status == NOT_STARTED and passon == 'True':
             # keep track of start time/frame for later
             text_2.frameNStart = frameN  # exact frame index
             text_2.tStart = t  # local t and not account for scr refresh
@@ -428,14 +405,6 @@ for thisTrial in trials:
     stimulus.stop()  # ensure sound has stopped at end of routine
     trials.addData('stimulus.started', stimulus.tStartRefresh)
     trials.addData('stimulus.stopped', stimulus.tStopRefresh)
-    # check responses
-    if key_resp.keys in ['', [], None]:  # No response was made
-        key_resp.keys = None
-    trials.addData('key_resp.keys',key_resp.keys)
-    if key_resp.keys != None:  # we had a response
-        trials.addData('key_resp.rt', key_resp.rt)
-    trials.addData('key_resp.started', key_resp.tStartRefresh)
-    trials.addData('key_resp.stopped', key_resp.tStopRefresh)
     sound_1.stop()  # ensure sound has stopped at end of routine
     trials.addData('sound_1.started', sound_1.tStartRefresh)
     trials.addData('sound_1.stopped', sound_1.tStopRefresh)
@@ -450,6 +419,11 @@ for thisTrial in trials:
     # End routine
     thisExp.addData('space.rt', spaceRT)
     
+    if spaceRT:
+        passon = True
+    else:
+        passon = False
+        
     text_2.setText(spaceRT)
     win.flip()
     trials.addData('text_2.started', text_2.tStartRefresh)
@@ -529,6 +503,7 @@ for thisComponent in thanksComponents:
         thisComponent.setAutoDraw(False)
 thisExp.addData('thanksText.started', thanksText.tStartRefresh)
 thisExp.addData('thanksText.stopped', thanksText.tStopRefresh)
+io.quit()
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
