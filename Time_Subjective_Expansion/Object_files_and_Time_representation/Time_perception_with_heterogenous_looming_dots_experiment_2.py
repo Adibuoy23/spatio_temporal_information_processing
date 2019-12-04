@@ -45,7 +45,7 @@ if os.path.isdir('.'+os.sep+'data'):
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'Experiment 1'
+    expt_name = 'Experiment 2'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -591,7 +591,7 @@ for ix,dur in enumerate(possibleOddballDurations):
     myWin.flip()
     core.wait(1)
     oddBallClock.reset()
-    if practiceType[ix]:
+    if types[ix]:
         oddBallMinRadius1 = 3.53/4
         oddBallMinRadius2 = 3.53/4
         oddBallMinRadius3 = 3.53/4
