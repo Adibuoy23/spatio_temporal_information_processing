@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v3.2.4),
-    on Mon Dec  2 12:00:12 2019
+    on Tue Dec  3 17:16:51 2019
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -15,7 +15,7 @@ from __future__ import absolute_import, division
 
 from psychopy import locale_setup
 from psychopy import prefs
-from psychopy import sound, gui, visual, core, data, event, logging, clock
+from psychopy import sound, gui, visual, core, data, event, logging, clock, parallel
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 
@@ -35,7 +35,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '3.2.4'
 expName = 'Auditory_oddball'  # from the Builder filename that created this script
-expInfo = {'Participant': ''}
+expInfo = {'Participant': '000'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -63,8 +63,8 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1680, 1050], fullscr=False, screen=0, 
-    winType='pyglet', allowGUI=True, allowStencil=False,
+    size=[1440, 900], fullscr=True, screen=0, 
+    winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color='black', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='pix')
@@ -94,24 +94,37 @@ trialClock = core.Clock()
 stimulus = sound.Sound('A', secs=-1, stereo=True, hamming=True,
     name='stimulus')
 stimulus.setVolume(1)
-try:
-    from psychopy.iohub.client import ioHubConnection,yload,yLoader
-    from psychopy.iohub.constants import EventConstants,KeyboardConstants
-    from psychopy.data import getDateStr
-    # Load the iohub device config, file converting it to a python dict.
-    io_config=yload(open('iohub_config.yaml','r'), Loader=yLoader)
+sound_1 = sound.Sound('A', secs=-1, stereo=True, hamming=True,
+    name='sound_1')
+sound_1.setVolume(1)
+sound_2 = sound.Sound('A', secs=-1, stereo=True, hamming=True,
+    name='sound_2')
+sound_2.setVolume(1)
+sound_3 = sound.Sound('A', secs=-1, stereo=True, hamming=True,
+    name='sound_3')
+sound_3.setVolume(1)
+text = visual.TextStim(win=win, name='text',
+    text='Press the SPACE twice (once to mark the start, and the other to mark the end) of the experienced duration',
+    font='Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-4.0);
+from psychopy.iohub import launchHubServer
+from psychopy.core import getTime
 
-    # Add / Update the session code to be unique. Here we use the psychopy getDateStr() function for session code generation
-    session_info=io_config.get('data_store').get('session_info')
-    session_info.update(code="S_%s"%(getDateStr()))
+# Start the ioHub process. 'io' can now be used during the
+# experiment to access iohub devices and read iohub device events.
+io = launchHubServer()
 
-    # Create an ioHubConnection instance, which starts the ioHubProcess, and informs it of the requested devices and their configurations.
-    io=ioHubConnection(io_config)
-    iokeyboard=io.devices.keyboard
-    iomouse=io.devices.mouse
-except Exception as e:
-   print("!! Error starting ioHub: ",e," Exiting...")
-   core.quit()
+keyboard = io.devices.keyboard
+text_2 = visual.TextStim(win=win, name='text_2',
+    text=spaceRT,
+    font='Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-6.0);
 
 # Initialize components for Routine "thanks"
 thanksClock = core.Clock()
@@ -234,13 +247,24 @@ for thisTrial in trials:
     
     # ------Prepare to start Routine "trial"-------
     # update component parameters for each repeat
-    stimulus.setSound(FileName, secs=Duration, hamming=True)
+    stimulus.setSound('A', secs=Duration/1000, hamming=True)
     stimulus.setVolume(1, log=False)
-    response_event=None
-    trial_start=0
-    io.clearEvents()
+    sound_1.setSound('A', secs=Duration/1000, hamming=True)
+    sound_1.setVolume(1, log=False)
+    sound_2.setSound('A', secs=Duration/1000, hamming=True)
+    sound_2.setVolume(1, log=False)
+    sound_3.setSound(FileName, secs=Duration/1000, hamming=True)
+    sound_3.setVolume(1, log=False)
+    # Each routine
+    space = False  # Has space been pushed?
+    spaceRT = ''  # variable for holding RT
+    spaceClock = clock.Clock()  # Clock for space bar
+    
+    
+    
+    
     # keep track of which components have finished
-    trialComponents = [stimulus]
+    trialComponents = [stimulus, sound_1, sound_2, sound_3, text, text_2]
     for thisComponent in trialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -264,7 +288,7 @@ for thisTrial in trials:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         # start/stop stimulus
-        if stimulus.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+        if stimulus.status == NOT_STARTED and tThisFlip >= randint(950,1050)/1000-frameTolerance:
             # keep track of start time/frame for later
             stimulus.frameNStart = frameN  # exact frame index
             stimulus.tStart = t  # local t and not account for scr refresh
@@ -272,22 +296,95 @@ for thisTrial in trials:
             stimulus.play(when=win)  # sync with win flip
         if stimulus.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > stimulus.tStartRefresh + Duration-frameTolerance:
+            if tThisFlipGlobal > stimulus.tStartRefresh + Duration/1000-frameTolerance:
                 # keep track of stop time/frame for later
                 stimulus.tStop = t  # not accounting for scr refresh
                 stimulus.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(stimulus, 'tStopRefresh')  # time at next scr refresh
                 stimulus.stop()
-        if frameN == 0:
-            io.clearEvents('all')
-            trial_start=core.getTime()
+        # start/stop sound_1
+        if sound_1.status == NOT_STARTED and tThisFlip >= (Duration/1000) + 2*randint(950,1050)/1000-frameTolerance:
+            # keep track of start time/frame for later
+            sound_1.frameNStart = frameN  # exact frame index
+            sound_1.tStart = t  # local t and not account for scr refresh
+            sound_1.tStartRefresh = tThisFlipGlobal  # on global time
+            sound_1.play(when=win)  # sync with win flip
+        if sound_1.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > sound_1.tStartRefresh + Duration/1000-frameTolerance:
+                # keep track of stop time/frame for later
+                sound_1.tStop = t  # not accounting for scr refresh
+                sound_1.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(sound_1, 'tStopRefresh')  # time at next scr refresh
+                sound_1.stop()
+        # start/stop sound_2
+        if sound_2.status == NOT_STARTED and tThisFlip >= (2*Duration /1000) + 3*randint(950,1050)/1000-frameTolerance:
+            # keep track of start time/frame for later
+            sound_2.frameNStart = frameN  # exact frame index
+            sound_2.tStart = t  # local t and not account for scr refresh
+            sound_2.tStartRefresh = tThisFlipGlobal  # on global time
+            sound_2.play(when=win)  # sync with win flip
+        if sound_2.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > sound_2.tStartRefresh + Duration/1000-frameTolerance:
+                # keep track of stop time/frame for later
+                sound_2.tStop = t  # not accounting for scr refresh
+                sound_2.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(sound_2, 'tStopRefresh')  # time at next scr refresh
+                sound_2.stop()
+        # start/stop sound_3
+        if sound_3.status == NOT_STARTED and tThisFlip >= 3*Duration/1000 + 4*randint(950,1050)/1000-frameTolerance:
+            # keep track of start time/frame for later
+            sound_3.frameNStart = frameN  # exact frame index
+            sound_3.tStart = t  # local t and not account for scr refresh
+            sound_3.tStartRefresh = tThisFlipGlobal  # on global time
+            sound_3.play(when=win)  # sync with win flip
+        if sound_3.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > sound_3.tStartRefresh + Duration/1000-frameTolerance:
+                # keep track of stop time/frame for later
+                sound_3.tStop = t  # not accounting for scr refresh
+                sound_3.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(sound_3, 'tStopRefresh')  # time at next scr refresh
+                sound_3.stop()
+        
+        # *text* updates
+        if text.status == NOT_STARTED and tThisFlip >= 4*Duration/1000 + 5*randint(950,1050)/1000-frameTolerance:
+            # keep track of start time/frame for later
+            text.frameNStart = frameN  # exact frame index
+            text.tStart = t  # local t and not account for scr refresh
+            text.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+            text.setAutoDraw(True)
+        # Each Frame
+        loop=True
+        while loop:
+            presses = keyboard.KeyboardPress().char()
+            if 'space' in presses:
+                spaceRT = keyboard.KeyboardRelease().duration()
+                loop=False
+                
+        if spaceRT:
+            passon = True
         else:
-            iokeys=iokeyboard.getEvents(EventConstants.KEYBOARD_PRESS)
-            for iok in iokeys:
-                if iok.key in [u'down',u'left',u'right']:
-                    response_event=iok
-                    continueRoutine = False 
-                    break
+            passon = False
+        
+        # *text_2* updates
+        if text_2.status == NOT_STARTED and passon == 'True':
+            # keep track of start time/frame for later
+            text_2.frameNStart = frameN  # exact frame index
+            text_2.tStart = t  # local t and not account for scr refresh
+            text_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
+            text_2.setAutoDraw(True)
+        if text_2.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > text_2.tStartRefresh + 1.0-frameTolerance:
+                # keep track of stop time/frame for later
+                text_2.tStop = t  # not accounting for scr refresh
+                text_2.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(text_2, 'tStopRefresh')  # time at next scr refresh
+                text_2.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -313,21 +410,25 @@ for thisTrial in trials:
     stimulus.stop()  # ensure sound has stopped at end of routine
     trials.addData('stimulus.started', stimulus.tStartRefresh)
     trials.addData('stimulus.stopped', stimulus.tStopRefresh)
-    trials.addData("trial_start_time", trial_start)
-    if response_event:
-        trials.addData("resp.time", response_event.time)
-        trials.addData("resp.rt", response_event.time-trial_start)
-        trials.addData("resp.duration", response_event.duration)
-        trials.addData('resp.keys',response_event.key)
-        trials.addData('resp.corr', response_event.key.lower()==corrAns)
-    else:
-        trials.addData("resp.time",-1.0)
-        trials.addData("resp.rt", -1.0)
-        trials.addData("resp.duration", -1.0)
-        trials.addData('resp.keys','None')
-        trials.addData('resp.corr', False)
+    sound_1.stop()  # ensure sound has stopped at end of routine
+    trials.addData('sound_1.started', sound_1.tStartRefresh)
+    trials.addData('sound_1.stopped', sound_1.tStopRefresh)
+    sound_2.stop()  # ensure sound has stopped at end of routine
+    trials.addData('sound_2.started', sound_2.tStartRefresh)
+    trials.addData('sound_2.stopped', sound_2.tStopRefresh)
+    sound_3.stop()  # ensure sound has stopped at end of routine
+    trials.addData('sound_3.started', sound_3.tStartRefresh)
+    trials.addData('sound_3.stopped', sound_3.tStopRefresh)
+    trials.addData('text.started', text.tStartRefresh)
+    trials.addData('text.stopped', text.tStopRefresh)
+    # End routine
+    thisExp.addData('space.rt', spaceRT)
     
-    
+        
+    text_2.setText(spaceRT)
+    win.flip()
+    trials.addData('text_2.started', text_2.tStartRefresh)
+    trials.addData('text_2.stopped', text_2.tStopRefresh)
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
