@@ -1,14 +1,13 @@
 close all;
 clear all;
-id = inputdlg({'Index'},...
-              'Participant info', [1 50]); 
-subject = id{1};
+KbEventFlush();
+subject = input('Enter Subject ID: ');
 dataDir = 'data/';
 codeDir = 'code/';
-expt_name = 'Auditory Oddball/';
+expt_name = 'Auditory Oddball 1/';
 timeAndDateStr = datestr(now, 'mm_dd_yyyy_HH_MM_SS');
 
-fileName = ['./',dataDir,expt_name,subject,'_',timeAndDateStr,'.csv'];
+fileName = ['./',dataDir,expt_name,char(string(subject)),'_',timeAndDateStr,'.xlsx'];
 %basic parameteres
 screenNum=0;%
 colordepth=32;
@@ -16,6 +15,7 @@ black=BlackIndex(screenNum);%color definition black
 white=WhiteIndex(screenNum);
 grey=round((black+white)/2)-1;
 
+KbEventFlush();                   
 SpaceKey = KbName('Space');
 RightKey = KbName('RightArrow');
 
@@ -56,6 +56,7 @@ imageTexture1 = Screen('MakeTexture', wPtr, instructions1);
 Screen('DrawTexture', wPtr, imageTexture1, [], rect, 0);
 Screen(wPtr,'Flip')
 KbWait;
+WaitSecs(0.2);
 instructions2 = imread('./instructions/instructions_002.png');
 imageTexture2 = Screen('MakeTexture', wPtr, instructions2);
 
@@ -66,6 +67,7 @@ Screen('DrawTexture', wPtr, imageTexture2, [], rect, 0);
 Screen(wPtr,'Flip')
 
 KbWait;
+WaitSecs(0.2); 
 KbEventFlush();
 
 Screen('FillRect',wPtr,white,rect)
@@ -199,7 +201,9 @@ Screen('FillRect',wPtr,white,rect)
 DrawFormattedText(wPtr,join(['Total Reward:' char(string(0))]))
 DrawFormattedText(wPtr,'Great! Now press any key to begin the experiment.','center','center')
 Screen('Flip',wPtr);
-KbReleaseWait;
+WaitSecs(0.2)
+KbWait;
+
 KbEventFlush();
 
 reward_counter = 0;
@@ -327,8 +331,13 @@ end
 
 response_array = conditions;
 response_array(:,3)=durations;
+response_array(:,1) = response_array(:,1)/1000;
 
-csvwrite(fileName,response_array)
+
+output_table = array2table(response_array, ...
+    'VariableNames',{'Duration','Stimulus_condition','Response'});
+
+writetable(output_table,fileName,'Sheet',1);
 
 Screen('FillRect',wPtr,white,rect)
 DrawFormattedText(wPtr,'Great! Please find your experimenter.','center','center')
