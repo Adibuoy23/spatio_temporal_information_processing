@@ -1,6 +1,5 @@
 #import all the modules
 from __future__ import print_function
-import psychtoolbox as ptb
 from psychopy import monitors, visual, event, data, logging, core, sound, gui
 from psychopy.hardware import keyboard
 import psychopy.info
@@ -57,9 +56,9 @@ autoLogging = False
 if demo:
     refreshRate = 60.  # 100
 
-widthPix = 1920*2 #5120  # monitor width in pixels of Agosta
-heightPix = 1080*2 #2880  # 800 #monitor height in pixels
-monitorwidth = 56  # 28.2  # monitor width in cm
+widthPix = 1440*2#1920*2 #5120  # monitor width in pixels of Agosta
+heightPix = 900*2#1080*2 #2880  # 800 #monitor height in pixels
+monitorwidth = 28.2  #52 monitor width in cm
 scrn = 0  # 0 to use main screen, 1 to use external screen connected to computer
 fullscr = False  # True to use fullscreen, False to not. Timing probably won't be quite right if fullscreen = False
 allowGUI = False
@@ -417,11 +416,15 @@ def between_trial(win, txt, msg):
     txt.setAutoDraw(False)
     win.flip()
 
-oddBallStim1 = sound.Sound('./sounds/Standard tone.wav')
+std_stimulus = sound.backend_sounddevice.SoundDeviceSound('A', secs=-1, stereo=True, hamming=True,
+    name='standard')
+std_stimulus.setVolume(1)
 
-oddBallStim2 = sound.Sound('./sounds/oddBall1.wav')
 
-oddBallStim3 = sound.Sound('A')
+oddBallStim = sound.backend_sounddevice.SoundDeviceSound('A', secs=-1, stereo=True, hamming=True,
+    name='oddBall2')
+oddBallStim.setVolume(1)
+
 
 
 
@@ -445,16 +448,10 @@ practiceType = [0,1,2]
 for ix,dur in enumerate(practiceDurations):
     for i in range(3):
         initialize_standard=True
-        stopstandard = False
-        core.wait(1)
-        while not stopstandard:
-            if initialize_standard:
-                initialize_standard = False
-                oddBallStim1.play(when = ptb.GetSecs())
-            print(oddBallClock.getTime(), dur/1000)
-            if oddBallClock.getTime() > dur/1000:
-                oddBallStim1.stop()
-                stopstandard = True
+        std_stimulus.setSound('A', secs=dur/1000, hamming=True)
+        std_stimulus.setVolume(1, log=False)
+        std_stimulus.play(when = myWin)
+        core.wait(randint(950,1350)/1000)
 
 
         # expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
@@ -466,12 +463,7 @@ for ix,dur in enumerate(practiceDurations):
 
     # oddBallStim1.setRadius(oddBallMinRadius)
 
-    if practiceType[ix]==0:
-        judgment = oddBallStim1
-    elif practiceType[ix]==1:
-        judgment = oddBallStim2
-    else:
-        judgment = oddBallStim3
+    judgment = oddBallStim
 
     kb = keyboard.Keyboard()
 
@@ -485,15 +477,16 @@ for ix,dur in enumerate(practiceDurations):
     if practiceType[ix]==2:
         print('./sounds/'+str(int(dur))+'.wav')
         judgment.setSound('./sounds/'+str(int(dur))+'.wav')
+    elif practiceType[ix]==1:
+        judgment.setSound('./sounds/Oddball_'+str(int(dur))+'.wav')
+    else:
+        judgment.setSound('./sounds/Standard_'+str(int(dur))+'.wav')
     myWin.flip()
     oddBallClock.reset()
     counter = i
-    kb = keyboard.Keyboard()
-    kb.clock.reset()
 
     waiting = True
     keys = []
-    expansionRate = (OddBallMaxPitch - oddBallMinPitch)/(dur/1000)
     initialize_feedback=True
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
@@ -572,12 +565,7 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     # oddBallStim1.setRadius(oddBallMinRadius)
 
-    if types[ix]==0:
-        judgment = oddBallStim1
-    elif types[ix]==1:
-        judgment = oddBallStim2
-    else:
-        judgment = oddBallStim3
+    judgment = oddBallStim
 
     kb = keyboard.Keyboard()
 
@@ -586,10 +574,17 @@ for ix,dur in enumerate(possibleOddballDurations):
     kb.start()
     waiting = True
     between_trial(myWin, display_text, "Press and hold [SPACE] to report the duration of the stimulus")
-    judgment.setAutoDraw(True)
+    nextFlip = myWin.getFutureFlipTime(clock='ptb')
+    judgment.play(when = nextFlip)
     if types[ix]==2:
-        judgment.setRadius(oddBallMinRadius)
+        print('./sounds/'+str(int(dur))+'.wav')
+        judgment.setSound('./sounds/'+str(int(dur))+'.wav')
+    elif types[ix]==1:
+        judgment.setSound('./sounds/Oddball_'+str(int(dur))+'.wav')
+    else:
+        judgment.setSound('./sounds/Standard_'+str(int(dur))+'.wav')
     myWin.flip()
+
     oddBallClock.reset()
     counter = i
     kb = keyboard.Keyboard()
@@ -601,18 +596,18 @@ for ix,dur in enumerate(possibleOddballDurations):
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
-        if types[ix]==2:
-            judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
-            myWin.flip()
+        if initialize_feedback:
+            judgment.play()
+            initialize_feedback=False
         if oddBallClock.getTime() > dur/1000:
-            judgment.setAutoDraw(False)
+            judgment.stop()
             myWin.flip()
         if oddBallClock.getTime() > dur/1000 and 'space' in keys:
             waiting = False
             reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
             kb.stop()
             between_trial(myWin, display_text, "Your response exceeded the actual time.\n\n Press [SPACE] to advance")
-            judgment.setAutoDraw(False)
+            judgment.stop()
             myWin.flip()
             response.append({'Duration':dur/1000, 'Response':keys[0].duration, 'Stimulus condition':types[ix]})
             oddBallClock.reset()
@@ -629,7 +624,7 @@ for ix,dur in enumerate(possibleOddballDurations):
                     current_points = np.round((np.exp(-diff_time*2)),2)*10
                     reward_counter+= current_points
                     kb.stop()
-                    judgment.setAutoDraw(False)
+                    judgment.stop()
                     myWin.flip()
                     between_trial(myWin, display_text, "You earned "+str(np.round(current_points,2))+" out of 10 points in this round.\n\n Press [SPACE] to advance")
                     reward_text.setText("Total points : "+str(np.round(reward_counter,2)))
