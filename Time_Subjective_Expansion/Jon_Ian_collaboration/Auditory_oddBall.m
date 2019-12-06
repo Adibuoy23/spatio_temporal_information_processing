@@ -1,5 +1,6 @@
 close all;
 clear all;
+%%% Adding a comment line for no reason
 KbEventFlush();
 subject = input('Enter Subject ID: ');
 dataDir = 'data/';
