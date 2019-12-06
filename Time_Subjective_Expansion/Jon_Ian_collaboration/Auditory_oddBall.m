@@ -8,7 +8,7 @@ expt_name = 'Auditory Oddball 1/';
 timeAndDateStr = datestr(now, 'mm_dd_yyyy_HH_MM_SS');
 
 fileName = ['./',dataDir,expt_name,char(string(subject)),'_',timeAndDateStr,'.xlsx'];
-%basic parameteres
+%basic parameteres0
 screenNum=0;%
 colordepth=32;
 black=BlackIndex(screenNum);%color definition black
