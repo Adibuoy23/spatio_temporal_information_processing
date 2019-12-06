@@ -342,5 +342,7 @@ writetable(output_table,fileName,'Sheet',1);
 Screen('FillRect',wPtr,white,rect)
 DrawFormattedText(wPtr,'Great! Please find your experimenter.','center','center')
 Screen('Flip',wPtr);
+WaitSecs(0.2)
 KbWait;
+Screen('CloseAll');
 
