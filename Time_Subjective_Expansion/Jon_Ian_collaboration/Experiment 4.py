@@ -44,7 +44,7 @@ if os.path.isdir('.'+os.sep+'data'):
     codeDir = 'code'
     logsDir = 'logs'
     trialsDir = 'trial_order'
-    expt_name = 'Experiment 1'
+    expt_name = 'Experiment 4'
 else:
     print('"data" directory does not exist, so saving data in present working directory')
     dataDir = '.'
@@ -83,8 +83,8 @@ viewdist = 65.0  # cm
 
 INS_MSG = "Welcome! Thank you for agreeing to participate in this study.\n\n"
 INS_MSG += "In this study, we want to examine your ability to perceive duration — how long something lasts.\n\n"
-INS_MSG += "The task is simple. In each trial, you will see a black disc appear on the screen and then disappear. Actually, the disc will appear and disappear three times in each trial, and each time, it will last for the same amount of time. We want you to pay attention to how long the disc lasts. Get a sense of its duration. It is repeated three times in a trial to help you get an accurate sense of its duration.\n\n"
-INS_MSG += "After the third time the disc disappears it will be your turn to report its duration. Press and hold down the spacebar. This will make a disc appear on the screen. Let go of the spacebar when you think your disc has been on the screen as long as the standard disc you saw on that trial. So the point is we want you to reproduce the duration that you experienced. Remember we want to know how long each of the three black discs lasted, not how long they lasted in all together. \n\n"
+INS_MSG += "The task is simple. In each trial, you will see a black disc appear on the screen and then disappear. There will be three such disks. We want you to pay attention to how long the last disc lasts. Get a sense of its duration.\n\n"
+INS_MSG += "After the third time the disc disappears it will be your turn to report its duration. Press and hold down the spacebar. This will make a disc appear on the screen. Let go of the spacebar when you think your disc has been on the screen as long as the standard disc you saw on that trial. So the point is we want you to reproduce the duration that you experienced. \n\n"
 
 INS_MSG += "Press any key to continue to the next page. \n\n"
 
