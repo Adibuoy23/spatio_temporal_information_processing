@@ -260,14 +260,15 @@ for i=1:length(conditions)
     
     [secs, keyCode, deltaSecs] = KbPressWait();
     if keyCode(SpaceKey)
-        if conditions(:,2)==0
+        if conditions(i,2)==0
             fbwavefilename = join(['./sounds/Standard_' char(string(conditions(i,1))) '.wav'],'');
-        elseif conditions(:,2)==1
+        elseif conditions(i,2)==1
             fbwavefilename = join(['./sounds/Oddball_' char(string(conditions(i,1))) '.wav'],'');
-        elseif conditions(:,2)==2
+        elseif conditions(i,2)==2
             fbwavefilename = join(['./sounds/' char(string(conditions(i,1))) '.wav'],'');
         end
         % Read WAV file from filesystem:
+        disp(fbwavefilename)
         [y, freq] = psychwavread(fbwavefilename);
         wavedata = y';
         nrchannels = size(wavedata,1); % Number of rows == number of channels.
