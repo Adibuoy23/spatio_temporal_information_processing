@@ -312,7 +312,7 @@ possibleOddballDurations = np.repeat(
     [750, 825, 900, 975, 1050, 1125, 1250, 1375, 1450, 1525], 12)  # total 60
 types = np.tile([0, 0, 1, 2], 30)
 temp_list = []
-for i in [0, 0.4, 0.7]:
+for i in [0, 0.4, 0.6]:
     temp_list.extend([0, 0, i, i])
 oddnessOnsetRatio = np.tile(temp_list, 10)
 conditions = np.array([possibleOddballDurations, types, oddnessOnsetRatio])
@@ -321,7 +321,6 @@ shuffle(conditions)
 possibleOddballDurations = conditions[:, 0]
 types = conditions[:, 1]
 oddnessOnsetRatio = conditions[:, 2]
-
 
 Durations = 1.05  # sec
 
@@ -426,7 +425,7 @@ def between_trial(win, txt, msg):
 
 
 oddBallStim1 = visual.Circle(myWin,
-                             radius=oddBallMaxRadius1,  # Martini used circles with diameter of 12 deg
+                             radius=oddBallMinRadius,  # Martini used circles with diameter of 12 deg
                              lineColorSpace='rgb',
                              lineColor=stimColor,
                              lineWidth=2.0,  # in pixels
@@ -439,7 +438,7 @@ oddBallStim1 = visual.Circle(myWin,
                              autoLog=False)  # this stim changes too much for autologging to be useful
 
 oddBallStim2 = visual.Circle(myWin,
-                             radius=oddBallMaxRadius1,  # Martini used circles with diameter of 12 deg
+                             radius=oddBallMinRadius,  # Martini used circles with diameter of 12 deg
                              lineColorSpace='rgb',
                              lineColor='blue',
                              lineWidth=2.0,  # in pixels
@@ -452,13 +451,13 @@ oddBallStim2 = visual.Circle(myWin,
                              autoLog=False)  # this stim changes too much for autologging to be useful
 
 oddBallStim3 = visual.Circle(myWin,
-                             radius=oddBallMaxRadius1,  # Martini used circles with diameter of 12 deg
+                             radius=oddBallMinRadius,  # Martini used circles with diameter of 12 deg
                              lineColorSpace='rgb',
-                             lineColor='green',
+                             lineColor=stimColor,
                              lineWidth=2.0,  # in pixels
                              units='deg',
                              fillColorSpace='rgb',
-                             fillColor='green',  # beware, with convex shapes fill colors don't work
+                             fillColor=stimColor,  # beware, with convex shapes fill colors don't work
                              # the anchor (rotation and vertices are position with respect to this)
                              pos=[0, 0],
                              interpolate=True,
@@ -513,7 +512,7 @@ for ix, dur in enumerate(practiceDurations):
         # else:
         #     oddBallStim1.setPos([-9,0])
 
-        # expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
+        #expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/(onset[2]*dur)/1000
 
         counter = i
 
@@ -547,6 +546,7 @@ for ix, dur in enumerate(practiceDurations):
         while oddBallClock.getTime() <= dur/1000:
             if oddBallClock.getTime() >= onset[2]*dur/1000:
                 judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
+                myWin.flip()
             myWin.flip()
     else:
         core.wait(dur/1000)
@@ -571,7 +571,7 @@ for ix, dur in enumerate(practiceDurations):
 
     waiting = True
     keys = []
-    expansionRate = (oddBallMaxRadius - oddBallMinRadius)/(dur/1000)
+    expansionRate = 0.05#(oddBallMaxRadius - oddBallMinRadius)/(onset[2]*dur/1000)
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
@@ -629,7 +629,7 @@ for ix, dur in enumerate(possibleOddballDurations):
         # else:
         #     oddBallStim1.setPos([-9,0])
 
-        # expansionRate1 = (oddBallMaxRadius1 - oddBallMinRadius)/Durations
+        expansionRate = 0.05#(oddBallMaxRadius1 - oddBallMinRadius)/Durations
 
         counter = i
 
@@ -661,7 +661,9 @@ for ix, dur in enumerate(possibleOddballDurations):
 
         while oddBallClock.getTime() <= dur/1000:
             if oddBallClock.getTime() >= oddnessOnsetRatio[ix]*dur/1000:
+                print(oddnessOnsetRatio[ix])
                 judgment.setRadius(oddBallMinRadius + (expansionRate) * oddBallClock.getTime())
+                myWin.flip()
             myWin.flip()
     else:
         core.wait(dur/1000)
@@ -686,7 +688,7 @@ for ix, dur in enumerate(possibleOddballDurations):
 
     waiting = True
     keys = []
-    expansionRate = (oddBallMaxRadius - oddBallMinRadius)/(dur/1000)
+    expansionRate = 0.05#(oddBallMaxRadius - oddBallMinRadius)/(oddnessOnsetRatio[ix]*dur/1000)
 
     while waiting:
         keys = kb.getKeys(['space', 'escape'], waitRelease=True)
